@@ -17,6 +17,7 @@ Every module ties the offensive technique you must learn for the exam back to th
 
 ## Contents
 
+- [Start here — pick your path](#start-here--pick-your-path)
 - [Why this repo is different](#why-this-repo-is-different)
 - [At a glance](#at-a-glance)
 - [Quick start](#quick-start)
@@ -26,6 +27,17 @@ Every module ties the offensive technique you must learn for the exam back to th
 - [Exam facts](#exam-facts-verify-against-ec-council-before-you-book)
 - [Repository map](#repository-map)
 - [Official references](#official-ec-council-references)
+
+---
+
+## Start here — pick your path
+
+This repo is big; start where you fit and follow the trail.
+
+- 🌱 **New to Linux / hacking** — begin with the [`kali/`](kali/) course (chapter [00](kali/00-getting-started.md)), which teaches Linux, the terminal, and every tool from zero. Stand up the [lab](labs/), then work the [modules](modules/) in order.
+- ⏱️ **Know the tech, need the cert** — read [`EXAM-STRATEGY.md`](EXAM-STRATEGY.md), then per module skim the guide, drill its `facts.md` + `practice-questions.md` + `flashcards.csv`, and check yourself with the [50-](MOCK-EXAM.md) and [125-question](MOCK-EXAM-FULL.md) mocks. Use [`BLUEPRINT-COVERAGE.md`](BLUEPRINT-COVERAGE.md) to confirm coverage.
+- 🛡️ **Sysadmin / PAM engineer** — start with the [`defender-pam/`](defender-pam/) knowledge base and [identity attack paths](defender-pam/identity-attack-paths.md), run the [`labs/capstone.md`](labs/capstone.md) chain to see attack→control end-to-end, then skim the modules for the offensive detail.
+- 🤖 **Curious about v13's AI focus** — read [`AI-IN-ETHICAL-HACKING.md`](AI-IN-ETHICAL-HACKING.md) and study with [`AI-STUDY-WORKFLOW.md`](AI-STUDY-WORKFLOW.md).
 
 ---
 
@@ -104,6 +116,17 @@ flowchart LR
 Keep [`GLOSSARY.md`](GLOSSARY.md) open for acronym lookups. Once you've worked several modules, take the [`MOCK-EXAM.md`](MOCK-EXAM.md) — 50 mixed questions — as a checkpoint, and the full-length [`MOCK-EXAM-FULL.md`](MOCK-EXAM-FULL.md) — 125 questions in 240 minutes — as a timed dress rehearsal before booking. In the final weeks, drill each module's one-page [`facts.md`](modules/), the [`cheatsheets/`](cheatsheets/), and the practice platforms in [`resources/practice-labs.md`](resources/practice-labs.md).
 
 ---
+
+### 🐉 Learning the tools (Kali Linux)
+
+Two companions to the modules, depending on where you are:
+
+| Resource | For | Contents |
+|---|---|---|
+| [`kali/`](kali/) — **beginner→mastery course** | Newcomers | 17 chapters, zero Linux assumed: getting started · Linux · terminal · networking · then every phase (recon → nmap → enumeration → web → Metasploit → passwords → AD → wireless → post-ex → reporting) + troubleshooting |
+| [`KALI-TUTORIAL.md`](KALI-TUTORIAL.md) — **one-page reference** | Quick lookups | The whole toolset in one scannable page, grouped by phase, with a tool→module map |
+
+New to the command line? Start the course at [chapter 00](kali/00-getting-started.md). Just need a command? Use the reference.
 
 ## The 20 modules (official CEH v13 order)
 
