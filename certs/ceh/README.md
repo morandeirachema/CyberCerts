@@ -34,6 +34,7 @@ Every module ties the offensive technique you must learn for the exam back to th
 - **Every attack is paired with its control.** Each module has a Defender & PAM mapping, and a CyberArk-centered [knowledge base](defender-pam/) sits behind it (reference architecture, AD/Entra identity attack paths, detection engineering). If you can name the control, you can usually eliminate two wrong answers instantly.
 - **Built for active recall, not re-reading.** Every module ships a one-page facts sheet, original practice questions with explanations, Anki-ready flashcards, and a guided lab — plus a dedicated [exam-strategy](EXAM-STRATEGY.md) guide.
 - **Runnable on infrastructure you control.** Docker web targets + Vagrant VMs + an Ansible **tiered-admin / PAM** Active Directory lab.
+- **Covers CEH v13's AI-driven ethical hacking.** A dedicated [AI doc](AI-IN-ETHICAL-HACKING.md) covers using AI across the phases *and* attacking/defending AI systems — and a [blueprint coverage matrix](BLUEPRINT-COVERAGE.md) documents every module's subtopics so you can verify nothing's missing.
 - **No exam dumps, no invented facts.** Practice questions are self-authored to teach concepts; every external claim links to an official source.
 
 ### What this repo is *not*
@@ -53,6 +54,8 @@ Every module ties the offensive technique you must learn for the exam back to th
 | 🛡️ **Defender/PAM knowledge base** | attack→control matrix · PAM playbook · CyberArk architecture · identity attack paths · detection engineering · CyberArk mapping |
 | 🧪 **Lab** | Docker (DVWA, Juice Shop, WebGoat, bWAPP) + Vagrant (Kali + Metasploitable) + Ansible AD/PAM |
 | 🎯 **Exam prep** | strategy guide, glossary/acronym index, **50- and 125-question mock exams**, 12-week plan, progress tracker |
+| 🤖 **AI-driven hacking** | AI across each phase + attacking/defending AI (LLM Top 10, adversarial ML) — CEH v13's headline topic |
+| 🧭 **Coverage matrix** | per-module subtopic checklist mapped to where each topic is covered |
 
 ---
 
@@ -181,6 +184,8 @@ flowchart TD
     STRATEGY["EXAM-STRATEGY.md — study system + test-day tactics"]
     MOCK["MOCK-EXAM.md — 50-question checkpoint"]
     MOCKFULL["MOCK-EXAM-FULL.md — 125-question full-length exam"]
+    AICEH["AI-IN-ETHICAL-HACKING.md — AI-driven hacking (v13)"]
+    COVERAGE["BLUEPRINT-COVERAGE.md — subtopic coverage matrix"]
     GLOSSARY["GLOSSARY.md — acronym / term index"]
     STUDY["STUDY-PLAN.md — 12-week plan"]
     EXAM["EXAM-LOGISTICS.md — eligibility, cost, scheduling, ECE"]
@@ -195,6 +200,8 @@ flowchart TD
     CEH --> STRATEGY
     CEH --> MOCK
     CEH --> MOCKFULL
+    CEH --> AICEH
+    CEH --> COVERAGE
     CEH --> GLOSSARY
     CEH --> STUDY
     CEH --> EXAM

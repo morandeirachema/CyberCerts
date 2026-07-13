@@ -85,6 +85,12 @@ flowchart TB
 
 **Detecting a honeypot** (what an attacker looks for): unrealistically open/consistent services, canned banners, abnormal latency or tarpit stalling, VM/sandbox artifacts, no real user activity. Tools/names to know: **honeyd**, **T-Pot** (multi-honeypot platform), **Cowrie/Kippo** (SSH), **KFSensor**.
 
+### Evading NAC & endpoint security
+
+- **NAC (Network Access Control)** enforces posture/identity before granting network access (**802.1X**, MAC Authentication Bypass). Evasion: **MAC spoofing** a permitted device, abusing **MAB**, or plugging a rogue device into an authorized port (e.g., behind a VoIP phone).
+- **Endpoint security evasion** — blinding/disabling **EDR/AV**: **process injection**, **AMSI bypass**, API **unhooking**, packing/obfuscation, and **living-off-the-land** (LOLBins) to dodge signatures (ties to Module 07).
+- **Why it still gets caught:** detection shifts to **behavior** — UEBA/**PTA**, tamper-protected agents, and script-block logging catch what signature evasion slips past.
+
 ## Key tools
 
 | Tool | Purpose | Reference |

@@ -60,6 +60,23 @@ flowchart LR
 
 An **anonymous / null session** (`\\host\IPC$` with empty user + password) historically let you enumerate users, groups, shares, and policy without credentials. Legacy Windows and misconfigured Samba allow it — it's the engine behind enum4linux.
 
+### More enumeration targets (round out the blueprint)
+
+Beyond SMB (139/445), SNMP (161), and LDAP (389), the exam samples widely:
+
+| Service | Port | What you enumerate | Tool |
+|---|---|---|---|
+| **NTP** | 123/UDP | Connected hosts, time source (`ntpq`, `ntpdc`/monlist) | ntpq, nmap NSE |
+| **SMTP** | 25 | Valid users via **VRFY/EXPN/RCPT** | smtp-user-enum |
+| **NFS** | 2049 (111 rpcbind) | Exported/mountable shares | `showmount -e`, rpcinfo |
+| **RPC** | 111 / 135 | Registered endpoints/services | rpcinfo, rpcclient |
+| **VoIP (SIP)** | 5060/5061 | Extensions, user agents | SIPVicious (svmap/svwar) |
+| **IPsec/IKE** | 500/UDP | VPN gateway, IKE aggressive mode | ike-scan |
+| **DNS** | 53 | Records, zone transfer (AXFR) | dig, dnsrecon |
+| **Telnet / FTP / TFTP** | 23 / 21 / 69 | Banners, weak/anon auth | nc, ftp |
+
+> IPv6 and VoIP enumeration are increasingly sampled — don't assume everything is IPv4/SMB.
+
 ## Key tools
 
 | Tool | Purpose | Reference |

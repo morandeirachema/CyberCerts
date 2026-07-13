@@ -117,6 +117,21 @@ sequenceDiagram
 
 **Cryptography scrambles** content (still visibly "encrypted"); **steganography hides the very existence** of the message (e.g., LSB embedding in an image). They're complementary — combine them for defense in depth. Detecting hidden data is **steganalysis**.
 
+### Cryptanalysis
+
+**Cryptanalysis** = recovering plaintext or keys *without being given the key*. Know the methods by name:
+
+| Method | Idea |
+|---|---|
+| **Frequency analysis** | Break classical/substitution ciphers via letter-frequency patterns |
+| **Linear cryptanalysis** | Approximate a cipher with linear relations (known-plaintext) |
+| **Differential cryptanalysis** | Study how input differences propagate to the output |
+| **Integral / algebraic** | Structural/algebraic attacks on block ciphers |
+| **Side-channel** | Exploit timing/power/EM leakage of the *implementation*, not the math |
+| **Brute force / birthday / rainbow** | Exhaustive key search / collisions / precomputation |
+
+Attack models: **ciphertext-only, known-plaintext (KPA), chosen-plaintext (CPA), chosen-ciphertext (CCA)**. Correctly-used modern ciphers (AES, SHA-2/3) resist all *practical* cryptanalysis — most real breaks are **implementation/key-management** failures, not broken math.
+
 ## Key tools
 
 | Tool | Purpose | Reference |

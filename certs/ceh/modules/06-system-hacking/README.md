@@ -58,6 +58,14 @@ Attack strategies: **dictionary**, **brute force**, **hybrid**, **rule-based**, 
 - **Rainbow table** = precomputed hash→plaintext lookup; fast but defeated by **salting** (random per-hash value makes precomputation useless).
 - Modern Windows uses NT hash (unsalted MD4-based) → still crackable, which is *why* Kerberoasting works.
 
+### More gaining/maintaining-access techniques
+
+- **Buffer overflow** — writing past a buffer's bounds to overwrite the return address / control flow → code execution. **Stack** (classic saved-EIP/RIP overwrite) vs **heap**. Mitigations: **DEP/NX**, **ASLR**, **stack canaries**, **SEHOP/CFG**. It underpins many "Gaining Access" exploitation questions.
+- **Keyloggers** — capture keystrokes: **hardware** (inline/USB device) or **software** (kernel/API hooks). A credential-theft primitive.
+- **Spyware** — covertly monitors activity (screen, audio, files) and exfiltrates it; stalkerware/adware are variants.
+- **Executing applications** — post-exploitation, attackers run remote tools (backdoors, RATs, keyloggers) — the *executing applications* step of Maintaining Access.
+- Hierarchy to remember: **buffer overflow / cracking get you in → keyloggers & spyware harvest → rootkits, ADS, steganography hide it.**
+
 ## Key tools
 
 | Tool | Purpose | Reference |

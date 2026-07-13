@@ -58,6 +58,22 @@ Black hat (malicious), White hat (authorized/ethical), Grey hat (in-between/unau
 - **EC-Council hacking methodology / CEH methodology** — the phase model above.
 - Standards you match by name: **ISO/IEC 27001**, **NIST CSF**, **PCI DSS**, **HIPAA**, **GDPR**, **SOX**, **DMCA**, and (US) the **Computer Fraud and Abuse Act (CFAA)**.
 
+### Threat frameworks & intelligence
+
+Beyond the Cyber Kill Chain, the exam tests these by name:
+
+| Framework | What it is |
+|---|---|
+| **Cyber Kill Chain** | Lockheed Martin's 7 stages: Recon → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives |
+| **MITRE ATT&CK** | Knowledge base of real-world **tactics** (goals) and **techniques** (methods) |
+| **Diamond Model** | Analyzes an intrusion via four linked vertices: **Adversary, Capability, Infrastructure, Victim** |
+
+- **Indicators of Compromise (IoC):** forensic artifacts of a breach — malicious IPs/domains/file hashes, odd registry keys, C2 beacons. Categories: **email, network, host-based, behavioral.**
+- **TTPs** — Tactics, Techniques, and Procedures: how a threat actor operates (the ATT&CK backbone).
+- **Threat intelligence** — evidence-based knowledge about threats, in four types: **strategic** (executive/risk), **tactical** (TTPs), **operational** (specific campaigns), **technical** (IoC feeds).
+- **Threat modeling** — systematically identifying threats to a design, e.g. **STRIDE** (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege).
+- **Risk management** — identify → assess → treat → monitor; risk = likelihood × impact.
+
 ## Key tools
 
 This module is conceptual; the "tools" are frameworks and references.

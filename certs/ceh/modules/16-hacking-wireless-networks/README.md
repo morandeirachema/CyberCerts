@@ -72,6 +72,21 @@ The MIC is derived from the **PMK** (which comes from `PSK + SSID`). Offline, yo
 
 > **KRACK** targets the **WPA2 4-way handshake protocol** itself (not the passphrase) by forcing **nonce/key reinstallation**. It's a client-side flaw fixed by patching — exam-relevant as a *concept*, not a lab you run.
 
+### Bluetooth hacking
+
+Wireless on the exam includes **Bluetooth**, not just Wi-Fi:
+
+| Attack | What it does |
+|---|---|
+| **Bluejacking** | Sends unsolicited messages to a device |
+| **Bluesnarfing** | Steals data (contacts, files) over Bluetooth |
+| **Bluebugging** | Takes control of the device (calls, messages) |
+| **BlueBorne** | Exploit chain spreading over Bluetooth **without pairing** |
+| **KNOB / BIAS** | Key-negotiation downgrade / impersonation on BR/EDR |
+
+- Discoverable vs non-discoverable modes; pairing over **BR/EDR** or **BLE**. Tools: `hcitool`, `bluetoothctl`, `btscanner`, Bettercap.
+- **Defense:** keep non-discoverable, patch firmware, require strong pairing (SSP / LE Secure Connections), turn Bluetooth off when unused.
+
 ## Key tools
 
 | Tool | Purpose | Reference |

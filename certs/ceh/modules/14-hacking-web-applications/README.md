@@ -76,6 +76,12 @@ Changing `?account_id=1001` to `1002` and seeing someone else's data = **IDOR (I
 | XXE | `<!ENTITY xxe SYSTEM "file:///etc/passwd">` | File read, SSRF, DoS |
 | Insecure deserialization | Crafted serialized object | RCE / logic abuse |
 
+### Web APIs, webhooks & web shells
+
+- **Web API attacks (REST/SOAP/GraphQL):** broken object-level authorization (**BOLA/IDOR**), broken authentication, excessive data exposure, mass assignment, and missing rate limiting — see the **OWASP API Security Top 10** (distinct from the web Top 10).
+- **Webhooks:** user-defined HTTP callbacks; risks include **SSRF**, missing **signature verification** (spoofed/forged events), and replay.
+- **Web shells:** attacker-uploaded scripts (`.php` / `.aspx` / `.jsp`) giving remote command execution and persistence — the payoff of an unrestricted file upload (see the lab walkthrough).
+
 ## Key tools
 
 | Tool | Purpose | Reference |

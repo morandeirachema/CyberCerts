@@ -22,6 +22,8 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **aircrack-ng** — Wi-Fi capture/crack suite (airmon/airodump/aireplay/aircrack). `[16]`
 
 ## B
+- **Bluetooth attacks** — bluejacking (spam), bluesnarfing (data theft), bluebugging (device control), BlueBorne (no-pairing exploit chain), KNOB/BIAS (downgrade/impersonation). `[16]`
+- **Buffer overflow** — overwriting past a buffer to hijack control flow → code execution; mitigated by DEP/NX, ASLR, stack canaries. `[06]`
 - **Banner grabbing** — reading a service's version banner to fingerprint it. `[03]`
 - **bcrypt / scrypt / Argon2 / PBKDF2** — slow, salted password-hashing KDFs. `[20]`
 - **BEC** — Business Email Compromise. `[09]`
@@ -45,12 +47,14 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **CPM** — CyberArk Central Policy Manager; rotates/verifies/reconciles credentials. `[dp]`
 - **Credential Guard** — Windows VBS isolation of secrets; blocks LSASS theft. `[06]`
 - **CRL** — Certificate Revocation List. `[20]`
+- **Cryptanalysis** — recovering plaintext/keys without the key: frequency, linear, differential, side-channel, brute-force/birthday/rainbow. `[20]`
 - **CSRF** — Cross-Site Request Forgery; tricks the **browser** into a state-changing request. `[14]`
 - **CVE** — Common Vulnerabilities and Exposures; a specific known vuln ID. `[05]`
 - **CVSS** — Common Vulnerability Scoring System (0–10 severity). `[05]`
 - **CWE** — Common Weakness Enumeration; the weakness *class* (e.g., CWE-89 SQLi). `[05]`
 
 ## D
+- **Diamond Model** — intrusion analysis over four vertices: Adversary, Capability, Infrastructure, Victim. `[01]`
 - **DAI** — Dynamic ARP Inspection; counters ARP poisoning. `[08]`
 - **DCShadow** — registers a rogue DC to push malicious AD changes. `[dp]`
 - **DCSync** — abuse of AD replication rights to pull hashes (incl. krbtgt) from a DC. `[06]`
@@ -106,6 +110,8 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 
 ## I
 - **IAM** — Identity and Access Management. `[19]`
+- **IKE** — Internet Key Exchange (IPsec VPN); aggressive mode is enumerable via ike-scan (500/UDP). `[04]`
+- **IoC (Indicator of Compromise)** — forensic artifact of a breach (malicious IP/hash/domain, C2 beacon); email/network/host/behavioral categories. `[01][07]`
 - **IDOR** — Insecure Direct Object Reference; broken access control (OWASP A01). `[14]`
 - **IDS / IPS** — Intrusion Detection (passive) / Prevention (inline block) System. `[12]`
 - **IEC 62443** — OT/ICS security standard (zones & conduits). `[18]`
@@ -121,6 +127,7 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **John the Ripper** — CPU hash-cracking tool. `[06]`
 
 ## K
+- **Keylogger** — captures keystrokes; hardware (inline/USB) or software (kernel/API hooks). `[06]`
 - **KDF** — Key Derivation Function (bcrypt/scrypt/Argon2/PBKDF2). `[20]`
 - **Kerberoasting** — request a TGS for an SPN and crack the **service account** password offline. `[06]`
 - **Kill chain** — Lockheed Martin's 7-stage attack model. `[01]`
@@ -148,6 +155,7 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **MQTT** — IoT pub/sub messaging over TCP, 1883 (TLS 8883). `[18]`
 
 ## N
+- **NAC** — Network Access Control; enforces posture/identity (802.1X) before network access; evaded via MAC spoofing / MAB. `[12]`
 - **NetBIOS** — legacy Windows naming/session service (137–139). `[04]`
 - **NTDS.dit** — the AD database (all domain hashes) on DCs. `[06]`
 - **NTLM** — Windows auth protocol; **unsalted** hash → PtH and offline cracking. `[06]`
@@ -198,6 +206,8 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **RSA** — asymmetric algorithm; encryption **and** signatures; factorization-based. `[20]`
 
 ## S
+- **Spyware** — covertly monitors and exfiltrates user activity (screen/audio/files). `[07]`
+- **STRIDE** — threat-modeling categories: Spoofing, Tampering, Repudiation, Information disclosure, DoS, Elevation of privilege. `[01]`
 - **SAE** — Simultaneous Authentication of Equals; WPA3's handshake (fixes offline PSK crack). `[16]`
 - **SAM** — Security Account Manager; local Windows hash store. `[06]`
 - **Salt** — per-hash random value; defeats rainbow tables. `[06][20]`
@@ -219,7 +229,9 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **SYN flood / SYN cookies** — half-open connection flood / the stateless mitigation. `[10]`
 
 ## T
-- **Tailgating / Piggybacking** — following someone through a door without/with their awareness. `[09]`
+- **Tailgating / Piggybacking** — following someone through a door without / with their awareness. `[09]`
+- **Threat intelligence** — evidence-based threat knowledge; strategic / tactical / operational / technical. `[01]`
+- **TTPs** — Tactics, Techniques, and Procedures (how an actor operates; the ATT&CK backbone). `[01]`
 - **TGT / TGS** — Ticket-Granting Ticket / Ticket-Granting Service ticket (Kerberos). `[06]`
 - **theHarvester** — OSINT tool for emails/subdomains/hosts. `[02]`
 - **Tiering (Tier 0/1/2)** — admin-plane isolation model. `[06][dp]`
@@ -241,6 +253,8 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **VSS** — Volume Shadow Copy Service (used to grab NTDS.dit). `[06]`
 
 ## W
+- **Web API attacks** — BOLA/IDOR, broken auth, mass assignment, excessive data exposure (OWASP API Top 10). `[14]`
+- **Webhook** — user-defined HTTP callback; risks: SSRF, missing signature verification, replay. `[14]`
 - **WAF** — Web Application Firewall (partial SQLi/XSS control; bypassable via encoding). `[14][15]`
 - **War driving** — searching for Wi-Fi networks while moving. `[16]`
 - **WEP / WPA / WPA2 / WPA3** — Wi-Fi security: WEP (broken RC4/IV), WPA (TKIP), WPA2 (AES-CCMP), WPA3 (SAE). `[16]`
@@ -258,3 +272,20 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **Zigbee / Z-Wave** — low-power IoT mesh radios. `[18]`
 - **Zone transfer** — see **AXFR**. `[02]`
 - **ZSP** — Zero Standing Privilege (no durable privileged accounts to steal). `[dp]`
+
+---
+
+## AI & ML security
+Terms for [AI-IN-ETHICAL-HACKING.md](AI-IN-ETHICAL-HACKING.md) — CEH v13's AI-driven ethical hacking.
+- **Adversarial example / evasion** — perturbed input that causes misclassification (test-time attack).
+- **Data / model poisoning** — corrupting training data or the model to implant a backdoor (training-time attack).
+- **Model extraction** — querying a model enough to clone its behavior/weights.
+- **Model inversion** — reconstructing sensitive training data from model outputs.
+- **Membership inference** — determining whether a record was in the training set (privacy leak).
+- **Prompt injection** — malicious instructions overriding the system prompt; **direct** (typed) or **indirect** (hidden in ingested content).
+- **Jailbreaking (LLM)** — bypassing a model's safety guardrails.
+- **Excessive agency** — an AI agent granted more tools/permissions than it should have.
+- **Insecure output handling** — trusting LLM output that flows into shell/SQL/eval → classic injection.
+- **OWASP LLM Top 10** — the top risks for LLM applications (prompt injection, data disclosure, poisoning, …).
+- **MITRE ATLAS** — ATT&CK-style knowledge base for adversarial ML.
+- **NIST AI RMF** — AI Risk Management Framework.
