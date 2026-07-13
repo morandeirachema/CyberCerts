@@ -2,6 +2,8 @@
 
 > **One-liner:** attacking the physical-world edge — internet-connected "things" and the industrial control systems (ICS/OT) that run factories, grids, and pipelines. The exam tests protocols, the Purdue model, and the attack surface; the real world tests your discipline, because OT is **safety-critical** and you can hurt people. Your PAM instinct — segment, broker, least-privilege — is exactly the defense.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **IoT architecture** (the layered model) and the four **IoT communication models** (device-to-device, device-to-cloud, device-to-gateway, back-end data-sharing).

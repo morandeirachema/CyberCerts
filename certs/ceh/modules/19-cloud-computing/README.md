@@ -2,6 +2,8 @@
 
 > **One-liner:** attacking and defending IaaS/PaaS/SaaS, containers, Kubernetes, and serverless — where the perimeter is gone and **identity is everything**. The signature cloud breaches (public buckets, over-permissive IAM, stolen instance-role creds via SSRF) are all failures of the exact discipline a PAM practitioner owns: least privilege, short-lived credentials, and secrets management.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - The three **service models** (IaaS / PaaS / SaaS) and what each shifts to the provider.

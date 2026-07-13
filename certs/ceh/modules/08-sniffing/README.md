@@ -2,6 +2,8 @@
 
 > **One-liner:** capturing and manipulating traffic on the wire — passive sniffing on a switch you can already see, and active attacks (MAC flooding, ARP/DHCP/DNS spoofing) that *force* traffic to you. Your PAM/sysadmin hook: sniffing is why privileged sessions must be encrypted and brokered, and why switch-port security exists.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **Passive vs. active sniffing** — and why switches made passive sniffing "not enough."

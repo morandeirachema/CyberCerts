@@ -2,6 +2,8 @@
 
 > **One-liner:** the mobile attack surface — Android and iOS architecture, the OWASP Mobile Top 10, app-level flaws (insecure storage, weak crypto, poor transport), device compromise (rooting/jailbreaking, malware), and the management controls (MDM/MAM, BYOD) that a PAM/sysadmin actually operates. Your hook: mobiles are unmanaged endpoints holding tokens and MFA — treat them like privileged endpoints.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **Mobile attack vectors** and the **OWASP Mobile Top 10**.
