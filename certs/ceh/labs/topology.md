@@ -2,36 +2,25 @@
 
 Everything lives on an isolated host-only / internal network. The Docker web targets are reachable only via `localhost` published ports on your workstation; the VMs share a private VirtualBox host-only network.
 
-```
-                    YOUR WORKSTATION (host)
-    ┌───────────────────────────────────────────────────────┐
-    │                                                       │
-    │   Docker bridge (published to localhost only)          │
-    │   ┌─────────────┐ ┌─────────────┐ ┌─────────────┐      │
-    │   │ DVWA        │ │ Juice Shop  │ │ WebGoat     │      │
-    │   │ :8081       │ │ :8082       │ │ :8083       │      │
-    │   └─────────────┘ └─────────────┘ └─────────────┘      │
-    │   ┌─────────────┐                                      │
-    │   │ bWAPP :8084 │                                      │
-    │   └─────────────┘                                      │
-    │                                                       │
-    │   VirtualBox host-only network  192.168.56.0/24        │
-    │   ┌───────────────┐   ┌───────────────────────────┐    │
-    │   │ Kali attacker │   │ Metasploitable2 (target)  │    │
-    │   │ 192.168.56.10 │──▶│ 192.168.56.20             │    │
-    │   └───────────────┘   └───────────────────────────┘    │
-    │           │                                            │
-    │           │           ┌───────────────────────────┐    │
-    │           └──────────▶│ Windows DC  (AD/PAM lab)   │    │
-    │                       │ 192.168.56.30  dc01        │    │
-    │                       └───────────────────────────┘    │
-    │                       ┌───────────────────────────┐    │
-    │                       │ Windows member  ws01       │    │
-    │                       │ 192.168.56.31             │    │
-    │                       └───────────────────────────┘    │
-    │                                                       │
-    │   ✗ NO route to internet / home LAN from lab segment    │
-    └───────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph WS["YOUR WORKSTATION - host"]
+        subgraph DOCKER["Docker bridge - published to localhost only"]
+            DVWA["DVWA :8081"]
+            JUICE["Juice Shop :8082"]
+            WEBGOAT["WebGoat :8083"]
+            BWAPP["bWAPP :8084"]
+        end
+        subgraph VBOX["VirtualBox host-only network 192.168.56.0/24"]
+            KALI["Kali attacker<br/>192.168.56.10"]
+            META["Metasploitable2 target<br/>192.168.56.20"]
+            DC["Windows DC - AD/PAM lab<br/>192.168.56.30 dc01"]
+            WS01["Windows member ws01<br/>192.168.56.31"]
+            KALI --> META
+            KALI --> DC
+        end
+        NOTE["✗ NO route to internet / home LAN from lab segment"]
+    end
 ```
 
 ## IP / port plan
@@ -50,15 +39,21 @@ Everything lives on an isolated host-only / internal network. The Docker web tar
 
 ## AD domain design (PAM-flavored)
 
-```
-Domain:  ceh.lab      (NetBIOS: CEH)
-
-OU=Tier0  → Domain Admins, DC admins, PKI, PAM vault admins  (never log on to lower tiers)
-OU=Tier1  → server admins (member servers, DBs)
-OU=Tier2  → workstation admins / helpdesk
-OU=Users  → standard users
-Group: "Protected Users"  → high-value accounts (blocks NTLM/delegation cred caching)
-Accounts: jump/PAM break-glass accounts, LAPS-managed local admin
+```mermaid
+flowchart TD
+    D["Domain ceh.lab — NetBIOS CEH"]
+    T0["OU=Tier0 — Domain Admins, DC admins, PKI, PAM vault admins — never log on to lower tiers"]
+    T1["OU=Tier1 — server admins — member servers, DBs"]
+    T2["OU=Tier2 — workstation admins / helpdesk"]
+    U["OU=Users — standard users"]
+    PU["Group Protected Users — high-value accounts — blocks NTLM/delegation cred caching"]
+    ACC["Accounts — jump/PAM break-glass accounts, LAPS-managed local admin"]
+    D --> T0
+    D --> T1
+    D --> T2
+    D --> U
+    D --> PU
+    D --> ACC
 ```
 
 The AD lab intentionally models the controls a PAM/sysadmin runs so you can both **attack** it (enumeration, Kerberoasting, credential access) and **see the control working** (tiering blocks lateral movement, Protected Users limits cred theft). Attack↔control mapping lives in [`../defender-pam/`](../defender-pam/).

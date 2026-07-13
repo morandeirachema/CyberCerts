@@ -6,6 +6,12 @@ This is the retention engine of the repo. Every offensive technique in the CEH m
 |---|---|
 | [attack-to-control-matrix.md](attack-to-control-matrix.md) | Master table: attack → detection → control, grouped by CEH module. Every module's "Defender & PAM mapping" section links here. |
 | [pam-playbook.md](pam-playbook.md) | The PAM control set (vaulting, JIT, tiering, gMSA, LAPS, session brokering) and which attacks each one defeats. |
+| [pam-architecture.md](pam-architecture.md) | **CyberArk-centered reference architecture** — Vault, PVWA, CPM, PSM/PSMP, PTA, EPM, Conjur/CCP, DPA, Remote Access — the access flow, the Zero-Standing-Privilege maturity model, discovery/onboarding, break-glass, and hardening the PAM stack. |
+| [identity-attack-paths.md](identity-attack-paths.md) | **AD & Entra attack paths** — Kerberoasting, delegation abuse, DCSync/DCShadow, ADCS ESC1–8, golden/silver/diamond tickets, Entra token theft — each with detection + the control that breaks it. |
+| [detection-engineering.md](detection-engineering.md) | **Detection layer** — Windows event IDs, Sysmon, Sigma rules, KQL/Splunk queries, and CyberArk PTA/Vault signals per attack. |
+| [cyberark-attack-mapping.md](cyberark-attack-mapping.md) | **CyberArk component → CEH attack** it defeats (both lookup directions), plus onboarding/rotation reality. |
+
+> **Which doc when.** Studying a module → start with the [matrix](attack-to-control-matrix.md). Want the *why* behind a control → [pam-playbook](pam-playbook.md). Building/operating the stack → [pam-architecture](pam-architecture.md). Red-team AD/Entra depth → [identity-attack-paths](identity-attack-paths.md). Hunting/SOC → [detection-engineering](detection-engineering.md). Translating to your CyberArk stack → [cyberark-attack-mapping](cyberark-attack-mapping.md).
 
 ## How to use these
 

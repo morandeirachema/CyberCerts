@@ -30,15 +30,15 @@ A cadence for someone working full-time (aim ~8–10 hrs/week). Adjust freely. E
 
 ## Weekly loop (repeat every module)
 
-```
-┌──────────────────────────────────────────────────────────┐
-│  1. READ    module README (concepts + exam-testable facts)│
-│  2. TOOLS   run each key command once in the lab          │
-│  3. LAB     complete the module's lab exercise            │
-│  4. DEFEND  read Defender & PAM mapping; note the control  │
-│  5. RECALL  write 5 flashcard facts from memory           │
-│  6. TRACK   tick the box in PROGRESS.md                    │
-└──────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    S1["1. READ — module README, concepts + exam-testable facts"]
+    S2["2. TOOLS — run each key command once in the lab"]
+    S3["3. LAB — complete the module's lab exercise"]
+    S4["4. DEFEND — read Defender & PAM mapping; note the control"]
+    S5["5. RECALL — write 5 flashcard facts from memory"]
+    S6["6. TRACK — tick the box in PROGRESS.md"]
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6
 ```
 
 ## Final 2 weeks (exam readiness)

@@ -58,11 +58,9 @@ The OWASP **IoT attack-surface areas** map where you probe:
 
 ### IoT hacking methodology
 
-```
-┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
-│ 1. Info      │─▶│ 2. Vuln      │─▶│ 3. Launch    │─▶│ 4. Gain      │─▶│ 5. Maintain  │
-│    Gathering │  │    Scanning  │  │    Attacks   │  │    Access    │  │    Access    │
-└──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘
+```mermaid
+flowchart LR
+    A["1. Info Gathering"] --> B["2. Vuln Scanning"] --> C["3. Launch Attacks"] --> D["4. Gain Access"] --> E["5. Maintain Access"]
 ```
 
 Information gathering leans heavily on **Shodan/Censys** (querying a pre-built index — passive) before any active scan.
@@ -99,14 +97,20 @@ Mirai spread by scanning the internet for open **Telnet (23/2323)** and trying a
 
 Attacks flow **down**; safety flows from keeping people and IT **out** of the lower levels.
 
-```
-IT   ┌─ L5  Enterprise network — corporate IT, internet-facing
-     ├─ L4  Site business & logistics — ERP, email, IT services
-═════╪═══ IDMZ (Level 3.5) — the OT/IT boundary: jump hosts, proxies, brokers ═══
-OT   ├─ L3  Site operations — MES, historians, patch/AV, engineering workstations
-     ├─ L2  Area supervisory control — HMI, SCADA servers
-     ├─ L1  Basic control — PLCs, RTUs, IEDs (they run the logic)
-     └─ L0  Physical process — sensors, actuators, motors, valves (the real world)
+```mermaid
+flowchart TB
+    subgraph IT["IT"]
+        L5["L5 Enterprise network — corporate IT, internet-facing"]
+        L4["L4 Site business and logistics — ERP, email, IT services"]
+    end
+    IDMZ["IDMZ / Level 3.5 — the OT/IT boundary: jump hosts, proxies, brokers"]
+    subgraph OT["OT"]
+        L3["L3 Site operations — MES, historians, patch/AV, engineering workstations"]
+        L2["L2 Area supervisory control — HMI, SCADA servers"]
+        L1["L1 Basic control — PLCs, RTUs, IEDs run the logic"]
+        L0["L0 Physical process — sensors, actuators, motors, valves"]
+    end
+    L5 --> L4 --> IDMZ --> L3 --> L2 --> L1 --> L0
 ```
 
 **IT/OT convergence** flattened these zones (remote access, cloud historians), which is exactly why segmentation and brokered access matter.
@@ -190,6 +194,22 @@ Everything runs on your **own workstation/loopback** — no external device is t
 | Third-party/OEM remote support abuse | Vendor sessions off-hours, from new geos | **PAM secure remote access**: approval, session recording, credential injection, expiry |
 
 > **PAM playbook for OT:** treat the OT network as a **crown-jewel Tier 0**. No human touches L0/L1 directly — all access flows through a **jump host in the IDMZ** with **JIT, MFA, approval, and full session recording**. Use **unidirectional gateways** so historians/monitoring can pull data *up* while nothing can push control *down*. Vault and rotate device/service credentials, and never let a vendor keep a standing VPN. Map these to [`../../defender-pam/`](../../defender-pam/).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+OT is where default credentials and flat, always-on remote access are still the norm. PAM's job: vault the device credentials and make a brokered jump host the **only** way into the OT zone.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Default / weak device (PLC, HMI, RTU) creds | Vault + rotate device credentials | CPM |
+| Direct admin into the OT network | Broker via a jump host | PSM / PSMP |
+| Third-party OT vendor access | VPN-less, time-boxed, biometric MFA | Remote Access |
+
+**Detection (privileged lens):** access into the OT zone outside change windows, abnormal control commands — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** make **PSM/PSMP the sole ingress** into the OT DMZ (aligned to IEC 62443 zones/conduits), vault device credentials, and grant vendors **time-boxed Remote Access** — no flat, standing path to the plant floor. Where devices can't rotate, compensate with strict segmentation + brokered access.
+
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

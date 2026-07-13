@@ -30,11 +30,9 @@
 
 ### The manual exploitation workflow
 
-```
-┌────────────┐  ┌─────────────────┐  ┌──────────────────┐  ┌────────────────────┐  ┌────────────┐
-│ 1. Detect  │─▶│ 2. Count columns│─▶│ 3. Find visible  │─▶│ 4. Enumerate schema│─▶│ 5. Extract │
-│  ' " break │  │  ORDER BY n     │  │    UNION columns │  │  information_schema│  │  the data  │
-└────────────┘  └─────────────────┘  └──────────────────┘  └────────────────────┘  └────────────┘
+```mermaid
+flowchart LR
+    A["1. Detect<br/>a quote breaks the query"] --> B["2. Count columns<br/>ORDER BY n"] --> C["3. Find visible UNION columns"] --> D["4. Enumerate schema<br/>information_schema"] --> E["5. Extract the data"]
 ```
 
 1. **Detect** — inject `'`, `"`, `\`; watch for an error or changed behaviour. Confirm with `' OR '1'='1` and boolean pairs.
@@ -169,6 +167,22 @@ sqlmap -r request.txt              # feed a full HTTP request saved from Burp (c
 | Second-order SQLi | Injection payloads appearing in *stored* fields, later query errors | Parameterize **every** sink (reads too), output/context encoding, code review of stored-value reuse |
 
 > **PAM playbook for this module:** the database is a Tier-1 asset. Give the application a **dedicated, least-privilege DB account** (only the exact tables/verbs it needs — never `db_owner`/`root`), keep its credentials in a **vault** and rotate them, and force all **human/DBA access through the PAM broker** with session recording and JIT. Then even a working injection dumps a narrow slice, not the whole database — and every privileged touch is logged. Broader attack↔control mapping lives in [`../../defender-pam/`](../../defender-pam/).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+SQLi's payoff is usually the **database service account** and its data. Parameterized queries stop the injection; PAM limits what a successful one yields.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Stolen DB service-account credentials | Vault + rotate the DB credential | CPM |
+| Connection strings in `web.config` | Fetch DB creds at runtime, not from config | CCP / Conjur |
+| SQLi → RCE (`xp_cmdshell`, `INTO OUTFILE`) | Least-privilege DB account (no `sa`/dangerous features) | DB hardening + CPM |
+
+**Detection (privileged lens):** the DB account authenticating from an unexpected host, or spawning a shell — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** the app should **never store the DB password** — CCP delivers it at runtime and CPM rotates it, so a dumped config or a string exfiltrated via SQLi is already stale (and low-privilege).
+
+> Go deeper: [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

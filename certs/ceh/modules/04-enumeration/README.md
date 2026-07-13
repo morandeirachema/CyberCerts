@@ -33,12 +33,9 @@
 
 ### The enumeration workflow
 
-```
-┌──────────────┐   ┌──────────────┐   ┌──────────────────┐   ┌──────────────────┐
-│ Open ports   │──▶│ Identify     │──▶│ Query the        │──▶│ Extract NAMES:   │
-│ (from Mod 03)│   │ the service  │   │ service (anon /  │   │ users, shares,   │
-│ 139/445/161… │   │ + version    │   │ default creds)   │   │ groups, configs  │
-└──────────────┘   └──────────────┘   └──────────────────┘   └──────────────────┘
+```mermaid
+flowchart LR
+    A["Open ports<br/>from Module 03<br/>139/445/161…"] --> B["Identify the service<br/>+ version"] --> C["Query the service<br/>anon / default creds"] --> D["Extract NAMES<br/>users, shares, groups, configs"]
 ```
 
 ### NetBIOS suffix codes (common ones)
@@ -157,6 +154,22 @@ smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t 192.
 | Service-account discovery (LDAP/SPN) | Enumeration of accounts with SPNs / high privilege | **gMSA** for service accounts, tiered OUs, hide privileged groups, PAM-vault the creds |
 
 > **Your edge:** this module is a checklist of *anonymous-access hardening* — exactly what a PAM/sysadmin owns. The worst outcome for an AD/PAM environment is enumeration that names your **privileged groups and service accounts** before any credential is spent. Kill anonymous binds and null sessions, remove default SNMP strings, tier your OUs so a low-priv enumerator can't see Tier 0, and move service accounts to gMSA so their names don't hand an attacker a Kerberoast target (Module 06).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Enumeration harvests the raw material for the next module: shares, local admins, and SPN-bearing service accounts. Onboarding those accounts removes the payoff.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Enumerated local administrator accounts | Unique, rotated local-admin password per host | CPM (LAPS-style); EPM removes the need entirely |
+| Enumerated service accounts (SPNs) | Vault + rotate, or convert to gMSA | CPM |
+| SMB/SNMP/LDAP recon | SNMPv3, disable null sessions, restrict directory reads | (hardening) |
+
+**Detection (privileged lens):** enumeration bursts, anonymous LDAP binds, RID cycling, 4662 — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** the fastest win here is to onboard every discovered **local admin** and **service account**; a Kerberoastable SPN with a CPM-managed 40-char password is no longer worth enumerating.
+
+> Go deeper: [identity attack paths](../../defender-pam/identity-attack-paths.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

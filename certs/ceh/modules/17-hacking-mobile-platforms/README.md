@@ -55,11 +55,12 @@ That's why **MDM blocks rooted/jailbroken devices** from enrolling or accessing 
 
 ### The app-flaw quartet you'll be tested on
 
-```
-Insecure Storage ── secrets in SharedPreferences/plist/sqlite in cleartext
-Insecure Comms  ── no TLS / no cert pinning → MITM reads traffic
-Weak Auth       ── client-side auth, guessable tokens, no server check
-Weak Crypto     ── hardcoded keys, ECB, MD5, home-rolled ciphers
+```mermaid
+flowchart TB
+    S["Insecure Storage<br/>secrets in SharedPreferences / plist / sqlite in cleartext"]
+    K["Insecure Comms<br/>no TLS / no cert pinning → MITM reads traffic"]
+    A["Weak Auth<br/>client-side auth, guessable tokens, no server check"]
+    Y["Weak Crypto<br/>hardcoded keys, ECB, MD5, home-rolled ciphers"]
 ```
 
 ### Where sensitive data hides on the device
@@ -139,6 +140,22 @@ objection -g com.example.app explore                  # then: android sslpinning
 | Lost/stolen device | Device offline + sensitive access | **Remote wipe**, full-disk encryption, screen-lock policy |
 
 > **PAM playbook for this module:** phones are where privileged people approve MFA and hold session tokens, so treat a phone accessing admin systems as a **privileged endpoint**. Require MDM enrollment with a **rooted/jailbroken block**, containerize corporate data (MAM), replace **SMS OTP with phishing-resistant MFA (FIDO2/passkeys)**, and keep privileged approvals behind a PAM workflow (number-matching, JIT) so a compromised handset can't silently rubber-stamp elevation. Full mapping in [`../../defender-pam/attack-to-control-matrix.md`](../../defender-pam/attack-to-control-matrix.md).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+A phone that approves MFA and holds session tokens is a **privileged endpoint**. Treat it like one: brokered access, biometric MFA, and JIT so the device never holds a durable privileged secret.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Admin on mobile holds a long-lived token | JIT — nothing durable stored on the device | DPA / PVWA approval |
+| Vendor / admin remote access from a phone | VPN-less access with mobile biometric MFA | Remote Access |
+| Privileged web console used from mobile | Record + protect the session | Secure Web Sessions |
+
+**Detection (privileged lens):** token theft / auth from a new device, MFA fatigue — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** require MDM enrollment with a **rooted/jailbroken block**, use **Remote Access** biometric MFA instead of SMS OTP, and keep privileged elevation behind **JIT** — a compromised handset then holds no reusable privileged credential.
+
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

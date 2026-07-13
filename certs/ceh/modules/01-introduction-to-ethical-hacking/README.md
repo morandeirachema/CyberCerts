@@ -17,11 +17,9 @@
 
 ### The five hacking phases (memorize the order)
 
-```
-┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌────────────────────┐
-│ 1. Recon      │─▶│ 2. Scanning   │─▶│ 3. Gaining    │─▶│ 4. Maintaining│─▶│ 5. Clearing Tracks │
-│ (footprint)   │  │ (enumerate)   │  │    Access     │  │    Access     │  │ (cover evidence)   │
-└───────────────┘  └───────────────┘  └───────────────┘  └───────────────┘  └────────────────────┘
+```mermaid
+flowchart LR
+    A["1. Recon<br/>footprint"] --> B["2. Scanning<br/>enumerate"] --> C["3. Gaining Access"] --> D["4. Maintaining Access"] --> E["5. Clearing Tracks<br/>cover evidence"]
 ```
 
 Reconnaissance splits into **passive** (no direct contact — OSINT, WHOIS) and **active** (touching the target — ping, scan).
@@ -103,6 +101,22 @@ EOF
 | Scope/authorization | N/A (process) | Change control, documented RoE, break-glass procedures |
 
 > **Your edge:** as a PAM practitioner you already think in terms of *who can do what, when, and with what approval*. CEH's whole methodology is the attacker's attempt to defeat exactly that. Read every later module as "which of my controls does this bypass, and how would I detect it?"
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Ethical hacking is a *lifecycle*; PAM is the control that runs the length of it. Almost every phase you'll learn either targets privileged access or is contained by it.
+
+| Where it shows up | PAM control | CyberArk component |
+|---|---|---|
+| Whole kill chain relies on stolen/standing privilege | Reduce standing privilege to near-zero | Vault + JIT (EPV / DPA) |
+| Insider or contractor misuse of access | Attribution + full session recording | PSM + Vault audit |
+| Unmanaged privileged/service accounts nobody tracks | Find them before attackers do | Accounts Discovery / DNA |
+
+**Detection (privileged lens):** baseline privileged behavior so anomalies stand out — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** every PAM program starts with **discovery** — you cannot protect privileged accounts you haven't inventoried. Discovery is also step 1 of the [onboarding lifecycle](../../defender-pam/pam-architecture.md).
+
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [attack→control matrix](../../defender-pam/attack-to-control-matrix.md)
 
 ## Exam tips & gotchas
 

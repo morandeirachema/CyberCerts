@@ -15,23 +15,16 @@
 
 ### Web server stack — where attacks land
 
-```
-        ┌──────────────────────────────────────────────────────────┐
-Client ─┼─▶ HTTP/S  ▶  ┌──────────────────────────────────────────┐ │
-        │             │ Web server (Apache / Nginx / IIS)          │ │  ← banner, methods,
-        │             │  ├─ document root  (/var/www, wwwroot)     │ │    default pages, WebDAV
-        │             │  ├─ modules / handlers (PHP, CGI, .NET)    │ │  ← misconfig, source disclosure
-        │             │  └─ runs as service acct (www-data/AppPool)│ │  ← privilege boundary
-        │             └──────────────────────────────────────────┘ │
-        │                     │                                    │
-        │             ┌───────▼────────┐   ┌──────────────────┐    │
-        │             │ App / scripts  │──▶│ Database backend │    │  ← creds in config,
-        │             └────────────────┘   └──────────────────┘    │    secrets in web root
-        │                     │                                    │
-        │             ┌───────▼────────┐                           │
-        │             │ Operating system / patch level │           │  ← unpatched CVEs, kernel
-        │             └────────────────┘                           │
-        └──────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    C["Client"] -->|"HTTP/S"| WS
+    subgraph WS["Web server — Apache / Nginx / IIS"]
+        DR["Document root — /var/www, wwwroot<br/>← default pages, WebDAV"]
+        MOD["Modules / handlers — PHP, CGI, .NET<br/>← misconfig, source disclosure"]
+        SVC["Runs as service account — www-data / AppPool<br/>← privilege boundary"]
+    end
+    WS --> APP["App / scripts"] --> DB["Database backend<br/>← creds in config, secrets in web root"]
+    WS --> OS["Operating system / patch level<br/>← unpatched CVEs, kernel"]
 ```
 
 ### Attack taxonomy (classic exam table)
@@ -58,10 +51,9 @@ Related: **HTTP request smuggling** (front-end/back-end desync), **XST** (Cross-
 
 ### EC-Council web-server hacking methodology
 
-```
-Information    Web server     Mirror the     Vulnerability    Session      Password
-gathering  ──▶ footprinting──▶ website     ──▶ scanning    ──▶ hijacking ──▶ cracking
-(WHOIS,DNS)    (banner,ports)  (offline copy) (Nikto,NSE)     (if any)     (admin panels)
+```mermaid
+flowchart LR
+    A["Information gathering<br/>WHOIS, DNS"] --> B["Web server footprinting<br/>banner, ports"] --> C["Mirror the website<br/>offline copy"] --> D["Vulnerability scanning<br/>Nikto, NSE"] --> E["Session hijacking<br/>if any"] --> F["Password cracking<br/>admin panels"]
 ```
 
 ## Key tools
@@ -135,6 +127,22 @@ curl -s -X OPTIONS -i http://192.168.56.20
 | DoS against the server | Connection-table saturation, slow requests | Rate limiting, reverse proxy, connection timeouts |
 
 > **PAM playbook for this module:** treat the web server as a **privileged service, not a person**. Run the daemon under a **dedicated least-privilege service account** (`www-data`, an IIS AppPool identity — never root/Administrator/SYSTEM) so a webshell inherits almost nothing. Keep **secrets out of the web root** and in a vault, enforce a **patch cadence with an accurate inventory** (banner suppression buys time, it is not a fix), and put **file-integrity monitoring** on the document root so an uploaded shell trips an alert. Remove default samples and disable unused HTTP methods as part of your build baseline.
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Web servers run under service/app-pool identities and hold connection strings — both are credential-theft targets. **CCP/Conjur** removes the hardcoded secret; **CPM** manages the service account.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Hardcoded service / app-pool credentials | Remove hardcoded creds; deliver at runtime | CCP / AAM |
+| App secrets in `web.config` / files | Centralized, rotated secrets | Conjur |
+| Over-privileged web service account | Least-privilege service identity + rotate | CPM |
+
+**Detection (privileged lens):** the web service account performing admin actions or authenticating off-box — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** onboard the IIS app-pool / service account to CPM and have the app fetch DB/API creds via **CCP at runtime** — a compromised web server (or a leaked config) then yields no reusable static secret.
+
+> Go deeper: [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

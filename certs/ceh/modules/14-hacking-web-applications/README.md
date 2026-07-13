@@ -19,12 +19,9 @@
 
 ### The methodology
 
-```
-┌────────────┐  ┌──────────────────┐  ┌──────────────────────────────────────────┐
-│ Footprint  │─▶│ Analyze web app  │─▶│ Attack surface:                          │
-│ tech stack │  │ map inputs,      │  │  auth · session · access control ·       │
-│ dirs, APIs │  │ params, cookies  │  │  input validation · logic · APIs/services│
-└────────────┘  └──────────────────┘  └──────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    A["Footprint<br/>tech stack, dirs, APIs"] --> B["Analyze web app<br/>map inputs, params, cookies"] --> C["Attack surface<br/>auth · session · access control · input validation · logic · APIs"]
 ```
 
 ### OWASP Top 10 (2021) — memorize the list
@@ -146,6 +143,23 @@ commix --url="http://localhost:8080/vuln.php?ip=127.0.0.1"
 | Web shell used for privilege pivot | App account running admin commands | **Run the app as a least-privilege service account**; no standing admin on web tier |
 
 > **PAM playbook for this module:** the web tier is a bastion an attacker *will* eventually reach, so make the account it runs under worthless — **least-privilege service identity, no local admin, no reusable domain creds on the box, and JIT for any admin action**. Vault the DB/service credentials the app uses and rotate them; a leaked config or web shell then yields a short-lived, low-power identity instead of the keys to the tier. Full mapping in [`../../defender-pam/attack-to-control-matrix.md`](../../defender-pam/attack-to-control-matrix.md).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Web apps leak secrets (config, connection strings) and expose privileged admin consoles. Remove the static secret with **CCP/Conjur**, and protect the admin console with **Secure Web Sessions**.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Hardcoded DB/API creds in app config | Remove hardcoded creds; deliver at runtime | CCP / Conjur |
+| SSRF → metadata / secret theft | Keep secrets off the instance | Conjur + IMDSv2 |
+| Theft of a privileged web/admin console session | Record + protect web sessions | Secure Web Sessions |
+| App runs with broad standing rights | Least-privilege app identity + rotate | CPM |
+
+**Detection (privileged lens):** the app/service account behaving outside its baseline, SSRF to `169.254.169.254` — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** pull every secret at runtime via **CCP/Conjur** so a web shell or LFI finds no credentials in `web.config` — and run the app under a least-privilege identity so a shell inherits nothing useful.
+
+> Go deeper: [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

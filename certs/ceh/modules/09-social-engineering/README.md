@@ -68,13 +68,9 @@ Insider threats sidestep the perimeter entirely — which is why **least privile
 
 ### The social engineering attack lifecycle
 
-```
-┌───────────────┐   ┌───────────────┐   ┌───────────────┐   ┌───────────────┐
-│ 1. Research   │──▶│ 2. Hook       │──▶│ 3. Play       │──▶│ 4. Exit       │
-│  OSINT, recon,│   │  build rapport│   │  exploit trust│   │  cover tracks,│
-│  dumpster,    │   │  / pretext,   │   │  extract info │   │  no suspicion,│
-│  org charts   │   │  first contact│   │  or access    │   │  clean escape │
-└───────────────┘   └───────────────┘   └───────────────┘   └───────────────┘
+```mermaid
+flowchart LR
+    A["1. Research<br/>OSINT, recon, dumpster, org charts"] --> B["2. Hook<br/>build rapport / pretext, first contact"] --> C["3. Play<br/>exploit trust, extract info or access"] --> D["4. Exit<br/>cover tracks, clean escape"]
 ```
 
 Also phrased by EC-Council as **Research target → Select victim → Develop relationship → Exploit**.
@@ -140,6 +136,23 @@ Concept-only (name recognition for the exam, no execution needed): **phishing ki
 | Dumpster diving / shoulder surfing | (Pre-incident, physical) | Shredding/media-sanitization policy, clean-desk, privacy screens, no credential printouts |
 
 > **PAM playbook for this module:** you can't patch a human, so you *shrink the blast radius* and *raise the proof bar*. (1) Make stolen passwords useless with **phishing-resistant MFA**. (2) Treat **privileged password resets** as high-assurance events requiring out-of-band identity verification and approval — the help desk is a top target precisely because it can hand over Tier 0. (3) **Least privilege + JIT** means a phished user reaches almost nothing standing. (4) **Session recording** turns a compromised insider into a *detected* one. Mapping lives in [`../../defender-pam/`](../../defender-pam/).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Social engineering steals *credentials*; PAM makes the stolen credential worthless. If privilege is JIT and MFA is phishing-resistant, a phished admin password unlocks nothing standing.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Phishing / credential theft | Adaptive, phishing-resistant, step-up MFA | CyberArk Identity |
+| Phished user holds standing admin | JIT elevation — nothing durable to abuse | DPA / PVWA approval |
+| Vendor / third-party spear-phish | VPN-less access with mobile biometric MFA | Remote Access |
+| Malicious attachment executed | Application control blocks execution | EPM |
+
+**Detection (privileged lens):** impossible-travel, MFA fatigue / push-bombing, first-time privileged access — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** enforce **number-matching MFA** at PVWA and require **approval + time-box** on sensitive Safes; the phished credential then needs a human approval it can't produce.
+
+> Go deeper: [identity attack paths](../../defender-pam/identity-attack-paths.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

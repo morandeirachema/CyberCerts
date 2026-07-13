@@ -42,12 +42,17 @@ Ansible configures Windows; it does not create the VMs. Provide two Windows VMs 
 
 ## What you get
 
-```
-Domain ceh.lab (NetBIOS CEH)
-├── OU=Tier0     t0-admin        (+ Protected Users)   ← forest control
-├── OU=Tier1     t1-svradmin, svc-sql (Kerberoastable) ← server admins
-├── OU=Tier2     t2-helpdesk                            ← workstation admins
-└── OU=Standard  jdoe                                   ← normal user
+```mermaid
+flowchart TD
+    D["Domain ceh.lab - NetBIOS CEH"]
+    T0["OU=Tier0 — t0-admin, + Protected Users — forest control"]
+    T1["OU=Tier1 — t1-svradmin, svc-sql - Kerberoastable — server admins"]
+    T2["OU=Tier2 — t2-helpdesk — workstation admins"]
+    STD["OU=Standard — jdoe — normal user"]
+    D --> T0
+    D --> T1
+    D --> T2
+    D --> STD
 ```
 
 ## Practice loop (attack ➜ observe control)

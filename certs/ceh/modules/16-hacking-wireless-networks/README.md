@@ -43,15 +43,16 @@
 
 ### The WPA2 4-way handshake (what you actually capture)
 
-```
-   Client (supplicant)                         Access Point (authenticator)
-        │  ── has PMK (from PSK+SSID) ──              │  ── has PMK ──
-        │                                            │
-        │◀────────── (1) ANonce ─────────────────────│
-        │──────────  (2) SNonce + MIC ──────────────▶│   ← MIC proves knowledge
-        │◀────────── (3) GTK + MIC ──────────────────│
-        │──────────  (4) ACK ───────────────────────▶│
-        └── Capturing msgs 2–3 (ANonce+SNonce+MIC) lets you brute the PSK offline ──┘
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as Access Point
+    Note over C,A: Both sides derive the PMK from PSK + SSID
+    A->>C: 1. ANonce
+    C->>A: 2. SNonce + MIC
+    A->>C: 3. GTK + MIC
+    C->>A: 4. ACK
+    Note over C,A: Capturing msgs 2-3 lets you brute-force the PSK offline
 ```
 
 The MIC is derived from the **PMK** (which comes from `PSK + SSID`). Offline, you guess a passphrase → derive PMK/PTK → recompute the MIC → compare. Match = correct passphrase.
@@ -166,6 +167,22 @@ sudo bettercap -iface wlan0        # then: wifi.recon on ; wifi.show   (recon of
 | Unmanaged device on privileged WLAN | New MAC/device on admin VLAN | **NAC / 802.1X device auth**, certificate enrollment, segmented admin SSID |
 
 > **PAM playbook for this module:** treat a **PSK as a shared credential** — it can't be attributed, rotated per-user, or revoked without changing it for everyone. For any network that touches privileged systems, run **WPA2/WPA3-Enterprise with 802.1X/RADIUS and EAP-TLS** (per-device/user certificates), enforce **PMF (802.11w)**, put admin access on a **segmented SSID/VLAN behind NAC**, and **never allow privileged/jump access over a PSK network**. Broader attack↔control mapping lives in [`../../defender-pam/`](../../defender-pam/).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Cracking a captured handshake is only step one — the attacker still wants the *network device* admin credentials behind the SSID. Vault those, and require brokered access to the infrastructure.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Cracked AP / WLC admin password | Vault + rotate network-device credentials | CPM (network device platform) |
+| Direct admin to APs / switches / controllers | Broker device administration | PSM for network devices |
+| RADIUS / 802.1X service account or shared secret | Vault the RADIUS account/secret | CPM / Conjur |
+
+**Detection (privileged lens):** device admin logon from an unexpected source or outside change windows — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** onboard AP/controller/switch **enable + admin** credentials and SSH keys to CPM and require **PSM** for device administration — a cracked WPA2 handshake still won't surrender standing infrastructure credentials. (And prefer WPA3 / 802.1X EAP-TLS to remove the crackable handshake.)
+
+> Go deeper: [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

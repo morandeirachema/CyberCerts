@@ -34,13 +34,16 @@ A **hub** repeats every frame to every port → trivially sniffable. A **switch*
 
 ### ARP poisoning — the MITM engine
 
-```
-        Normal                              Poisoned
-  Victim ─── Gateway              Victim ─┐        ┌─ Gateway
-   (asks "who has GW IP?")               ▼        ▲
-   GW answers with GW MAC          Attacker (says "GW IP = MY MAC"
-                                             AND "victim IP = MY MAC")
-                                    → sits in the middle, relays + reads
+```mermaid
+flowchart TB
+    subgraph normal["Normal"]
+        V1["Victim"] <--> G1["Gateway"]
+    end
+    subgraph poisoned["ARP poisoned — MITM"]
+        V2["Victim"] --> AT["Attacker<br/>claims: GW IP = my MAC<br/>and Victim IP = my MAC"]
+        AT --> G2["Gateway"]
+        AT -.->|"reads + relays"| V2
+    end
 ```
 
 ARP has **no authentication**, so a forged "gratuitous ARP" reply is accepted. This is why encrypted transport (TLS/SSH) matters: you can be MITM'd at L2 and still not hand over readable data.
@@ -125,6 +128,22 @@ sudo responder -I eth0 -wv                                # then crack the NetNT
 | Privileged session on the wire | Admin creds transiting the LAN | **PAM session brokering** + isolation so creds never touch the endpoint/wire |
 
 > **PAM playbook for this module:** privileged sessions are the juiciest sniffing target, so **never let a privileged credential traverse the network in a form the endpoint can read.** Broker admin sessions through a PAM proxy (the target credential is injected server-side, session is TLS-tunneled and recorded), disable legacy cleartext protocols, and enforce SMB signing + LLMNR-off to kill the Responder → hash-crack path. Full mapping in [`../../defender-pam/attack-to-control-matrix.md`](../../defender-pam/attack-to-control-matrix.md).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Privileged credentials are the sniffer's jackpot. Session brokering removes the jackpot: the target password is injected **server-side on the PSM**, so it never traverses the admin's endpoint or the wire in a form anyone can capture.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Cleartext credential sniffing | Creds injected server-side, never on the wire | PSM / PSMP |
+| MITM of an admin session | Session isolation + TLS-tunnelled proxy | PSM |
+| Vendor traffic over untrusted networks | VPN-less brokered access with MFA | Remote Access |
+
+**Detection (privileged lens):** LLMNR/NBT-NS poisoning (Responder) yields NetNTLMv2 you'd crack with `hashcat -m 5600`; disable LLMNR and watch for it — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** broker **every** privileged session so a LAN sniffer or a Responder capture never resolves to a usable privileged credential — combine with disabling cleartext protocols and enforcing SMB signing.
+
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md)
 
 ## Exam tips & gotchas
 

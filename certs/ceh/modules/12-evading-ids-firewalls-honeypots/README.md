@@ -17,15 +17,11 @@
 
 ### IDS / IPS — where they sit and what they do
 
-```
-         ┌────────────────────────────────────────────────────────┐
- Internet│                                                        │ LAN
- ────────┼──▶[ Firewall ]──▶[ IPS (inline, can DROP) ]──▶[ Switch ]┼──▶ hosts
-         │                          ▲                       │      │
-         │                   NIDS (passive)  ◀── SPAN/TAP ──┘      │
-         │                                                        │
-         │   HIDS = agent ON each host (file integrity, local logs)│
-         └────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    NET["Internet"] --> FW["Firewall"] --> IPS["IPS<br/>inline, can DROP"] --> SW["Switch"] --> H["LAN hosts"]
+    SW -->|"SPAN / TAP"| NIDS["NIDS<br/>passive"]
+    H -.->|"agent on each host"| HIDS["HIDS<br/>file integrity, local logs"]
 ```
 
 | Sensor | Scope | Sees | Blocks? |
@@ -58,18 +54,12 @@ Related terms: **bastion host**, **DMZ / screened subnet**, **default-deny** pos
 
 ### Insertion vs Evasion vs DoS (Ptacek & Newsham)
 
-```
-┌───────────────────────────────────────────────────────────────────┐
-│ INSERTION : IDS ACCEPTS a packet the end host REJECTS.             │
-│   → attacker pads the IDS's view so its signature never matches.   │
-│   (e.g. packet with bad checksum / too-low TTL — IDS keeps it,     │
-│    target drops it)                                               │
-├───────────────────────────────────────────────────────────────────┤
-│ EVASION   : end host ACCEPTS a packet the IDS REJECTS/misses.      │
-│   → attack reaches the target but never enters the IDS reassembly. │
-├───────────────────────────────────────────────────────────────────┤
-│ DoS       : exhaust/blind the IDS (flood, resource, fail-open).    │
-└───────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    INS["INSERTION<br/>IDS ACCEPTS a packet the end host REJECTS<br/>attacker pads the IDS view so the signature never matches"]
+    EVA["EVASION<br/>end host ACCEPTS a packet the IDS REJECTS or misses<br/>attack reaches the target but never enters IDS reassembly"]
+    DOS["DoS<br/>exhaust or blind the IDS — flood, resource, fail-open"]
+    INS --- EVA --- DOS
 ```
 
 ### Evasion techniques
@@ -163,6 +153,22 @@ Rule anatomy to memorize: **header** = action · protocol · src IP/port · dire
 | Recon of the environment | First-touch scan pattern, honeypot hits | **Deception around privileged assets** — a honeypot "admin" host/service that no legit user should ever touch = high-fidelity alert |
 
 > **PAM playbook for this module:** put your jump/bastion hosts behind **default-deny egress** so a foothold can't tunnel out over DNS/HTTP/ICMP; run **HIDS/EDR on the admin plane itself** and alert when a sensor goes quiet (blinding is an attack); and use **deception** deliberately — a fake privileged share, service account, or admin host is the cheapest high-fidelity tripwire you can point at Tier 0. Any interaction is malicious by definition.
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Attackers evade *network* IDS by blending into normal traffic — but privileged **behavior** is much harder to fake. PTA is your behavioral layer for the identity plane, and the Vault audit is built to resist the log-clearing these evasion techniques rely on.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Behavioral evasion of signature IDS | Privileged UEBA catches identity anomalies | PTA |
+| Log tampering / anti-forensics | Tamper-evident, append-only audit | Digital Vault audit |
+| Disabling endpoint security agents | Detect EPM/PSM agent tamper | EPM / PTA |
+
+**Detection (privileged lens):** 1102 (audit log cleared), agent-health gaps, and PTA's Golden Ticket / DCSync / PtH detections that pattern-match what network IDS can't — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** forward Vault + PSM + PTA telemetry to the SIEM so privileged signals sit beside network/endpoint data; an attacker who evades the firewall still trips the behavioral privileged detections.
+
+> Go deeper: [detection engineering](../../defender-pam/detection-engineering.md)
 
 ## Exam tips & gotchas
 

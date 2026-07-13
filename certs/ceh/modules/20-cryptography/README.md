@@ -73,14 +73,16 @@ Passwords must use **slow, salted, tunable** key-derivation functions: **bcrypt*
 - **Digital signature:** hash the message, encrypt the hash with your **private** key; anyone verifies with your **public** key. Provides **integrity, authenticity, and non-repudiation** — **not confidentiality**.
 - **To send confidentially:** encrypt with the **recipient's public** key. **To prove it's from you:** sign with **your private** key. (Swapping these two is the #1 trap.)
 
-```
-   Client                                                    Server
-     │  ── ClientHello (cipher list, client random) ────────▶ │
-     │  ◀──── ServerHello + X.509 certificate (public key) ── │
-     │  verify the cert chain up to a trusted CA              │
-     │  ── key exchange: ECDHE / RSA  (ASYMMETRIC) ─────────▶ │
-     │        both sides derive the SAME session key          │
-     │  ══ bulk application data via AES-GCM (SYMMETRIC) ════ │
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: ClientHello — cipher list, client random
+    S->>C: ServerHello + X.509 certificate with public key
+    Note over C: Verify the cert chain up to a trusted CA
+    C->>S: Key exchange — ECDHE / RSA [ASYMMETRIC]
+    Note over C,S: Both sides derive the SAME session key
+    C->>S: Bulk application data via AES-GCM [SYMMETRIC]
 ```
 
 **TLS 1.3** simplified this to one round-trip, mandates **forward secrecy** (ephemeral DH/ECDHE), and removed RSA key transport, RC4, and other weak options.
@@ -188,6 +190,22 @@ gpg --verify file.txt.sig file.txt
 | MITM on unauthenticated DH | Signature/cert validation failures | **Authenticated key exchange** (signed ECDHE), PKI trust, pinning |
 
 > **PAM playbook for crypto:** your vault **encrypts secrets at rest** with an **HSM/KMS-held master key** (envelope encryption), **rotates** keys and secrets on schedule and on compromise, and manages **certificate lifecycles** (issue → renew → revoke) so nothing expires or lingers. Store passwords with **Argon2/bcrypt**, keep private/root keys in an **HSM** where they can be used but never extracted, and sign audit trails for **non-repudiation**. Map to [`../../defender-pam/`](../../defender-pam/).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Keys are just another secret that must be stored, rotated, and audited — and the Vault's own master key is the most sensitive one you own. Give cryptographic material the same vault-rotate-audit discipline as passwords.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Weak / hardcoded keys in apps | Central key & secret storage + rotation | Conjur / Vault |
+| Exposure of the Vault master / Server Key | HSM-back the Server Key | Digital Vault + HSM |
+| Secrets at rest in cleartext | Encrypted, tamper-evident store | Digital Vault |
+
+**Detection (privileged lens):** legacy-cipher negotiation (RC4/DES/MD5), anomalous key/secret retrieval — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** back the **Vault Server Key with an HSM** so the master key never sits in the clear, and use **Conjur** for application keys — encryption keys then get the same rotation and audit trail as any vaulted credential.
+
+> Go deeper: [PAM architecture — hardening the stack](../../defender-pam/pam-architecture.md)
 
 ## Exam tips & gotchas
 

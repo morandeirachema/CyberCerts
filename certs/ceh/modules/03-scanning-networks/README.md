@@ -16,14 +16,14 @@
 
 ### The TCP three-way handshake
 
-```
-   Attacker                         Target
-      │            SYN                 │      "let's talk"
-      │ ─────────────────────────────▶ │
-      │          SYN / ACK             │      "ok, I hear you"   ← OPEN port
-      │ ◀───────────────────────────── │
-      │            ACK                 │      "connected"
-      │ ─────────────────────────────▶ │
+```mermaid
+sequenceDiagram
+    participant A as Attacker
+    participant T as Target
+    A->>T: SYN
+    T->>A: SYN/ACK  [OPEN port]
+    A->>T: ACK
+    Note over A,T: A SYN scan stops after SYN/ACK — never sends the final ACK
 ```
 
 - **Open port** → replies **SYN/ACK**.
@@ -153,6 +153,22 @@ sudo masscan 192.168.56.0/24 -p1-1000 --rate 1000
 | Masscan/high-rate sweep | Very high connection rate from one source | IPS rate limiting, SIEM correlation, block scanning source |
 
 > **Your edge:** scanning is reconnaissance against *your* attack surface. The strongest answers are **segmentation** (a scan from Tier 2 shouldn't even reach Tier 0 management ports) and **least exposure** (fewer open ports = smaller map). Alert on port-scan patterns crossing tier boundaries — that's an attacker orienting, and it should never be normal traffic.
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+A scan maps your admin ingress. If the only path to a target's admin port is *through* the session broker, the scan finds nothing to connect to directly.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Scan finds open admin ports (RDP/SSH/WinRM) | Close direct admin ingress; broker all sessions | PSM / PSMP |
+| Scan discovers the PAM stack itself (PVWA/Vault) | Harden + segment the Tier 0 control plane | Vault hardening |
+| Recon staged before lateral movement | JIT so there's no standing access to reach | DPA |
+
+**Detection (privileged lens):** scanning near Tier 0 assets should alert (IDS + PTA) — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** block direct RDP/SSH to targets at the firewall so admins *must* traverse PSM/PSMP — this simultaneously shrinks the scannable surface and gives you full session recording.
+
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md)
 
 ## Exam tips & gotchas
 

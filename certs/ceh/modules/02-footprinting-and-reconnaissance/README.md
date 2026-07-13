@@ -16,13 +16,9 @@
 
 ### Where footprinting sits in the methodology
 
-```
-┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
-│  PASSIVE recon       │────▶│  ACTIVE recon        │────▶│  Scanning (Mod 03)   │
-│  no packets to target│     │  packets to target   │     │  ports / services    │
-│  WHOIS, Google,      │     │  DNS AXFR, traceroute│     │  nmap, banner grab   │
-│  Shodan, social media│     │  ping, email tracing │     │                      │
-└──────────────────────┘     └──────────────────────┘     └──────────────────────┘
+```mermaid
+flowchart LR
+    P["PASSIVE recon<br/>no packets to target<br/>WHOIS, Google, Shodan, social media"] --> A["ACTIVE recon<br/>packets to target<br/>DNS AXFR, traceroute, ping, email tracing"] --> S["Scanning — Module 03<br/>ports / services<br/>nmap, banner grab"]
 ```
 
 The dividing line: **did a packet reach the target's infrastructure?** Querying a public WHOIS server or Shodan's cache = passive. Asking the target's *own* name server for a zone transfer = active.
@@ -147,6 +143,22 @@ Shodan:  net:198.51.100.0/24                   # an allocation you own
 | Shodan/Censys exposure | Your host appearing in their scans | Reduce internet-facing services, firewall/segment, banner minimization |
 
 > **Your edge:** footprinting is just an *external attack-surface inventory*. Everything here maps to controls you already own — asset inventory, DNS hygiene, and least exposure of privileged identities. The single worst leak for a PAM environment is a public SRV/AXFR trail that points straight at Tier 0; keep AD DNS internal-only.
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Footprinting is the attacker doing *your* asset inventory for you. The privileged identities, service accounts, and remote-access endpoints they OSINT are exactly what you should discover and vault first.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| OSINT of admin/service accounts & tech stack | Minimize exposed privileged identities; discover + onboard | Accounts Discovery / DNA |
+| Leaked service-account creds in repos/docs/config | Remove hardcoded secrets from apps | Conjur / CCP |
+| Exposed admin remote-access surface | VPN-less, brokered, MFA'd access | Remote Access |
+
+**Detection (privileged lens):** PTA flags *unmanaged* privileged accounts that discovery surfaces — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** scrub secrets from public repos and documents, then onboard every discovered privileged account into a Safe with a rotation policy — you're closing the recon-to-exploit gap.
+
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

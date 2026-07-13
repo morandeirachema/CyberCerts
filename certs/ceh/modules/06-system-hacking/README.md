@@ -16,12 +16,9 @@
 
 ### The methodology
 
-```
-┌──────────────────┐   ┌───────────────────────┐   ┌───────────────────────┐   ┌──────────────────┐
-│ 1. Gaining Access│──▶│ 2. Privilege          │──▶│ 3. Maintaining Access │──▶│ 4. Clearing Logs │
-│  crack/guess/    │   │    Escalation         │   │  backdoors, rootkits, │   │  anti-forensics, │
-│  exploit creds   │   │  vertical/horizontal  │   │  scheduled tasks      │   │  clear evented    │
-└──────────────────┘   └───────────────────────┘   └───────────────────────┘   └──────────────────┘
+```mermaid
+flowchart LR
+    A["1. Gaining Access<br/>crack / guess / exploit creds"] --> B["2. Privilege Escalation<br/>vertical / horizontal"] --> C["3. Maintaining Access<br/>backdoors, rootkits, scheduled tasks"] --> D["4. Clearing Logs<br/>anti-forensics"]
 ```
 
 ### Password attack taxonomy (classic exam table)
@@ -122,6 +119,25 @@ Common Hashcat modes to memorize: **0** MD5 · **100** SHA1 · **1000** NTLM · 
 | Persistence (tasks/services) | New service/scheduled task, autoruns | Least privilege, JIT elevation, allow-listing, change control |
 
 > **PAM playbook for this module:** vault and rotate privileged credentials, enforce **JIT** so standing privilege is near-zero, **tier** admin planes so a Tier 2 compromise can't reach Tier 0, and prefer **gMSA** for service accounts to kill Kerberoasting. This is exactly the mapping in [`../../defender-pam/attack-to-control-matrix.md`](../../defender-pam/attack-to-control-matrix.md).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+This is the module PAM was built for — nearly every technique here is something a CyberArk control turns from a win into a logged, contained failure.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Pass-the-Hash / Pass-the-Ticket | Credential never touches the endpoint; rotated | PSM + CPM + EPM |
+| Kerberoasting | Long random service password (or gMSA), AES-only | CPM |
+| LSASS / credential dumping | Block credential harvesting on the endpoint | EPM (credential theft protection) |
+| Local-admin reuse across hosts | Unique, rotated local-admin password | CPM (LAPS-style) |
+| DCSync / Golden Ticket | Detect + isolate Tier 0 | PTA |
+| Unix `sudo` / shared root | Vault-controlled elevation, per-command | OPM |
+
+**Detection (privileged lens):** 4769 with RC4 (Kerberoasting), 4662 replication from a non-DC (DCSync), Sysmon 10 handle-to-lsass (dumping), and PTA's Golden Ticket / PtH detections — full queries in [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** the two highest-leverage moves are (1) **convert SPN service accounts to gMSA or CPM-managed** and (2) **remove standing local admin with EPM**. Together they neutralize Kerberoasting, most credential dumping, and local-admin lateral movement — the backbone of this module.
+
+> Go deeper: [identity attack paths](../../defender-pam/identity-attack-paths.md) · [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

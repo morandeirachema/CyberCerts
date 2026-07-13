@@ -17,19 +17,17 @@
 
 ### Service models & the shared responsibility line
 
-```
-              On-prem       IaaS         PaaS         SaaS
-            ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
- Data       │   YOU    │ │   YOU    │ │   YOU    │ │   YOU    │  ← you ALWAYS own
- Identity   │   YOU    │ │   YOU    │ │   YOU    │ │   YOU    │     data + identities
- App        │   YOU    │ │   YOU    │ │   YOU    │ │   CSP    │
- Runtime    │   YOU    │ │   YOU    │ │   CSP    │ │   CSP    │
- OS         │   YOU    │ │   YOU    │ │   CSP    │ │   CSP    │
- Virtualize │   YOU    │ │   CSP    │ │   CSP    │ │   CSP    │
- Network/HW │   YOU    │ │   CSP    │ │   CSP    │ │   CSP    │
-            └──────────┘ └──────────┘ └──────────┘ └──────────┘
-              more customer responsibility  ◀────────  less
-```
+| Layer | On-prem | IaaS | PaaS | SaaS |
+|---|:--:|:--:|:--:|:--:|
+| **Data** | YOU | YOU | YOU | YOU |
+| **Identity** | YOU | YOU | YOU | YOU |
+| App | YOU | YOU | YOU | CSP |
+| Runtime | YOU | YOU | CSP | CSP |
+| OS | YOU | YOU | CSP | CSP |
+| Virtualization | YOU | CSP | CSP | CSP |
+| Network / HW | YOU | CSP | CSP | CSP |
+
+> You **always** own your **data and identities**, regardless of model. Customer responsibility decreases left → right (On-prem → SaaS).
 
 - Provider secures **"of the cloud"** (hardware, hypervisor, managed-service internals).
 - Customer secures **"in the cloud"** (data, identity/IAM, config, OS where applicable).
@@ -149,6 +147,23 @@ capsh --print                                     # excess Linux capabilities?
 | Console/root access without MFA | Sign-in events lacking MFA, root usage | Enforce MFA/SSO via IdP, **sealed & monitored break-glass** root/owner accounts |
 
 > **PAM playbook for cloud:** identity **is** the perimeter. Kill **standing privilege** with **JIT** elevation, use **CIEM** to continuously right-size entitlements, replace **long-lived keys** with short-lived federated credentials, store secrets in **Vault / cloud KMS** (never env vars or code), and keep **break-glass** root/owner accounts sealed behind hardware MFA with alerting on every use. See [`../../defender-pam/`](../../defender-pam/).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Cloud breaches chase **standing entitlements** and **long-lived keys**. The cloud-native PAM answer is JIT access to consoles and runtime secrets instead of stored keys.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Over-privileged cloud IAM roles | JIT access + right-size entitlements | Secure Cloud Access (CIEM) |
+| Long-lived access keys | Eliminate; deliver secrets at runtime | Conjur / CCP |
+| SSRF → instance metadata theft | Keep secrets off the instance; IMDSv2 | Conjur + IMDSv2 |
+| Standing console admin | JIT to consoles + session recording | Secure Cloud Access + Secure Web Sessions |
+
+**Detection (privileged lens):** requests to `169.254.169.254`, new admin-role assignments, unused-then-used permissions — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** replace long-lived keys with **Conjur-delivered** secrets and stand up **JIT console access** via Secure Cloud Access — remove the standing entitlements and durable keys these attacks depend on.
+
+> Go deeper: [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md) · [identity attack paths — Entra](../../defender-pam/identity-attack-paths.md)
 
 ## Exam tips & gotchas
 

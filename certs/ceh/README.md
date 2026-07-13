@@ -13,7 +13,7 @@ Every module ties the offensive technique you must learn for the exam back to th
 - A **module-by-module guide** aligned to the 20 official CEH v13 modules ([`modules/`](modules/)).
 - A **runnable, self-hosted lab** (Docker Compose + Vagrant + Ansible) so you practice on infrastructure you control ([`labs/`](labs/)).
 - **Cheatsheets** with real command syntax ([`cheatsheets/`](cheatsheets/)).
-- A **defender / PAM mapping** for every attack, plus a master attack-to-control matrix ([`defender-pam/`](defender-pam/)).
+- A **defender / PAM mapping** for every attack — a master attack-to-control matrix plus **CyberArk-centered deep-dives**: reference architecture, AD/Entra identity attack paths, and detection engineering ([`defender-pam/`](defender-pam/)).
 - **Verified external resources** — official links only, no invented sources ([`resources/`](resources/)).
 - A **study plan** and **progress tracker** you fill in as you go.
 
@@ -80,23 +80,39 @@ The values below are consistent across multiple public sources as of **2026-07-1
 
 ## Repository map
 
-```
-CEH/
-├── README.md                 ← you are here
-├── STUDY-PLAN.md             12-week plan mapped to the 20 modules
-├── EXAM-LOGISTICS.md         eligibility, cost, scheduling, retakes, ECE credits
-├── PROGRESS.md               personal checklist / tracker
-├── modules/                  one guide per official module (01–20)
-│   └── NN-name/README.md     concepts · tools · lab · defender+PAM · exam tips · sources
-├── labs/                     self-hosted, runnable lab environment
-│   ├── docker-compose.yml    web targets (DVWA, Juice Shop, WebGoat, bWAPP)
-│   ├── vagrant/              Kali attacker + Metasploitable target VMs
-│   ├── ansible/              Windows AD + tiered-admin / PAM lab
-│   ├── scripts/              helpers
-│   └── topology.md           network diagram + IP plan
-├── cheatsheets/              ports, nmap, metasploit, hashcat, one-liners
-├── defender-pam/             attack→control matrix, PAM playbook
-└── resources/                official links, tools index, practice platforms
+```mermaid
+flowchart TD
+    CEH["CEH/"]
+    README["README.md — you are here"]
+    STUDY["STUDY-PLAN.md — 12-week plan mapped to the 20 modules"]
+    EXAM["EXAM-LOGISTICS.md — eligibility, cost, scheduling, retakes, ECE credits"]
+    PROGRESS["PROGRESS.md — personal checklist / tracker"]
+    MODULES["modules/ — one guide per official module 01–20"]
+    MODFILE["NN-name/README.md — concepts · tools · lab · defender+PAM · exam tips · sources"]
+    LABS["labs/ — self-hosted, runnable lab environment"]
+    DOCKER["docker-compose.yml — web targets DVWA, Juice Shop, WebGoat, bWAPP"]
+    VAGRANT["vagrant/ — Kali attacker + Metasploitable target VMs"]
+    ANSIBLE["ansible/ — Windows AD + tiered-admin / PAM lab"]
+    SCRIPTS["scripts/ — helpers"]
+    TOPOLOGY["topology.md — network diagram + IP plan"]
+    CHEATSHEETS["cheatsheets/ — ports, nmap, metasploit, hashcat, one-liners"]
+    DEFENDER["defender-pam/ — attack-to-control matrix, PAM playbook, CyberArk architecture, identity attack paths, detection engineering"]
+    RESOURCES["resources/ — official links, tools index, practice platforms"]
+    CEH --> README
+    CEH --> STUDY
+    CEH --> EXAM
+    CEH --> PROGRESS
+    CEH --> MODULES
+    MODULES --> MODFILE
+    CEH --> LABS
+    LABS --> DOCKER
+    LABS --> VAGRANT
+    LABS --> ANSIBLE
+    LABS --> SCRIPTS
+    LABS --> TOPOLOGY
+    CEH --> CHEATSHEETS
+    CEH --> DEFENDER
+    CEH --> RESOURCES
 ```
 
 ---

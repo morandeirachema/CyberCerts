@@ -17,16 +17,21 @@
 
 ### The two levels (the core exam split)
 
-```
-┌───────────────────────────────┐        ┌───────────────────────────────┐
-│  NETWORK-LEVEL                 │        │  APPLICATION-LEVEL             │
-│  hijack the TCP/IP session     │        │  hijack the app session token  │
-│  • TCP seq-number prediction   │        │  • steal session cookie (XSS,  │
-│  • session desync + injection  │        │    sniffing/sidejacking)       │
-│  • RST / FIN hijack            │        │  • session fixation            │
-│  • blind / UDP hijack          │        │  • predictable session IDs     │
-│  • needs MITM or seq guess     │        │  • CSRF rides the session      │
-└───────────────────────────────┘        └───────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph net["NETWORK-LEVEL — hijack the TCP/IP session"]
+        N1["TCP seq-number prediction"]
+        N2["Session desync + injection"]
+        N3["RST / FIN hijack"]
+        N4["Blind / UDP hijack"]
+        N5["Needs MITM or seq guess"]
+    end
+    subgraph app["APPLICATION-LEVEL — hijack the app session token"]
+        A1["Steal session cookie via XSS or sniffing"]
+        A2["Session fixation"]
+        A3["Predictable session IDs"]
+        A4["CSRF rides the session"]
+    end
 ```
 
 ### Network-level techniques
@@ -132,6 +137,22 @@ sudo hping3 -R -p 80 -s 12345 -M <SEQ> 192.168.56.20
 | Stolen **privileged** session | Privileged action from an unexpected client, no recent re-auth, session-recording gaps | **PAM session brokering + recording**, **step-up (re-auth) for sensitive actions**, short **idle timeouts**, bind session to client/MFA |
 
 > **PAM playbook for this module:** a hijack is the attacker inheriting a *live privileged session* — exactly what a PAM broker exists to contain. (1) **Broker and record** privileged sessions so admins never hold a raw reusable token and every action is attributable and replayable. (2) Require **step-up re-authentication** (re-prompt / MFA) for high-impact actions, so a stolen session alone can't approve, delete, or escalate. (3) Enforce **short idle timeouts** and **token rotation on privilege change** so a captured session expires fast and never survives an elevation. (4) **Bind sessions** to client attributes/MFA where possible so a lifted cookie fails from a new context. Mapping lives in [`../../defender-pam/`](../../defender-pam/).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+Session hijacking needs a session token to steal. **PSM** runs the privileged session on the broker, not on the admin's endpoint — so there's no local token to lift, and a suspicious session can be killed in real time.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| Session / token theft | Session runs on the broker; no token on endpoint | PSM |
+| Hijacked privileged session | Live monitor + suspend + terminate | PSM |
+| Web-console / SaaS session theft | Record + protect web sessions | Secure Web Sessions |
+
+**Detection (privileged lens):** PTA "suspicious privileged session," concurrent-session anomalies, session from a new source — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** because the session is isolated on PSM, the admin's browser/RDP client never holds the target credential or a reusable cookie; pair with short TTLs and MFA to shrink any residual window.
+
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
 
 ## Exam tips & gotchas
 

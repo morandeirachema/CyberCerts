@@ -44,15 +44,10 @@ Rule of thumb: **volumetric = fill the pipe**, **protocol = fill the table**, **
 
 **Reflection** = spoof the victim's IP as source, send small queries to open servers → replies go to the victim. **Amplification** = pick a protocol where the *reply is much bigger than the request*.
 
-```
-   Attacker (spoofs VICTIM's IP)
-        │  small query (e.g. 60 bytes)
-        ▼
-   ┌──────────────────────────┐
-   │ Open reflectors          │   ── huge reply ──▶  VICTIM (drowned)
-   │ DNS / NTP / memcached /  │
-   │ SSDP / CLDAP servers     │
-   └──────────────────────────┘
+```mermaid
+flowchart LR
+    A["Attacker<br/>spoofs victim IP<br/>small query ~60 bytes"] --> R["Open reflectors<br/>DNS / NTP / memcached / SSDP / CLDAP"]
+    R -->|"huge reply"| V["Victim<br/>drowned"]
 ```
 
 | Protocol | Trigger | Approx amplification factor* |
@@ -140,6 +135,22 @@ sudo iptables -A INPUT -p tcp --dport 80 -m connlimit --connlimit-above 50 -j DR
 | Admin-plane starvation (collateral) | Loss of SSH/RDP/console during a flood | **Out-of-band management**, dedicated mgmt VLAN, protected/hardened **jump hosts**, QoS priority for admin traffic |
 
 > **PAM playbook for this module:** DoS is an *availability* attack, so the PAM concern is **can you still administer and recover while the service is under fire?** (1) Keep the **admin plane out-of-band** — a separate management network/VLAN so a saturated data-plane never starves SSH/RDP/console. (2) **Harden and protect jump hosts / PAM proxies** — they are single points that must survive, so give them QoS priority, rate limiting, and no exposure to the flooded segment. (3) Maintain **break-glass access** that works when normal auth infrastructure is degraded. (4) Push volumetric mitigation **upstream** (CDN/anycast/scrubbing) because you can't absorb a botnet at the host. Mapping lives in [`../../defender-pam/`](../../defender-pam/).
+
+### 🔐 PAM engineering deep-dive (CyberArk)
+
+The PAM angle on DoS is inward-facing: your control plane must not be a single point of failure, and you need a way to work when it's down without abandoning the controls.
+
+| This module's attack | CyberArk control | Component |
+|---|---|---|
+| DoS against the PAM control plane | Clustered + DR + distributed (satellite) vaults | Vault HA/DR architecture |
+| Session broker becomes a bottleneck / SPOF | Load-balanced PSM farm | PSM |
+| PAM unavailable mid-incident | Documented, sealed, monitored emergency access | Break-glass procedure |
+
+**Detection (privileged lens):** availability + latency monitoring on Vault/PVWA/PSM, and a **high-priority alert on any break-glass retrieval** — see [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+
+**Engineering note:** design the Vault for HA/DR and keep an offline break-glass path with dual-control retrieval, so a DoS on PAM never pressures admins back into direct, unbrokered access.
+
+> Go deeper: [PAM architecture — break-glass & availability](../../defender-pam/pam-architecture.md)
 
 ## Exam tips & gotchas
 
