@@ -2,6 +2,8 @@
 
 > **One-liner:** stealing or riding an *already-authenticated* session so you skip the login entirely — the attacker becomes the user without ever knowing the password. The exam splits this into **network-level** (TCP/packet layer) and **application-level** (session tokens/cookies), and wants you to know the mechanism of each. For a PAM practitioner this is the module that justifies **session brokering, recording, and step-up re-authentication**.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **Network-level vs. application-level** hijacking — the primary dividing line.

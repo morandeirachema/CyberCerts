@@ -2,6 +2,8 @@
 
 > **One-liner:** how attackers slip scans and payloads past the sensors, packet filters, and deception you deploy — and, read the other way, how a defender detects the evasion. As a PAM/sysadmin this is your egress-filtering, jump-host-monitoring, and deception module: almost every evasion trick has a matching log signal or control you already own.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **IDS vs IPS** and **NIDS vs HIDS** — placement (passive tap/SPAN vs inline), what each sees.

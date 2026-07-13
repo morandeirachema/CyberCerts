@@ -2,6 +2,8 @@
 
 > **One-liner:** the first real phase — gathering everything about a target *before* touching it. This is where passive OSINT ends and active probing begins, and the exam tests that line hard. For a PAM/sysadmin, this is your attack-surface inventory viewed from the outside.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **Passive vs. active** footprinting — WHOIS/Google/Shodan (passive) vs. DNS zone transfer/traceroute/ping (active). One wrong verb flips the answer.

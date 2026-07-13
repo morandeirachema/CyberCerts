@@ -2,6 +2,8 @@
 
 > **One-liner:** turning the recon map into a live target list — which hosts are up, which ports are open, what's listening, and what OS it runs. This is Nmap's module, and the exam tests scan *types* and *flags* precisely. For a sysadmin, it's the same discovery you run to inventory a subnet — just from the attacker's chair.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - The **TCP three-way handshake** (SYN → SYN/ACK → ACK) and every **TCP flag** (SYN, ACK, FIN, RST, PSH, URG).

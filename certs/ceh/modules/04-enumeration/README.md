@@ -2,6 +2,8 @@
 
 > **One-liner:** actively querying discovered services to pull out names — users, shares, groups, machines, and configs. Scanning finds the door; enumeration reads the nameplate. This module is *directly* your world: it's the outside view of the exact directory, share, and service-account data a PAM/sysadmin governs.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **Enumeration = active** by definition — you're making authenticated or anonymous requests to services.

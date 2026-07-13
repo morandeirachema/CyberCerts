@@ -4,6 +4,8 @@
 
 > ⚠️ **SAFETY / LEGAL:** DoS/DDoS against any system you do not own is a **crime** (CFAA / Computer Misuse Act equivalents) — no exceptions, no "just testing." Flooding tools also disrupt *shared* infrastructure, so run everything **only against a dedicated lab target on the isolated `192.168.56.0/24` segment or a localhost container you can afford to crash**. Never point these at the internet, a cloud VM, a home router, or a third party. Stress-test tools like LOIC/HOIC are named here for **recognition only** — do not download or fire them at anything you don't own.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - The **three DoS categories**: **volumetric** (bandwidth), **protocol/state** (connection tables), **application-layer** (L7 resource exhaustion).
