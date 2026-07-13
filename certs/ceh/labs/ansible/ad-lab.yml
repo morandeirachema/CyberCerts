@@ -82,10 +82,118 @@
             - t0-admin
         state: present
 
+    # ---- gMSA: the Kerberoasting FIX (contrast with svc-sql) --------------
+    # svc-sql (weak SPN password) is roastable; a gMSA has a 128-char managed
+    # password that can't be cracked. Create one so you can prove the control.
+    #   Attack/fix: ../../defender-pam/identity-attack-paths.md
+    - name: Create KDS root key (required once for gMSA; effective immediately in a lab)
+      ansible.windows.win_powershell:
+        script: |
+          if (-not (Get-KdsRootKey)) {
+            Add-KdsRootKey -EffectiveTime ((Get-Date).AddHours(-10)) | Out-Null
+          }
+      changed_when: false
+
+    - name: Create a gMSA for the web service (roast-proof)
+      ansible.windows.win_powershell:
+        script: |
+          if (-not (Get-ADServiceAccount -Filter "Name -eq 'gmsa-web'" -ErrorAction SilentlyContinue)) {
+            New-ADServiceAccount -Name gmsa-web -DNSHostName gmsa-web.ceh.lab `
+              -ServicePrincipalNames "HTTP/web01.ceh.lab" `
+              -PrincipalsAllowedToRetrieveManagedPassword "Domain Computers"
+          }
+
+- name: Introduce deliberate identity attack paths (LAB ONLY)
+  hosts: dc
+  gather_facts: false
+  # Each item below is an intentional weakness so you can practice the attack
+  # in ../../defender-pam/identity-attack-paths.md, then apply the noted fix.
+  tasks:
+    # ---- Unconstrained delegation on a member host (T1558 / cred theft) ---
+    # A host trusted for unconstrained delegation captures the TGT of anyone
+    # who connects to it (incl. a DA). FIX: remove the flag; mark admins
+    # "sensitive - cannot be delegated" + add to Protected Users.
+    - name: Flag ws01 as trusted for unconstrained delegation (WEAKNESS)
+      ansible.windows.win_powershell:
+        script: |
+          Get-ADComputer ws01 | Set-ADAccountControl -TrustedForDelegation $true
+
+    # ---- RBCD write path (delegation abuse) ------------------------------
+    # Give a low-priv user GenericWrite on a computer object -> they can set
+    # msDS-AllowedToActOnBehalfOfOtherIdentity and impersonate to it.
+    # FIX: restrict who can write computer attributes; tier admin.
+    - name: Grant jdoe GenericWrite over ws01 (WEAKNESS for RBCD practice)
+      ansible.windows.win_powershell:
+        script: |
+          $u = (Get-ADUser jdoe).SID
+          $c = "AD:\" + (Get-ADComputer ws01).DistinguishedName
+          $acl = Get-Acl $c
+          $ace = New-Object System.DirectoryServices.ActiveDirectoryAccessRule(
+            $u, "GenericWrite", "Allow")
+          $acl.AddAccessRule($ace); Set-Acl $c $acl
+
+- name: Deploy ADCS with a vulnerable ESC1 template (LAB ONLY)
+  hosts: dc
+  gather_facts: false
+  # ADCS ESC1: a template that allows the enrollee to supply the SAN and has a
+  # client-auth EKU, enrollable by low-priv users -> request a cert AS a DA.
+  # Research: https://posts.specterops.io/certified-pre-owned-d95910965cd2
+  # AUDIT/FIX with Certipy: https://github.com/ly4k/Certipy  (remove SAN flag,
+  # tighten template + CA ACLs, require manager approval).
+  tasks:
+    - name: Install AD Certificate Services role
+      ansible.windows.win_feature:
+        name: [AD-Certificate, ADCS-Cert-Authority]
+        include_management_tools: true
+      register: adcs_feat
+
+    - name: Configure an Enterprise Root CA
+      ansible.windows.win_powershell:
+        script: |
+          try { Get-CertificationAuthority -ErrorAction Stop | Out-Null }
+          catch {
+            Install-AdcsCertificationAuthority -CAType EnterpriseRootCa `
+              -Force -ErrorAction SilentlyContinue
+          }
+      changed_when: false
+
+    - name: Create a vulnerable ESC1 certificate template (WEAKNESS)
+      ansible.windows.win_powershell:
+        # Requires the PSPKI module (Install-Module PSPKI). Clones the User
+        # template, adds "Enrollee Supplies Subject" (ESC1) + Client Auth EKU,
+        # and grants Domain Users enroll. Verify with: certipy find -vulnerable
+        script: |
+          if (-not (Get-Module -ListAvailable PSPKI)) {
+            Write-Output "PSPKI not installed -> run: Install-Module PSPKI -Force"
+          } else {
+            Import-Module PSPKI
+            # (Lab helper: clone + set the CT_FLAG_ENROLLEE_SUPPLIES_SUBJECT bit,
+            #  Client Authentication EKU, and an Enroll ACE for Domain Users.)
+            Write-Output "Use PSPKI/Certify to publish 'ESC1-Vuln' per the lab notes."
+          }
+      changed_when: false
+
+- name: Enroll Windows LAPS (the local-admin-reuse FIX)
+  hosts: dc
+  gather_facts: false
+  # Windows LAPS gives each machine a unique, rotated local admin password ->
+  # kills Pass-the-Hash lateral movement via a shared local admin (Module 06).
+  tasks:
+    - name: Update AD schema for Windows LAPS
+      ansible.windows.win_powershell:
+        script: |
+          if (Get-Command Update-LapsADSchema -ErrorAction SilentlyContinue) {
+            Update-LapsADSchema -Confirm:$false
+          } else { Write-Output "Windows LAPS cmdlets require a recent build." }
+      changed_when: false
+
     - name: Show what to test next
       ansible.builtin.debug:
         msg:
-          - "DC ready. Now practice from Kali (192.168.56.10):"
-          - "  enum4linux-ng / rpcclient / ldapsearch against 192.168.56.30"
-          - "  Kerberoast svc-sql, then observe Protected Users blocking t0-admin theft"
-          - "  See ../../defender-pam/attack-to-control-matrix.md"
+          - "Lab ready. From Kali (192.168.56.10), practice the chain (see labs/capstone.md):"
+          - "  1. enum4linux-ng / ldapsearch / rpcclient -> 192.168.56.30"
+          - "  2. Kerberoast svc-sql (crackable); confirm gmsa-web is NOT crackable"
+          - "  3. RBCD: jdoe has GenericWrite on ws01 -> impersonate to it"
+          - "  4. ADCS: certipy find -vulnerable -> abuse ESC1 template"
+          - "  5. DCSync with a privileged account; then rotate krbtgt twice"
+          - "  Apply each FIX and re-run. Map: ../../defender-pam/identity-attack-paths.md"

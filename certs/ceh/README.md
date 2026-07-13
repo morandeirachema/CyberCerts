@@ -52,7 +52,7 @@ Every module ties the offensive technique you must learn for the exam back to th
 | ❓ **Practice questions** | 287 original, concept-based, with collapsible explanations |
 | 🃏 **Flashcards** | 620 Anki-ready cards, tagged per module |
 | 🛡️ **Defender/PAM knowledge base** | attack→control matrix · PAM playbook · CyberArk architecture · identity attack paths · detection engineering · CyberArk mapping |
-| 🧪 **Lab** | Docker (DVWA, Juice Shop, WebGoat, bWAPP) + Vagrant (Kali + Metasploitable) + Ansible AD/PAM |
+| 🧪 **Lab** | Docker web targets + Vagrant (Kali + Metasploitable) + Ansible **AD/ADCS** lab with planted attack paths + a chained [capstone](labs/capstone.md) engagement |
 | 🎯 **Exam prep** | strategy guide, glossary/acronym index, **50- and 125-question mock exams**, 12-week plan, progress tracker |
 | 🤖 **AI-driven hacking** | AI across each phase + attacking/defending AI (LLM Top 10, adversarial ML) — CEH v13's headline topic |
 | 🧭 **Coverage matrix** | per-module subtopic checklist mapped to where each topic is covered |
