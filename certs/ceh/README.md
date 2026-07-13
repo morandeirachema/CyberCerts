@@ -53,6 +53,8 @@ Every module ties the offensive technique you must learn for the exam back to th
 | 🃏 **Flashcards** | 620 Anki-ready cards, tagged per module |
 | 🛡️ **Defender/PAM knowledge base** | attack→control matrix · PAM playbook · CyberArk architecture · identity attack paths · detection engineering · CyberArk mapping |
 | 🧪 **Lab** | Docker web targets + Vagrant (Kali + Metasploitable) + Ansible **AD/ADCS** lab with planted attack paths + a chained [capstone](labs/capstone.md) engagement |
+| 🐉 **Kali tool tutorial** | deep, phase-by-phase [Kali guide](KALI-TUTORIAL.md) with real commands against the lab |
+| 🧠 **AI study workflow** | copy-paste [AI-tutor prompts](AI-STUDY-WORKFLOW.md) wired to the repo (Socratic quiz, miss→flashcards, Feynman check) |
 | 🎯 **Exam prep** | strategy guide, glossary/acronym index, **50- and 125-question mock exams**, 12-week plan, progress tracker |
 | 🤖 **AI-driven hacking** | AI across each phase + attacking/defending AI (LLM Top 10, adversarial ML) — CEH v13's headline topic |
 | 🧭 **Coverage matrix** | per-module subtopic checklist mapped to where each topic is covered |
@@ -186,6 +188,8 @@ flowchart TD
     MOCKFULL["MOCK-EXAM-FULL.md — 125-question full-length exam"]
     AICEH["AI-IN-ETHICAL-HACKING.md — AI-driven hacking (v13)"]
     COVERAGE["BLUEPRINT-COVERAGE.md — subtopic coverage matrix"]
+    KALI["KALI-TUTORIAL.md — deep Kali tool tutorial"]
+    AIWF["AI-STUDY-WORKFLOW.md — AI-tutor study system"]
     GLOSSARY["GLOSSARY.md — acronym / term index"]
     STUDY["STUDY-PLAN.md — 12-week plan"]
     EXAM["EXAM-LOGISTICS.md — eligibility, cost, scheduling, ECE"]
@@ -202,6 +206,8 @@ flowchart TD
     CEH --> MOCKFULL
     CEH --> AICEH
     CEH --> COVERAGE
+    CEH --> KALI
+    CEH --> AIWF
     CEH --> GLOSSARY
     CEH --> STUDY
     CEH --> EXAM
