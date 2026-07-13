@@ -4,6 +4,8 @@
 
 > ⚠️ **SAFETY / LEGAL:** Run phishing simulations and pretext calls **only inside your own lab, against your own test accounts**. Sending a phish, cloning a login page, or pretexting a real person or third-party org — even "to prove a point" — is illegal (fraud/unauthorized access) and unethical without written authorization and scope. Every command below targets lab accounts you created.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - The **three delivery vectors**: **human-based**, **computer-based**, and **mobile-based** — and which technique goes in which bucket.

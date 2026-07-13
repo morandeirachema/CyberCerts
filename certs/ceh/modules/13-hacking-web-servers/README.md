@@ -2,6 +2,8 @@
 
 > **One-liner:** attacking the *server* that serves the app — the HTTP daemon, its OS, its config, and its patch level — not (yet) the application code. For a sysadmin this is the most familiar module: nearly every finding is a hardening, patching, or least-privilege gap you would remediate in production.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **Web server architecture**: the stack (OS → HTTP server → app runtime → database → document root) and where each attack lands.
