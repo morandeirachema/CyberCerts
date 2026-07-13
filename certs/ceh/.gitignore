@@ -1,0 +1,39 @@
+# Lab / VM artifacts
+.vagrant/
+*.box
+*.vdi
+*.vmdk
+*.log
+
+# Ansible
+labs/ansible/*.retry
+labs/ansible/vault-password*
+*.vault
+
+# Secrets & local env
+.env
+*.pem
+*.key
+*.crt
+credentials*
+loot/
+captures/
+*.pcap
+*.pcapng
+*.hccapx
+*.cap
+hashes.txt
+cracked.txt
+
+# Personal notes you may not want public (uncomment to ignore)
+# **/lab-log-private.md
+
+# Tooling
+*.swp
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+
+# Local editor / assistant config (machine-specific)
+.claude/settings.local.json

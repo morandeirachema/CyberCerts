@@ -1,0 +1,91 @@
+---
+# CEH AD / PAM lab — provisions a Domain Controller with a tiered-admin model.
+#
+# This intentionally builds the SAME structure a PAM/sysadmin defends (Tier 0/1/2,
+# Protected Users, dedicated admin accounts) so you can attack it in the lab AND
+# watch the controls contain the attack. Attack<->control map: ../../defender-pam/
+#
+# Requires collections:
+#   ansible-galaxy collection install microsoft.ad ansible.windows community.windows
+# Run:
+#   ansible-playbook -i inventory.ini ad-lab.yml --ask-vault-pass
+#
+# Docs:
+#   microsoft.ad  https://docs.ansible.com/ansible/latest/collections/microsoft/ad/
+#   ansible.windows https://docs.ansible.com/ansible/latest/collections/ansible/windows/
+
+- name: Promote domain controller
+  hosts: dc
+  gather_facts: false
+  vars:
+    domain_name: ceh.lab
+    domain_netbios: CEH
+  tasks:
+    - name: Ensure AD DS + create/promote the domain
+      microsoft.ad.domain:
+        dns_domain_name: "{{ domain_name }}"
+        domain_netbios_name: "{{ domain_netbios }}"
+        safe_mode_password: "{{ vault_safe_mode_password }}"
+      register: dc_promo
+
+    - name: Reboot after promotion if required
+      ansible.windows.win_reboot:
+      when: dc_promo.reboot_required
+
+- name: Build tiered-admin OU model and accounts
+  hosts: dc
+  gather_facts: false
+  vars:
+    ou_base: "DC=ceh,DC=lab"
+  tasks:
+    # ---- Tiered OUs (the core PAM design) --------------------------------
+    - name: Create administrative tier OUs
+      microsoft.ad.ou:
+        name: "{{ item }}"
+        path: "{{ ou_base }}"
+        state: present
+      loop:
+        - Tier0        # domain/forest control: DA, DC admins, PKI, PAM vault admins
+        - Tier1        # server admins (member servers, DBs)
+        - Tier2        # workstation admins / helpdesk
+        - Standard     # normal users
+
+    # ---- Sample accounts per tier ----------------------------------------
+    - name: Create tiered admin + standard accounts
+      microsoft.ad.user:
+        name: "{{ item.name }}"
+        firstname: "{{ item.name }}"
+        surname: "lab"
+        password: "{{ vault_user_password }}"
+        path: "OU={{ item.ou }},{{ ou_base }}"
+        state: present
+        password_never_expires: false
+        # A deliberately weak SPN account so you can practice Kerberoasting,
+        # then re-run with a strong password to see the control work:
+        attributes:
+          set:
+            servicePrincipalName: "{{ item.spn | default(omit) }}"
+      loop:
+        - { name: "t0-admin", ou: "Tier0" }
+        - { name: "t1-svradmin", ou: "Tier1" }
+        - { name: "t2-helpdesk", ou: "Tier2" }
+        - { name: "svc-sql", ou: "Tier1", spn: "MSSQLSvc/sql01.ceh.lab:1433" }
+        - { name: "jdoe", ou: "Standard" }
+
+    # ---- Protected Users: blocks NTLM, delegation, weak Kerberos for VIPs --
+    - name: Ensure high-value accounts are in Protected Users
+      microsoft.ad.group:
+        name: Protected Users
+        scope: global
+        members:
+          add:
+            - t0-admin
+        state: present
+
+    - name: Show what to test next
+      ansible.builtin.debug:
+        msg:
+          - "DC ready. Now practice from Kali (192.168.56.10):"
+          - "  enum4linux-ng / rpcclient / ldapsearch against 192.168.56.30"
+          - "  Kerberoast svc-sql, then observe Protected Users blocking t0-admin theft"
+          - "  See ../../defender-pam/attack-to-control-matrix.md"
