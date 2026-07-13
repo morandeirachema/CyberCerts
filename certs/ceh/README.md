@@ -52,7 +52,7 @@ Every module ties the offensive technique you must learn for the exam back to th
 | 🃏 **Flashcards** | 620 Anki-ready cards, tagged per module |
 | 🛡️ **Defender/PAM knowledge base** | attack→control matrix · PAM playbook · CyberArk architecture · identity attack paths · detection engineering · CyberArk mapping |
 | 🧪 **Lab** | Docker (DVWA, Juice Shop, WebGoat, bWAPP) + Vagrant (Kali + Metasploitable) + Ansible AD/PAM |
-| 🎯 **Exam prep** | strategy guide, glossary/acronym index, **50-question mixed mock exam**, 12-week plan, progress tracker |
+| 🎯 **Exam prep** | strategy guide, glossary/acronym index, **50- and 125-question mock exams**, 12-week plan, progress tracker |
 
 ---
 
@@ -96,7 +96,7 @@ flowchart LR
 5. **Drill** `flashcards.csv` (import into Anki — the `#tags` line groups cards by module).
 6. **Track** in [`PROGRESS.md`](PROGRESS.md); log every miss in the weak-area table and re-test it first next session.
 
-Keep [`GLOSSARY.md`](GLOSSARY.md) open for acronym lookups. Once you've worked several modules, take the [`MOCK-EXAM.md`](MOCK-EXAM.md) — 50 mixed questions across all 20 modules — under timed conditions to check your breadth. In the final weeks, drill each module's one-page [`facts.md`](modules/), the [`cheatsheets/`](cheatsheets/), and the practice platforms in [`resources/practice-labs.md`](resources/practice-labs.md).
+Keep [`GLOSSARY.md`](GLOSSARY.md) open for acronym lookups. Once you've worked several modules, take the [`MOCK-EXAM.md`](MOCK-EXAM.md) — 50 mixed questions — as a checkpoint, and the full-length [`MOCK-EXAM-FULL.md`](MOCK-EXAM-FULL.md) — 125 questions in 240 minutes — as a timed dress rehearsal before booking. In the final weeks, drill each module's one-page [`facts.md`](modules/), the [`cheatsheets/`](cheatsheets/), and the practice platforms in [`resources/practice-labs.md`](resources/practice-labs.md).
 
 ---
 
@@ -179,7 +179,8 @@ flowchart TD
     CEH["CEH/"]
     README["README.md — you are here"]
     STRATEGY["EXAM-STRATEGY.md — study system + test-day tactics"]
-    MOCK["MOCK-EXAM.md — 50-question mixed final exam"]
+    MOCK["MOCK-EXAM.md — 50-question checkpoint"]
+    MOCKFULL["MOCK-EXAM-FULL.md — 125-question full-length exam"]
     GLOSSARY["GLOSSARY.md — acronym / term index"]
     STUDY["STUDY-PLAN.md — 12-week plan"]
     EXAM["EXAM-LOGISTICS.md — eligibility, cost, scheduling, ECE"]
@@ -193,6 +194,7 @@ flowchart TD
     CEH --> README
     CEH --> STRATEGY
     CEH --> MOCK
+    CEH --> MOCKFULL
     CEH --> GLOSSARY
     CEH --> STUDY
     CEH --> EXAM
