@@ -2,6 +2,8 @@
 
 > **One-liner:** the math that protects (and, when misused, exposes) everything else — symmetric vs. asymmetric ciphers, hashing, PKI, TLS, and the attacks against them. For a PAM practitioner this is home turf: your vault encrypts secrets at rest, signs audit trails, rotates keys, and manages certificate lifecycles. The exam tests definitions precisely, so get the pairings exact.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - **Symmetric vs. asymmetric**: keys, speed, and correct use (bulk encryption vs. key exchange + signatures).

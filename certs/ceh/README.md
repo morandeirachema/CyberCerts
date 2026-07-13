@@ -87,8 +87,10 @@ flowchart TD
     STUDY["STUDY-PLAN.md — 12-week plan mapped to the 20 modules"]
     EXAM["EXAM-LOGISTICS.md — eligibility, cost, scheduling, retakes, ECE credits"]
     PROGRESS["PROGRESS.md — personal checklist / tracker"]
+    STRATEGY["EXAM-STRATEGY.md — study system + test-day tactics"]
+    GLOSSARY["GLOSSARY.md — acronym / term index"]
     MODULES["modules/ — one guide per official module 01–20"]
-    MODFILE["NN-name/README.md — concepts · tools · lab · defender+PAM · exam tips · sources"]
+    MODFILE["NN-name/README.md + facts / practice-questions / flashcards / lab-walkthrough"]
     LABS["labs/ — self-hosted, runnable lab environment"]
     DOCKER["docker-compose.yml — web targets DVWA, Juice Shop, WebGoat, bWAPP"]
     VAGRANT["vagrant/ — Kali attacker + Metasploitable target VMs"]
@@ -102,6 +104,8 @@ flowchart TD
     CEH --> STUDY
     CEH --> EXAM
     CEH --> PROGRESS
+    CEH --> STRATEGY
+    CEH --> GLOSSARY
     CEH --> MODULES
     MODULES --> MODFILE
     CEH --> LABS
@@ -121,12 +125,16 @@ flowchart TD
 
 1. Read [`EXAM-LOGISTICS.md`](EXAM-LOGISTICS.md) and confirm your eligibility path and the current blueprint.
 2. Stand up the lab from [`labs/README.md`](labs/README.md).
-3. Work modules **in order** ([`STUDY-PLAN.md`](STUDY-PLAN.md) gives a 12-week cadence). For each module:
-   - Read the concepts and the exam-testable facts.
-   - Run the lab exercise against **your** targets and record results in the module's lab-log section.
+3. Read [`EXAM-STRATEGY.md`](EXAM-STRATEGY.md) once up front — it defines the **study system** (active recall + spaced repetition) and the **test-day tactics** you'll apply throughout.
+4. Work modules **in order** ([`STUDY-PLAN.md`](STUDY-PLAN.md) gives a 12-week cadence). For each module:
+   - Read the concepts and the exam-testable facts in the module `README.md`.
+   - Do the **lab walkthrough** against **your** targets and record results in the lab-log section.
    - Read the **Defender & PAM mapping** — this is your retention hook.
-   - Tick the module in [`PROGRESS.md`](PROGRESS.md).
-4. In the final weeks, drill with the [`cheatsheets/`](cheatsheets/) and the practice platforms in [`resources/practice-labs.md`](resources/practice-labs.md).
+   - Test yourself with the module's **practice questions**, then drill its **flashcards** (import the `.csv` into Anki).
+   - Tick the module in [`PROGRESS.md`](PROGRESS.md); log every miss in the weak-area table.
+5. Keep [`GLOSSARY.md`](GLOSSARY.md) open for acronym lookups, and in the final weeks drill each module's one-page **`facts.md`**, the [`cheatsheets/`](cheatsheets/), and the practice platforms in [`resources/practice-labs.md`](resources/practice-labs.md).
+
+> **Study companions** (`facts.md`, `practice-questions.md`, `flashcards.csv`, `lab-walkthrough.md`) currently ship for the pilot modules **06, 15, and 20**; the same set is rolling out to all 20.
 
 ---
 

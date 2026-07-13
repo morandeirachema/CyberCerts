@@ -2,6 +2,8 @@
 
 > **One-liner:** the classic "untrusted input reaches the SQL interpreter" flaw — how to find it, how to exploit it by hand and with sqlmap, and why the fix is *parameterized queries + a least-privilege DB account*. For a PAM reader this is a story about a service account with far too much power on the database.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - The **SQLi taxonomy**: in-band (error-based, UNION-based), inferential/**blind** (boolean-based, time-based), and **out-of-band** (OOB) — and how to tell them apart.

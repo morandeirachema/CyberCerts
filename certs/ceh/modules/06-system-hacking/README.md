@@ -2,6 +2,8 @@
 
 > **One-liner:** the core attack chain against a host once you're on it — cracking/guessing credentials, escalating privilege, executing code, hiding, and covering tracks. This is the module where your PAM background pays off most: almost every technique here is something a PAM/tiering control is designed to defeat.
 
+> **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
+
 ## Exam focus
 
 - The **System Hacking methodology**: Gaining Access → Escalating Privileges → Maintaining Access → Clearing Logs.
