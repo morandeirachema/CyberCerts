@@ -4,6 +4,8 @@
 
 > **⚖️ Authorized targets only.** Everything below is for your isolated lab or systems you have written permission to test. Kali ships *offensive* tools — pointing them at anything else is a crime.
 
+> 🎓 **New to Linux/Kali?** This page is the fast reference. For a **from-zero, beginner→mastery course** (17 chapters, "what is Linux" → attacking Active Directory), start with [`kali/`](kali/).
+
 ## Contents
 - [0. Setup & conventions](#0-setup--conventions)
 - [1. Recon / OSINT](#1-recon--osint-module-02)
