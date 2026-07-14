@@ -38,6 +38,7 @@ This repo is big; start where you fit and follow the trail.
 - ⏱️ **Know the tech, need the cert** — read [`EXAM-STRATEGY.md`](EXAM-STRATEGY.md), then per module skim the guide, drill its `facts.md` + `practice-questions.md` + `flashcards.csv`, and check yourself with the [50-](MOCK-EXAM.md) and [125-question](MOCK-EXAM-FULL.md) mocks. Use [`BLUEPRINT-COVERAGE.md`](BLUEPRINT-COVERAGE.md) to confirm coverage.
 - 🛡️ **Sysadmin / PAM engineer** — start with the [`defender-pam/`](defender-pam/) knowledge base and [identity attack paths](defender-pam/identity-attack-paths.md), run the [`labs/capstone.md`](labs/capstone.md) chain to see attack→control end-to-end, then skim the modules for the offensive detail.
 - 🤖 **Curious about v13's AI focus** — read [`AI-IN-ETHICAL-HACKING.md`](AI-IN-ETHICAL-HACKING.md) and study with [`AI-STUDY-WORKFLOW.md`](AI-STUDY-WORKFLOW.md).
+- 🏆 **Going for CEH Master (the hands-on Practical)** — work the [`practical/`](practical/) section: a skills checklist, challenge playbooks, and timed drills for the 6-hour performance exam.
 
 ---
 
@@ -67,6 +68,7 @@ This repo is big; start where you fit and follow the trail.
 | 🧪 **Lab** | Docker web targets + Vagrant (Kali + Metasploitable) + Ansible **AD/ADCS** lab with planted attack paths + a chained [capstone](labs/capstone.md) engagement |
 | 🐉 **Kali** | a [beginner→mastery course](kali/) (17 chapters, from "what is Linux" to attacking AD) + a one-page [reference](KALI-TUTORIAL.md), all against the lab |
 | 🧠 **AI study workflow** | copy-paste [AI-tutor prompts](AI-STUDY-WORKFLOW.md) wired to the repo (Socratic quiz, miss→flashcards, Feynman check) |
+| 🏆 **CEH Practical** | hands-on [CEH Master prep](practical/): skills checklist, challenge playbooks, timed lab drills |
 | 🎯 **Exam prep** | strategy guide, glossary/acronym index, **50- and 125-question mock exams**, 12-week plan, progress tracker |
 | 🤖 **AI-driven hacking** | AI across each phase + attacking/defending AI (LLM Top 10, adversarial ML) — CEH v13's headline topic |
 | 🧭 **Coverage matrix** | per-module subtopic checklist mapped to where each topic is covered |
@@ -196,6 +198,8 @@ The values below are consistent across multiple public sources as of **2026-07-1
 | Duration | **6 hours** |
 | Result | Passing both the Knowledge exam and the Practical earns the **CEH Master** designation |
 
+> **Prepping the Practical?** The [`practical/`](practical/) section has a skills checklist, challenge playbooks (question→recipe), and timed lab drills for the hands-on exam.
+
 > ⚠️ **Blueprint domains vs. modules.** EC-Council groups the 20 modules into a smaller set of scored *domains* in Blueprint v5.0. Public sources report the exact per-domain percentages **inconsistently**, so this repo does **not** print made-up weights. Download the official blueprint PDF and record the real weights in [`EXAM-LOGISTICS.md`](EXAM-LOGISTICS.md) yourself.
 
 ---
@@ -222,6 +226,7 @@ flowchart TD
     MODFILE["each: README + facts + practice-questions + flashcards + lab-walkthrough"]
     DEFENDER["defender-pam/ — matrix, playbook, CyberArk architecture, identity paths, detection"]
     LABS["labs/ — Docker + Vagrant + Ansible AD/PAM lab"]
+    PRACTICAL["practical/ — CEH Practical (hands-on) prep"]
     CHEATSHEETS["cheatsheets/ — ports, nmap, metasploit, hashcat, one-liners"]
     RESOURCES["resources/ — official links, tools, practice platforms"]
     CEH --> README
@@ -241,6 +246,7 @@ flowchart TD
     MODULES --> MODFILE
     CEH --> DEFENDER
     CEH --> LABS
+    CEH --> PRACTICAL
     CEH --> CHEATSHEETS
     CEH --> RESOURCES
 ```
