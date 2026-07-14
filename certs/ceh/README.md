@@ -253,6 +253,18 @@ flowchart TD
 
 ---
 
+### Everything here (clickable index)
+
+**Study the theory:** [Modules 01–20](modules/) · [Study plan (12 weeks)](STUDY-PLAN.md) · [Exam strategy](EXAM-STRATEGY.md) · [Glossary](GLOSSARY.md) · [Blueprint coverage](BLUEPRINT-COVERAGE.md) · [Progress tracker](PROGRESS.md) · [Exam logistics](EXAM-LOGISTICS.md)
+
+**Learn the tools & do labs:** [Kali course (beginner→mastery)](kali/) · [Kali one-page reference](KALI-TUTORIAL.md) · [Lab environment](labs/) · [Capstone chain](labs/capstone.md) · [Cheatsheets](cheatsheets/)
+
+**Pass the exams:** [Mock exam — 50 Q](MOCK-EXAM.md) · [Full mock — 125 Q](MOCK-EXAM-FULL.md) · [CEH Practical prep](practical/) · [Challenge generator](practical/challenge-lab/) · [Drill packs](practical/drills/) · [Simulated exams](practical/exams/)
+
+**Go deeper:** [Defender / PAM (CyberArk)](defender-pam/) · [Identity attack paths](defender-pam/identity-attack-paths.md) · [Detection engineering](defender-pam/detection-engineering.md) · [AI-driven hacking](AI-IN-ETHICAL-HACKING.md) · [AI study workflow](AI-STUDY-WORKFLOW.md) · [Deep references](resources/deep-references.md) · [Resources](resources/)
+
+---
+
 ## Official EC-Council references
 
 - CEH program home — https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/
