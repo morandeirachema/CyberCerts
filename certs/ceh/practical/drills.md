@@ -4,6 +4,8 @@
 
 > **Setup:** lab running ([`../labs/README.md`](../labs/README.md)); Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`, DC/ADCS `192.168.56.30` (`ceh.lab`), Docker web `localhost:8081–8084`. Recipes: [challenge-playbooks.md](challenge-playbooks.md).
 
+> This is the **quick sampler**. For depth, use the per-domain packs in [`drills/`](drills/) (8–12 challenges each, full walkthroughs), generate stego/pcap/crypto/hash challenges with [`challenge-lab/`](challenge-lab/), and sit a full [simulated exam](exams/) when ready.
+
 Score yourself: **✅ under target time / ⚠️ over time / ❌ needed the hint**. Re-drill anything not ✅.
 
 ---
