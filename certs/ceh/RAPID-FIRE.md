@@ -13,7 +13,7 @@
 ## Set 1 — Questions 1–10
 
 **1.** The Diamond Model of Intrusion Analysis links every intrusion event through four core features. Which set names them?
-- A. Recon, Weaponization, Delivery, Exploitation  B. Adversary, Capability, Infrastructure, Victim  C. Spoofing, Tampering, Repudiation, Elevation  D. Strategic, Tactical, Operational, Technical
+- A. Adversary, Capability, Infrastructure, Victim  B. Recon, Weaponization, Delivery, Exploitation  C. Spoofing, Tampering, Repudiation, Elevation  D. Strategic, Tactical, Operational, Technical
 
 **2.** In STRIDE threat modeling, which category describes a user being able to perform a sensitive action and later credibly deny having done it?
 - A. Spoofing  B. Tampering  C. Repudiation  D. Elevation of privilege
@@ -34,7 +34,7 @@
 - A. NS  B. SOA  C. PTR  D. CNAME
 
 **8.** During OSINT you want to visually map the relationships among people, domains, emails, and infrastructure as a link-analysis graph. Which tool is purpose-built for this?
-- A. theHarvester  B. Maltego  C. Nikto  D. onesixtyone
+- A. theHarvester  B. onesixtyone  C. Nikto  D. Maltego
 
 **9.** Which reconnaissance action remains strictly passive (no packet reaches the target's own infrastructure)?
 - A. Retrieving Google's cached copy of the target's page  B. Running traceroute to the target  C. Requesting an AXFR from the target's name server  D. Banner-grabbing the target's web server
@@ -46,14 +46,14 @@
 
 | Q | Ans | Why |
 |---|---|---|
-| 1 | B | Diamond Model's four vertices are Adversary, Capability, Infrastructure, Victim (M01) |
+| 1 | A | Diamond Model's four vertices are Adversary, Capability, Infrastructure, Victim (M01) |
 | 2 | C | The "R" in STRIDE is Repudiation — denying an action with no proof (M01) |
 | 3 | D | Strategic intel serves executives/risk; technical = IoC feeds (M01) |
 | 4 | C | Red team is objective-driven and tests detection/response, not breadth (M01) |
 | 5 | C | PCI DSS governs cardholder data; HIPAA=health, SOX=financial, GDPR=EU personal (M01) |
 | 6 | C | RIPE NCC covers Europe/Middle East; ARIN=N. America, APNIC=Asia-Pac (M02) |
 | 7 | B | SOA holds the primary NS and zone serial; NS only lists authoritative servers (M02) |
-| 8 | B | Maltego is the link-analysis/graphing OSINT tool (M02) |
+| 8 | D | Maltego is the link-analysis/graphing OSINT tool (M02) |
 | 9 | A | `cache:` reads Google's copy — no packet to the target = passive (M02) |
 | 10 | C | PTR = reverse IP→hostname, leaking internal naming schemes (M02) |
 
@@ -62,7 +62,7 @@
 ## Set 2 — Questions 11–20
 
 **11.** ICMP is blocked, so Nmap marks hosts down and skips them. Which flag forces Nmap to skip host discovery and scan ports anyway, treating each target as up?
-- A. -sn  B. -Pn  C. -sL  D. -sV
+- A. -Pn  B. -sn  C. -sL  D. -sV
 
 **12.** A NULL scan (`-sN`) is run against a Windows host. What does Nmap most likely report for every port, and why?
 - A. open|filtered, because Windows drops flagless packets  B. All closed, because Windows replies RST regardless of port state  C. open, because Windows completes the handshake  D. filtered, because the firewall blocks all probes
@@ -74,19 +74,19 @@
 - A. A UDP datagram with no payload  B. A TCP RST  C. An ICMP port-unreachable message  D. SYN/ACK
 
 **15.** Which Nmap option makes probe packets appear to originate from source port 53 so that filters trusting DNS traffic may let them through?
-- A. -D  B. --source-port 53  C. -f  D. -sI
+- A. -D  B. -sI  C. -f  D. --source-port 53
 
 **16.** To list a host's exported file systems with `showmount -e`, which service and default port are you enumerating?
 - A. SMB on 445  B. NFS on 2049  C. SNMP on 161  D. LDAP on 389
 
 **17.** On an SNMPv2c device still using defaults, which community string would let an attacker not merely read but actually reconfigure the device?
-- A. public  B. private  C. community  D. manager
+- A. private  B. public  C. community  D. manager
 
 **18.** Among SMTP enumeration verbs, which one asks the mail server to expand a mailing-list alias into its individual member addresses?
 - A. VRFY  B. RCPT TO  C. EXPN  D. HELO
 
 **19.** In a NetBIOS name table, a name carrying the suffix `<20>` indicates the host is running which service?
-- A. Workstation service  B. File Server (SMB) service  C. Domain master browser  D. Messenger service
+- A. Workstation service  B. Messenger service  C. Domain master browser  D. File Server (SMB) service
 
 **20.** A tester connects to a target's SSH port with netcat and reads the version banner it returns. Under CEH's passive-vs-active distinction, this activity is:
 - A. Passive, because no exploit is launched  B. Active, because a packet was sent to the target's own service  C. Passive, because banners are public information  D. Neither — it is enumeration, so it is not recon
@@ -95,15 +95,15 @@
 
 | Q | Ans | Why |
 |---|---|---|
-| 11 | B | `-Pn` skips host discovery and treats hosts as up; `-sn` is discovery-only (M03) |
+| 11 | A | `-Pn` skips host discovery and treats hosts as up; `-sn` is discovery-only (M03) |
 | 12 | B | Windows sends RST to any probe, so NULL/FIN/Xmas report all ports closed (M03) |
 | 13 | A | Idle scan infers state from the zombie's predictable IPID increments (M03) |
 | 14 | C | Closed UDP port returns ICMP port-unreachable; open/filtered stays silent (M03) |
-| 15 | B | `--source-port 53` disguises probes as DNS to slip past trusting filters (M03) |
+| 15 | D | `--source-port 53` disguises probes as DNS to slip past trusting filters (M03) |
 | 16 | B | `showmount -e` enumerates NFS exports on 2049 (M04) |
-| 17 | B | `private` is the default read-write community; `public` is read-only (M04) |
+| 17 | A | `private` is the default read-write community; `public` is read-only (M04) |
 | 18 | C | EXPN expands a list; VRFY verifies a user; RCPT TO checks a recipient (M04) |
-| 19 | B | NetBIOS suffix `<20>` = File Server (SMB) service running (M04) |
+| 19 | D | NetBIOS suffix `<20>` = File Server (SMB) service running (M04) |
 | 20 | B | A packet reached the target's own service, so banner grabbing is active recon (M02/M04) |
 
 </details>
@@ -114,7 +114,7 @@
 - A. Attack Complexity  B. Privileges Required  C. Attack Vector  D. Scope
 
 **22.** An attacker requests authentication material for domain accounts that have **Kerberos pre-authentication disabled**, receiving an encrypted blob to crack offline. This is:
-- A. Kerberoasting  B. AS-REP roasting  C. Pass-the-Ticket  D. DCSync
+- A. AS-REP roasting  B. Kerberoasting  C. Pass-the-Ticket  D. DCSync
 
 **23.** A virus that fully **rewrites its own instruction set** each generation (not merely re-encrypting a constant body), leaving no fixed byte signature, is:
 - A. Encrypted  B. Polymorphic  C. Metamorphic  D. Cavity
@@ -126,16 +126,16 @@
 - A. MITRE  B. NIST / NVD  C. FIRST  D. CISA
 
 **26.** A forged Kerberos **service ticket (TGS)** encrypted with a compromised service account's key — granting access to that one service without ever contacting the DC — is a:
-- A. Golden ticket  B. Silver ticket  C. Overpass-the-Hash  D. AS-REP roast
+- A. Golden ticket  B. AS-REP roast  C. Overpass-the-Hash  D. Silver ticket
 
 **27.** Malware authors run a binary through a **packer or crypter** primarily to:
-- A. Improve runtime performance  B. Evade static / signature-based detection  C. Enable network self-propagation  D. Escalate privileges on the host
+- A. Evade static / signature-based detection  B. Improve runtime performance  C. Enable network self-propagation  D. Escalate privileges on the host
 
 **28.** Feeding an IDS from a switch's **SPAN (port mirror)** or a hardware **TAP** is best described as:
 - A. An insertion attack  B. The sanctioned / legitimate way to sniff traffic  C. A MAC-flooding attack  D. A rogue-DHCP attack
 
 **29.** Compared with a credentialed scan, a **non-credentialed (unauthenticated)** vulnerability scan generally produces:
-- A. Fewer false positives  B. More false positives (it infers from banners/behavior)  C. No findings at all  D. Only false negatives
+- A. Fewer false positives  B. Only false negatives  C. No findings at all  D. More false positives (it infers from banners/behavior)
 
 **30.** An attacker holding a standard **user** shell obtains **SYSTEM/root** on the *same* host. This is:
 - A. Horizontal privilege escalation  B. Vertical privilege escalation  C. Lateral movement  D. Pivoting
@@ -145,14 +145,14 @@
 | Q | Ans | Why |
 |---|---|---|
 | 21 | C | Attack Vector (Network/Adjacent/Local/Physical) captures how "remote" the exploit path is (M05) |
-| 22 | B | AS-REP roasting targets accounts with pre-auth disabled → offline-crackable blob (M06) |
+| 22 | A | AS-REP roasting targets accounts with pre-auth disabled → offline-crackable blob (M06) |
 | 23 | C | Metamorphic rewrites its actual code; polymorphic only mutates an encrypted body (M07) |
 | 24 | B | DHCP snooping trusts only designated ports for DHCP offers, blocking rogue servers (M08) |
 | 25 | C | CVSS is maintained by FIRST; CVE/CWE=MITRE, NVD/CPE=NIST (M05) |
-| 26 | B | Silver ticket = forged TGS signed with the service account key; Golden = krbtgt (M06) |
-| 27 | B | Packers/crypters compress/encrypt the binary to defeat static signatures (M07) |
+| 26 | D | Silver ticket = forged TGS signed with the service account key; Golden = krbtgt (M06) |
+| 27 | A | Packers/crypters compress/encrypt the binary to defeat static signatures (M07) |
 | 28 | B | SPAN/port mirroring/TAP is the legitimate, sanctioned way to feed an IDS (M08) |
-| 29 | B | No login means it infers from banners → more false positives than credentialed (M05) |
+| 29 | D | No login means it infers from banners → more false positives than credentialed (M05) |
 | 30 | B | Gaining a higher privilege level on the same host = vertical privesc (M06) |
 
 </details>
@@ -160,49 +160,49 @@
 ## Set 4 — Questions 31–40
 
 **31.** A virus that infects **both the boot sector and executable files**, giving it two propagation routes, is:
-- A. Macro  B. Multipartite  C. Stealth  D. Cavity
+- A. Multipartite  B. Macro  C. Stealth  D. Cavity
 
 **32.** The switch control that **limits the number of MAC addresses learned per port**, directly defeating a CAM-table overflow (`macof`) attack, is:
 - A. DHCP snooping  B. Dynamic ARP Inspection  C. Port security  D. 802.1X alone
 
 **33.** In CEH's vulnerability-assessment approaches, the method in which the scanner's subsequent checks **branch dynamically based on what it has already discovered** is called:
-- A. Tree-based  B. Inference-based  C. Product-based  D. Service-based
+- A. Tree-based  B. Service-based  C. Product-based  D. Inference-based
 
 **34.** The legacy Windows **LM hash** is weak chiefly because it:
 - A. Is salted per user  B. Uppercases the password and splits it into two 7-character halves  C. Uses SHA-256  D. Cannot be cracked offline
 
 **35.** A trojan that gives an attacker full remote control of a victim (screen, files, webcam), historically on ports like **31337**, is best classified as a:
-- A. Worm  B. RAT (Remote Access Trojan)  C. Bootkit  D. Downloader
+- A. RAT (Remote Access Trojan)  B. Worm  C. Bootkit  D. Downloader
 
 **36.** Purely **passive** sniffing captures all segment traffic on a ___, but on a switched network an attacker must sniff ___:
 - A. switch; passively  B. hub (or via SPAN/TAP); actively (e.g., ARP poisoning)  C. router; via DNS  D. VLAN; via WPS
 
 **37.** In **CVSS v4.0**, the metric group formerly called "Temporal" in v3.x was renamed to:
-- A. Environmental  B. Threat  C. Supplemental  D. Base
+- A. Environmental  B. Base  C. Supplemental  D. Threat
 
 **38.** On a Linux foothold, running `find / -perm -4000 -type f 2>/dev/null` is used to locate:
-- A. World-writable directories  B. SUID binaries (potential privilege escalation)  C. Scheduled cron jobs  D. Open listening ports
+- A. SUID binaries (potential privilege escalation)  B. World-writable directories  C. Scheduled cron jobs  D. Open listening ports
 
 **39.** Detonating a sample in an isolated, instrumented **sandbox** and observing its runtime behavior (files, registry, network) is:
 - A. Static analysis  B. Dynamic analysis  C. Signature scanning  D. Fuzzing
 
 **40.** To stop cleartext directory queries from being sniffed, **LDAP** on port 389 should be replaced with **LDAPS** on port:
-- A. 443  B. 636  C. 989  D. 22
+- A. 443  B. 22  C. 989  D. 636
 
 <details><summary>Answer key — Set 4</summary>
 
 | Q | Ans | Why |
 |---|---|---|
-| 31 | B | Multipartite infects both boot sector and files (dual infection routes) (M07) |
+| 31 | A | Multipartite infects both boot sector and files (dual infection routes) (M07) |
 | 32 | C | Port security caps MACs per port, defeating CAM overflow/MAC flooding (M08) |
-| 33 | B | Inference-based scanning branches its next checks on prior findings; tree-based applies per-machine strategies (M05) |
+| 33 | D | Inference-based scanning branches its next checks on prior findings; tree-based applies per-machine strategies (M05) |
 | 34 | B | LM uppercases and splits into two 7-char halves (unsalted), making it trivially crackable (M06) |
-| 35 | B | Full remote control of the host = RAT; 31337 = classic Back Orifice port (M07) |
+| 35 | A | Full remote control of the host = RAT; 31337 = classic Back Orifice port (M07) |
 | 36 | B | Passive sniffing needs a hub or SPAN/TAP; a switch forces active redirection like ARP poisoning (M08) |
-| 37 | B | CVSS v4.0 renamed Temporal → Threat and added a Supplemental group (M05) |
-| 38 | B | `-perm -4000` finds SUID binaries — a standard Linux privesc check (M06) |
+| 37 | D | CVSS v4.0 renamed Temporal → Threat and added a Supplemental group (M05) |
+| 38 | A | `-perm -4000` finds SUID binaries — a standard Linux privesc check (M06) |
 | 39 | B | Running it in a sandbox to watch behavior = dynamic analysis; static = never execute (M07) |
-| 40 | B | LDAP 389 → LDAPS 636 (TLS-wrapped directory) (M08) |
+| 40 | D | LDAP 389 → LDAPS 636 (TLS-wrapped directory) (M08) |
 
 </details>
 
@@ -218,13 +218,13 @@
 - A. DNS ANY response  B. SSDP / UPnP discovery  C. NTP `monlist`  D. memcached UDP :11211
 
 **44.** Slowloris can exhaust a web server while using almost no bandwidth because it:
-- A. Spoofs the victim's IP to a broadcast address  B. Holds many connections open by trickling **partial/incomplete HTTP headers**  C. Sends oversized fragmented ICMP  D. Floods random UDP ports
+- A. Holds many connections open by trickling **partial/incomplete HTTP headers**  B. Spoofs the victim's IP to a broadcast address  C. Sends oversized fragmented ICMP  D. Floods random UDP ports
 
 **45.** Which cookie attribute most directly limits **CSRF** by restricting whether the browser attaches the cookie to cross-site requests?
 - A. HttpOnly  B. Secure  C. SameSite  D. Path
 
 **46.** In a **session desynchronization** hijack, the attacker's injected packets are accepted while the legitimate client's are dropped because:
-- A. The client's TLS certificate has expired  B. The client and server TCP **sequence numbers are forced out of sync**  C. The DNS resolver cache is poisoned  D. The session cookie is marked HttpOnly
+- A. The client's TLS certificate has expired  B. The session cookie is marked HttpOnly  C. The DNS resolver cache is poisoned  D. The client and server TCP **sequence numbers are forced out of sync**
 
 **47.** A NIDS reading traffic from a SPAN/mirror port differs from an IPS primarily in that the NIDS:
 - A. Sits inline and can drop malicious packets  B. Only **alerts** and cannot block traffic in the path  C. Runs a tamper-proof agent on every host  D. Decrypts TLS sessions by default
@@ -236,7 +236,7 @@
 - A. Smishing  B. Pharming  C. Vishing  D. Whaling
 
 **50.** The core network-edge defense against **DRDoS/reflection** — refusing to forward packets with spoofed source addresses — is:
-- A. SYN cookies  B. **BCP38 / uRPF** ingress anti-spoofing filtering  C. HttpOnly cookies  D. Account lockout
+- A. **BCP38 / uRPF** ingress anti-spoofing filtering  B. SYN cookies  C. HttpOnly cookies  D. Account lockout
 
 <details><summary>Answer key — Set 5</summary>
 
@@ -245,13 +245,13 @@
 | 41 | B | Whaling ⊂ spear-phishing, aimed at executives/high-value "big fish" (M09) |
 | 42 | C | Bait dangled for the victim to take (USB drop) = baiting, trades on curiosity (M09) |
 | 43 | D | Ranking is memcached ≫ NTP ≫ DNS ≫ SSDP; memcached is the record-setter (M10) |
-| 44 | B | Partial-header connection holding, not flooding — low-bandwidth L7 attack (M10) |
+| 44 | A | Partial-header connection holding, not flooding — low-bandwidth L7 attack (M10) |
 | 45 | C | SameSite curbs cross-site cookie sending → mitigates CSRF (M11) |
-| 46 | B | Desync forces SEQ out of sync so attacker packets fit, client's don't (M11) |
+| 46 | D | Desync forces SEQ out of sync so attacker packets fit, client's don't (M11) |
 | 47 | B | NIDS/HIDS detect-and-alert only; only inline IPS drops/resets (M12) |
 | 48 | C | Sending "from 53/80/443" to bypass ACLs = source-port spoofing, `-g` (M12) |
 | 49 | C | Voice-call pretext = vishing (M09) |
-| 50 | B | BCP38/uRPF at the edge stops spoofed-source reflection traffic (M10) |
+| 50 | A | BCP38/uRPF at the edge stops spoofed-source reflection traffic (M10) |
 
 </details>
 
@@ -264,16 +264,16 @@
 - A. Malicious insider  B. Negligent insider  C. Compromised insider  D. Professional mole
 
 **53.** Smurf and Fraggle are both broadcast-reflection attacks; **Fraggle** differs by using:
-- A. ICMP echo requests  B. **UDP** (echo/chargen)  C. TCP SYN segments  D. Large DNS TXT responses
+- A. ICMP echo requests  B. Large DNS TXT responses  C. TCP SYN segments  D. **UDP** (echo/chargen)
 
 **54.** A **Permanent DoS (PDoS / "phlashing")** attack is characterized by:
-- A. A temporary bandwidth spike that clears when the botnet stops  B. Corrupting firmware to **brick** the hardware permanently  C. Exhausting the TCP backlog with half-open connections  D. Encrypting files for ransom
+- A. Corrupting firmware to **brick** the hardware permanently  B. A temporary bandwidth spike that clears when the botnet stops  C. Exhausting the TCP backlog with half-open connections  D. Encrypting files for ransom
 
 **55.** **UDP** session hijacking is generally easier than TCP hijacking because UDP:
 - A. Encrypts each datagram by default  B. Has **no handshake or sequence numbers** to defeat  C. Requires a bearer cookie  D. Runs only over TLS
 
 **56.** "**Blind**" TCP hijacking is harder than non-blind hijacking because the attacker:
-- A. Is on-path (MITM) and can see all traffic  B. Is **off-path** and must predict SEQ/ACK numbers without seeing the responses  C. Already possesses the user's password  D. Controls the authoritative DNS server
+- A. Is on-path (MITM) and can see all traffic  B. Controls the authoritative DNS server  C. Already possesses the user's password  D. Is **off-path** and must predict SEQ/ACK numbers without seeing the responses
 
 **57.** From a defender's standpoint, which IDS detection outcome is the **most** dangerous?
 - A. True positive  B. False positive  C. **False negative**  D. True negative
@@ -282,10 +282,10 @@
 - A. Only inspects IP/port at Layers 3–4  B. Inspects the **full payload per-protocol at Layer 7**, terminating and re-originating the connection  C. Keeps no session state  D. Filters only outbound ICMP
 
 **59.** An attacker plugs a rogue laptop into a wall port behind a VoIP phone and clones an authorized device's MAC address. This is intended to defeat:
-- A. A web application firewall  B. **NAC** (802.1X / MAC Authentication Bypass)  C. SYN cookies  D. HSTS
+- A. **NAC** (802.1X / MAC Authentication Bypass)  B. A web application firewall  C. SYN cookies  D. HSTS
 
 **60.** Sidejacking (the classic "Firesheep" scenario) lifts a session cookie off an unencrypted or downgraded link. The single most effective countermeasure is:
-- A. Longer user passwords  B. **TLS everywhere + HSTS**  C. Disabling cookies entirely  D. A CAPTCHA at login
+- A. Longer user passwords  B. A CAPTCHA at login  C. Disabling cookies entirely  D. **TLS everywhere + HSTS**
 
 <details><summary>Answer key — Set 6</summary>
 
@@ -293,14 +293,14 @@
 |---|---|---|
 | 51 | B | Pharming poisons name resolution — right address, wrong site, no link click (M09) |
 | 52 | C | Compromised insider = legit account taken over via SE and used by attacker (M09) |
-| 53 | B | Smurf = ICMP to broadcast; Fraggle = UDP echo/chargen to broadcast (M10) |
-| 54 | B | Phlashing bricks firmware/hardware — permanent, not a transient outage (M10) |
+| 53 | D | Smurf = ICMP to broadcast; Fraggle = UDP echo/chargen to broadcast (M10) |
+| 54 | A | Phlashing bricks firmware/hardware — permanent, not a transient outage (M10) |
 | 55 | B | No 3-way handshake/SEQ to guess makes UDP hijacking easier than TCP (M11) |
-| 56 | B | Blind = off-path, must predict sequence numbers; non-blind MITM sees traffic (M11) |
+| 56 | D | Blind = off-path, must predict sequence numbers; non-blind MITM sees traffic (M11) |
 | 57 | C | False negative = real attack missed with no alert — the dangerous miss (M12) |
 | 58 | B | Proxy/app firewall works at L7, deep-inspecting and re-originating flows (M12) |
-| 59 | B | MAC spoofing behind a phone abuses MAB/802.1X to bypass NAC posture (M12) |
-| 60 | B | Encrypting the whole session (TLS + HSTS) removes the sniffable cookie (M11) |
+| 59 | A | MAC spoofing behind a phone abuses MAB/802.1X to bypass NAC posture (M12) |
+| 60 | D | Encrypting the whole session (TLS + HSTS) removes the sniffable cookie (M11) |
 
 </details>
 
@@ -313,25 +313,25 @@
 - A. MySQL/MariaDB  B. PostgreSQL  C. Microsoft SQL Server  D. Oracle
 
 **63.** The chief advantage of the PMKID attack over the classic WPA2 4-way-handshake capture is that it:
-- A. Cracks the PSK live on the wire  B. Requires no associated client and no deauthentication  C. Works only against WPA3-SAE  D. Recovers the passphrase without any offline cracking
+- A. Requires no associated client and no deauthentication  B. Cracks the PSK live on the wire  C. Works only against WPA3-SAE  D. Recovers the passphrase without any offline cracking
 
 **64.** Remote File Inclusion (RFI) usually succeeds only when which PHP setting is enabled?
 - A. display_errors  B. allow_url_include  C. magic_quotes_gpc  D. register_globals
 
 **65.** HTTP response splitting is fundamentally the injection of what into a response header?
-- A. SQL keywords  B. CRLF (`%0d%0a`) sequences  C. a `UNION SELECT` clause  D. a JavaScript event handler
+- A. SQL keywords  B. a JavaScript event handler  C. a `UNION SELECT` clause  D. CRLF (`%0d%0a`) sequences
 
 **66.** The recommended countermeasure specifically against Wi-Fi deauthentication attacks is:
 - A. Hiding (not broadcasting) the SSID  B. MAC address filtering  C. 802.11w Protected Management Frames (PMF)  D. Reducing the AP transmit power
 
 **67.** In manual UNION-based SQLi, the standard way to determine how many columns the original query returns is to:
-- A. Query `information_schema.columns`  B. Use `ORDER BY n`, incrementing until it errors  C. Read `@@version`  D. Inject `SLEEP(5)`
+- A. Use `ORDER BY n`, incrementing until it errors  B. Query `information_schema.columns`  C. Read `@@version`  D. Inject `SLEEP(5)`
 
 **68.** A payload that defines `<!ENTITY xxe SYSTEM "file:///etc/passwd">` to read server files exploits:
 - A. Reflected XSS  B. XML External Entity (XXE) injection  C. CSRF  D. Server-side template injection
 
 **69.** In Bluetooth attacks, stealing data such as contacts and files from a target device is called:
-- A. Bluejacking  B. Bluesnarfing  C. Bluebugging  D. Bluecasting
+- A. Bluejacking  B. Bluecasting  C. Bluebugging  D. Bluesnarfing
 
 **70.** To discover hidden admin panels and backup files by brute-forcing paths against a web server, the right class of tool is:
 - A. whatweb  B. gobuster / ffuf  C. Wireshark  D. Responder
@@ -342,13 +342,13 @@
 |---|---|---|
 | 61 | B | TRACE method (XST) echoes the request, exposing cookies/headers despite HttpOnly; fix = disable TRACE (M13) |
 | 62 | C | `WAITFOR DELAY` is MSSQL's delay syntax; MySQL uses `SLEEP`, PostgreSQL `pg_sleep`, Oracle `dbms_lock.sleep` (M15) |
-| 63 | B | PMKID is clientless — grabbed from the first EAPOL frame, no deauth or handshake needed (M16) |
+| 63 | A | PMKID is clientless — grabbed from the first EAPOL frame, no deauth or handshake needed (M16) |
 | 64 | B | RFI pulls a remote file and typically requires `allow_url_include` to be on (M14) |
-| 65 | B | Response splitting = CRLF injection into a response header, enabling cache poisoning/header XSS (M13) |
+| 65 | D | Response splitting = CRLF injection into a response header, enabling cache poisoning/header XSS (M13) |
 | 66 | C | 802.11w PMF protects management frames; deauth abuses unprotected ones (M16) |
-| 67 | B | `ORDER BY n` incremented until error reveals the column count for a UNION (M15) |
+| 67 | A | `ORDER BY n` incremented until error reveals the column count for a UNION (M15) |
 | 68 | B | An external entity referencing a local file is the signature of XXE (M14) |
-| 69 | B | Bluesnarfing steals data over Bluetooth; bluejacking only sends messages (M16) |
+| 69 | D | Bluesnarfing steals data over Bluetooth; bluejacking only sends messages (M16) |
 | 70 | B | gobuster/ffuf/dirb do content discovery; whatweb fingerprints, not path brute-forcing (M13) |
 
 </details>
@@ -356,10 +356,10 @@
 ## Set 8 — Questions 71–80
 
 **71.** DOM-based XSS differs from reflected XSS because the malicious payload:
-- A. Is stored server-side in a database  B. Is processed entirely in the browser by client-side JavaScript and never reaches the server  C. Requires a valid session cookie to fire  D. Only executes over plain HTTP
+- A. Is processed entirely in the browser by client-side JavaScript and never reaches the server  B. Is stored server-side in a database  C. Requires a valid session cookie to fire  D. Only executes over plain HTTP
 
 **72.** Out-of-band (OOB) SQL injection is the technique of choice when:
-- A. The database returns verbose error text  B. The injection is blind and the DB can be made to open a separate channel (e.g., DNS/HTTP)  C. A `UNION SELECT` already reflects data on the page  D. The application uses prepared statements
+- A. The database returns verbose error text  B. The application uses prepared statements  C. A `UNION SELECT` already reflects data on the page  D. The injection is blind and the DB can be made to open a separate channel (e.g., DNS/HTTP)
 
 **73.** KRACK (Key Reinstallation Attack) targets:
 - A. The entropy of the WPA2 passphrase  B. The 8-digit WPS PIN  C. The WPA2 4-way handshake, forcing nonce/key reinstallation  D. The 24-bit WEP IV
@@ -368,37 +368,37 @@
 - A. Directory brute forcing  B. Source-code (source) disclosure  C. SSRF  D. OS command injection
 
 **75.** In the OWASP API Security Top 10, accessing another user's record by tampering an object ID (the API equivalent of IDOR) is called:
-- A. Mass assignment  B. Broken Object Level Authorization (BOLA)  C. Excessive data exposure  D. Security misconfiguration
+- A. Broken Object Level Authorization (BOLA)  B. Mass assignment  C. Excessive data exposure  D. Security misconfiguration
 
 **76.** Restricting the web app to a least-privilege database account (only `SELECT` on the tables it needs):
 - A. Prevents SQL injection from occurring at all  B. Limits the impact of a successful injection but does not prevent it  C. Removes the need for parameterized queries  D. Applies only to NoSQL databases
 
 **77.** A wireless client configured to validate the RADIUS server certificate (EAP-TLS) primarily defeats which attack?
-- A. WPS Pixie-Dust  B. Evil twin / rogue AP  C. WEP IV cracking  D. Bluejacking
+- A. WPS Pixie-Dust  B. Bluejacking  C. WEP IV cracking  D. Evil twin / rogue AP
 
 **78.** Input filtering alone is an incomplete fix for XSS; the durable server-side defense is:
-- A. Blocklisting the string "script"  B. Context-aware output encoding plus a Content Security Policy (CSP)  C. Deploying a WAF as the sole control  D. Renaming JavaScript files
+- A. Context-aware output encoding plus a Content Security Policy (CSP)  B. Blocklisting the string "script"  C. Deploying a WAF as the sole control  D. Renaming JavaScript files
 
 **79.** Suppressing the `Server:` version banner on a web server is best characterized as:
 - A. A complete patch-management control  B. Security through obscurity — not a real fix, since patching is the control  C. A form of transport encryption  D. A directory-traversal defense
 
 **80.** In MySQL, an attacker holding the `FILE` privilege can escalate SQLi into writing a web shell to disk using:
-- A. `xp_cmdshell`  B. `INTO OUTFILE` / `INTO DUMPFILE`  C. `WAITFOR DELAY`  D. `UTL_HTTP`
+- A. `xp_cmdshell`  B. `UTL_HTTP`  C. `WAITFOR DELAY`  D. `INTO OUTFILE` / `INTO DUMPFILE`
 
 <details><summary>Answer key — Set 8</summary>
 
 | Q | Ans | Why |
 |---|---|---|
-| 71 | B | DOM XSS runs in a client-side sink (`innerHTML`/`eval`); the payload never touches the server (M14) |
-| 72 | B | OOB is used when the app is blind and the DB can open a new DNS/HTTP connection to exfil (M15) |
+| 71 | A | DOM XSS runs in a client-side sink (`innerHTML`/`eval`); the payload never touches the server (M14) |
+| 72 | D | OOB is used when the app is blind and the DB can open a new DNS/HTTP connection to exfil (M15) |
 | 73 | C | KRACK reinstalls keys/nonces in the 4-way handshake — a protocol flaw, not a passphrase attack (M16) |
 | 74 | B | Returning raw `.bak`/`.php~` source instead of executing it is source-code disclosure (M13) |
-| 75 | B | Object-ID tampering at the API layer is Broken Object Level Authorization (BOLA), IDOR's API twin (M14) |
+| 75 | A | Object-ID tampering at the API layer is Broken Object Level Authorization (BOLA), IDOR's API twin (M14) |
 | 76 | B | Least privilege caps the blast radius of a dump; parameterized queries are what prevent injection (M15) |
-| 77 | B | A client that validates the RADIUS/server cert won't join the cloned SSID, defeating the evil twin (M16) |
-| 78 | B | XSS is fixed by context-aware output encoding + CSP, not by input blocklists alone (M14) |
+| 77 | D | A client that validates the RADIUS/server cert won't join the cloned SSID, defeating the evil twin (M16) |
+| 78 | A | XSS is fixed by context-aware output encoding + CSP, not by input blocklists alone (M14) |
 | 79 | B | Banner suppression is obscurity; the real control is patching to a fixed version (M13) |
-| 80 | B | MySQL `FILE` priv + `INTO OUTFILE`/`DUMPFILE` writes a web shell; `xp_cmdshell` is MSSQL-only (M15) |
+| 80 | D | MySQL `FILE` priv + `INTO OUTFILE`/`DUMPFILE` writes a web shell; `xp_cmdshell` is MSSQL-only (M15) |
 
 </details>
 
@@ -423,7 +423,7 @@
 - A. A padding-oracle attack on the TLS session  B. Cracking the session key offline  C. Runtime SSL-pinning bypass with Frida/Objection  D. A SYN flood against the API endpoint
 
 **87.** Adding a unique random salt to each stored password hash primarily defeats:
-- A. Side-channel timing attacks  B. Precomputed rainbow-table lookups  C. Padding-oracle attacks  D. Man-in-the-middle on the key exchange
+- A. Precomputed rainbow-table lookups  B. Side-channel timing attacks  C. Padding-oracle attacks  D. Man-in-the-middle on the key exchange
 
 **88.** An attacker on the plant network can write to a PLC over Modbus/TCP chiefly because Modbus:
 - A. Has no built-in authentication or encryption  B. Uses a weak 56-bit key  C. Requires a stolen X.509 certificate first  D. Runs only over UDP
@@ -444,7 +444,7 @@
 | 84 | D | The payload hides in content the model later ingests and executes = indirect prompt injection (AI) |
 | 85 | D | NIST SP 800-145: 5 essential characteristics × 3 service models × 4 deployment models (M19) |
 | 86 | C | Cert pinning blocks casual MITM; Frida/Objection disable pinning at runtime so Burp can read the API (M17) |
-| 87 | B | A per-hash salt makes precomputed rainbow tables useless; a work factor is what slows brute force (M20) |
+| 87 | A | A per-hash salt makes precomputed rainbow tables useless; a work factor is what slows brute force (M20) |
 | 88 | A | Modbus (like most OT protocols) has no built-in auth or encryption — the defense is the network/segmentation (M18) |
 | 89 | C | Community cloud = shared by orgs with a common concern (e.g., a regulatory sector) (M19) |
 | 90 | D | Excessive agency is contained by tiering: a least-privilege, JIT, scoped non-human identity limits what a hijacked agent can do (AI/PAM) |
@@ -460,7 +460,7 @@
 - A. Diffie-Hellman  B. DSA  C. RSA  D. AES
 
 **93.** Why is using Shodan to locate internet-exposed Modbus devices considered *passive* reconnaissance?
-- A. It sends only encrypted probes to each device  B. You query Shodan's pre-built index instead of connecting to the targets  C. It spoofs your source IP during the scan  D. It uses UDP rather than TCP
+- A. It sends only encrypted probes to each device  B. It uses UDP rather than TCP  C. It spoofs your source IP during the scan  D. You query Shodan's pre-built index instead of connecting to the targets
 
 **94.** Which Kubernetes tool performs a *defensive* CIS Benchmark audit of a cluster rather than actively attacking it?
 - A. kube-bench  B. kube-hunter  C. Pacu  D. Metasploit
@@ -469,7 +469,7 @@
 - A. A longer screen-lock PIN  B. Increasing the screen timeout  C. Enabling dark mode  D. Blocking sideloading and enforcing a managed app catalog with Play Integrity
 
 **96.** Which statement about the quantum threat to cryptography is TRUE?
-- A. Grover's algorithm fully breaks AES-256  B. Shor's algorithm threatens RSA/ECC, while AES-256 stays practically safe against Grover  C. Hash functions become instantly reversible  D. Symmetric ciphers fall but RSA is unaffected
+- A. Shor's algorithm threatens RSA/ECC, while AES-256 stays practically safe against Grover  B. Grover's algorithm fully breaks AES-256  C. Hash functions become instantly reversible  D. Symmetric ciphers fall but RSA is unaffected
 
 **97.** Among common OT protocols, which is the modern, security-capable option with built-in authentication and encryption (unlike Modbus or DNP3)?
 - A. Profibus  B. S7comm  C. OPC UA  D. BACnet
@@ -489,10 +489,10 @@
 |---|---|---|
 | 91 | B | Evasion / adversarial examples are test-time; poisoning corrupts the training data (training-time) — don't swap them (AI) |
 | 92 | C | RSA encrypts *and* signs; Diffie-Hellman = key exchange only; DSA = signatures only; AES is symmetric (M20) |
-| 93 | B | Shodan queries a pre-built index of already-scanned hosts, so you never touch the targets = passive (M18) |
+| 93 | D | Shodan queries a pre-built index of already-scanned hosts, so you never touch the targets = passive (M18) |
 | 94 | A | kube-bench = defensive CIS audit; kube-hunter = offensive pentest; don't swap them (Trivy = image/IaC/secret scan) (M19) |
 | 95 | D | Blocking sideloading + a managed catalog with Play Integrity stops trojanized/repackaged app installs (M17) |
-| 96 | B | Shor's algorithm breaks RSA/ECC; Grover only halves symmetric strength, so AES-256 remains practically safe (M20) |
+| 96 | A | Shor's algorithm breaks RSA/ECC; Grover only halves symmetric strength, so AES-256 remains practically safe (M20) |
 | 97 | C | OPC UA is the security-capable modern OT protocol; Modbus/DNP3/S7comm/Profibus lack built-in auth/encryption (M18) |
 | 98 | A | Trusting LLM output that flows into a shell/SQL/eval = LLM05 Improper/Insecure Output Handling → classic injection (AI) |
 | 99 | A | Serverless pushes infra to the provider, but the customer still owns the function's IAM role and code — least privilege applies (M19) |
@@ -509,7 +509,7 @@
 - A. NULL scan  B. Xmas scan  C. ACK scan  D. SYN scan
 
 **103.** An attacker performs a man-in-the-middle attack and silently modifies the dollar amounts inside transactions as they cross the network. Which element of the CIA triad is primarily violated?
-- A. Confidentiality  B. Integrity  C. Availability  D. Non-repudiation
+- A. Confidentiality  B. Non-repudiation  C. Availability  D. Integrity
 
 **104.** During enumeration you query TCP port 135 to learn which dynamic ports a target's RPC-based services are listening on. Which service answers on that port?
 - A. NetBIOS session service  B. SMB direct host  C. RPC endpoint mapper  D. Kerberos
@@ -527,10 +527,10 @@
 - A. VRFY  B. EXPN  C. RCPT TO  D. HELO
 
 **109.** A SOC receives intelligence describing an imminent, specific campaign — including the threat actor, timing, and targeted assets — so defenders can prepare for that particular attack. Which type of threat intelligence is this?
-- A. Strategic  B. Operational  C. Tactical  D. Technical
+- A. Operational  B. Strategic  C. Tactical  D. Technical
 
 **110.** Which reconnaissance tool is a modular, database-backed OSINT framework whose functionality is extended by installing modules from a marketplace?
-- A. theHarvester  B. Recon-ng  C. HTTrack  D. onesixtyone
+- A. theHarvester  B. onesixtyone  C. HTTrack  D. Recon-ng
 
 <details><summary>Answer key — Set 11</summary>
 
@@ -538,14 +538,14 @@
 |---|---|---|
 | 101 | C | AFRINIC administers IP resources for Africa; ARIN=N. America, APNIC=Asia-Pac, LACNIC=Latin America (M02) |
 | 102 | B | Xmas scan (`-sX`) sets FIN+PSH+URG; NULL sets no flags, ACK sets ACK only (M03) |
-| 103 | B | Altering data in transit breaks Integrity; confidentiality = reading, availability = access (M01) |
+| 103 | D | Altering data in transit breaks Integrity; confidentiality = reading, availability = access (M01) |
 | 104 | C | Port 135 is the RPC endpoint mapper, which maps services to their dynamic ports (M04) |
 | 105 | B | Weaponization couples exploit + backdoor into a deliverable payload; Delivery then sends it (M01) |
 | 106 | C | TXT records carry SPF/DKIM/DMARC, exposing third-party/SaaS providers in use (M02) |
 | 107 | C | `filtered` = a firewall/filter dropped the probe, giving no verdict; RST would be `closed` (M03) |
 | 108 | C | RCPT TO checks a recipient (most reliable); VRFY verifies a user, EXPN expands a list (M04) |
-| 109 | B | Operational intel = specific/imminent campaigns; tactical = TTPs, technical = IoC feeds (M01) |
-| 110 | B | Recon-ng is the modular, marketplace-driven OSINT framework; theHarvester just gathers emails/hosts (M02) |
+| 109 | A | Operational intel = specific/imminent campaigns; tactical = TTPs, technical = IoC feeds (M01) |
+| 110 | D | Recon-ng is the modular, marketplace-driven OSINT framework; theHarvester just gathers emails/hosts (M02) |
 
 </details>
 
@@ -561,7 +561,7 @@
 - A. Workstation service  B. File Server (SMB) service  C. Domain controllers (group)  D. Messenger service
 
 **114.** Which Google search operator restricts results to pages whose title text contains a given string, e.g., finding exposed listings with `intitle:"index of"`?
-- A. inurl:  B. intitle:  C. site:  D. filetype:
+- A. intitle:  B. inurl:  C. site:  D. filetype:
 
 **115.** In the five-phase hacking methodology, during which phase does an attacker install a rootkit or backdoor to guarantee persistent future access?
 - A. Scanning  B. Gaining Access  C. Maintaining Access  D. Clearing Tracks
@@ -576,7 +576,7 @@
 - A. HIPAA  B. SOX  C. Computer Fraud and Abuse Act (CFAA)  D. DMCA
 
 **119.** A SYN (half-open) scan is stealthier than a full connect scan because, after receiving the target's SYN/ACK on an open port, the scanner:
-- A. Completes the handshake with a final ACK  B. Never sends the final ACK, so the connection is never fully established/logged  C. Sends a UDP datagram instead  D. Reads the service banner
+- A. Completes the handshake with a final ACK  B. Reads the service banner  C. Sends a UDP datagram instead  D. Never sends the final ACK, so the connection is never fully established/logged
 
 **120.** A DNS zone transfer (AXFR) is far more dangerous to a defender than a normal DNS query because it:
 - A. Returns only a single record for one hostname  B. Encrypts the entire conversation  C. Copies the complete contents of the zone (every record) in one request  D. Requires valid domain credentials
@@ -588,12 +588,12 @@
 | 111 | B | `-sV` is service/version detection; `-O` is OS detection, `-sn` is host discovery only (M03) |
 | 112 | C | The "I" in STRIDE is Information disclosure — unauthorized reading of data (M01) |
 | 113 | C | NetBIOS suffix `<1C>` = Domain Controllers (group); `<20>` = File Server (SMB) (M04) |
-| 114 | B | `intitle:` matches text in the page title; `inurl:` matches the URL, `site:` limits to a domain (M02) |
+| 114 | A | `intitle:` matches text in the page title; `inurl:` matches the URL, `site:` limits to a domain (M02) |
 | 115 | C | Maintaining Access = installing backdoors/rootkits for persistence; Clearing Tracks hides evidence (M01) |
 | 116 | A | `-T0` (paranoid) is the slowest template, used for IDS evasion; `-T5` (insane) is fastest (M03) |
 | 117 | B | SNMPv3 adds authentication + encryption; v1/v2c send community strings in cleartext (M04) |
 | 118 | C | The CFAA is the primary US statute for unauthorized computer access; HIPAA=health, SOX=financial, DMCA=copyright (M01) |
-| 119 | B | `-sS` never sends the final ACK, so the connection is never completed/logged like `-sT` (M03) |
+| 119 | D | `-sS` never sends the final ACK, so the connection is never completed/logged like `-sT` (M03) |
 | 120 | C | AXFR copies the entire zone in one request; a normal query returns a single record (M02) |
 
 </details>
@@ -604,13 +604,13 @@
 - A. NIST/NVD  B. FIRST  C. MITRE  D. CISA
 
 **122.** A forged Kerberos **TGT** signed with the compromised **krbtgt** account hash — letting the attacker mint valid tickets for *any* account in the domain — is a:
-- A. Silver ticket  B. Golden ticket  C. AS-REP roast  D. Pass-the-Ticket
+- A. Golden ticket  B. Silver ticket  C. AS-REP roast  D. Pass-the-Ticket
 
 **123.** In the malware "distribution kit," the component that **already contains the malware inside itself and writes it to disk** (no internet fetch required) is the:
 - A. Downloader  B. Dropper  C. Injector  D. Exploit
 
 **124.** Cloning a legitimate host's hardware address to defeat **port/MAC-based filtering** and impersonate that host on the switch is:
-- A. MAC flooding  B. MAC spoofing  C. ARP poisoning  D. DHCP starvation
+- A. MAC flooding  B. DHCP starvation  C. ARP poisoning  D. MAC spoofing
 
 **125.** Which scanner is purpose-built to test a **web server** for dangerous files, outdated server software, and misconfigurations?
 - A. Nessus  B. Nikto  C. OpenVAS/Greenbone  D. Qualys VMDR
@@ -619,31 +619,31 @@
 - A. SAM  B. LSASS  C. NTDS.dit  D. LSA secrets
 
 **127.** A virus that writes itself into the **unused empty regions of a host file** so the file's overall size does *not* change is a:
-- A. Multipartite virus  B. Cavity (spacefiller) virus  C. Macro virus  D. Boot-sector virus
+- A. Cavity (spacefiller) virus  B. Multipartite virus  C. Macro virus  D. Boot-sector virus
 
 **128.** An attacker floods a DHCP server with spoofed requests bearing many bogus MACs until its address pool is exhausted. The immediate objective of this **DHCP starvation** is to:
-- A. Fill the switch CAM table  B. Deny addresses to legitimate clients (often to stand up a rogue DHCP server)  C. Poison the victim's ARP cache  D. Redirect DNS queries
+- A. Fill the switch CAM table  B. Redirect DNS queries  C. Poison the victim's ARP cache  D. Deny addresses to legitimate clients (often to stand up a rogue DHCP server)
 
 **129.** Which system estimates the **probability that a given CVE will be exploited in the near future**, complementing rather than replacing CVSS severity?
 - A. CWE  B. EPSS  C. CPE  D. CISA KEV
 
 **130.** Using a tool like Responder to **capture credentials off the wire** without ever interacting with the authentication service is which class of password attack?
-- A. Active online  B. Passive online  C. Offline  D. Non-electronic
+- A. Passive online  B. Active online  C. Offline  D. Non-electronic
 
 <details><summary>Answer key — Set 13</summary>
 
 | Q | Ans | Why |
 |---|---|---|
 | 121 | C | CVE is assigned/maintained by MITRE (cve.org); NVD/CPE=NIST, CVSS/EPSS=FIRST, KEV=CISA (M05) |
-| 122 | B | Golden ticket = forged TGT signed with the krbtgt key → mint tickets for any account; Silver forges a single TGS (M06) |
+| 122 | A | Golden ticket = forged TGT signed with the krbtgt key → mint tickets for any account; Silver forges a single TGS (M06) |
 | 123 | B | A dropper carries the malware inside and installs it; a downloader fetches later stages from the internet (M07) |
-| 124 | B | MAC spoofing clones a legitimate MAC to bypass filtering; flooding fills the CAM table instead (M08) |
+| 124 | D | MAC spoofing clones a legitimate MAC to bypass filtering; flooding fills the CAM table instead (M08) |
 | 125 | B | Nikto is the web-server vulnerability scanner; Nessus=commercial general, OpenVAS=open-source network, Qualys=cloud (M05) |
 | 126 | C | NTDS.dit on the DC contains all domain hashes; SAM=local, LSASS=live creds, LSA secrets=service acct pwds (M06) |
-| 127 | B | Cavity/spacefiller hides in a file's empty space so its size is unchanged (M07) |
-| 128 | B | DHCP starvation exhausts the pool (DoS) and typically sets up a rogue DHCP server for MITM (M08) |
+| 127 | A | Cavity/spacefiller hides in a file's empty space so its size is unchanged (M07) |
+| 128 | D | DHCP starvation exhausts the pool (DoS) and typically sets up a rogue DHCP server for MITM (M08) |
 | 129 | B | EPSS = Exploit Prediction Scoring System (probability of near-term exploitation); KEV is a catalog of already-exploited CVEs (M05) |
-| 130 | B | Sniffing creds on the wire (Wireshark/Responder) = passive online; guessing a live service = active online (M06) |
+| 130 | A | Sniffing creds on the wire (Wireshark/Responder) = passive online; guessing a live service = active online (M06) |
 
 </details>
 
@@ -653,16 +653,16 @@
 - A. User-mode rootkit  B. Kernel-mode rootkit  C. Bootkit  D. Library rootkit
 
 **132.** SNMP v1/v2c send community strings in cleartext. The SNMP version that adds **authentication and privacy (encryption)** is:
-- A. SNMPv2u  B. SNMPv3  C. SNMPv2c with a non-default string  D. SNMP over UDP 162
+- A. SNMPv2u  B. SNMP over UDP 162  C. SNMPv2c with a non-default string  D. SNMPv3
 
 **133.** Which statement about **CVSS versions** is correct?
-- A. CVSS v2's top qualitative band was "Critical"  B. The "Critical" severity band was introduced in CVSS v3  C. CVSS v4.0 removed the Base metric group  D. Environmental metrics are identical for every organization
+- A. The "Critical" severity band was introduced in CVSS v3  B. CVSS v2's top qualitative band was "Critical"  C. CVSS v4.0 removed the Base metric group  D. Environmental metrics are identical for every organization
 
 **134.** A **rainbow table** (precomputed hash→plaintext lookup) is rendered useless by adding a random per-hash value before hashing. That value is called a:
 - A. Initialization vector  B. Salt  C. Nonce  D. Session key
 
 **135.** Examining a suspicious binary's **PE headers, imported functions, and embedded strings without executing it** is:
-- A. Dynamic analysis  B. Static analysis  C. Sandbox detonation  D. Fuzzing
+- A. Dynamic analysis  B. Fuzzing  C. Sandbox detonation  D. Static analysis
 
 **136.** In Wireshark, which filter uses **Berkeley Packet Filter (BPF)** syntax and is applied **before/during** capture to limit what gets recorded (e.g., `tcp port 80`)?
 - A. Display filter  B. Capture filter  C. Coloring rule  D. Follow-TCP-stream
@@ -674,25 +674,25 @@
 - A. Gaining Access  B. Privilege Escalation  C. Maintaining Access  D. Clearing Logs / Covering Tracks
 
 **139.** Which statement best **distinguishes a rootkit from a backdoor**?
-- A. A backdoor hides presence while a rootkit provides re-entry  B. A rootkit hides the attacker's presence/privilege; a backdoor provides a re-entry channel  C. They are synonyms  D. A rootkit always self-replicates over the network
+- A. A rootkit hides the attacker's presence/privilege; a backdoor provides a re-entry channel  B. A backdoor hides presence while a rootkit provides re-entry  C. They are synonyms  D. A rootkit always self-replicates over the network
 
 **140.** Injecting **forged records into a resolver's cache** so that subsequent legitimate queries return an attacker-controlled IP is which variant?
-- A. Intranet DNS spoofing  B. DNS cache poisoning  C. Proxy-server DNS poisoning  D. Gratuitous ARP
+- A. Intranet DNS spoofing  B. Gratuitous ARP  C. Proxy-server DNS poisoning  D. DNS cache poisoning
 
 <details><summary>Answer key — Set 14</summary>
 
 | Q | Ans | Why |
 |---|---|---|
 | 131 | B | Kernel-mode rootkit loads a malicious Ring-0 driver; bootkit infects the bootloader/UEFI, user-mode hooks user APIs (M07) |
-| 132 | B | SNMPv3 adds auth + privacy (encryption); v1/v2c community strings are cleartext (M08) |
-| 133 | B | "Critical" arrived with CVSS v3 — v2's top band was High; v4.0 kept Base and renamed Temporal→Threat (M05) |
+| 132 | D | SNMPv3 adds auth + privacy (encryption); v1/v2c community strings are cleartext (M08) |
+| 133 | A | "Critical" arrived with CVSS v3 — v2's top band was High; v4.0 kept Base and renamed Temporal→Threat (M05) |
 | 134 | B | A salt (random per-hash value) defeats precomputed rainbow tables; NTLM is unsalted, which is why it stays crackable (M06) |
-| 135 | B | Static analysis inspects headers/imports/strings without running it; dynamic analysis executes in a sandbox (M07) |
+| 135 | D | Static analysis inspects headers/imports/strings without running it; dynamic analysis executes in a sandbox (M07) |
 | 136 | B | Capture filters use BPF and apply during capture; display filters (e.g., http.request) apply post-capture (M08) |
 | 137 | C | CPE = structured product/platform name; CVE=instance, CWE=weakness class, CVSS=severity score (M05) |
 | 138 | D | Clearing Windows event logs (wevtutil cl / Clear-EventLog) is anti-forensics = Clearing Logs / Covering Tracks (M06) |
-| 139 | B | A rootkit hides presence/privilege; a backdoor supplies re-entry — a rootkit may contain a backdoor but they aren't synonyms (M07) |
-| 140 | B | DNS cache poisoning injects forged records into a resolver's cache to redirect later queries (M08) |
+| 139 | A | A rootkit hides presence/privilege; a backdoor supplies re-entry — a rootkit may contain a backdoor but they aren't synonyms (M07) |
+| 140 | D | DNS cache poisoning injects forged records into a resolver's cache to redirect later queries (M08) |
 
 </details>
 
@@ -714,7 +714,7 @@
 - A. Longer passwords  B. Security questions  C. Phishing-resistant MFA (FIDO2/WebAuthn, origin-bound)  D. Emailing the OTP instead of texting it
 
 **146.** A SYN flood attacks the connection/state table rather than raw bandwidth. Such protocol/state attacks are most naturally measured in:
-- A. Bits per second (bps)  B. Packets per second (pps)  C. Requests per second (rps)  D. Frames per hour
+- A. Packets per second (pps)  B. Bits per second (bps)  C. Requests per second (rps)  D. Frames per hour
 
 **147.** Which application-layer DoS is *hardest to distinguish* from legitimate traffic because it consists of a high volume of **fully valid** GET/POST requests?
 - A. Slowloris  B. SYN flood  C. Teardrop  D. HTTP flood
@@ -737,7 +737,7 @@
 | 143 | B | Malicious/repackaged apps on app stores = mobile-based vector (M09) |
 | 144 | A | Careless, well-meaning but risky behavior = negligent insider (M09) |
 | 145 | C | Origin-bound FIDO2/WebAuthn can't be relayed through the proxy; passwords/OTPs can (M09) |
-| 146 | B | Volumetric = bps, protocol/state = pps, application = rps (M10) |
+| 146 | A | Volumetric = bps, protocol/state = pps, application = rps (M10) |
 | 147 | D | HTTP flood uses valid requests indistinguishable from users; Slowloris is low-bandwidth partial headers (M10) |
 | 148 | B | Overlapping fragment offsets crash reassembly = Teardrop; PoD is oversized ping (M10) |
 | 149 | C | NTP `monlist` returns a large recent-clients list = classic amplification trigger (M10) |
@@ -754,7 +754,7 @@
 - A. Secure  B. HttpOnly  C. SameSite  D. Path
 
 **153.** What most precisely separates **session hijacking** from a **replay** attack?
-- A. Hijacking requires the victim's password; replay does not  B. Hijacking takes over a live, already-authenticated session in real time, whereas replay merely resends previously captured data  C. They are identical  D. Replay works only over TLS
+- A. Hijacking requires the victim's password; replay does not  B. Replay works only over TLS  C. They are identical  D. Hijacking takes over a live, already-authenticated session in real time, whereas replay merely resends previously captured data
 
 **154.** In a **session fixation** attack, the attacker's essential move is to:
 - A. Sniff an existing session cookie off the wire  B. Predict the server's TCP initial sequence number  C. Poison the gateway's ARP cache  D. Set or supply a *known* session ID to the victim **before** they authenticate, then reuse it
@@ -783,7 +783,7 @@
 |---|---|---|
 | 151 | C | Fixation targets the app session token; seq-prediction/RST/UDP are network-level (M11) |
 | 152 | A | `Secure` restricts the cookie to TLS; HttpOnly blocks script, SameSite curbs CSRF (M11) |
-| 153 | B | Hijacking rides a *live authenticated* session in real time; replay just resends captured data (M11) |
+| 153 | D | Hijacking rides a *live authenticated* session in real time; replay just resends captured data (M11) |
 | 154 | D | Fixation = attacker sets a known ID *before* login and reuses it; sniffing an existing ID is theft (M11) |
 | 155 | A | Taking over and pushing the user off (desync/injection) = active; passive only observes (M11) |
 | 156 | D | Host-based sensor = FIM, local logs, syscalls on one host = HIDS (M12) |
@@ -797,7 +797,7 @@
 ## Set 17 — Questions 161–170
 
 **161.** HTTP request smuggling succeeds by exploiting:
-- A. A single server miscounting `ORDER BY` columns  B. A parsing desync between a front-end proxy and the back-end over `Content-Length` vs `Transfer-Encoding`  C. CRLF characters injected into a response header  D. A shared cache storing attacker-supplied content
+- A. A parsing desync between a front-end proxy and the back-end over `Content-Length` vs `Transfer-Encoding`  B. A single server miscounting `ORDER BY` columns  C. CRLF characters injected into a response header  D. A shared cache storing attacker-supplied content
 
 **162.** Web cache poisoning stores malicious content in a shared cache when:
 - A. The client wipes its local browser cache  B. The origin disables caching entirely  C. An attacker-controlled *unkeyed* input is reflected in a cacheable response and then served to other users  D. TLS is terminated at the CDN
@@ -812,7 +812,7 @@
 - A. Remote file inclusion  B. Log poisoning (LFI → RCE)  C. HTTP response splitting  D. Second-order SQL injection
 
 **166.** A frequently overlooked SQL injection entry point — because developers forget it also reaches the query — is:
-- A. The TLS certificate subject  B. An HTTP header such as `User-Agent` or `Referer`  C. The response status code  D. The favicon request
+- A. The TLS certificate subject  B. The favicon request  C. The response status code  D. An HTTP header such as `User-Agent` or `Referer`
 
 **167.** An injection that leaks data directly inside a database error message (for example via `extractvalue()`) is classified as:
 - A. Time-based blind  B. Boolean-based blind  C. In-band (error-based)  D. Out-of-band
@@ -830,12 +830,12 @@
 
 | Q | Ans | Why |
 |---|---|---|
-| 161 | B | Smuggling = front-end/back-end desync over CL vs TE headers; distinct from response splitting (C) and cache poisoning (D) (M13) |
+| 161 | A | Smuggling = front-end/back-end desync over CL vs TE headers; distinct from response splitting (C) and cache poisoning (D) (M13) |
 | 162 | C | Poisoning caches an attacker-controlled unkeyed input in a cacheable response served to others (M13) |
 | 163 | C | whatweb fingerprints the stack; gobuster = content discovery, Nikto = misconfig, hydra = auth brute (M13) |
 | 164 | C | Insecure deserialization sits under A08 Software and Data Integrity Failures (M14) |
 | 165 | B | Writing code into a log then LFI-including it = log poisoning, the classic LFI→RCE (M14) |
-| 166 | B | Concatenated header values (User-Agent/Referer/Cookie) reach the query — a common blind SQLi vector (M15) |
+| 166 | D | Concatenated header values (User-Agent/Referer/Cookie) reach the query — a common blind SQLi vector (M15) |
 | 167 | C | Error-based returns data in the same response = in-band; blind returns none, OOB uses a side channel (M15) |
 | 168 | D | `pg_sleep` is PostgreSQL's delay; MySQL=SLEEP, MSSQL=WAITFOR, Oracle=dbms_lock.sleep (M15) |
 | 169 | D | `-m 22000` is the modern combined WPA/PMKID mode; 1000=NTLM, 5600=NetNTLMv2, 0=MD5 (M16) |
@@ -846,10 +846,10 @@
 ## Set 18 — Questions 171–180
 
 **171.** A web app runs under a dedicated `www-data` service account instead of root. The primary benefit is that a successful web-shell upload:
-- A. Cannot execute at all  B. Inherits only that account's minimal privileges, limiting the blast radius  C. Is automatically quarantined  D. Prevents the upload from succeeding
+- A. Inherits only that account's minimal privileges, limiting the blast radius  B. Cannot execute at all  C. Is automatically quarantined  D. Prevents the upload from succeeding
 
 **172.** An admin strips the `Server:` and `X-Powered-By:` headers. An attacker can still often identify the software by:
-- A. Reading the TLS private key  B. Behavioral fingerprinting — header ordering, error-page wording, method handling (httprint-style)  C. Running a `UNION SELECT`  D. Cracking the WPA2 handshake
+- A. Reading the TLS private key  B. Cracking the WPA2 handshake  C. Running a `UNION SELECT`  D. Behavioral fingerprinting — header ordering, error-page wording, method handling (httprint-style)
 
 **173.** An application lets users register webhooks that call arbitrary callback URLs. The two risks that most need addressing are:
 - A. ECB mode and weak IVs  B. SSRF to internal services and missing signature verification of delivered events  C. ARP poisoning and MAC flooding  D. Deauth floods and PMKID capture
@@ -858,7 +858,7 @@
 - A. Mass assignment  B. Broken Object Level Authorization (BOLA)  C. Excessive data exposure  D. Missing rate limiting
 
 **175.** sqlmap ships `--tamper` scripts such as `space2comment`. Their existence best illustrates that:
-- A. A WAF is a complete fix for SQL injection  B. A WAF is only a compensating control that can be evaded — parameterized queries remain the real fix  C. Input validation alone prevents all injection  D. Stored procedures are always safe
+- A. A WAF is only a compensating control that can be evaded — parameterized queries remain the real fix  B. A WAF is a complete fix for SQL injection  C. Input validation alone prevents all injection  D. Stored procedures are always safe
 
 **176.** Wrapping a query in a stored procedure does **not** reliably stop SQL injection when the procedure:
 - A. Uses parameterized inputs  B. Concatenates its parameters to build and `EXEC` dynamic SQL  C. Runs under a least-privilege account  D. Returns no result set
@@ -870,25 +870,25 @@
 - A. Bluejacking  B. Bluesnarfing  C. Bluebugging  D. BlueBorne
 
 **179.** The security jump from WPA to WPA2 mattered most because WPA2 replaced the RC4-based TKIP with:
-- A. WEP's static key  B. CCMP/AES  C. SAE/Dragonfly  D. RC4 with a larger IV
+- A. WEP's static key  B. RC4 with a larger IV  C. SAE/Dragonfly  D. CCMP/AES
 
 **180.** A test finds the app bundles a JavaScript library version carrying a published CVE. This maps to which OWASP 2021 category?
-- A. A02 Cryptographic Failures  B. A06 Vulnerable and Outdated Components  C. A09 Security Logging and Monitoring Failures  D. A01 Broken Access Control
+- A. A06 Vulnerable and Outdated Components  B. A02 Cryptographic Failures  C. A09 Security Logging and Monitoring Failures  D. A01 Broken Access Control
 
 <details><summary>Answer key — Set 18</summary>
 
 | Q | Ans | Why |
 |---|---|---|
-| 171 | B | A least-privilege service identity means a web shell inherits almost nothing — blast-radius control, not prevention (M13) |
-| 172 | B | Even with banners masked, header order/error wording/method handling fingerprint the server (httprint idea) (M13) |
+| 171 | A | A least-privilege service identity means a web shell inherits almost nothing — blast-radius control, not prevention (M13) |
+| 172 | D | Even with banners masked, header order/error wording/method handling fingerprint the server (httprint idea) (M13) |
 | 173 | B | User-supplied callback URLs invite SSRF; unsigned events allow spoofed/replayed deliveries (M14) |
 | 174 | A | Binding untrusted fields onto the model (e.g., isAdmin) is mass assignment; BOLA is object-ID tampering (M14) |
-| 175 | B | Tamper scripts exist to bypass WAFs — proof the WAF is compensating, not the fix; parameterization is (M15) |
+| 175 | A | Tamper scripts exist to bypass WAFs — proof the WAF is compensating, not the fix; parameterization is (M15) |
 | 176 | B | A procedure that builds dynamic SQL from concatenated params is still injectable (M15) |
 | 177 | C | aireplay-ng injects deauth; airmon=monitor mode, airodump=capture/survey, aircrack=crack (M16) |
 | 178 | C | Bluebugging takes control (calls/messages); bluesnarfing steals data, bluejacking only sends messages (M16) |
-| 179 | B | WPA2 introduced CCMP/AES, retiring the RC4-based TKIP stopgap (M16) |
-| 180 | B | Shipping a known-vulnerable component version = A06 Vulnerable and Outdated Components (M14) |
+| 179 | D | WPA2 introduced CCMP/AES, retiring the RC4-based TKIP stopgap (M16) |
+| 180 | A | Shipping a known-vulnerable component version = A06 Vulnerable and Outdated Components (M14) |
 
 </details>
 
@@ -901,7 +901,7 @@
 - A. In SharedPreferences as plaintext XML  B. In a world-readable SQLite database  C. In the hardware-backed Android Keystore  D. Written to logcat for later retrieval
 
 **183.** Employees keep getting a flood of authenticator-app approval prompts until one of them taps "Approve" out of annoyance. Which control most directly defeats this MFA-fatigue / push-bombing technique?
-- A. Increasing the notification font size  B. Number matching — the user types a code shown on the login screen  C. Lengthening the token lifetime  D. Allowing unlimited push retries
+- A. Increasing the notification font size  B. Allowing unlimited push retries  C. Lengthening the token lifetime  D. Number matching — the user types a code shown on the login screen
 
 **184.** During an Android assessment you want to enumerate and interact with an app's `exported` activities and content providers to probe its IPC attack surface. Which tool is purpose-built for this?
 - A. Drozer  B. Hashcat  C. binwalk  D. Prowler
@@ -919,10 +919,10 @@
 - A. binwalk  B. sqlmap  C. Responder  D. kube-bench
 
 **189.** In an industrial network, grouping systems into security "zones" and forcing all traffic between them through defined "conduits" is the segmentation model standardized by:
-- A. NIST SP 800-145  B. ISA/IEC 62443  C. OWASP Mobile Top 10  D. PCI DSS
+- A. ISA/IEC 62443  B. NIST SP 800-145  C. OWASP Mobile Top 10  D. PCI DSS
 
 **190.** Why is "container escape" a realistic risk that has no direct equivalent for a traditional virtual machine?
-- A. Containers run with no process isolation whatsoever  B. Containers share the host's kernel, so a break-out lands directly on the host  C. Containers cannot use namespaces or cgroups  D. VMs run inside the container's kernel
+- A. Containers run with no process isolation whatsoever  B. VMs run inside the container's kernel  C. Containers cannot use namespaces or cgroups  D. Containers share the host's kernel, so a break-out lands directly on the host
 
 <details><summary>Answer key — Set 19</summary>
 
@@ -930,14 +930,14 @@
 |---|---|---|
 | 181 | B | OWASP Mobile 2024 M1 Improper Credential Usage explicitly covers hardcoded credentials/keys in the app (M17) |
 | 182 | C | Secrets belong in the hardware-backed Keystore (iOS: Keychain), never in prefs/SQLite/logs = Insecure Data Storage (M17) |
-| 183 | B | Number matching forces the approver to enter a code from the login screen, defeating blind push-bombing/MFA fatigue (M17) |
+| 183 | D | Number matching forces the approver to enter a code from the login screen, defeating blind push-bombing/MFA fatigue (M17) |
 | 184 | A | Drozer is built to assess Android IPC / exported components / attack surface; the others are unrelated tools (M17) |
 | 185 | C | DNP3 runs on port 20000 in electric/water utilities; Modbus=502, S7comm=102, BACnet=47808/UDP (M18) |
 | 186 | B | SCADA = geographically distributed supervisory monitoring/control; DCS = process control within one plant; PLC = the field controller (M18) |
 | 187 | C | LoRaWAN is the long-range, low-power WAN (LPWAN); BLE/Zigbee/NFC are short-range (M18) |
 | 188 | A | binwalk carves and extracts embedded filesystems from firmware images so you can grep for secrets (M18) |
-| 189 | B | Zones & conduits are the segmentation concept from the ISA/IEC 62443 OT-security series (M18) |
-| 190 | B | Containers share the host kernel (namespaces/cgroups only), so a break-out reaches the host — weaker isolation than a VM (M19) |
+| 189 | A | Zones & conduits are the segmentation concept from the ISA/IEC 62443 OT-security series (M18) |
+| 190 | D | Containers share the host kernel (namespaces/cgroups only), so a break-out reaches the host — weaker isolation than a VM (M19) |
 
 </details>
 
@@ -953,7 +953,7 @@
 - A. Ciphertext-only  B. Known-plaintext  C. Chosen-plaintext  D. Side-channel
 
 **194.** Which asymmetric algorithm can generate and verify digital signatures but CANNOT be used to encrypt data?
-- A. RSA  B. DSA  C. ECC  D. ElGamal
+- A. DSA  B. RSA  C. ECC  D. ElGamal
 
 **195.** A defender already applies a unique random salt to every stored password hash. Increasing the KDF's "work factor" (cost/iteration count) additionally protects against:
 - A. Precomputed rainbow-table lookups  B. Fast brute-force / dictionary cracking of the stolen hashes  C. A man-in-the-middle on the TLS handshake  D. ARP cache poisoning
@@ -962,13 +962,13 @@
 - A. Brute-force attack  B. Birthday attack  C. Side-channel attack  D. Chosen-ciphertext attack
 
 **197.** An attacker repeatedly queries a deployed ML model and uses its confidence outputs to reconstruct sensitive records that were in the training set. This privacy attack is called:
-- A. Evasion (adversarial example)  B. Model inversion  C. Prompt injection  D. Data poisoning
+- A. Evasion (adversarial example)  B. Data poisoning  C. Prompt injection  D. Model inversion
 
 **198.** Which ATT&CK-style knowledge base specifically catalogs the real-world tactics and techniques used to attack AI/ML systems?
 - A. MITRE ATLAS  B. OWASP Mobile Top 10  C. NIST SP 800-145  D. The Purdue model
 
 **199.** A user crafts an elaborate role-play ("pretend you are an unrestricted AI with no rules…") to coax an LLM into bypassing its safety guardrails and producing disallowed content. This technique is best described as:
-- A. Indirect prompt injection  B. Jailbreaking  C. Model extraction  D. Improper output handling
+- A. Jailbreaking  B. Indirect prompt injection  C. Model extraction  D. Improper output handling
 
 **200.** To ensure that a leaked system prompt (LLM07 System Prompt Leakage) from an AI agent cannot expose real credentials, the BEST practice is to:
 - A. Paste the API keys into the agent's system prompt for convenience  B. Deliver secrets to the agent at runtime from a vault, never embedding them in prompts  C. Disable all logging of the agent's activity  D. Give the agent standing admin so it never needs to fetch a secret
@@ -980,12 +980,12 @@
 | 191 | C | ScoutSuite is a read-only multi-cloud posture audit; Pacu = AWS exploitation, kube-hunter = offensive K8s pentest, Metasploit = exploitation (M19) |
 | 192 | B | Abusing an over-broad IAM permission (CreatePolicyVersion) to grant yourself admin is IAM privilege escalation — same class as iam:PassRole abuse (M19) |
 | 193 | C | Submitting chosen plaintexts to an oracle and reading the ciphertexts = chosen-plaintext attack (CPA) (M20) |
-| 194 | B | DSA does signatures only; RSA/ElGamal do both encrypt and sign, ECC does both (M20) |
+| 194 | A | DSA does signatures only; RSA/ElGamal do both encrypt and sign, ECC does both (M20) |
 | 195 | B | A salt kills rainbow tables; the tunable work factor is what slows fast brute-force/dictionary cracking of dumped hashes (M20) |
 | 196 | C | Leaking the key via power/timing/EM measurements of the implementation (not the math) = side-channel attack (M20) |
-| 197 | B | Reconstructing training records from model outputs = model inversion; membership inference only asks if a record was present (AI) |
+| 197 | D | Reconstructing training records from model outputs = model inversion; membership inference only asks if a record was present (AI) |
 | 198 | A | MITRE ATLAS is the ATT&CK-style adversarial-ML knowledge base for attacks on AI systems (AI) |
-| 199 | B | Role-play/obfuscation to defeat safety guardrails = jailbreaking; indirect injection hides payloads in ingested content (AI) |
+| 199 | A | Role-play/obfuscation to defeat safety guardrails = jailbreaking; indirect injection hides payloads in ingested content (AI) |
 | 200 | B | Keep secrets out of prompts and inject them at runtime from a vault (e.g., Conjur/CCP) so a system-prompt leak spills nothing (AI/PAM) |
 
 </details>
