@@ -14,6 +14,8 @@ Every module ties the offensive technique you must learn for the exam back to th
 
 > **⚖️ Ethics & scope.** Everything here is for authorized learning only: your own self-hosted lab (see [`labs/`](labs/)), EC-Council's official ranges, or systems you have **written permission** to test. Never point these tools or techniques at systems you do not own or are not explicitly authorized to assess. Unauthorized access is a crime in most jurisdictions.
 
+> **📌 Before you rely on it.** This is a substantially **AI-assisted** study kit — comprehensive and structurally validated, but not line-by-line expert-reviewed. Read [`KNOWN-LIMITATIONS.md`](KNOWN-LIMITATIONS.md): verify exam facts against EC-Council and commands against the tool's own docs. Practice questions are original (never dumps).
+
 ---
 
 ## Contents
@@ -263,7 +265,7 @@ flowchart TD
 
 ### Everything here (clickable index)
 
-**Orient:** [Roadmap (beginner→master)](ROADMAP.md) · [Blue-team lab (detect the attacks)](labs/blue-team-lab.md)
+**Orient:** [Roadmap (beginner→master)](ROADMAP.md) · [Blue-team lab (detect the attacks)](labs/blue-team-lab.md) · [Known limitations & how to verify](KNOWN-LIMITATIONS.md)
 
 **Study the theory:** [Modules 01–20](modules/) · [Study plan (12 weeks)](STUDY-PLAN.md) · [Exam strategy](EXAM-STRATEGY.md) · [Glossary](GLOSSARY.md) · [Blueprint coverage](BLUEPRINT-COVERAGE.md) · [Progress tracker](PROGRESS.md) · [Exam logistics](EXAM-LOGISTICS.md)
 

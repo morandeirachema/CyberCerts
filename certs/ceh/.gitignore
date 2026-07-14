@@ -37,3 +37,7 @@ node_modules/
 
 # Local editor / assistant config (machine-specific)
 .claude/settings.local.json
+
+# Generated artifacts
+anki-decks/
+*.apkg
