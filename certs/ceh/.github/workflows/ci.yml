@@ -1,0 +1,30 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  integrity:
+    name: Repo integrity + shell lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate links, anchors, mermaid, flashcard CSVs
+        run: python3 scripts/validate.py
+
+      - name: ShellCheck lab scripts (informational)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y shellcheck
+          shellcheck labs/scripts/*.sh practical/challenge-lab/*.sh || true
+
+      - name: Syntax-check the challenge generator
+        run: bash -n practical/challenge-lab/setup-challenges.sh

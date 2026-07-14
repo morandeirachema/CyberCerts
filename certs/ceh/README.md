@@ -1,5 +1,6 @@
 # CEH v13 — Study, Labs & Exam Prep
 
+[![validate](https://github.com/morandeirachema/CEH/actions/workflows/ci.yml/badge.svg)](https://github.com/morandeirachema/CEH/actions/workflows/ci.yml)
 ![CEH](https://img.shields.io/badge/CEH-v13%20(312--50)-1f6feb)
 ![Modules](https://img.shields.io/badge/modules-20%2F20-2da44e)
 ![Practice questions](https://img.shields.io/badge/practice%20questions-287-e3651d)
@@ -115,7 +116,7 @@ flowchart LR
 2. **Lab** the `lab-walkthrough.md` against **your** targets; record results in the module's lab-log table.
 3. **Map** the Defender & PAM section — your retention hook (deep dives in [`defender-pam/`](defender-pam/)).
 4. **Test** with `practice-questions.md`; aim for ≥80% before moving on.
-5. **Drill** `flashcards.csv` (import into Anki — the `#tags` line groups cards by module).
+5. **Drill** `flashcards.csv` — run the built-in terminal quiz (`python3 scripts/quiz.py --module 06`) or import into Anki (the `#tags` line groups cards by module).
 6. **Track** in [`PROGRESS.md`](PROGRESS.md); log every miss in the weak-area table and re-test it first next session.
 
 Keep [`GLOSSARY.md`](GLOSSARY.md) open for acronym lookups. Once you've worked several modules, take the [`MOCK-EXAM.md`](MOCK-EXAM.md) — 50 mixed questions — as a checkpoint, and the full-length [`MOCK-EXAM-FULL.md`](MOCK-EXAM-FULL.md) — 125 questions in 240 minutes — as a timed dress rehearsal before booking. In the final weeks, drill each module's one-page [`facts.md`](modules/), the [`cheatsheets/`](cheatsheets/), and the practice platforms in [`resources/practice-labs.md`](resources/practice-labs.md).
