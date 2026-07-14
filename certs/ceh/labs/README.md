@@ -8,6 +8,7 @@ A runnable practice range you fully control. Three layers:
 | **Network targets** | Vagrant ([`vagrant/`](vagrant/)) | Kali attacker + Metasploitable2 | 02–08, 10–12 |
 | **AD / PAM lab** | Ansible ([`ansible/`](ansible/)) | Windows DC + ADCS with a tiered-admin (PAM) model and planted attack paths | 04, 06, 08, defender mappings |
 | **Capstone chain** | [`capstone.md`](capstone.md) | Full recon→Kerberoast→delegation→ADCS→DCSync→cover-tracks engagement | all AD modules |
+| **Blue-team lab** | [`blue-team-lab.md`](blue-team-lab.md) | Run the capstone attacks, then **detect** each in Sysmon/logs with Sigma | defender-pam, detection |
 
 > 🔒 **This lab is isolated on purpose.** These images are *deliberately vulnerable*. Keep them on a host-only / internal network, never bridge them to the internet or your production LAN, and never expose the published ports beyond localhost. See [`topology.md`](topology.md).
 

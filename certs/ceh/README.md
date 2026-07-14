@@ -34,6 +34,8 @@ Every module ties the offensive technique you must learn for the exam back to th
 
 This repo is big; start where you fit and follow the trail.
 
+> 🧭 **Want the whole journey?** [`ROADMAP.md`](ROADMAP.md) sequences everything into a **beginner→master** ladder — foundations → theory → tools → hands-on labs → exams → *beyond CEH* (HTB/OSCP, specializations, red + blue) — with checkpoints and a self-assessment matrix.
+
 - 🌱 **New to Linux / hacking** — begin with the [`kali/`](kali/) course (chapter [00](kali/00-getting-started.md)), which teaches Linux, the terminal, and every tool from zero. Stand up the [lab](labs/), then work the [modules](modules/) in order.
 - ⏱️ **Know the tech, need the cert** — read [`EXAM-STRATEGY.md`](EXAM-STRATEGY.md), then per module skim the guide, drill its `facts.md` + `practice-questions.md` + `flashcards.csv`, and check yourself with the [50-](MOCK-EXAM.md) and [125-question](MOCK-EXAM-FULL.md) mocks. Use [`BLUEPRINT-COVERAGE.md`](BLUEPRINT-COVERAGE.md) to confirm coverage.
 - 🛡️ **Sysadmin / PAM engineer** — start with the [`defender-pam/`](defender-pam/) knowledge base and [identity attack paths](defender-pam/identity-attack-paths.md), run the [`labs/capstone.md`](labs/capstone.md) chain to see attack→control end-to-end, then skim the modules for the offensive detail.
@@ -60,6 +62,7 @@ This repo is big; start where you fit and follow the trail.
 
 | | |
 |---|---|
+| 🧭 **Learning roadmap** | [beginner→master ladder](ROADMAP.md) sequencing the whole repo + what to do after CEH |
 | 📘 **Module guides** | 20 — full concept coverage in official CEH v13 order |
 | 🗂️ **Study companions** | 80 files — every module has `facts.md`, `practice-questions.md`, `flashcards.csv`, `lab-walkthrough.md` |
 | ❓ **Practice questions** | 287 original, concept-based, with collapsible explanations |
@@ -210,6 +213,7 @@ The values below are consistent across multiple public sources as of **2026-07-1
 flowchart TD
     CEH["CEH/"]
     README["README.md — you are here"]
+    ROADMAP["ROADMAP.md — beginner→master ladder"]
     STRATEGY["EXAM-STRATEGY.md — study system + test-day tactics"]
     MOCK["MOCK-EXAM.md — 50-question checkpoint"]
     MOCKFULL["MOCK-EXAM-FULL.md — 125-question full-length exam"]
@@ -231,6 +235,7 @@ flowchart TD
     CHEATSHEETS["cheatsheets/ — ports, nmap, metasploit, hashcat, one-liners"]
     RESOURCES["resources/ — official links, tools, practice platforms"]
     CEH --> README
+    CEH --> ROADMAP
     CEH --> STRATEGY
     CEH --> MOCK
     CEH --> MOCKFULL
@@ -256,6 +261,8 @@ flowchart TD
 ---
 
 ### Everything here (clickable index)
+
+**Orient:** [Roadmap (beginner→master)](ROADMAP.md) · [Blue-team lab (detect the attacks)](labs/blue-team-lab.md)
 
 **Study the theory:** [Modules 01–20](modules/) · [Study plan (12 weeks)](STUDY-PLAN.md) · [Exam strategy](EXAM-STRATEGY.md) · [Glossary](GLOSSARY.md) · [Blueprint coverage](BLUEPRINT-COVERAGE.md) · [Progress tracker](PROGRESS.md) · [Exam logistics](EXAM-LOGISTICS.md)
 
