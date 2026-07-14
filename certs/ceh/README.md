@@ -69,7 +69,7 @@ This repo is big; start where you fit and follow the trail.
 | 🐉 **Kali** | a [beginner→mastery course](kali/) (17 chapters, from "what is Linux" to attacking AD) + a one-page [reference](KALI-TUTORIAL.md), all against the lab |
 | 🧠 **AI study workflow** | copy-paste [AI-tutor prompts](AI-STUDY-WORKFLOW.md) wired to the repo (Socratic quiz, miss→flashcards, Feynman check) |
 | 🏆 **CEH Practical** | hands-on [CEH Master prep](practical/): skills checklist, challenge playbooks, timed lab drills |
-| 🎯 **Exam prep** | strategy guide, glossary/acronym index, **50- and 125-question mock exams**, 12-week plan, progress tracker |
+| 🎯 **Exam prep** | strategy guide, glossary/acronym index, **50- + 125-question mocks + a 200-question rapid-fire bank**, 12-week plan, progress tracker |
 | 🤖 **AI-driven hacking** | AI across each phase + attacking/defending AI (LLM Top 10, adversarial ML) — CEH v13's headline topic |
 | 🧭 **Coverage matrix** | per-module subtopic checklist mapped to where each topic is covered |
 
@@ -213,6 +213,7 @@ flowchart TD
     STRATEGY["EXAM-STRATEGY.md — study system + test-day tactics"]
     MOCK["MOCK-EXAM.md — 50-question checkpoint"]
     MOCKFULL["MOCK-EXAM-FULL.md — 125-question full-length exam"]
+    RAPIDFIRE["RAPID-FIRE.md — 200-question drill bank (20 sets of 10)"]
     AICEH["AI-IN-ETHICAL-HACKING.md — AI-driven hacking (v13)"]
     COVERAGE["BLUEPRINT-COVERAGE.md — subtopic coverage matrix"]
     KALI["KALI-TUTORIAL.md — one-page Kali reference"]
@@ -233,6 +234,7 @@ flowchart TD
     CEH --> STRATEGY
     CEH --> MOCK
     CEH --> MOCKFULL
+    CEH --> RAPIDFIRE
     CEH --> AICEH
     CEH --> COVERAGE
     CEH --> KALI
@@ -259,7 +261,7 @@ flowchart TD
 
 **Learn the tools & do labs:** [Kali course (beginner→mastery)](kali/) · [Kali one-page reference](KALI-TUTORIAL.md) · [Lab environment](labs/) · [Capstone chain](labs/capstone.md) · [Cheatsheets](cheatsheets/)
 
-**Pass the exams:** [Mock exam — 50 Q](MOCK-EXAM.md) · [Full mock — 125 Q](MOCK-EXAM-FULL.md) · [CEH Practical prep](practical/) · [Challenge generator](practical/challenge-lab/) · [Drill packs](practical/drills/) · [Simulated exams](practical/exams/)
+**Pass the exams:** [Mock exam — 50 Q](MOCK-EXAM.md) · [Full mock — 125 Q](MOCK-EXAM-FULL.md) · [Rapid-fire bank — 200 Q](RAPID-FIRE.md) · [CEH Practical prep](practical/) · [Challenge generator](practical/challenge-lab/) · [Drill packs](practical/drills/) · [Simulated exams](practical/exams/)
 
 **Go deeper:** [Defender / PAM (CyberArk)](defender-pam/) · [Identity attack paths](defender-pam/identity-attack-paths.md) · [Detection engineering](defender-pam/detection-engineering.md) · [AI-driven hacking](AI-IN-ETHICAL-HACKING.md) · [AI study workflow](AI-STUDY-WORKFLOW.md) · [Deep references](resources/deep-references.md) · [Resources](resources/)
 
