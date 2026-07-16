@@ -19,7 +19,7 @@ jobs:
           python-version: "3.x"
 
       - name: Compile all Python helper scripts
-        run: python -m py_compile scripts/*.py
+        run: python -m py_compile scripts/*.py labs/ot/modbus/server.py
 
       - name: Unit-test the link/anchor slug logic
         run: python3 scripts/validate.py --selftest
@@ -27,8 +27,10 @@ jobs:
       - name: Validate links, anchors, mermaid, flashcard CSVs
         run: python3 scripts/validate.py
 
-      - name: Validate the Docker lab compose file
-        run: docker compose -f labs/docker-compose.yml config -q
+      - name: Validate the Docker lab compose files
+        run: |
+          docker compose -f labs/docker-compose.yml config -q
+          docker compose -f labs/ot/docker-compose.yml config -q
 
       - name: Check Ansible playbook YAML is well-formed
         run: |

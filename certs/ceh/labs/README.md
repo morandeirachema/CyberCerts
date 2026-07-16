@@ -5,6 +5,7 @@ A runnable practice range you fully control. Three layers:
 | Layer | Tooling | What it gives you | Modules it serves |
 |---|---|---|---|
 | **Web targets** | Docker Compose ([`docker-compose.yml`](docker-compose.yml)) | DVWA, OWASP Juice Shop, WebGoat, bWAPP | 13, 14, 15 (web + SQLi) |
+| **OT / ICS targets** | Docker Compose ([`ot/`](ot/)) | MQTT broker + Modbus/TCP PLC simulator (no-auth by design) | 18 (IoT/OT) |
 | **Network targets** | Vagrant ([`vagrant/`](vagrant/)) | Kali attacker + Metasploitable2 | 02–08, 10–12 |
 | **AD / PAM lab** | Ansible ([`ansible/`](ansible/)) | Windows DC + ADCS with a tiered-admin (PAM) model and planted attack paths | 04, 06, 08, defender mappings |
 | **Capstone chain** | [`capstone.md`](capstone.md) | Full recon→Kerberoast→delegation→ADCS→DCSync→cover-tracks engagement | all AD modules |
@@ -87,6 +88,18 @@ ansible-playbook -i inventory.ini ad-lab.yml
 ## 4. Capstone — chain it all together
 
 Once the AD lab is up, run the **[capstone.md](capstone.md)** engagement: a single attack chain (recon → enumeration → Kerberoast → RBCD delegation → ADCS ESC1 → DCSync → covering tracks), each stage paired with the PAM control that stops it. Run it once to win, once with the fixes applied to get stopped — that contrast is the learning.
+
+## 5. OT / ICS targets (Docker)
+
+A loopback-only range for **Module 18** — an MQTT broker and a Modbus/TCP PLC simulator, both **unauthenticated by design**, so you feel *why* OT protocols are insecure and map each finding to the segmentation/PAM control that contains it. Both clients ship inside the images (nothing to install on the host).
+
+```bash
+docker compose -f labs/ot/docker-compose.yml up -d --build
+```
+
+Then work through [`ot/README.md`](ot/): subscribe to MQTT `#` and inject a spoofed reading, and read/**write** Modbus registers (FC3/FC6) with no login. See [`../modules/18-iot-and-ot-hacking/lab-walkthrough.md`](../modules/18-iot-and-ot-hacking/lab-walkthrough.md) for the full guided version (adds Shodan index recon and firmware carving).
+
+> ⛔ **OT is safety-critical.** Only ever attack these local simulators — never a real PLC/IoT device you don't own on an isolated bench.
 
 ---
 

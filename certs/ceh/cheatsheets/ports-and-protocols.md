@@ -46,6 +46,25 @@ Memorize these — CEH tests port↔service recognition directly, and enumeratio
 | 8080/8443 | TCP | HTTP/HTTPS alt | Proxies, app servers | 13, 14 |
 | 27017 | TCP | MongoDB | Often unauth | 04 |
 
+## ICS / OT & IoT protocol ports (Module 18)
+
+Most of these have **no authentication or encryption by design** — the control is segmentation, not the protocol. Practice them locally with [`../labs/ot/`](../labs/ot/).
+
+| Port | Proto | Service | Notes / attack angle | Module |
+|---|---|---|---|---|
+| 102 | TCP | S7comm (Siemens S7) | PLC comms; no auth | 18 |
+| 502 | TCP | Modbus/TCP | Read (FC3) + **write** (FC6/16) registers, no auth | 18 |
+| 1883 | TCP | MQTT | IoT pub/sub broker, frequently anonymous | 18 |
+| 2222 | UDP | EtherNet/IP (implicit I/O) | Rockwell/Allen-Bradley CIP | 18 |
+| 4840 | TCP | OPC UA | Modern, secure-*capable* interop | 18 |
+| 5683 | UDP | CoAP | RESTful IoT over UDP (DTLS **5684**) | 18 |
+| 8883 | TCP | MQTT over TLS | The secured form of 1883 | 18 |
+| 20000 | TCP/UDP | DNP3 | Electric/water utilities | 18 |
+| 44818 | TCP | EtherNet/IP (explicit) | Rockwell/Allen-Bradley CIP | 18 |
+| 47808 | UDP | BACnet | Building automation | 18 |
+
+> **Traps:** MQTT is **pub/sub over TCP**; CoAP is **REST over UDP** — one wrong word (TCP↔UDP, pub/sub↔request/response) flips the answer. Modbus/DNP3/S7comm assume a **trusted network** — no identity, no crypto.
+
 ## Handshakes & flags (memorize)
 
 - **TCP three-way handshake:** `SYN → SYN/ACK → ACK`. Teardown: `FIN/ACK`.

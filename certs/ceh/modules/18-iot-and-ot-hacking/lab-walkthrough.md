@@ -10,6 +10,8 @@
 
 **Prereqs:** `mosquitto` + `mosquitto-clients` installed, Python with `pip install pymodbus`, `binwalk` installed, and (optional) a Shodan account/API key (`shodan init <KEY>`). A firmware image **you legally own** (e.g. from your own router vendor's download page) saved as `firmware.bin`.
 
+> 💡 **Prefer one command?** Parts B and C are containerised in [`../../labs/ot/`](../../labs/ot/) — `docker compose -f labs/ot/docker-compose.yml up -d --build` gives you the MQTT broker and Modbus simulator with the clients already inside the images (no host install). Come back here for Part A (Shodan) and the firmware carving in C3.
+
 ---
 
 ## Part A — Passive exposure recon (query the INDEX, never connect)

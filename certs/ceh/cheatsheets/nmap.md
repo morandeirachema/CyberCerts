@@ -43,6 +43,18 @@ nmap --script smb-enum-shares,smb-os-discovery -p445 192.168.56.20
 
 NSE categories: `auth, broadcast, brute, default, discovery, dos, exploit, external, fuzzer, intrusive, malware, safe, version, vuln`. Scripts live in `/usr/share/nmap/scripts/`.
 
+## OT / ICS discovery (Module 18)
+
+```bash
+nmap -sV -p 502   --script modbus-discover 127.0.0.1   # Modbus unit IDs / device info
+nmap -sV -p 102   --script s7-info         127.0.0.1   # Siemens S7 PLC
+nmap -sV -p 44818 --script enip-info       127.0.0.1   # EtherNet/IP (Rockwell)
+nmap -sU -p 47808 --script bacnet-info     127.0.0.1   # BACnet (UDP, building automation)
+nmap -sV -p 1883  --script mqtt-subscribe  127.0.0.1   # MQTT topics (anonymous)
+```
+
+> ⛔ **Only against simulators / devices you own.** A scan that's routine on IT can crash a fragile PLC. On a real assessment, prefer **passive** discovery (span port, Shodan/Censys *index*) and never `-T4`/`-A` an OT segment. Practice these on [`../labs/ot/`](../labs/ot/).
+
 ## Timing & performance
 
 ```bash
