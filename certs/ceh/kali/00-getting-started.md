@@ -3,6 +3,8 @@
 > **What you'll learn:** what Kali is, how to install it safely as a virtual machine, the very first things to do after booting, and how to keep it healthy. No prior Linux knowledge needed.
 > **Prerequisites:** none — this is the first chapter. ⬅️ [Course index](README.md)
 
+> 🐧 **On a Linux PC?** This chapter uses VirtualBox (easiest on Windows/macOS). If your own machine runs Linux, the native options — a **KVM/QEMU VM** or a **Docker container**, plus driving it all with **Claude Code** — are in [Running Kali on a Linux host](running-kali-on-linux.md).
+
 ---
 
 ## What is Kali Linux?

@@ -65,6 +65,7 @@ flowchart TD
 | 15 | [Notes & reporting](15-notes-and-reporting.md) | tmux, note-taking, writing findings | [05](../modules/05-vulnerability-analysis/) |
 
 **Appendix**
+- [Running Kali on a Linux host (KVM / Docker) + Claude Code](running-kali-on-linux.md) — native options when your PC runs Linux
 - [Troubleshooting — common beginner errors & fixes](appendix-troubleshooting.md)
 
 ---
