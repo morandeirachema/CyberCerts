@@ -8,7 +8,7 @@ on:
 
 jobs:
   integrity:
-    name: Repo integrity + shell lint
+    name: Repo integrity, scripts, lab configs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,13 +18,35 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Compile all Python helper scripts
+        run: python -m py_compile scripts/*.py
+
+      - name: Unit-test the link/anchor slug logic
+        run: python3 scripts/validate.py --selftest
+
       - name: Validate links, anchors, mermaid, flashcard CSVs
         run: python3 scripts/validate.py
 
-      - name: ShellCheck lab scripts (informational)
-        run: |
-          sudo apt-get update -qq && sudo apt-get install -y shellcheck
-          shellcheck labs/scripts/*.sh practical/challenge-lab/*.sh || true
+      - name: Validate the Docker lab compose file
+        run: docker compose -f labs/docker-compose.yml config -q
 
-      - name: Syntax-check the challenge generator
-        run: bash -n practical/challenge-lab/setup-challenges.sh
+      - name: Check Ansible playbook YAML is well-formed
+        run: |
+          python -m pip install --quiet pyyaml
+          python - <<'PY'
+          import glob, yaml
+          for f in sorted(glob.glob("labs/ansible/*.yml")):
+              list(yaml.safe_load_all(open(f, encoding="utf-8")))
+              print("ok:", f)
+          PY
+
+      - name: Syntax-check every shell script
+        run: |
+          for s in labs/scripts/*.sh practical/challenge-lab/*.sh; do
+            bash -n "$s" && echo "syntax ok: $s"
+          done
+
+      - name: ShellCheck lab scripts (warnings block the build)
+        run: |
+          command -v shellcheck >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y shellcheck)
+          shellcheck -S warning labs/scripts/*.sh practical/challenge-lab/*.sh

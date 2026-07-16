@@ -17,9 +17,11 @@ if command -v vagrant >/dev/null 2>&1; then
 fi
 
 if [[ "$DEEP" == "--deep" ]]; then
-  echo "[*] Deep clean: destroying VMs and pruning docker volumes..."
+  echo "[*] Deep clean: destroying VMs and removing THIS lab's images..."
   ( cd "$LABS_DIR/vagrant" && vagrant destroy -f ) || true
-  docker volume prune -f || true
+  # Scope removal to this compose project only. A global 'docker volume prune'
+  # would delete unrelated dangling volumes elsewhere on the host — never do that.
+  ( cd "$LABS_DIR" && docker compose down -v --rmi all --remove-orphans ) || true
 fi
 
 echo "[+] Lab reset complete."

@@ -46,7 +46,11 @@ def main():
             if not row or row[0].startswith("#") or len(row) < 2:
                 continue
             tags = [re.sub(r"[^A-Za-z0-9_]", "_", t) for t in (row[2].split() if len(row) > 2 else [])]
-            deck.add_note(genanki.Note(model=MODEL, fields=[row[0], row[1]], tags=tags))
+            # Stable GUID (module + front) so re-importing a regenerated deck
+            # UPDATES existing cards instead of adding duplicates.
+            note = genanki.Note(model=MODEL, fields=[row[0], row[1]], tags=tags,
+                                guid=genanki.guid_for(name, row[0]))
+            deck.add_note(note)
             total += 1
         decks.append(deck)
     genanki.Package(decks).write_to_file(str(out))

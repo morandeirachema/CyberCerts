@@ -20,7 +20,10 @@ services:
       # DVWA reads DB creds from these; defaults are fine for a throwaway lab
       - DB_SERVER=dvwa-db
     depends_on:
-      - dvwa-db
+      # Wait for the DB to accept connections, not just for its container to
+      # start — otherwise DVWA races the DB and fails to connect on first boot.
+      dvwa-db:
+        condition: service_healthy
     restart: unless-stopped
     networks: [ceh]
 
@@ -34,6 +37,13 @@ services:
       - MYSQL_PASSWORD=${DVWA_DB_PASS:-p@ssw0rd}
     volumes:
       - dvwa-db-data:/var/lib/mysql
+    healthcheck:
+      # Ships with the mariadb image; needs no credentials.
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
     restart: unless-stopped
     networks: [ceh]
 

@@ -8,11 +8,9 @@ cd "$LABS_DIR"
 
 echo "[*] Preflight checks..."
 missing=0
-for bin in docker; do
-  if ! command -v "$bin" >/dev/null 2>&1; then
-    echo "  ✗ $bin not found — see labs/README.md prerequisites"; missing=1
-  fi
-done
+if ! command -v docker >/dev/null 2>&1; then
+  echo "  ✗ docker not found — see labs/README.md prerequisites"; missing=1
+fi
 if ! docker compose version >/dev/null 2>&1; then
   echo "  ✗ 'docker compose' v2 not available"; missing=1
 fi
