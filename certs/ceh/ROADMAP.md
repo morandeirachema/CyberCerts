@@ -62,6 +62,7 @@ CEH proves breadth. Mastery is depth + reps + both-sides fluency. Pick a lane an
 - **Active Directory / identity** (your repo already leans here — [identity attack paths](defender-pam/identity-attack-paths.md), BloodHound, ADCS).
 - **Web application security** (PortSwigger Academy → bug bounty).
 - **Cloud security** (AWS/Azure/GCP + Kubernetes — [Module 19](modules/19-cloud-computing/)).
+- **OT / ICS security** (critical infrastructure — the beginner→expert [ot-security/](ot-security/) curriculum, the [OT lab](labs/ot/), IEC 62443, ATT&CK for ICS).
 - **Malware analysis / DFIR**, **red teaming / evasion**, or **detection engineering / blue team** ([detection-engineering.md](defender-pam/detection-engineering.md) → SIEM/Sigma/Sysmon).
 
 **Habits of mastery:**

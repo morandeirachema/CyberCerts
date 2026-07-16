@@ -211,7 +211,7 @@ OT is where default credentials and flat, always-on remote access are still the 
 
 **Engineering note:** make **PSM/PSMP the sole ingress** into the OT DMZ (aligned to IEC 62443 zones/conduits), vault device credentials, and grant vendors **time-boxed Remote Access** — no flat, standing path to the plant floor. Where devices can't rotate, compensate with strict segmentation + brokered access.
 
-> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md)
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md) · **[OT/ICS security — beginner→expert](../../ot-security/)** (a full standalone curriculum on the OT side)
 
 ## Exam tips & gotchas
 

@@ -41,7 +41,7 @@ This repo is big; start where you fit and follow the trail.
 
 - 🌱 **New to Linux / hacking** — begin with the [`kali/`](kali/) course (chapter [00](kali/00-getting-started.md)), which teaches Linux, the terminal, and every tool from zero. Stand up the [lab](labs/), then work the [modules](modules/) in order.
 - ⏱️ **Know the tech, need the cert** — read [`EXAM-STRATEGY.md`](EXAM-STRATEGY.md), then per module skim the guide, drill its `facts.md` + `practice-questions.md` + `flashcards.csv`, and check yourself with the [50-](MOCK-EXAM.md) and [125-question](MOCK-EXAM-FULL.md) mocks. Use [`BLUEPRINT-COVERAGE.md`](BLUEPRINT-COVERAGE.md) to confirm coverage.
-- 🛡️ **Sysadmin / PAM engineer** — start with the [`defender-pam/`](defender-pam/) knowledge base and [identity attack paths](defender-pam/identity-attack-paths.md), run the [`labs/capstone.md`](labs/capstone.md) chain to see attack→control end-to-end, then skim the modules for the offensive detail.
+- 🛡️ **Sysadmin / PAM engineer** — start with the [`defender-pam/`](defender-pam/) knowledge base and [identity attack paths](defender-pam/identity-attack-paths.md), run the [`labs/capstone.md`](labs/capstone.md) chain to see attack→control end-to-end, then skim the modules for the offensive detail. For industrial/critical-infra, work the [`ot-security/`](ot-security/) curriculum (beginner→expert, PAM-centered).
 - 🤖 **Curious about v13's AI focus** — read [`AI-IN-ETHICAL-HACKING.md`](AI-IN-ETHICAL-HACKING.md) and study with [`AI-STUDY-WORKFLOW.md`](AI-STUDY-WORKFLOW.md).
 - 🏆 **Going for CEH Master (the hands-on Practical)** — work the [`practical/`](practical/) section: a skills checklist, challenge playbooks, and timed drills for the 6-hour performance exam.
 
@@ -273,7 +273,7 @@ flowchart TD
 
 **Pass the exams:** [Mock exam — 50 Q](MOCK-EXAM.md) · [Full mock — 125 Q](MOCK-EXAM-FULL.md) · [Rapid-fire bank — 200 Q](RAPID-FIRE.md) · [CEH Practical prep](practical/) · [Challenge generator](practical/challenge-lab/) · [Drill packs](practical/drills/) · [Simulated exams](practical/exams/)
 
-**Go deeper:** [Defender / PAM (CyberArk)](defender-pam/) · [Identity attack paths](defender-pam/identity-attack-paths.md) · [Detection engineering](defender-pam/detection-engineering.md) · [AI-driven hacking](AI-IN-ETHICAL-HACKING.md) · [AI study workflow](AI-STUDY-WORKFLOW.md) · [Deep references](resources/deep-references.md) · [Resources](resources/)
+**Go deeper:** [Defender / PAM (CyberArk)](defender-pam/) · [OT / ICS security (beginner→expert)](ot-security/) · [Identity attack paths](defender-pam/identity-attack-paths.md) · [Detection engineering](defender-pam/detection-engineering.md) · [AI-driven hacking](AI-IN-ETHICAL-HACKING.md) · [AI study workflow](AI-STUDY-WORKFLOW.md) · [Deep references](resources/deep-references.md) · [Resources](resources/)
 
 ---
 
