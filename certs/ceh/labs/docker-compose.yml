@@ -1,0 +1,83 @@
+# CEH web-target range — deliberately vulnerable apps.
+# Bind published ports to 127.0.0.1 ONLY so nothing is reachable off-host.
+# Bring up:  docker compose up -d      Tear down + wipe:  docker compose down -v
+#
+# Image sources (verify tags before pulling):
+#   DVWA        https://github.com/digininja/DVWA
+#   Juice Shop  https://github.com/juice-shop/juice-shop
+#   WebGoat     https://github.com/WebGoat/WebGoat
+#   bWAPP       https://hub.docker.com/r/raesene/bwapp
+
+name: ceh-web-range
+
+services:
+  dvwa:
+    image: ghcr.io/digininja/dvwa:latest
+    container_name: ceh-dvwa
+    ports:
+      - "127.0.0.1:${DVWA_PORT:-8081}:80"
+    environment:
+      # DVWA reads DB creds from these; defaults are fine for a throwaway lab
+      - DB_SERVER=dvwa-db
+    depends_on:
+      # Wait for the DB to accept connections, not just for its container to
+      # start — otherwise DVWA races the DB and fails to connect on first boot.
+      dvwa-db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks: [ceh]
+
+  dvwa-db:
+    image: mariadb:10
+    container_name: ceh-dvwa-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DVWA_DB_ROOT:-dvwa}
+      - MYSQL_DATABASE=dvwa
+      - MYSQL_USER=dvwa
+      - MYSQL_PASSWORD=${DVWA_DB_PASS:-p@ssw0rd}
+    volumes:
+      - dvwa-db-data:/var/lib/mysql
+    healthcheck:
+      # Ships with the mariadb image; needs no credentials.
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    restart: unless-stopped
+    networks: [ceh]
+
+  juice-shop:
+    image: bkimminich/juice-shop:latest
+    container_name: ceh-juice-shop
+    ports:
+      - "127.0.0.1:${JUICE_PORT:-8082}:3000"
+    restart: unless-stopped
+    networks: [ceh]
+
+  webgoat:
+    image: webgoat/webgoat:latest
+    container_name: ceh-webgoat
+    ports:
+      - "127.0.0.1:${WEBGOAT_PORT:-8083}:8080"   # app at /WebGoat
+      - "127.0.0.1:${WEBWOLF_PORT:-9090}:9090"   # WebWolf helper
+    environment:
+      - WEBGOAT_HOST=0.0.0.0
+      - WEBWOLF_HOST=0.0.0.0
+    restart: unless-stopped
+    networks: [ceh]
+
+  bwapp:
+    image: raesene/bwapp:latest
+    container_name: ceh-bwapp
+    ports:
+      - "127.0.0.1:${BWAPP_PORT:-8084}:80"       # first visit /install.php
+    restart: unless-stopped
+    networks: [ceh]
+
+networks:
+  ceh:
+    driver: bridge
+
+volumes:
+  dvwa-db-data:
