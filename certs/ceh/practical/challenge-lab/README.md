@@ -1,6 +1,6 @@
 # Challenge Lab — practice the types the main lab can't provide
 
-The AD/web [lab](../../labs/) is great for scanning, enumeration, web, SQLi, and AD. But the Practical also throws **steganography, packet-capture forensics, crypto/encoding, hash cracking, and password-protected archives** — which need artifacts, not a live host. [`setup-challenges.sh`](setup-challenges.sh) generates all of those **locally** so you can drill them under a timer.
+The AD/web [lab](../../labs/README.md) is great for scanning, enumeration, web, SQLi, and AD. But the Practical also throws **steganography, packet-capture forensics, crypto/encoding, hash cracking, and password-protected archives** — which need artifacts, not a live host. [`setup-challenges.sh`](setup-challenges.sh) generates all of those **locally** so you can drill them under a timer.
 
 > Everything is generated on your own machine for your own practice. Nothing here touches the network beyond loopback.
 
@@ -51,7 +51,7 @@ sudo apt install -y steghide imagemagick libimage-exiftool-perl gnupg zip \
 ## How to drill this
 - Run the generator, then **time-box each challenge** and solve it from the recipes in [`../challenge-playbooks.md`](../challenge-playbooks.md).
 - Only open [`answers.md`](answers.md) after you've solved it (or truly stuck) — reading the answer teaches you nothing under exam pressure.
-- Re-run `setup-challenges.sh` any time for a fresh set; combine with the lab [drills](../drills.md) and [drills/](../drills/) for full coverage.
+- Re-run `setup-challenges.sh` any time for a fresh set; combine with the lab [drills](../drills.md) and [drills/](../drills/README.md) for full coverage.
 
 ## Sources
 - steghide: http://steghide.sourceforge.net/ · binwalk: https://github.com/ReFirmLabs/binwalk

@@ -2,7 +2,7 @@
 
 The rest of the repo teaches you to *break in*. This lab makes the [detection-engineering](../defender-pam/detection-engineering.md) theory **doable**: you run the [capstone](capstone.md) attacks, then hunt your own footprints in the logs. Understanding both sides is the master-level skill — and the repo's whole premise (every attack has a control) becomes real when you *see* the attack fire.
 
-> **Prereqs:** the Windows [AD lab](ansible/) running (dc01 `192.168.56.30`, ws01 `192.168.56.31`). Everything here runs on **your own lab**. This is defensive tooling — safe to run anywhere you own.
+> **Prereqs:** the Windows [AD lab](ansible/README.md) running (dc01 `192.168.56.30`, ws01 `192.168.56.31`). Everything here runs on **your own lab**. This is defensive tooling — safe to run anywhere you own.
 
 ## Setup the sensors (once)
 

@@ -16,7 +16,7 @@ flowchart TB
         IT["ERP · email · internet"]
     end
     subgraph Z_DMZ["Zone: IDMZ"]
-        JH["Jump hosts · historian mirror · patch relay"]
+        JH["Jump hosts · historian<br/>mirror · patch relay"]
     end
     subgraph Z_CTRL["Zone: Control (OT)"]
         HMI["HMI / SCADA"]

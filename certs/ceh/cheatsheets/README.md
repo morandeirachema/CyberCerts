@@ -1,6 +1,6 @@
 # Cheatsheets
 
-Quick-reference material to keep open **during** a lab or the [Practical](../practical/), and to drill in the final weeks. The exam and the labs both reward fast recall of ports, flags, and tool→purpose pairs.
+Quick-reference material to keep open **during** a lab or the [Practical](../practical/README.md), and to drill in the final weeks. The exam and the labs both reward fast recall of ports, flags, and tool→purpose pairs.
 
 ### Knowledge-exam recall
 | Sheet | Use it for |

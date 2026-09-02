@@ -68,7 +68,7 @@ This covers tampering with or deleting logs, hiding files, and disabling monitor
 
 ## Mapping the five phases to CEH modules
 
-CEH v13 is organised into modules. The exact module list and ordering should be confirmed against the current EC-Council CEH v13 courseware (see [../domains/](../domains/) in this hub as it is built out), but the **typical** mapping of modules to phases is shown below. Module titles are paraphrased; verify exact titles on EC-Council.
+CEH v13 is organised into modules. The exact module list and ordering should be confirmed against the current EC-Council CEH v13 courseware (see [../domains/](../domains/README.md) in this hub as it is built out), but the **typical** mapping of modules to phases is shown below. Module titles are paraphrased; verify exact titles on EC-Council.
 
 ```mermaid
 flowchart TD

@@ -42,7 +42,7 @@ Use the prompts below at each step. Paste the named repo file so the tutor grade
 > For this question, I chose **B** but the answer is **C**. Explain the exact conceptual trap that made B attractive, give me a one-line rule to never fall for it again, and name two other CEH topics where the same trap appears.
 
 ## 5. Explain-my-lab-output — accelerate the recon→decision loop
-*Paste real tool output from your [lab](labs/).*
+*Paste real tool output from your [lab](labs/README.md).*
 
 > Here's my `nmap -sV` output against a lab host: `<paste>`. As my tutor: (a) what does each finding tell me, (b) what are the **two most promising next steps** and the Kali tool for each (see [KALI-TUTORIAL.md](KALI-TUTORIAL.md)), and (c) what would a defender see, and which control would stop my next move?
 

@@ -21,15 +21,15 @@
 
 ```mermaid
 flowchart TB
-    subgraph net["NETWORK-LEVEL — hijack the TCP/IP session"]
+    subgraph net["NETWORK-LEVEL — hijack<br/>the TCP/IP session"]
         N1["TCP seq-number prediction"]
         N2["Session desync + injection"]
         N3["RST / FIN hijack"]
         N4["Blind / UDP hijack"]
         N5["Needs MITM or seq guess"]
     end
-    subgraph app["APPLICATION-LEVEL — hijack the app session token"]
-        A1["Steal session cookie via XSS or sniffing"]
+    subgraph app["APPLICATION-LEVEL — hijack<br/>the app session token"]
+        A1["Steal session cookie<br/>via XSS or sniffing"]
         A2["Session fixation"]
         A3["Predictable session IDs"]
         A4["CSRF rides the session"]
@@ -138,7 +138,7 @@ sudo hping3 -R -p 80 -s 12345 -M <SEQ> 192.168.56.20
 | MITM (ARP/DNS spoof) | Duplicate MAC for gateway, gratuitous ARP, DNS answer mismatch | DAI, DHCP snooping, DNSSEC, 802.1X, HSTS |
 | Stolen **privileged** session | Privileged action from an unexpected client, no recent re-auth, session-recording gaps | **PAM session brokering + recording**, **step-up (re-auth) for sensitive actions**, short **idle timeouts**, bind session to client/MFA |
 
-> **PAM playbook for this module:** a hijack is the attacker inheriting a *live privileged session* — exactly what a PAM broker exists to contain. (1) **Broker and record** privileged sessions so admins never hold a raw reusable token and every action is attributable and replayable. (2) Require **step-up re-authentication** (re-prompt / MFA) for high-impact actions, so a stolen session alone can't approve, delete, or escalate. (3) Enforce **short idle timeouts** and **token rotation on privilege change** so a captured session expires fast and never survives an elevation. (4) **Bind sessions** to client attributes/MFA where possible so a lifted cookie fails from a new context. Mapping lives in [`../../defender-pam/`](../../defender-pam/).
+> **PAM playbook for this module:** a hijack is the attacker inheriting a *live privileged session* — exactly what a PAM broker exists to contain. (1) **Broker and record** privileged sessions so admins never hold a raw reusable token and every action is attributable and replayable. (2) Require **step-up re-authentication** (re-prompt / MFA) for high-impact actions, so a stolen session alone can't approve, delete, or escalate. (3) Enforce **short idle timeouts** and **token rotation on privilege change** so a captured session expires fast and never survives an elevation. (4) **Bind sessions** to client attributes/MFA where possible so a lifted cookie fails from a new context. Mapping lives in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### 🔐 PAM engineering deep-dive (CyberArk)
 

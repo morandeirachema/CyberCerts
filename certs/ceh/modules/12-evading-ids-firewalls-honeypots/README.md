@@ -58,9 +58,9 @@ Related terms: **bastion host**, **DMZ / screened subnet**, **default-deny** pos
 
 ```mermaid
 flowchart TB
-    INS["INSERTION<br/>IDS ACCEPTS a packet the end host REJECTS<br/>attacker pads the IDS view so the signature never matches"]
-    EVA["EVASION<br/>end host ACCEPTS a packet the IDS REJECTS or misses<br/>attack reaches the target but never enters IDS reassembly"]
-    DOS["DoS<br/>exhaust or blind the IDS — flood, resource, fail-open"]
+    INS["INSERTION<br/>IDS ACCEPTS a packet<br/>the end host REJECTS<br/>attacker pads the IDS view so<br/>the signature never matches"]
+    EVA["EVASION<br/>end host ACCEPTS a packet<br/>the IDS REJECTS or misses<br/>attack reaches the target but<br/>never enters IDS reassembly"]
+    DOS["DoS<br/>exhaust or blind the IDS —<br/>flood, resource, fail-open"]
     INS --- EVA --- DOS
 ```
 
@@ -104,7 +104,7 @@ flowchart TB
 
 ## Commands & techniques (lab-ready)
 
-> Run only against your own lab (`192.168.56.0/24`). See [`../../labs/`](../../labs/). The point is to *watch your own Snort/Suricata react*, not to attack anything external.
+> Run only against your own lab (`192.168.56.0/24`). See [`../../labs/`](../../labs/README.md). The point is to *watch your own Snort/Suricata react*, not to attack anything external.
 
 ```bash
 # --- nmap evasion flags (from Kali 192.168.56.10 → Metasploitable2) ---

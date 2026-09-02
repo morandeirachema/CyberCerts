@@ -99,12 +99,12 @@ A pragmatic path from systems administration into security. Adjust to your targe
 
 1. **Shore up fundamentals** — networking, operating systems, and a scripting language. As a sysadmin you likely have much of this already.
 2. **Entry-level / breadth** — **CompTIA Security+** and/or **ISC2 CC** to establish vendor-neutral security baseline knowledge.
-3. **CEH** — gain the offensive methodology and vocabulary across the [20 CEH modules](../domains/); strong for job-posting filters and DoD-relevant roles.
+3. **CEH** — gain the offensive methodology and vocabulary across the [20 CEH modules](../domains/README.md); strong for job-posting filters and DoD-relevant roles.
 4. **Pick a track:**
    - **Offensive:** **CompTIA PenTest+** → **TCM Security PNPT** → **OffSec OSCP** and/or **GIAC GPEN** for depth.
    - **Defensive / SOC:** SOC analyst experience → **GIAC GCIH** for incident handling.
    - **Management / GRC:** build experience, then **ISC2 CISSP** (requires ~5 years).
-5. **Keep current** — maintain credentials (e.g., CEH via EC-Council Continuing Education credits) and practise hands-on via labs and Capture-the-Flag (CTF) events. See [../labs/](../labs/).
+5. **Keep current** — maintain credentials (e.g., CEH via EC-Council Continuing Education credits) and practise hands-on via labs and Capture-the-Flag (CTF) events. See [../labs/](../labs/README.md).
 
 ```mermaid
 flowchart LR
@@ -128,7 +128,7 @@ Demand for cybersecurity skills is widely described as strong, with a persistent
 - [what-is-ceh.md](../00-overview/what-is-ceh.md) — what CEH is and who it suits.
 - [exam-and-eligibility.md](../00-overview/exam-and-eligibility.md) — exam format, eligibility, and accreditations (incl. DoD 8140).
 - [../reference/glossary.md](../reference/glossary.md) and [../reference/acronyms.md](../reference/acronyms.md) — terms and acronyms used here.
-- [../domains/](../domains/) — the 20 CEH modules.
+- [../domains/](../domains/README.md) — the 20 CEH modules.
 
 ## Sources
 

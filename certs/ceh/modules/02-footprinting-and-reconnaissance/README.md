@@ -20,7 +20,7 @@
 
 ```mermaid
 flowchart LR
-    P["PASSIVE recon<br/>no packets to target<br/>WHOIS, Google, Shodan, social media"] --> A["ACTIVE recon<br/>packets to target<br/>DNS AXFR, traceroute, ping, email tracing"] --> S["Scanning — Module 03<br/>ports / services<br/>nmap, banner grab"]
+    P["PASSIVE recon<br/>no packets to target<br/>WHOIS, Google, Shodan, social media"] --> A["ACTIVE recon<br/>packets to target<br/>DNS AXFR, traceroute,<br/>ping, email tracing"] --> S["Scanning — Module 03<br/>ports / services<br/>nmap, banner grab"]
 ```
 
 The dividing line: **did a packet reach the target's infrastructure?** Querying a public WHOIS server or Shodan's cache = passive. Asking the target's *own* name server for a zone transfer = active.
@@ -82,7 +82,7 @@ A **zone transfer** copies an entire DNS zone from a primary to a secondary. If 
 
 ## Commands & techniques (lab-ready)
 
-> **Safety:** WHOIS/Shodan/Censys/theHarvester query the *public internet*. Run them only against **a domain you own** or documented practice targets — never a third party. The **DNS/AXFR** commands below target your own lab DC (`192.168.56.30`, zone `ceh.lab`). See [`../../labs/`](../../labs/).
+> **Safety:** WHOIS/Shodan/Censys/theHarvester query the *public internet*. Run them only against **a domain you own** or documented practice targets — never a third party. The **DNS/AXFR** commands below target your own lab DC (`192.168.56.30`, zone `ceh.lab`). See [`../../labs/`](../../labs/README.md).
 
 ```bash
 # --- WHOIS (passive) — use a domain you own ---

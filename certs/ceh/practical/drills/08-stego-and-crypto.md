@@ -1,6 +1,6 @@
 # Drill Pack 08 — Steganography & Crypto
 
-> **Prereq:** generate the artifacts first — `../challenge-lab/setup-challenges.sh` drops everything under `~/ceh-practical-challenges/`. Then **set `C=~/ceh-practical-challenges`** and keep [`../challenge-playbooks.md`](../challenge-playbooks.md) open. These are the [challenge-lab](../challenge-lab/) stego/crypto artifacts turned into 10 timed, Practical-style drills — detection → extraction → decode → decrypt, easy to hard. Concepts: [Module 20 — Cryptography](../../modules/20-cryptography/). Timer on; expand the solution only when solved or stuck.
+> **Prereq:** generate the artifacts first — `../challenge-lab/setup-challenges.sh` drops everything under `~/ceh-practical-challenges/`. Then **set `C=~/ceh-practical-challenges`** and keep [`../challenge-playbooks.md`](../challenge-playbooks.md) open. These are the [challenge-lab](../challenge-lab/README.md) stego/crypto artifacts turned into 10 timed, Practical-style drills — detection → extraction → decode → decrypt, easy to hard. Concepts: [Module 20 — Cryptography](../../modules/20-cryptography/README.md). Timer on; expand the solution only when solved or stuck.
 
 ---
 

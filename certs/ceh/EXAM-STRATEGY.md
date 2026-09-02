@@ -10,11 +10,11 @@ How to *pass*, not just how to study. Two parts: a **study system** (how to buil
 
 ### Active recall beats re-reading
 Reading a module feels productive but builds *recognition*, not *recall*. The exam demands recall. For every module, in order:
-1. Read the module [README](modules/) once.
-2. Do the [`lab-walkthrough.md`](modules/) — physically running commands cements the "tool → purpose" pairs the exam loves.
-3. Close the guide and take the [`practice-questions.md`](modules/). Score honestly.
-4. Drill the [`flashcards.csv`](modules/) until you can answer cold.
-5. The night before you revisit a domain, read only the [`facts.md`](modules/) one-pager.
+1. Read the module [README](modules/README.md) once.
+2. Do the [`lab-walkthrough.md`](modules/README.md) — physically running commands cements the "tool → purpose" pairs the exam loves.
+3. Close the guide and take the [`practice-questions.md`](modules/README.md). Score honestly.
+4. Drill the [`flashcards.csv`](modules/README.md) until you can answer cold.
+5. The night before you revisit a domain, read only the [`facts.md`](modules/README.md) one-pager.
 
 ### Spaced repetition
 Don't cram a module once — revisit it on an expanding schedule. A simple cadence:
@@ -82,7 +82,7 @@ Because so many CEH answers are "what's the best control," your PAM lens is a fa
 
 ## Exam-day checklist
 - [ ] ID and Pearson VUE / ECC confirmation ready; test environment / testing rules reviewed.
-- [ ] Skim every [`facts.md`](modules/) one-pager the morning of.
+- [ ] Skim every [`facts.md`](modules/README.md) one-pager the morning of.
 - [ ] Do a short warm-up set of flashcards (get your recall "engine" running).
 - [ ] Bring water; plan your ~1.9 min/question pace.
 - [ ] First pass fast + flag; second pass on flags; **no blanks**.

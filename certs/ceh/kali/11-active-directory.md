@@ -90,7 +90,7 @@ impacket-GetUserSPNs ceh.lab/jdoe:'Passw0rd!' -dc-ip 192.168.56.30 -request -out
 hashcat -m 13100 kerb.txt /usr/share/wordlists/rockyou.txt
 # You should see: svc-sql's password recovered (it's weak in the lab).
 ```
-> **🛡️ PAM fix:** convert service accounts to a **gMSA** — a *group Managed Service Account* whose 120+ character password AD rotates automatically. Re-run the roast against the gMSA and the crack **fails** (you can't dictionary a random 120-char key). Also enforce AES-only. Detection: `4769` TGS requests using RC4 (`0x17`) encryption. This is the exact control demo in [Module 06](../modules/06-system-hacking/).
+> **🛡️ PAM fix:** convert service accounts to a **gMSA** — a *group Managed Service Account* whose 120+ character password AD rotates automatically. Re-run the roast against the gMSA and the crack **fails** (you can't dictionary a random 120-char key). Also enforce AES-only. Detection: `4769` TGS requests using RC4 (`0x17`) encryption. This is the exact control demo in [Module 06](../modules/06-system-hacking/README.md).
 
 ## Step 4 — AS-REP roasting
 Some accounts have *"Kerberos pre-authentication not required"* set. For those, the DC hands out an encrypted blob **before** you prove who you are — so you can grab it without any password and crack it offline.
@@ -189,7 +189,7 @@ impacket-ntlmrelayx -tf targets.txt -smb2support
 | 7 | DCSync | Replication locked to DCs; Tier 0 isolation; rotate krbtgt twice |
 | 8 | Pass-the-Hash | LAPS + Protected Users + Credential Guard |
 
-Full defender mapping: [identity-attack-paths](../defender-pam/identity-attack-paths.md) · [Module 06 — System Hacking](../modules/06-system-hacking/).
+Full defender mapping: [identity-attack-paths](../defender-pam/identity-attack-paths.md) · [Module 06 — System Hacking](../modules/06-system-hacking/README.md).
 
 ## Common beginner mistakes
 - **Kerberos clock skew.** Kerberos rejects tickets if your Kali clock differs from the DC by more than ~5 minutes — you'll see `KRB_AP_ERR_SKEW`. Fix it: `sudo ntpdate 192.168.56.30` (or `sudo rdate -n 192.168.56.30`) before any Kerberos/Impacket command.

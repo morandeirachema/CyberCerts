@@ -8,7 +8,7 @@
 - **Analyze:** map every input — parameters, headers, cookies, hidden fields, JSON bodies.
 - **Attack surface:** authentication, session management, access control, input validation, business logic, and web services / APIs.
 
-This module targets **your application code**; Module 13 targets the **web server / platform**. **SQL injection is large enough to have its own module — see [Module 15](../15-sql-injection/).**
+This module targets **your application code**; Module 13 targets the **web server / platform**. **SQL injection is large enough to have its own module — see [Module 15](../15-sql-injection/README.md).**
 
 ## OWASP Top 10 (2021) — memorize the list
 | # | Category | Remember |

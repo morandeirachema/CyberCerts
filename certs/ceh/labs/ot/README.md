@@ -102,7 +102,7 @@ route to the plant floor.
 
 Both "wins" exist because the protocol assumes a **trusted, isolated network**,
 so the defense is *the network and the broker*, not the protocol. Map each
-finding to the control in [`../../defender-pam/`](../../defender-pam/) and place
+finding to the control in [`../../defender-pam/`](../../defender-pam/README.md) and place
 each component on the Purdue model (treat OT as crown-jewel **Tier 0**).
 
 ## Tear down

@@ -183,7 +183,7 @@ sudo bettercap -iface wlan0        # then: wifi.recon on ; wifi.show   (recon of
 | Weak enterprise EAP (PEAP/MSCHAPv2) | RADIUS auth failures, cracked NTLM challenge-response | **EAP-TLS (client certs)**, validated server cert, no MSCHAPv2 for privileged SSIDs |
 | Unmanaged device on privileged WLAN | New MAC/device on admin VLAN | **NAC / 802.1X device auth**, certificate enrollment, segmented admin SSID |
 
-> **PAM playbook for this module:** treat a **PSK as a shared credential** — it can't be attributed, rotated per-user, or revoked without changing it for everyone. For any network that touches privileged systems, run **WPA2/WPA3-Enterprise with 802.1X/RADIUS and EAP-TLS** (per-device/user certificates), enforce **PMF (802.11w)**, put admin access on a **segmented SSID/VLAN behind NAC**, and **never allow privileged/jump access over a PSK network**. Broader attack↔control mapping lives in [`../../defender-pam/`](../../defender-pam/).
+> **PAM playbook for this module:** treat a **PSK as a shared credential** — it can't be attributed, rotated per-user, or revoked without changing it for everyone. For any network that touches privileged systems, run **WPA2/WPA3-Enterprise with 802.1X/RADIUS and EAP-TLS** (per-device/user certificates), enforce **PMF (802.11w)**, put admin access on a **segmented SSID/VLAN behind NAC**, and **never allow privileged/jump access over a PSK network**. Broader attack↔control mapping lives in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### 🔐 PAM engineering deep-dive (CyberArk)
 

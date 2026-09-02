@@ -78,7 +78,7 @@ Layered controls so no single failure = compromise: **policy/people → physical
 | NIST CSF · SP 800-115 | Risk framework · technical testing methodology |
 
 ## The one-line PAM angle
-Every hacking phase either **targets privileged access or is contained by it** — CEH's whole methodology is the attacker's attempt to defeat *who can do what, when, and with what approval*. Read every later module as "which of my PAM controls does this bypass, and how would I detect it?" See [`../../defender-pam/`](../../defender-pam/).
+Every hacking phase either **targets privileged access or is contained by it** — CEH's whole methodology is the attacker's attempt to defeat *who can do what, when, and with what approval*. Read every later module as "which of my PAM controls does this bypass, and how would I detect it?" See [`../../defender-pam/`](../../defender-pam/README.md).
 
 ## Top traps
 - **Passive vs. active recon:** WHOIS/Google/DNS = passive; ping/port scan = active. One wrong verb flips it.

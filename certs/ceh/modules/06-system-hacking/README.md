@@ -80,7 +80,7 @@ Attack strategies: **dictionary**, **brute force**, **hybrid**, **rule-based**, 
 
 ## Commands & techniques (lab-ready)
 
-> Run only against your own lab (`192.168.56.0/24`, docker range). See [`../../labs/`](../../labs/).
+> Run only against your own lab (`192.168.56.0/24`, docker range). See [`../../labs/`](../../labs/README.md).
 
 ```bash
 # --- Online guessing against a service (Metasploitable2) ---

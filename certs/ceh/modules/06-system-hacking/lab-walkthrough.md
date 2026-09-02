@@ -1,6 +1,6 @@
 # Module 06 — System Hacking · Guided Lab Walkthrough
 
-> A step-by-step, **do-it-in-order** lab against **your own** environment only (the AD + Metasploitable lab in [`../../labs/`](../../labs/) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
+> A step-by-step, **do-it-in-order** lab against **your own** environment only (the AD + Metasploitable lab in [`../../labs/`](../../labs/README.md) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
 
 **Goal:** walk the credential-attack chain end-to-end, then *watch a PAM control turn each win into a loss.*
 

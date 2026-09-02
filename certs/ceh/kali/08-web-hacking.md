@@ -3,7 +3,7 @@
 > **What you'll learn:** how the web actually works (requests, responses, methods, parameters, cookies), how to sit *in the middle* of that traffic with **Burp Suite** (and the free **OWASP ZAP**), how to discover hidden pages and parameters with **ffuf**/**gobuster**, fingerprint a stack with **whatweb**, and automate SQL and command injection with **sqlmap** and **commix** — always proving the bug by hand first.
 > **Prerequisites:** [07 — Vulnerability analysis](07-vulnerability-analysis.md). ⬅️ [Course index](README.md)
 
-This chapter maps to CEH [Module 14 — Hacking Web Applications](../modules/14-hacking-web-applications/) and [Module 15 — SQL Injection](../modules/15-sql-injection/). Read those for the exam theory (OWASP Top 10, XSS/CSRF/SSRF, the SQLi taxonomy); this chapter is the hands-on Kali side.
+This chapter maps to CEH [Module 14 — Hacking Web Applications](../modules/14-hacking-web-applications/README.md) and [Module 15 — SQL Injection](../modules/15-sql-injection/README.md). Read those for the exam theory (OWASP Top 10, XSS/CSRF/SSRF, the SQLi taxonomy); this chapter is the hands-on Kali side.
 
 ---
 
@@ -94,7 +94,7 @@ Our lab apps are plain HTTP, so you can start without step 2 — but do it once 
 # that error is the app telling you the input reached the database. You just found SQLi by hand.
 ```
 
-Repeat with `id=1' OR '1'='1' -- -` and watch more rows come back. **This is the manual-first workflow**: prove the flaw in Repeater one request at a time, *then* automate the tedious extraction. See [Module 15](../modules/15-sql-injection/) for the full manual UNION walkthrough.
+Repeat with `id=1' OR '1'='1' -- -` and watch more rows come back. **This is the manual-first workflow**: prove the flaw in Repeater one request at a time, *then* automate the tedious extraction. See [Module 15](../modules/15-sql-injection/README.md) for the full manual UNION walkthrough.
 
 ## Intruder: fuzz automatically
 **Intruder** takes one request and *replays it hundreds of times*, swapping in values from a list — this is **fuzzing** (throwing many inputs at an input to see what breaks). Community Edition is rate-limited (slow) but perfect for learning.
@@ -187,7 +187,7 @@ sqlmap -u "http://localhost:8081/vulnerabilities/sqli/?id=1&Submit=Submit" \
 # You should see: the users table printed -- usernames and (MD5) password hashes.
 ```
 
-What the switches mean: `--cookie` sends your session so the page loads; `--dbs` lists databases; `-D dvwa` picks a database; `-T users` picks a table; `--dump` extracts the rows; `--batch` accepts all defaults so it runs non-interactively. The cleanest input of all is a request saved from Burp — `sqlmap -r request.txt`. Full switch reference and the manual UNION method are in [Module 15](../modules/15-sql-injection/).
+What the switches mean: `--cookie` sends your session so the page loads; `--dbs` lists databases; `-D dvwa` picks a database; `-T users` picks a table; `--dump` extracts the rows; `--batch` accepts all defaults so it runs non-interactively. The cleanest input of all is a request saved from Burp — `sqlmap -r request.txt`. Full switch reference and the manual UNION method are in [Module 15](../modules/15-sql-injection/README.md).
 
 ## commix: automate command injection
 When a parameter is passed to the operating-system shell, you can inject OS commands (`; id`). **commix** ("COMMand Injection eXploiter") automates finding and exploiting that. DVWA's **Command Injection** page (`/vulnerabilities/exec/`) takes a `POST` parameter `ip`:

@@ -73,7 +73,7 @@ DoS is an *availability* attack, so the PAM question is: **can you still adminis
 - **Load-balanced PSM farm** — the session broker must not be a single bottleneck/SPOF.
 - **Break-glass access** — documented, sealed, dual-control, monitored emergency path that still works when normal auth infrastructure is degraded; alert on any retrieval.
 
-Mapping lives in [`../../defender-pam/`](../../defender-pam/).
+Mapping lives in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ## Top traps
 - **Match attack → category** — SYN flood = **protocol/state**; UDP/ICMP/amplification = **volumetric**; Slowloris/HTTP flood = **application-layer**. This mapping is the single most-tested thing.

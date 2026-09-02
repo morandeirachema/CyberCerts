@@ -1,6 +1,6 @@
 # Web & SQL Injection
 
-Quick reference for web-app testing. Pairs with [Module 14](../modules/14-hacking-web-applications/) and [Module 15](../modules/15-sql-injection/). Targets = the Docker web apps (`localhost:8081–8084`) or **authorized** sites only.
+Quick reference for web-app testing. Pairs with [Module 14](../modules/14-hacking-web-applications/README.md) and [Module 15](../modules/15-sql-injection/README.md). Targets = the Docker web apps (`localhost:8081–8084`) or **authorized** sites only.
 
 > Proxy the browser through **Burp** (`127.0.0.1:8080`, install its CA) — prove a finding by hand in **Repeater**, then automate.
 

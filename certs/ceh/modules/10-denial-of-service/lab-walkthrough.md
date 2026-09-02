@@ -1,6 +1,6 @@
 # Module 10 — Denial-of-Service · Guided Lab Walkthrough
 
-> A step-by-step, **do-it-in-order** lab against **your own** disposable lab only (the isolated VirtualBox/Docker lab in [`../../labs/`](../../labs/) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the command, what you should see, what to observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
+> A step-by-step, **do-it-in-order** lab against **your own** disposable lab only (the isolated VirtualBox/Docker lab in [`../../labs/`](../../labs/README.md) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the command, what you should see, what to observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
 
 > ⚠️ **STOP — READ THIS.** DoS/DDoS against any system you do not own is a **crime** (CFAA / Computer Misuse Act equivalents) — no exceptions, no "just testing." These techniques also disrupt **shared** infrastructure. Run everything **only** against a **dedicated, disposable target on the isolated `192.168.56.0/24` segment or a localhost container you can afford to crash** (Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`). **Never** point any of this at the internet, a cloud VM, a home router, a shared link, or a third party. LOIC/HOIC are named for **recognition only** — do not fire them at anything.
 
@@ -37,7 +37,7 @@ sudo hping3 -S -p 80 --flood --rand-source 192.168.56.20
 
 <details><summary>Hint: count not climbing?</summary>Make sure a service is actually listening on the port you chose (<code>-p 80</code>). On Metasploitable, port 80 (Apache) and 21/22/23 are open. Confirm with <code>nc -nv 192.168.56.20 80</code> from Kali before flooding.</details>
 
-**Defender/PAM view:** the detection signal is a spike in **SYN-RECV / half-open connections** with the backlog dropping new clients — see the mapping in [`../../defender-pam/`](../../defender-pam/). At scale the durable fix is **upstream filtering + connection rate limiting**, not host tuning.
+**Defender/PAM view:** the detection signal is a spike in **SYN-RECV / half-open connections** with the backlog dropping new clients — see the mapping in [`../../defender-pam/`](../../defender-pam/README.md). At scale the durable fix is **upstream filtering + connection rate limiting**, not host tuning.
 
 ### A3. Apply the control — SYN cookies
 Stop the flood (Ctrl-C on Kali). On the **target**, enable SYN cookies, then re-run A2:
@@ -79,7 +79,7 @@ slowloris 127.0.0.1 -p 8081 -s 200
 
 <details><summary>Hint: server shrugs it off?</summary>Some servers (nginx, or Apache with the right MPM/mod_reqtimeout) resist this by design — that is the point of B3. If nothing happens, you may already be behind a protective proxy; test the raw origin server to see the effect first.</details>
 
-**Defender/PAM view:** detection is **many slow/half-open HTTP connections and high rps from few IPs at low bandwidth**. The fix is a **reverse proxy with connection/header timeouts**, per-IP connection caps, and a WAF — see [`../../defender-pam/`](../../defender-pam/).
+**Defender/PAM view:** detection is **many slow/half-open HTTP connections and high rps from few IPs at low bandwidth**. The fix is a **reverse proxy with connection/header timeouts**, per-IP connection caps, and a WAF — see [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### B3. Apply the control — timeouts / reverse proxy
 Put a connection/header timeout in front (e.g. Apache `mod_reqtimeout`, or an nginx reverse proxy), then repeat B2.
@@ -121,7 +121,7 @@ Reflection only works because the attacker forges the **victim's IP** as the sou
 
 **You should conclude:** the network-edge fix is **BCP38 / uRPF ingress filtering** — drop packets whose source address could not legitimately arrive on that interface, so spoofed queries never leave the origin network. Additionally, **close/patch open reflectors** (disable NTP `monlist`, don't expose memcached UDP 11211).
 
-**Defender/PAM view:** volumetric reflection **cannot** be absorbed at the host — the upstream pipe fills first — so mitigation is pushed **upstream** to **CDN / anycast / cloud scrubbing**, with **autoscaling** to add capacity. Mapping in [`../../defender-pam/`](../../defender-pam/).
+**Defender/PAM view:** volumetric reflection **cannot** be absorbed at the host — the upstream pipe fills first — so mitigation is pushed **upstream** to **CDN / anycast / cloud scrubbing**, with **autoscaling** to add capacity. Mapping in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ---
 

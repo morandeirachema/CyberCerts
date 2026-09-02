@@ -2,7 +2,7 @@
 
 > **6 hours · 20 challenges · ~18 min each · pass ≈ 14/20.** Sit it in one timed block with **no peeking** at the answer key until you're done. Read each question *exactly* — the answer is one precise string (a password, version, FQDN, hash, flag, or file contents); case and trailing characters count. Keep a notes file and screenshot every answer before you submit it.
 >
-> **Setup:** the [lab](../../labs/) running (Kali `192.168.56.10`, Metasploitable2 `192.168.56.20` = `msfadmin`/`msfadmin`, DC/ADCS `192.168.56.30` = `ceh.lab`, foothold `jdoe`/`Passw0rd!`, Docker web `localhost:8081–8084`) **and** the [challenge-lab](../challenge-lab/) generated to `~/ceh-practical-challenges/`. All flags are wrapped as `CEH{...}` — submit them verbatim. Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md).
+> **Setup:** the [lab](../../labs/README.md) running (Kali `192.168.56.10`, Metasploitable2 `192.168.56.20` = `msfadmin`/`msfadmin`, DC/ADCS `192.168.56.30` = `ceh.lab`, foothold `jdoe`/`Passw0rd!`, Docker web `localhost:8081–8084`) **and** the [challenge-lab](../challenge-lab/README.md) generated to `~/ceh-practical-challenges/`. All flags are wrapped as `CEH{...}` — submit them verbatim. Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md).
 >
 > These are practice simulations built on your own lab — **not** real or leaked exam content.
 
@@ -127,6 +127,6 @@ Score one point per exact answer, then check yourself against the real cut on th
 
 - **18–20 — excellent.** Exam-ready. You have the *speed*, not just the knowledge — book it.
 - **14–17 — pass.** Over the ~70% line, but tighten the domains you lost points in before exam day.
-- **< 14 — keep drilling.** Note which domains cost you points and go back to the deep packs in [`../drills/`](../drills/) (and the quick sampler in [`../drills.md`](../drills.md)) until each type is ✅ under time, then re-sit this exam.
+- **< 14 — keep drilling.** Note which domains cost you points and go back to the deep packs in [`../drills/`](../drills/README.md) (and the quick sampler in [`../drills.md`](../drills.md)) until each type is ✅ under time, then re-sit this exam.
 
 > Re-drill honestly: a stalled challenge you skip and return to always beats one you drown in. Log your result in [`../../PROGRESS.md`](../../PROGRESS.md) and re-run the domains that stung.

@@ -10,7 +10,7 @@
 > - **Only ever target your OWN access point / router and your OWN client devices**, on an SSID you set up for this. Not a neighbour's, an employer's, a café's, or a "just this once" network.
 > - You need a **USB Wi-Fi adapter that supports monitor mode and packet injection.** The virtual adapter your Kali VM gets from VirtualBox/VMware **cannot** do this — you must pass a physical USB adapter through to the VM. Common capable chipsets: Atheros AR9271, Ralink RT3070/RT5370, Realtek RTL8812AU. (No adapter? Jump to [No adapter?](#no-adapter-study-the-workflow) — you can still learn the whole thing.)
 >
-> This chapter is the hands-on companion to CEH **[Module 16 — Hacking Wireless Networks](../modules/16-hacking-wireless-networks/)**; read that for the exam theory (802.11 standards, PMKID, evil twin, Bluetooth).
+> This chapter is the hands-on companion to CEH **[Module 16 — Hacking Wireless Networks](../modules/16-hacking-wireless-networks/README.md)**; read that for the exam theory (802.11 standards, PMKID, evil twin, Bluetooth).
 
 ## The attack in one picture
 
@@ -217,4 +217,4 @@ That exercises `aircrack-ng`, hashcat conversion (`hcxpcapngtool -o hash.22000 w
 - hcxtools / hcxpcapngtool — https://github.com/ZerBea/hcxtools
 - wifite2 — https://github.com/kimocoder/wifite2
 - reaver-wps-fork-t6x (WPS / Pixie-Dust) — https://github.com/t6x/reaver-wps-fork-t6x
-- CEH Module 16 — Hacking Wireless Networks — [`../modules/16-hacking-wireless-networks/`](../modules/16-hacking-wireless-networks/)
+- CEH Module 16 — Hacking Wireless Networks — [`../modules/16-hacking-wireless-networks/`](../modules/16-hacking-wireless-networks/README.md)

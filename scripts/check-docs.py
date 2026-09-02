@@ -2,7 +2,8 @@
 """Quality gate for the repo's Markdown.
 
 Checks, across all *.md (excluding .git / site / site-src):
-  - no ASCII-art diagrams (box-drawing or +--/--+);
+  - no ASCII-art diagrams (box-drawing or +--/--+) in prose (fenced code and
+    inline code spans are ignored — a shell prompt or tree output is not a diagram);
   - balanced ``` code fences;
   - every ```mermaid block starts with a valid diagram type and uses no
     reserved word (end/graph/subgraph) as a node id;
@@ -37,14 +38,33 @@ SOURCES_EXEMPT = {
 }
 # The CEH course (merged from its own repo) follows its own conventions and has
 # its own gate (certs/ceh/scripts/validate.py, run by ceh-validate.yml). Its
-# links are still checked here; the style rules (ASCII, Sources, label width)
-# are not enforced on it.
+# links, ASCII-art and Mermaid label widths are checked here too; only the
+# per-page "## Sources" rule is not enforced on it.
 STYLE_EXEMPT_DIRS = ('certs/ceh/',)
 LINK_SKIP = {'certs/ceh/modules/00-TEMPLATE.md'}  # placeholder paths by design
 
 ASCII_RE = re.compile(r'[─-╿▀-▟]|\+--|--\+')
 LINK_RE = re.compile(r'(?<!\!)\[[^\]]*\]\(([^)]+)\)')
 HEADING_RE = re.compile(r'^(#{1,6})\s+(.*)')
+FENCE_RE = re.compile(r'^\s*(`{3,}|~{3,})')
+CODESPAN_RE = re.compile(r'`[^`\n]*`')
+
+
+def strip_fences(text):
+    """Blank out fenced code blocks (``` or ~~~), keeping the line count, so their
+    contents are not read as headings, links or ASCII art."""
+    out, closer = [], None
+    for line in text.splitlines():
+        m = FENCE_RE.match(line)
+        if closer is None and m:
+            closer = m.group(1)[0] * 3
+            out.append('')
+        elif closer is not None and line.lstrip().startswith(closer):
+            closer = None
+            out.append('')
+        else:
+            out.append('' if closer is not None else line)
+    return '\n'.join(out)
 
 
 def slugs(path):
@@ -54,7 +74,7 @@ def slugs(path):
     '-'), and append -1/-2 for duplicates. Matching is exact — no leniency — so a
     link that would 404 on GitHub fails here too."""
     out, counts = [], {}
-    for line in open(path, encoding='utf-8'):
+    for line in strip_fences(open(path, encoding='utf-8').read()).splitlines():
         m = HEADING_RE.match(line)
         if not m:
             continue
@@ -74,11 +94,11 @@ issues = []
 
 for f in MD:
     text = open(f, encoding='utf-8').read()
-    lines = text.splitlines()
+    lines = strip_fences(text).splitlines()      # prose only: no fenced code
     style = not f.startswith(STYLE_EXEMPT_DIRS)
 
     for i, line in enumerate(lines, 1):
-        if style and ASCII_RE.search(line):
+        if ASCII_RE.search(CODESPAN_RE.sub('', line)):
             issues.append(f"ASCII art: {f}:{i}")
             break
 
@@ -94,7 +114,7 @@ for f in MD:
             if re.match(r'\s*(end|subgraph|graph)\s*[\[\(]', line):
                 issues.append(f"Reserved word as Mermaid node id: {f}: {line.strip()[:40]}")
         # Flowchart node boxes should fit their text: no over-wide single label line.
-        if style and first.startswith(('flowchart', 'graph')):
+        if first.startswith(('flowchart', 'graph')):
             for _opener, label in re.findall(r'([\[({]+)"([^"]*)"', body):
                 for seg in label.split('<br/>'):
                     if len(seg) > 44 and ' ' in seg.strip():

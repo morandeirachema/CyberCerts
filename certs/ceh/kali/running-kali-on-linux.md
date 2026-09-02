@@ -2,7 +2,7 @@
 
 > [00 — Getting started](00-getting-started.md) covers the beginner **VirtualBox** path on Windows/macOS. This guide is for running Kali on a **Linux host** (like an Ubuntu laptop), where you get two better, native options — a **KVM/QEMU virtual machine** or a **Docker container** — and shows how to drive the whole thing with **Claude Code**. ⬅️ [Course index](README.md)
 
-> **⚖️ Same rules that never bend:** everything runs against your **own isolated [lab](../labs/)** or systems you have **written permission** to test. Keep the lab off your home/work LAN.
+> **⚖️ Same rules that never bend:** everything runs against your **own isolated [lab](../labs/README.md)** or systems you have **written permission** to test. Keep the lab off your home/work LAN.
 
 ---
 
@@ -36,7 +36,7 @@ flowchart TD
 | GUI tools (Burp, Wireshark GUI) | Awkward (needs X11 tricks) | Native desktop |
 | Wireless / USB (Module 13) | No monitor mode | **Yes** (USB adapter passthrough) |
 | Snapshots / rollback | Rebuild image | `virsh snapshot` — instant undo |
-| Best for | Quick tool runs, the [web](../labs/) & [OT](../labs/ot/) labs, CI | The full [Kali course](README.md), GUI, wireless |
+| Best for | Quick tool runs, the [web](../labs/README.md) & [OT](../labs/ot/README.md) labs, CI | The full [Kali course](README.md), GUI, wireless |
 
 **Rule of thumb:** container for *tools and speed*, VM for *the full desktop, GUI, and wireless*. Many people run both.
 
@@ -83,7 +83,7 @@ docker run -it --rm -v "$PWD/work:/work" my-kali
 #   reach the repo web lab (localhost:8081-8084) from the container: add  --network host
 ```
 
-> **Networking note:** with `--network host` the container shares your host's network, so `127.0.0.1:8081` reaches the [web lab](../labs/). Otherwise attach it to the lab's Docker network. Never expose these ports beyond localhost.
+> **Networking note:** with `--network host` the container shares your host's network, so `127.0.0.1:8081` reaches the [web lab](../labs/README.md). Otherwise attach it to the lab's Docker network. Never expose these ports beyond localhost.
 
 ---
 
@@ -149,7 +149,7 @@ claude          # first run opens a browser to sign in to your Anthropic account
 ```
 
 ### Two places to run it
-- **On the host — as the orchestrator.** Let Claude Code build the Kali image, manage libvirt VMs, bring up the [web](../labs/)/[OT](../labs/ot/) labs, run the repo tooling ([`scripts/quiz.py`](../scripts/README.md)), and keep your notes. This is exactly the workflow that built this repo.
+- **On the host — as the orchestrator.** Let Claude Code build the Kali image, manage libvirt VMs, bring up the [web](../labs/README.md)/[OT](../labs/ot/README.md) labs, run the repo tooling ([`scripts/quiz.py`](../scripts/README.md)), and keep your notes. This is exactly the workflow that built this repo.
 - **Inside the Kali VM/container — as the field assistant.** Have it explain tool output, draft the next command, and write up findings while you work. Running it *inside* the VM/container keeps its blast radius contained.
 
 ### A concrete "day one" flow
@@ -180,7 +180,7 @@ It brings the pieces up, runs the scan, and turns the output into a decision —
 1. Pick a path: `docker run --rm hello-world` **or** `virt-host-validate qemu` (all PASS).
 2. Boot Kali, log in, `passwd`, then `sudo apt update && sudo apt full-upgrade -y`.
 3. (VM) take a `clean-updated` snapshot; (Docker) save your `Dockerfile`.
-4. Install Claude Code, sign in, and have it run one `nmap` against a [lab](../labs/) target and explain the output.
+4. Install Claude Code, sign in, and have it run one `nmap` against a [lab](../labs/README.md) target and explain the output.
 
 ## Sources
 - Kali — Get Kali (VM & container images) — https://www.kali.org/get-kali/
@@ -192,4 +192,4 @@ It brings the pieces up, runs the scan, and turns the output into a decision —
 - Claude Code — setup & install — https://code.claude.com/docs/en/setup
 
 ---
-Related: [00 — Getting started](00-getting-started.md) · [Lab environment](../labs/) · [AI study workflow](../AI-STUDY-WORKFLOW.md) · [Responsible AI use](../AI-IN-ETHICAL-HACKING.md)
+Related: [00 — Getting started](00-getting-started.md) · [Lab environment](../labs/README.md) · [AI study workflow](../AI-STUDY-WORKFLOW.md) · [Responsible AI use](../AI-IN-ETHICAL-HACKING.md)

@@ -1,10 +1,10 @@
 # CEH Practical — Timed Drills
 
-> Practice challenges that **mimic Practical questions**, run against your own [lab](../labs/). Each has a **time target** — set a timer and treat it like the real exam. Answer from the tool output; expand the hint only if stuck. When you can clear these cold, the Practical's pacing won't surprise you.
+> Practice challenges that **mimic Practical questions**, run against your own [lab](../labs/README.md). Each has a **time target** — set a timer and treat it like the real exam. Answer from the tool output; expand the hint only if stuck. When you can clear these cold, the Practical's pacing won't surprise you.
 
 > **Setup:** lab running ([`../labs/README.md`](../labs/README.md)); Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`, DC/ADCS `192.168.56.30` (`ceh.lab`), Docker web `localhost:8081–8084`. Recipes: [challenge-playbooks.md](challenge-playbooks.md).
 
-> This is the **quick sampler**. For depth, use the per-domain packs in [`drills/`](drills/) (8–12 challenges each, full walkthroughs), generate stego/pcap/crypto/hash challenges with [`challenge-lab/`](challenge-lab/), and sit a full [simulated exam](exams/) when ready.
+> This is the **quick sampler**. For depth, use the per-domain packs in [`drills/`](drills/README.md) (8–12 challenges each, full walkthroughs), generate stego/pcap/crypto/hash challenges with [`challenge-lab/`](challenge-lab/README.md), and sit a full [simulated exam](exams/README.md) when ready.
 
 Score yourself: **✅ under target time / ⚠️ over time / ❌ needed the hint**. Re-drill anything not ✅.
 

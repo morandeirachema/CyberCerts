@@ -2,7 +2,7 @@
 
 > **One-liner:** securing the computers that move the physical world — the PLCs, sensors, and valves that run power grids, water plants, pipelines, and factories. The stakes aren't data breaches; they're **safety, uptime, and physical damage**. Your PAM instinct — *segment, broker, least-privilege, record everything* — is the core of the defense.
 
-> ⛔ **OT is safety-critical.** A mistimed scan or a single stray write can trip a safety system, damage equipment, or hurt people. Everything hands-on in this repo runs against **your own loopback simulators** ([`../labs/ot/`](../labs/ot/)) — never a device you don't own on an isolated bench.
+> ⛔ **OT is safety-critical.** A mistimed scan or a single stray write can trip a safety system, damage equipment, or hurt people. Everything hands-on in this repo runs against **your own loopback simulators** ([`../labs/ot/`](../labs/ot/README.md)) — never a device you don't own on an isolated bench.
 
 This is a standalone curriculum. It complements the exam-focused [Module 18](../modules/18-iot-and-ot-hacking/README.md) by going deeper and wider — from "what is a PLC" to "design and govern an OT security program."
 
@@ -23,7 +23,7 @@ Everything downstream follows from this. In IT you protect **data**; in OT you p
 | Endpoint agent / EDR | Everywhere | Rarely — may void warranty or break real-time timing |
 | Change control | CI/CD, move fast | Formal MOC (Management of Change), safety review |
 
-> **Why this matters for defense:** because you often *can't* patch, *can't* install an agent, and *can't* take a device down, the control shifts to the **network and the access path** — segmentation and brokered, least-privilege remote access. That is a PAM problem, which is why this topic sits so close to [`../defender-pam/`](../defender-pam/).
+> **Why this matters for defense:** because you often *can't* patch, *can't* install an agent, and *can't* take a device down, the control shifts to the **network and the access path** — segmentation and brokered, least-privilege remote access. That is a PAM problem, which is why this topic sits so close to [`../defender-pam/`](../defender-pam/README.md).
 
 ---
 
@@ -31,11 +31,11 @@ Everything downstream follows from this. In IT you protect **data**; in OT you p
 
 ```mermaid
 flowchart TD
-    L0["Level 0 — Aware<br/>what OT is · why it's different · the vocabulary"]
-    L1["Level 1 — Foundations<br/>Purdue model · asset taxonomy · IT/OT convergence"]
-    L2["Level 2 — Practitioner<br/>protocols · attack surface · hands-on lab"]
-    L3["Level 3 — Defender<br/>threats · ATT&CK for ICS · IEC 62443 · detection · IR"]
-    L4["Level 4 — Architect / Expert<br/>consequence-driven engineering · OT PAM at scale · governance"]
+    L0["Level 0 — Aware<br/>what OT is · why it's<br/>different · the vocabulary"]
+    L1["Level 1 — Foundations<br/>Purdue model · asset<br/>taxonomy · IT/OT convergence"]
+    L2["Level 2 — Practitioner<br/>protocols · attack<br/>surface · hands-on lab"]
+    L3["Level 3 — Defender<br/>threats · ATT&CK for ICS ·<br/>IEC 62443 · detection · IR"]
+    L4["Level 4 — Architect / Expert<br/>consequence-driven engineering<br/>· OT PAM at scale · governance"]
     L0 --> L1 --> L2 --> L3 --> L4
 ```
 
@@ -54,7 +54,7 @@ Build the map of the environment.
 ### Level 2 — Practitioner *(2–4 weeks · hands-on)*
 Feel *why* the protocols are insecure, safely.
 - **Learn:** [02 — Protocols](02-protocols.md): Modbus, DNP3, S7comm, EtherNet/IP, PROFINET, BACnet, and the secure-capable **OPC UA** — port, purpose, and the missing-identity flaw of each.
-- **Do:** stand up the containerized [OT lab](../labs/ot/) — subscribe to MQTT `#` and inject a spoofed reading; read (FC3) then **write** (FC6) Modbus registers with no login. Then work [Module 18's guided walkthrough](../modules/18-iot-and-ot-hacking/lab-walkthrough.md) (adds Shodan index recon + firmware carving).
+- **Do:** stand up the containerized [OT lab](../labs/ot/README.md) — subscribe to MQTT `#` and inject a spoofed reading; read (FC3) then **write** (FC6) Modbus registers with no login. Then work [Module 18's guided walkthrough](../modules/18-iot-and-ot-hacking/lab-walkthrough.md) (adds Shodan index recon + firmware carving).
 - ✅ **Checkpoint:** on your own simulator, read and change a Modbus register and explain, per function code, exactly what had no authentication — and which network control would have stopped it.
 
 ### Level 3 — Defender *(4–8 weeks)*
@@ -96,8 +96,8 @@ Rate each row: **🟥 Novice** (need a guide) · **🟨 Competent** (with notes)
 
 ## How this ties into the rest of the repo
 - **Exam angle:** [Module 18 — IoT and OT Hacking](../modules/18-iot-and-ot-hacking/README.md) (ports, Purdue, OWASP IoT Top 10, exam traps).
-- **Hands-on:** the containerized [OT range](../labs/ot/) (MQTT + Modbus, loopback-only).
-- **Defender / PAM knowledge base:** [`../defender-pam/`](../defender-pam/) — architecture, detection engineering, attack-to-control matrix.
+- **Hands-on:** the containerized [OT range](../labs/ot/README.md) (MQTT + Modbus, loopback-only).
+- **Defender / PAM knowledge base:** [`../defender-pam/`](../defender-pam/README.md) — architecture, detection engineering, attack-to-control matrix.
 - **Where OT fits in the whole journey:** [ROADMAP](../ROADMAP.md) Stage 5 (specialize).
 
 ## Sources

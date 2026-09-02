@@ -3,7 +3,7 @@
 > **What you'll learn:** the two families of password attack (online vs offline), how to guess logins against a live service with `hydra`/`medusa`/`nxc` *without locking accounts*, what a hash actually is and how to identify one, and how to crack captured hashes offline with `hashcat` and `john` using wordlists and rules — ending in a full **capture → identify → crack** workflow.
 > **Prerequisites:** [09 — Metasploit Framework](09-metasploit.md). ⬅️ [Course index](README.md)
 
-This chapter maps to CEH **[Module 06 — System Hacking](../modules/06-system-hacking/)** (the "Gaining Access" phase). Everything runs against your **[lab](../labs/)** — Metasploitable2 at `192.168.56.20` (login `msfadmin`/`msfadmin`). Crack **only** hashes you generated or captured in your own lab.
+This chapter maps to CEH **[Module 06 — System Hacking](../modules/06-system-hacking/README.md)** (the "Gaining Access" phase). Everything runs against your **[lab](../labs/README.md)** — Metasploitable2 at `192.168.56.20` (login `msfadmin`/`msfadmin`). Crack **only** hashes you generated or captured in your own lab.
 
 ---
 
@@ -244,4 +244,4 @@ That's the loop you'll repeat forever: **get the hash, name the hash, crack the 
 - THC-Hydra: https://github.com/vanhauser-thc/thc-hydra
 - NetExec (nxc): https://www.netexec.wiki/
 - SecLists: https://github.com/danielmiessler/SecLists
-- CEH Module 06 — System Hacking: [../modules/06-system-hacking/](../modules/06-system-hacking/)
+- CEH Module 06 — System Hacking: [../modules/06-system-hacking/](../modules/06-system-hacking/README.md)

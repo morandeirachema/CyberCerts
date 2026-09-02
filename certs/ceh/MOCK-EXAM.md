@@ -6,7 +6,7 @@
 - **Time-box it:** the real exam is ~1.9 min/question, so give yourself **~95 minutes** for these 50. Practice the pace.
 - **First pass fast, flag the hard ones, second pass on flags** — and never leave a blank (no penalty for guessing).
 - Watch qualifiers: **BEST, MOST, FIRST, NOT, EXCEPT.**
-- Score with the [scoring guide](#scoring-guide). Log every miss in [PROGRESS.md](PROGRESS.md) and re-drill that module's [`facts.md`](modules/) + [`flashcards.csv`](modules/).
+- Score with the [scoring guide](#scoring-guide). Log every miss in [PROGRESS.md](PROGRESS.md) and re-drill that module's [`facts.md`](modules/README.md) + [`flashcards.csv`](modules/README.md).
 - Tactics reference: [EXAM-STRATEGY.md](EXAM-STRATEGY.md). Term lookups: [GLOSSARY.md](GLOSSARY.md).
 
 ---

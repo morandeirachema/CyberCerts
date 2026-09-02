@@ -2,7 +2,7 @@
 
 > **What this drills:** the *first move* of every Practical challenge — turn IPs into a map of hosts, open ports, service versions, OS, and the odd non-standard port where the interesting stuff hides. Every question below mimics the phrasing the CEH Practical uses ("*What is the exact version…*", "*How many open TCP ports…*", "*Which port runs…*", "*Is anonymous FTP allowed…*") and carries a **time target** — set a timer and treat it like the real clock.
 >
-> **Prereq:** your [lab](../../labs/README.md) is running — Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`, DC/ADCS `192.168.56.30` (`ceh.lab`). Recipes live in [`../challenge-playbooks.md`](../challenge-playbooks.md); the theory behind every flag is [Module 03 — Scanning Networks](../../modules/03-scanning-networks/) and [`kali/05-nmap-scanning.md`](../../kali/05-nmap-scanning.md).
+> **Prereq:** your [lab](../../labs/README.md) is running — Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`, DC/ADCS `192.168.56.30` (`ceh.lab`). Recipes live in [`../challenge-playbooks.md`](../challenge-playbooks.md); the theory behind every flag is [Module 03 — Scanning Networks](../../modules/03-scanning-networks/README.md) and [`kali/05-nmap-scanning.md`](../../kali/05-nmap-scanning.md).
 >
 > Answer from the tool output; open the **Solution** only to check yourself or when truly stuck. Ports/versions below match a stock Metasploitable2 and a Windows Server 2019 DC — a dynamic RPC port may shift a number by one or two.
 
@@ -268,4 +268,4 @@ When Challenges 1–10 are all ✅ cold, recon/scanning won't cost you exam cloc
 - Nmap port-scanning techniques — https://nmap.org/book/man-port-scanning-techniques.html
 - Nmap Scripting Engine (NSE), incl. `ftp-anon`, `rdp-ntlm-info`, `smb-os-discovery` — https://nmap.org/book/nse.html
 - Nmap host discovery — https://nmap.org/book/man-host-discovery.html
-- CEH companion — [Module 03 — Scanning Networks](../../modules/03-scanning-networks/) · [`kali/05-nmap-scanning.md`](../../kali/05-nmap-scanning.md)
+- CEH companion — [Module 03 — Scanning Networks](../../modules/03-scanning-networks/README.md) · [`kali/05-nmap-scanning.md`](../../kali/05-nmap-scanning.md)

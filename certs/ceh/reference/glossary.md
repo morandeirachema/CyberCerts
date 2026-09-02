@@ -5,7 +5,7 @@
 
 An alphabetical glossary of ethical-hacking and Certified Ethical Hacker (CEH) terms, each defined concisely **in CEH context**. Offensive techniques are defined neutrally with a defensive framing — you learn them to detect and stop them. For acronym expansions, see the [acronyms reference](acronyms.md).
 
-Cross-links point to the relevant CEH v13 module under [../domains/](../domains/) and to the overview docs under [../00-overview/](../00-overview/). Module filenames follow the official 20-module structure; if a target page does not yet exist, the link records where the topic belongs.
+Cross-links point to the relevant CEH v13 module under [../domains/](../domains/README.md) and to the overview docs under [../00-overview/](../00-overview/). Module filenames follow the official 20-module structure; if a target page does not yet exist, the link records where the topic belongs.
 
 > Note for a sysadmin: many terms below (services, hashes, directories, sessions) are everyday administration concepts seen from the attacker's side. Read the definition, then ask "how would I detect or prevent this on a box I run?"
 

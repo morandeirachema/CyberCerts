@@ -1,6 +1,6 @@
 # Drill Pack 02 — Enumeration
 
-> Deep, timed practice for turning open ports into a **named inventory** — shares, users, RIDs, SNMP configs, NFS exports, mail accounts, and directory objects. Each challenge mimics a CEH Practical question. Recipes live in [`../challenge-playbooks.md`](../challenge-playbooks.md) (see the *"Enumerate this service"* pattern); theory in [Module 04](../../modules/04-enumeration/). Answer from the tool output — expand the solution only if stuck.
+> Deep, timed practice for turning open ports into a **named inventory** — shares, users, RIDs, SNMP configs, NFS exports, mail accounts, and directory objects. Each challenge mimics a CEH Practical question. Recipes live in [`../challenge-playbooks.md`](../challenge-playbooks.md) (see the *"Enumerate this service"* pattern); theory in [Module 04](../../modules/04-enumeration/README.md). Answer from the tool output — expand the solution only if stuck.
 
 > **Setup:** lab running ([`../../labs/README.md`](../../labs/README.md)). Metasploitable2 `192.168.56.20` (wide-open SMB / SNMP / SMTP / NFS), Windows DC `192.168.56.30` = `ceh.lab` (creds `jdoe` / `Passw0rd!`). Set both first so the commands paste clean:
 > ```bash
@@ -218,7 +218,7 @@ servicePrincipalName: MSSQLSvc/dc01.ceh.lab:1433
 - **Build one artifact:** merge every name you pulled — Metasploitable2 users, SMTP-valid accounts, domain users — into a single `users.txt`; it feeds password attacks and the [capstone](../../labs/capstone.md). When all ten clear cold, you can turn *anonymous access* into a *named inventory* on demand — exactly what the Practical measures.
 
 ## Sources
-- Challenge recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md) · Course chapter: [`../../kali/06-enumeration.md`](../../kali/06-enumeration.md) · Theory: [Module 04](../../modules/04-enumeration/)
+- Challenge recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md) · Course chapter: [`../../kali/06-enumeration.md`](../../kali/06-enumeration.md) · Theory: [Module 04](../../modules/04-enumeration/README.md)
 - NetExec (nxc) wiki — https://www.netexec.wiki/
 - enum4linux-ng — https://github.com/cddmp/enum4linux-ng
 - Samba (smbclient / rpcclient) — https://www.samba.org/

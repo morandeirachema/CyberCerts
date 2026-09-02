@@ -1,6 +1,6 @@
 # Active Directory Attacks
 
-Quick reference for the AD attack chain (Impacket / NetExec / BloodHound / Certipy). Pairs with [Module 06](../modules/06-system-hacking/), the [identity attack paths](../defender-pam/identity-attack-paths.md), and the [capstone](../labs/capstone.md). **Lab / authorized only.** Vars: `DC=192.168.56.30`, `DOMAIN=ceh.lab`, foothold `jdoe:'Passw0rd!'`.
+Quick reference for the AD attack chain (Impacket / NetExec / BloodHound / Certipy). Pairs with [Module 06](../modules/06-system-hacking/README.md), the [identity attack paths](../defender-pam/identity-attack-paths.md), and the [capstone](../labs/capstone.md). **Lab / authorized only.** Vars: `DC=192.168.56.30`, `DOMAIN=ceh.lab`, foothold `jdoe:'Passw0rd!'`.
 
 > On Kali the Impacket tools are prefixed `impacket-*`. Kerberos is clock-sensitive — if you see `KRB_AP_ERR_SKEW`, sync time: `sudo ntpdate $DC` (or `rdate`), and point DNS at the DC.
 

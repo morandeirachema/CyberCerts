@@ -30,12 +30,12 @@ flowchart LR
     D --> E["Run the chain<br/>labs/capstone.md"]
 ```
 
-1. **Be fluent with the tools** — work the [`kali/`](../kali/) course until you can run each tool from muscle memory. The Practical punishes fumbling with syntax.
+1. **Be fluent with the tools** — work the [`kali/`](../kali/README.md) course until you can run each tool from muscle memory. The Practical punishes fumbling with syntax.
 2. **Rate yourself** honestly against the [skills checklist](skills-checklist.md); drill every skill you can't do cold in a few minutes.
 3. **Internalize the recipes** in [challenge-playbooks.md](challenge-playbooks.md) — the "when the question asks X, do Y" patterns.
-4. **Generate the missing challenge types** — run [`challenge-lab/setup-challenges.sh`](challenge-lab/) to create local stego / pcap / crypto / hash / archive challenges the AD-web lab can't.
-5. **Drill under a timer** — start with the [drills.md](drills.md) sampler, then the **deep per-domain packs** in [drills/](drills/) (full walkthroughs). Re-drill any domain you're slow in.
-6. **Run the [capstone](../labs/capstone.md)** end to end, then sit a full **[simulated exam](exams/)** (20 challenges, timed) as your dress rehearsal.
+4. **Generate the missing challenge types** — run [`challenge-lab/setup-challenges.sh`](challenge-lab/README.md) to create local stego / pcap / crypto / hash / archive challenges the AD-web lab can't.
+5. **Drill under a timer** — start with the [drills.md](drills.md) sampler, then the **deep per-domain packs** in [drills/](drills/README.md) (full walkthroughs). Re-drill any domain you're slow in.
+6. **Run the [capstone](../labs/capstone.md)** end to end, then sit a full **[simulated exam](exams/README.md)** (20 challenges, timed) as your dress rehearsal.
 
 ---
 
@@ -77,6 +77,6 @@ flowchart LR
 | [skills-checklist.md](skills-checklist.md) | The hands-on skills you must be able to do fast — self-rate and drill the gaps |
 | [challenge-playbooks.md](challenge-playbooks.md) | "When the question asks X → run Y" copy-adaptable recipes |
 | [drills.md](drills.md) | A quick 15-challenge sampler against the repo lab |
-| [drills/](drills/) | **Deep per-domain drill packs** (8–12 challenges each) with full solution walkthroughs |
-| [challenge-lab/](challenge-lab/) | A **generator** for the challenge types the lab can't provide — stego, pcap, crypto, hashes, archives |
-| [exams/](exams/) | **Full 20-challenge simulated exams** (6-hour dress rehearsals) with answer keys |
+| [drills/](drills/README.md) | **Deep per-domain drill packs** (8–12 challenges each) with full solution walkthroughs |
+| [challenge-lab/](challenge-lab/README.md) | A **generator** for the challenge types the lab can't provide — stego, pcap, crypto, hashes, archives |
+| [exams/](exams/README.md) | **Full 20-challenge simulated exams** (6-hour dress rehearsals) with answer keys |

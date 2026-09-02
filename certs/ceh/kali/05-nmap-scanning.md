@@ -3,7 +3,7 @@
 > **What you'll learn:** what a port scan actually does, every scan type Nmap offers and when to reach for each, how to read the open/closed/filtered verdict, how to fingerprint services and operating systems, the Nmap Scripting Engine, timing and evasion, saving your evidence — and how to turn a scan into your next move. By the end you'll drive Nmap with intent, not guesswork.
 > **Prerequisites:** [04 — Recon & OSINT](04-recon-osint.md). ⬅️ [Course index](README.md)
 
-Recon (chapter 04) told you *who* and *where* your target is. Scanning tells you *what's actually listening*. **Nmap** ("Network Mapper") is the tool for this — the single most important, most exam-tested tool in the course. Take your time; this is a deep dive that maps directly to [Module 03 — Scanning Networks](../modules/03-scanning-networks/).
+Recon (chapter 04) told you *who* and *where* your target is. Scanning tells you *what's actually listening*. **Nmap** ("Network Mapper") is the tool for this — the single most important, most exam-tested tool in the course. Take your time; this is a deep dive that maps directly to [Module 03 — Scanning Networks](../modules/03-scanning-networks/README.md).
 
 ---
 
@@ -194,7 +194,7 @@ sudo nmap -sS --min-rate 1000 192.168.56.20   # send at least 1000 packets/sec
 `--min-rate` sets a packet-per-second floor for fine control when a template isn't precise enough. Use `-T4` for lab work; save `-T0/-T1` for when you're deliberately practising evasion.
 
 ## Evasion basics
-Firewalls and intrusion-detection systems (IDS) watch for scans. Nmap can dress its packets up to slip past simple ones. This is a preview — **[Module 12 — Evading IDS, Firewalls & Honeypots](../modules/12-evading-ids-firewalls-honeypots/)** goes deep.
+Firewalls and intrusion-detection systems (IDS) watch for scans. Nmap can dress its packets up to slip past simple ones. This is a preview — **[Module 12 — Evading IDS, Firewalls & Honeypots](../modules/12-evading-ids-firewalls-honeypots/README.md)** goes deep.
 
 ```bash
 sudo nmap -sS -f 192.168.56.20                # -f: fragment probes into tiny pieces a filter may fail to reassemble
@@ -202,7 +202,7 @@ sudo nmap -sS -D 192.168.56.15,192.168.56.16,ME 192.168.56.20   # -D: hide your 
 sudo nmap -sS -g 53 192.168.56.20             # -g 53 (= --source-port 53): pose as DNS traffic lazy firewalls trust
 ```
 
-> These are *lab demonstrations* to understand the technique — matched by real defensive controls in [Module 03](../modules/03-scanning-networks/). Never test them on networks you don't own.
+> These are *lab demonstrations* to understand the technique — matched by real defensive controls in [Module 03](../modules/03-scanning-networks/README.md). Never test them on networks you don't own.
 
 ## Save your evidence — output flags
 Always save scans. You'll re-read them constantly, and they're your report evidence. `-oA` writes **all three** formats at once with one basename:
@@ -255,4 +255,4 @@ The workflow is always the same loop: **discover → scan → fingerprint → en
 - Nmap port-scanning techniques — https://nmap.org/book/man-port-scanning-techniques.html
 - Nmap Scripting Engine (NSE) — https://nmap.org/book/nse.html
 - Nmap timing & performance — https://nmap.org/book/man-performance.html
-- CEH companion — [Module 03 — Scanning Networks](../modules/03-scanning-networks/)
+- CEH companion — [Module 03 — Scanning Networks](../modules/03-scanning-networks/README.md)

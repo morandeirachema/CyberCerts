@@ -96,7 +96,7 @@ Beyond SMB (139/445), SNMP (161), and LDAP (389), the exam samples widely:
 
 ## Commands & techniques (lab-ready)
 
-> **Safety:** targets are your lab only — Metasploitable2 (`192.168.56.20`, wide-open Samba/SNMP/NFS) and the AD DC dc01 (`192.168.56.30`, zone/domain `ceh.lab`). These are noisy, authenticated-style queries — never run them off your segment. See [`../../labs/`](../../labs/).
+> **Safety:** targets are your lab only — Metasploitable2 (`192.168.56.20`, wide-open Samba/SNMP/NFS) and the AD DC dc01 (`192.168.56.30`, zone/domain `ceh.lab`). These are noisy, authenticated-style queries — never run them off your segment. See [`../../labs/`](../../labs/README.md).
 
 ```bash
 # --- NetBIOS ---

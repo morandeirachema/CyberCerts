@@ -102,15 +102,15 @@ Attacks flow **down**; safety flows from keeping people and IT **out** of the lo
 ```mermaid
 flowchart TB
     subgraph IT["IT"]
-        L5["L5 Enterprise network — corporate IT, internet-facing"]
-        L4["L4 Site business and logistics — ERP, email, IT services"]
+        L5["L5 Enterprise network —<br/>corporate IT, internet-facing"]
+        L4["L4 Site business and logistics<br/>— ERP, email, IT services"]
     end
-    IDMZ["IDMZ / Level 3.5 — the OT/IT boundary: jump hosts, proxies, brokers"]
+    IDMZ["IDMZ / Level 3.5 — the<br/>OT/IT boundary: jump<br/>hosts, proxies, brokers"]
     subgraph OT["OT"]
-        L3["L3 Site operations — MES, historians, patch/AV, engineering workstations"]
-        L2["L2 Area supervisory control — HMI, SCADA servers"]
-        L1["L1 Basic control — PLCs, RTUs, IEDs run the logic"]
-        L0["L0 Physical process — sensors, actuators, motors, valves"]
+        L3["L3 Site operations — MES,<br/>historians, patch/AV,<br/>engineering workstations"]
+        L2["L2 Area supervisory control<br/>— HMI, SCADA servers"]
+        L1["L1 Basic control — PLCs,<br/>RTUs, IEDs run the logic"]
+        L0["L0 Physical process — sensors,<br/>actuators, motors, valves"]
     end
     L5 --> L4 --> IDMZ --> L3 --> L2 --> L1 --> L0
 ```
@@ -173,7 +173,7 @@ grep -rniE 'password|api[_-]?key|BEGIN .*PRIVATE' _firmware.bin.extracted/
 
 ## Lab exercise
 
-Everything runs on your **own workstation/loopback** — no external device is touched. See [`../../labs/`](../../labs/) and [`../../labs/topology.md`](../../labs/topology.md).
+Everything runs on your **own workstation/loopback** — no external device is touched. See [`../../labs/`](../../labs/README.md) and [`../../labs/topology.md`](../../labs/topology.md).
 
 1. **MQTT trust failure:** start `mosquitto`, subscribe to `#`, and publish a spoofed message from a second terminal. Observe that an unauthenticated broker lets **anyone read and inject** on every topic — this is OWASP "insecure network services" in miniature.
 2. **Modbus has no identity:** run the `pymodbus` simulator, read registers with FC3, then write one with FC6. Note there was **no login, no authorization, no crypto** — the protocol assumes a trusted network, which is why **segmentation is the control**.
@@ -195,7 +195,7 @@ Everything runs on your **own workstation/loopback** — no external device is t
 | Zigbee/BLE sniffing & replay | RF anomalies, unexpected device joins | Encryption + strong pairing, disable open join, RF monitoring |
 | Third-party/OEM remote support abuse | Vendor sessions off-hours, from new geos | **PAM secure remote access**: approval, session recording, credential injection, expiry |
 
-> **PAM playbook for OT:** treat the OT network as a **crown-jewel Tier 0**. No human touches L0/L1 directly — all access flows through a **jump host in the IDMZ** with **JIT, MFA, approval, and full session recording**. Use **unidirectional gateways** so historians/monitoring can pull data *up* while nothing can push control *down*. Vault and rotate device/service credentials, and never let a vendor keep a standing VPN. Map these to [`../../defender-pam/`](../../defender-pam/).
+> **PAM playbook for OT:** treat the OT network as a **crown-jewel Tier 0**. No human touches L0/L1 directly — all access flows through a **jump host in the IDMZ** with **JIT, MFA, approval, and full session recording**. Use **unidirectional gateways** so historians/monitoring can pull data *up* while nothing can push control *down*. Vault and rotate device/service credentials, and never let a vendor keep a standing VPN. Map these to [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### 🔐 PAM engineering deep-dive (CyberArk)
 
@@ -211,7 +211,7 @@ OT is where default credentials and flat, always-on remote access are still the 
 
 **Engineering note:** make **PSM/PSMP the sole ingress** into the OT DMZ (aligned to IEC 62443 zones/conduits), vault device credentials, and grant vendors **time-boxed Remote Access** — no flat, standing path to the plant floor. Where devices can't rotate, compensate with strict segmentation + brokered access.
 
-> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md) · **[OT/ICS security — beginner→expert](../../ot-security/)** (a full standalone curriculum on the OT side)
+> Go deeper: [PAM architecture](../../defender-pam/pam-architecture.md) · [CyberArk mapping](../../defender-pam/cyberark-attack-mapping.md) · **[OT/ICS security — beginner→expert](../../ot-security/README.md)** (a full standalone curriculum on the OT side)
 
 ## Exam tips & gotchas
 

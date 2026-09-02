@@ -1,6 +1,6 @@
 # Module 08 — Sniffing · Guided Lab Walkthrough
 
-> A step-by-step, **do-it-in-order** lab against **your own** environment only (the lab in [`../../labs/`](../../labs/) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
+> A step-by-step, **do-it-in-order** lab against **your own** environment only (the lab in [`../../labs/`](../../labs/README.md) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
 
 > ⚠️ **Own-lab-segment only.** Run everything on the isolated host-only network `192.168.56.0/24`. **ARP poisoning and MAC flooding disrupt real networks** — never run Parts B or C off your lab, on a corporate/home LAN, or on any segment you do not own. There is no route from the lab segment to the internet or your home LAN by design.
 

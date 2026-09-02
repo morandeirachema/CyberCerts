@@ -104,7 +104,7 @@ There's no single right tool — the right one is the one you'll actually use. P
 | **Obsidian** | Markdown editor with backlinks and a graph view | Linking hosts ↔ creds ↔ findings across a big engagement |
 | **CherryTree** | Hierarchical notebook (a tree of rich-text nodes), pre-installed on Kali | Per-host node trees, embedding screenshots inline |
 
-Plain Markdown is the honest recommendation for a beginner: it's future-proof, diffs cleanly in git, and forces you to write structured text. A minimal `notes/log.md` might just be a running table (mirror the **lab-log tables** at the bottom of every course [module](../modules/) — that habit scales straight into real engagements):
+Plain Markdown is the honest recommendation for a beginner: it's future-proof, diffs cleanly in git, and forces you to write structured text. A minimal `notes/log.md` might just be a running table (mirror the **lab-log tables** at the bottom of every course [module](../modules/README.md) — that habit scales straight into real engagements):
 
 ```markdown
 | Time  | Host           | Command                        | Result                          |
@@ -131,13 +131,13 @@ A **finding** is one vulnerability, written up so anyone — a sysadmin *or* a C
 | Section | Answers | Example |
 |---|---|---|
 | **Title** | What is it, in one line? | "Anonymous FTP with backdoor command execution (vsftpd 2.3.4)" |
-| **Severity (CVSS)** | How bad, on a standard scale? | Critical — CVSS 9.8 (see [Module 05](../modules/05-vulnerability-analysis/)) |
+| **Severity (CVSS)** | How bad, on a standard scale? | Critical — CVSS 9.8 (see [Module 05](../modules/05-vulnerability-analysis/README.md)) |
 | **Affected asset** | Where exactly? | `192.168.56.20:21` (Metasploitable2) |
 | **Evidence** | Prove it: command + output | The exact command you ran and what came back |
 | **Impact** | So what? Why should they care? | Full remote root shell → total system compromise |
 | **Remediation** | How do they fix it? | Upgrade vsftpd; block FTP at the perimeter |
 
-**Severity** uses **CVSS** (Common Vulnerability Scoring System, a 0.0–10.0 score maintained by FIRST — the full metric groups and severity bands are covered in [Module 05](../modules/05-vulnerability-analysis/)). Don't invent numbers: look the CVE up on the [NVD](https://nvd.nist.gov/) and cite its score and vector.
+**Severity** uses **CVSS** (Common Vulnerability Scoring System, a 0.0–10.0 score maintained by FIRST — the full metric groups and severity bands are covered in [Module 05](../modules/05-vulnerability-analysis/README.md)). Don't invent numbers: look the CVE up on the [NVD](https://nvd.nist.gov/) and cite its score and vector.
 
 A copy-paste template for `notes/findings.md`:
 
@@ -158,7 +158,7 @@ A copy-paste template for `notes/findings.md`:
   patched version; restrict FTP exposure; monitor for the `:)` trigger.
 ```
 
-The evidence is what makes it a *finding* and not an opinion — the command and its output let the client reproduce it. This is exactly the standardisation flow ([CVE → CVSS → CWE → CPE](../modules/05-vulnerability-analysis/)) that Module 05 drills.
+The evidence is what makes it a *finding* and not an opinion — the command and its output let the client reproduce it. This is exactly the standardisation flow ([CVE → CVSS → CWE → CPE](../modules/05-vulnerability-analysis/README.md)) that Module 05 drills.
 
 ## The structure of a pentest report
 
@@ -201,7 +201,7 @@ Both ingest the machine-readable output you already saved (this is why `-oA` mat
 3. Run `nmap -sV -sC -oA ~/engagements/lab-2026/scans/msf2 192.168.56.20` and confirm all **three** output files exist (`ls scans/`).
 4. Take a screenshot of the nmap results with `flameshot gui`, annotate one open port, and save it to `screenshots/`.
 5. In `notes/findings.md`, write up **one** vulnerability using the six-part template (Title → Severity → Asset → Evidence → Impact → Remediation). Look up its real CVSS on the [NVD](https://nvd.nist.gov/).
-6. Fill in a lab-log row like the tables at the bottom of every [module](../modules/) — make it a habit that carries into real work.
+6. Fill in a lab-log row like the tables at the bottom of every [module](../modules/README.md) — make it a habit that carries into real work.
 
 ## Next
 
@@ -216,4 +216,4 @@ Both ingest the machine-readable output you already saved (this is why `-oA` mat
 - FIRST — CVSS specification: https://www.first.org/cvss/
 - NIST — National Vulnerability Database (NVD): https://nvd.nist.gov/
 - PTES — Penetration Testing Execution Standard (reporting): http://www.pentest-standard.org/
-- Related: [Module 05 — Vulnerability Analysis](../modules/05-vulnerability-analysis/)
+- Related: [Module 05 — Vulnerability Analysis](../modules/05-vulnerability-analysis/README.md)

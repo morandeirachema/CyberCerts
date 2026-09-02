@@ -61,7 +61,7 @@ breadth around the PAM core. Durations are suggestions; go at your own pace.
 
 ```mermaid
 flowchart TB
-    P0["Phase 0 · PAM foundations<br/>foundations/ · prerequisites/ · protocols/"]
+    P0["Phase 0 · PAM foundations<br/>foundations/ ·<br/>prerequisites/ · protocols/"]
     P1["Phase 1 · CEH (now)<br/>certs/ceh/ — fundamentals +<br/>the attacker's view"]
     P2["Phase 2 · Detect & respond<br/>CySA+ (blue team / SOC)<br/>Security+ optional baseline"]
     P3["Phase 3 · Prove offense hands-on<br/>PenTest+ · PNPT → OSCP"]

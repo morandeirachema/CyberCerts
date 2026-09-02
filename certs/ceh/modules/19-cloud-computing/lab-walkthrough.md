@@ -2,7 +2,7 @@
 
 > A step-by-step, **do-it-in-order** lab. Outputs shown are **representative** — yours will differ. Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway.
 >
-> ⚠️ **AUTHORIZATION — read this first.** Run cloud assessment tools **only against a cloud account you own** (a **throwaway / free-tier** account with nothing valuable in it), and know your **provider's testing policy** — even self-service pentesting of *managed* services can require notice. Aggressive tools like **Pacu** modify resources. Container/Kubernetes work stays on **your own workstation** (see [`../../labs/`](../../labs/) · [`../../labs/topology.md`](../../labs/topology.md)).
+> ⚠️ **AUTHORIZATION — read this first.** Run cloud assessment tools **only against a cloud account you own** (a **throwaway / free-tier** account with nothing valuable in it), and know your **provider's testing policy** — even self-service pentesting of *managed* services can require notice. Aggressive tools like **Pacu** modify resources. Container/Kubernetes work stays on **your own workstation** (see [`../../labs/`](../../labs/README.md) · [`../../labs/topology.md`](../../labs/topology.md)).
 
 **Goal:** see how cloud compromise is almost always an **identity or configuration** failure — then watch each PAM/config control turn a win into a loss.
 

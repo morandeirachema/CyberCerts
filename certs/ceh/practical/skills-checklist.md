@@ -1,8 +1,8 @@
 # CEH Practical — Hands-On Skills Checklist
 
-> The Practical tests whether you can *do* things fast. Go down this list and honestly rate each skill: **✅ can do cold in a few minutes / ⚠️ need notes / ❌ can't yet**. Drill every ⚠️ and ❌ against your [lab](../labs/) using [drills.md](drills.md) and the recipes in [challenge-playbooks.md](challenge-playbooks.md). If you can check every box without looking anything up, you're ready.
+> The Practical tests whether you can *do* things fast. Go down this list and honestly rate each skill: **✅ can do cold in a few minutes / ⚠️ need notes / ❌ can't yet**. Drill every ⚠️ and ❌ against your [lab](../labs/README.md) using [drills.md](drills.md) and the recipes in [challenge-playbooks.md](challenge-playbooks.md). If you can check every box without looking anything up, you're ready.
 
-> Each skill links to where it's taught: `[K##]` = [Kali course](../kali/) chapter, `[M##]` = [module](../modules/).
+> Each skill links to where it's taught: `[K##]` = [Kali course](../kali/README.md) chapter, `[M##]` = [module](../modules/README.md).
 
 ## Discovery & enumeration
 - [ ] Discover live hosts on a subnet and full-port scan a target with output saved `[K05][M03]`

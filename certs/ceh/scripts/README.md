@@ -33,4 +33,4 @@ python3 scripts/validate.py --selftest  # unit-test the link/anchor slug logic o
 ```
 Link and anchor checks follow GitHub's own slug rules (fenced code blocks are ignored, underscores are kept, and duplicate headings get a `-1`/`-2` suffix). The same check runs in GitHub Actions ([`.github/workflows/ceh-validate.yml`](../../../.github/workflows/ceh-validate.yml)) on every push — alongside `py_compile`, the slug self-test, `docker compose config`, Ansible YAML parsing, and ShellCheck — so broken links, malformed decks, or a broken script fail the build.
 
-> Lab-provisioning scripts live under [`../labs/scripts/`](../labs/scripts/); the practical challenge generator is [`../practical/challenge-lab/setup-challenges.sh`](../practical/challenge-lab/).
+> Lab-provisioning scripts live under [`../labs/scripts/`](../labs/scripts/); the practical challenge generator is [`../practical/challenge-lab/setup-challenges.sh`](../practical/challenge-lab/README.md).

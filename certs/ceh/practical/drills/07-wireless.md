@@ -4,7 +4,7 @@
 >
 > The live drills need a **USB Wi-Fi adapter that supports monitor mode + packet injection** (Atheros AR9271, Ralink RT3070/RT5370, Realtek RTL8812AU). A VM's virtual NIC **cannot** do this — USB-passthrough a physical adapter. **No adapter or no test AP? Every drill is still doable:** use the aircrack-ng **sample capture `wpa.cap`** (ESSID `test`, BSSID `00:14:6C:7E:40:80`, PSK **`biscotte`**) — grab it from the aircrack-ng *Cracking WPA* tutorial (see [Sources](#sources)) and follow each drill's **⚡ faster / no-adapter** note.
 >
-> Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md) (wireless section). Theory: [Module 16 — Hacking Wireless Networks](../../modules/16-hacking-wireless-networks/). Tool course: [`../../kali/13-wireless.md`](../../kali/13-wireless.md).
+> Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md) (wireless section). Theory: [Module 16 — Hacking Wireless Networks](../../modules/16-hacking-wireless-networks/README.md). Tool course: [`../../kali/13-wireless.md`](../../kali/13-wireless.md).
 
 Score yourself: **✅ under target time / ⚠️ over time / ❌ needed the solution**. Set placeholders — `AA:BB:CC:DD:EE:FF` = your AP's BSSID, `6` = your channel, `wlan0` = your adapter, `11:22:33:44:55:66` = your own client's MAC. Re-drill anything not ✅.
 
@@ -191,4 +191,4 @@ Re-drill anything not ✅ under time, then log it in [`../../PROGRESS.md`](../..
 - Aircrack-ng — `airodump-ng` / `aireplay-ng` / `wash` docs — https://www.aircrack-ng.org/documentation.html
 - Hashcat — WPA/WPA2 example hashes (mode 22000) — https://hashcat.net/wiki/doku.php?id=example_hashes
 - hcxtools / `hcxpcapngtool` — https://github.com/ZerBea/hcxtools
-- CEH Module 16 — Hacking Wireless Networks — [`../../modules/16-hacking-wireless-networks/`](../../modules/16-hacking-wireless-networks/)
+- CEH Module 16 — Hacking Wireless Networks — [`../../modules/16-hacking-wireless-networks/`](../../modules/16-hacking-wireless-networks/README.md)

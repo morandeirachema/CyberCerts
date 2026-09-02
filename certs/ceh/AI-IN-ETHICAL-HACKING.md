@@ -1,6 +1,6 @@
 # AI-Driven Ethical Hacking (CEH v13)
 
-> CEH v13's headline addition. Two directions you must understand: **(1) using AI to augment the ethical-hacking workflow**, and **(2) attacking and defending AI systems themselves**. This doc is the cross-cutting companion to the 20 modules — AI now touches every phase. Pairs with [EXAM-STRATEGY.md](EXAM-STRATEGY.md) and the [defender-pam](defender-pam/) knowledge base.
+> CEH v13's headline addition. Two directions you must understand: **(1) using AI to augment the ethical-hacking workflow**, and **(2) attacking and defending AI systems themselves**. This doc is the cross-cutting companion to the 20 modules — AI now touches every phase. Pairs with [EXAM-STRATEGY.md](EXAM-STRATEGY.md) and the [defender-pam](defender-pam/README.md) knowledge base.
 
 > **⚖️ Same ethics apply.** Use AI-assisted techniques only within your authorized scope. AI lowers the effort bar for attackers *and* defenders — the authorization boundary does not move.
 
@@ -62,7 +62,7 @@ Modern targets *include* AI. Know the adversarial-ML taxonomy and the LLM-specif
 ### OWASP Top 10 for LLM Applications (2025) — recognize the list
 LLM01 Prompt Injection · LLM02 Sensitive Information Disclosure · LLM03 Supply Chain · LLM04 Data & Model Poisoning · LLM05 Improper Output Handling · LLM06 Excessive Agency · LLM07 System Prompt Leakage · LLM08 Vector/Embedding Weaknesses · LLM09 Misinformation · LLM10 Unbounded Consumption.
 
-> **MITRE ATLAS** is the ATT&CK-style knowledge base for adversarial ML — the AI equivalent of the frameworks in [Module 01](modules/01-introduction-to-ethical-hacking/).
+> **MITRE ATLAS** is the ATT&CK-style knowledge base for adversarial ML — the AI equivalent of the frameworks in [Module 01](modules/01-introduction-to-ethical-hacking/README.md).
 
 ---
 
@@ -70,7 +70,7 @@ LLM01 Prompt Injection · LLM02 Sensitive Information Disclosure · LLM03 Supply
 
 ```mermaid
 flowchart TB
-    U["User / web content / tool output"] --> G["Input controls<br/>validate, filter, isolate untrusted content"]
+    U["User / web content / tool output"] --> G["Input controls<br/>validate, filter, isolate<br/>untrusted content"]
     G --> M["LLM / model"]
     M --> O["Output controls<br/>never trust output in shell/SQL/eval"]
     O --> T["Tools / actions"]

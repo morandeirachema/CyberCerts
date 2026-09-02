@@ -1,6 +1,6 @@
 # Practice Platforms (legit, hands-on)
 
-Use these alongside your self-hosted [`../labs/`](../labs/) to build reps. All are legal, authorized environments — never practice on anything outside them or your own lab.
+Use these alongside your self-hosted [`../labs/`](../labs/README.md) to build reps. All are legal, authorized environments — never practice on anything outside them or your own lab.
 
 ## Guided / beginner-friendly
 - TryHackMe — https://tryhackme.com/  (guided rooms; has CEH-adjacent and beginner paths)

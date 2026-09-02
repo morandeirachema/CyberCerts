@@ -84,7 +84,7 @@ ARP has **no authentication**, so a forged "gratuitous ARP" reply is accepted. T
 
 ## Commands & techniques (lab-ready)
 
-> Run only on your own lab segment (`192.168.56.0/24`). ARP poisoning disrupts real networks — never off your lab. See [`../../labs/`](../../labs/).
+> Run only on your own lab segment (`192.168.56.0/24`). ARP poisoning disrupts real networks — never off your lab. See [`../../labs/`](../../labs/README.md).
 
 ```bash
 # --- Passive capture and read cleartext creds ---

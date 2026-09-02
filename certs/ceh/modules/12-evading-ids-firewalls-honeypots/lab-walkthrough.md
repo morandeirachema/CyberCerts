@@ -1,6 +1,6 @@
 # Module 12 — Evading IDS, Firewalls & Honeypots · Guided Lab Walkthrough
 
-> A step-by-step, **do-it-in-order** lab against **your own** environment only (the lab in [`../../labs/`](../../labs/) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
+> A step-by-step, **do-it-in-order** lab against **your own** environment only (the lab in [`../../labs/`](../../labs/README.md) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
 
 **Goal:** stand up an IDS, watch a plain scan light it up, then re-run with evasion flags and see **which alerts go quiet and which behavioral tells remain**. Evasion moves the evidence; it rarely erases it.
 

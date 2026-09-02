@@ -168,7 +168,7 @@ sqlmap -r request.txt              # feed a full HTTP request saved from Burp (c
 | Privileged/off-hours DB access | Direct logins to the DB bypassing the app, admin access outside change windows | **PAM brokering + session recording** for DBA access, JIT elevation, approval workflow |
 | Second-order SQLi | Injection payloads appearing in *stored* fields, later query errors | Parameterize **every** sink (reads too), output/context encoding, code review of stored-value reuse |
 
-> **PAM playbook for this module:** the database is a Tier-1 asset. Give the application a **dedicated, least-privilege DB account** (only the exact tables/verbs it needs — never `db_owner`/`root`), keep its credentials in a **vault** and rotate them, and force all **human/DBA access through the PAM broker** with session recording and JIT. Then even a working injection dumps a narrow slice, not the whole database — and every privileged touch is logged. Broader attack↔control mapping lives in [`../../defender-pam/`](../../defender-pam/).
+> **PAM playbook for this module:** the database is a Tier-1 asset. Give the application a **dedicated, least-privilege DB account** (only the exact tables/verbs it needs — never `db_owner`/`root`), keep its credentials in a **vault** and rotate them, and force all **human/DBA access through the PAM broker** with session recording and JIT. Then even a working injection dumps a narrow slice, not the whole database — and every privileged touch is logged. Broader attack↔control mapping lives in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### 🔐 PAM engineering deep-dive (CyberArk)
 

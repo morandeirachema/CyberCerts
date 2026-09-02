@@ -2,7 +2,7 @@
 
 > Level 2. The industrial protocols, what each is for, and the recurring flaw: most were designed for **trusted, isolated, deterministic** networks and have **no authentication and no encryption**. The defense is the network, not the protocol.
 
-← Back to the [ladder](README.md) · Practice these on the [OT lab](../labs/ot/)
+← Back to the [ladder](README.md) · Practice these on the [OT lab](../labs/ot/README.md)
 
 ## Why they're insecure by design
 
@@ -44,7 +44,7 @@ Key function codes (the read/write danger):
 
 > **Detection lever:** on a normal segment, IT should never send Modbus **write** codes (5/6/15/16) to OT. A protocol-aware firewall or OT-IDS that alerts on unexpected writes is one of the highest-value OT detections. [FrostyGoop](03-threats.md) (2024) weaponized exactly this — Modbus/TCP over 502 to manipulate heating controllers.
 
-You can watch all of this safely on the [OT lab](../labs/ot/): FC3 read, then FC6 write, with no authentication step at all.
+You can watch all of this safely on the [OT lab](../labs/ot/README.md): FC3 read, then FC6 write, with no authentication step at all.
 
 ### DNP3 — utilities' workhorse
 Distributed Network Protocol 3, dominant in North American **electric and water** SCADA. Richer than Modbus (time-stamped events, unsolicited responses) but historically **unauthenticated**. The standard defines **Secure Authentication (SAv5)** — challenge/response over the existing link — but adoption is low and it adds no confidentiality (still cleartext). [Industroyer](03-threats.md) spoke DNP3 (and IEC 60870-5-101/104, IEC 61850) to trip breakers.

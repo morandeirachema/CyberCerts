@@ -72,7 +72,7 @@ Insider threats sidestep the perimeter entirely — which is why **least privile
 
 ```mermaid
 flowchart LR
-    A["1. Research<br/>OSINT, recon, dumpster, org charts"] --> B["2. Hook<br/>build rapport / pretext, first contact"] --> C["3. Play<br/>exploit trust, extract info or access"] --> D["4. Exit<br/>cover tracks, clean escape"]
+    A["1. Research<br/>OSINT, recon, dumpster, org charts"] --> B["2. Hook<br/>build rapport /<br/>pretext, first contact"] --> C["3. Play<br/>exploit trust, extract<br/>info or access"] --> D["4. Exit<br/>cover tracks, clean escape"]
 ```
 
 Also phrased by EC-Council as **Research target → Select victim → Develop relationship → Exploit**.
@@ -137,7 +137,7 @@ Concept-only (name recognition for the exam, no execution needed): **phishing ki
 | Insider / compromised account | Access to resources outside role, off-hours privileged use, session-recording anomalies | **Least privilege + JIT**, privileged session recording, UEBA, segregation of duties, approval workflows |
 | Dumpster diving / shoulder surfing | (Pre-incident, physical) | Shredding/media-sanitization policy, clean-desk, privacy screens, no credential printouts |
 
-> **PAM playbook for this module:** you can't patch a human, so you *shrink the blast radius* and *raise the proof bar*. (1) Make stolen passwords useless with **phishing-resistant MFA**. (2) Treat **privileged password resets** as high-assurance events requiring out-of-band identity verification and approval — the help desk is a top target precisely because it can hand over Tier 0. (3) **Least privilege + JIT** means a phished user reaches almost nothing standing. (4) **Session recording** turns a compromised insider into a *detected* one. Mapping lives in [`../../defender-pam/`](../../defender-pam/).
+> **PAM playbook for this module:** you can't patch a human, so you *shrink the blast radius* and *raise the proof bar*. (1) Make stolen passwords useless with **phishing-resistant MFA**. (2) Treat **privileged password resets** as high-assurance events requiring out-of-band identity verification and approval — the help desk is a top target precisely because it can hand over Tier 0. (3) **Least privilege + JIT** means a phished user reaches almost nothing standing. (4) **Session recording** turns a compromised insider into a *detected* one. Mapping lives in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### 🔐 PAM engineering deep-dive (CyberArk)
 

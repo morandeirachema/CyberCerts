@@ -2,7 +2,7 @@
 
 > Deep, Practical-style AD pack: **10 challenges** from a single low-priv foothold to full domain dominance. Each has a **full solution** — commands, expected output, the **exact answer**, the PAM control that breaks it, and a faster route. Solve under a timer; expand the solution only when done or stuck.
 >
-> **Prereq:** the AD lab from [`../../labs/ansible/`](../../labs/ansible/) running — DC/ADCS `dc01` `192.168.56.30` (`ceh.lab`), member `ws01` `192.168.56.31`. **Foothold:** `jdoe` / `Passw0rd!` (assumed-breach). **Lab only** — these are real domain-takeover techniques.
+> **Prereq:** the AD lab from [`../../labs/ansible/`](../../labs/ansible/README.md) running — DC/ADCS `dc01` `192.168.56.30` (`ceh.lab`), member `ws01` `192.168.56.31`. **Foothold:** `jdoe` / `Passw0rd!` (assumed-breach). **Lab only** — these are real domain-takeover techniques.
 >
 > Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md) · full chain: [`../../labs/capstone.md`](../../labs/capstone.md) · defender view: [identity-attack-paths](../../defender-pam/identity-attack-paths.md).
 

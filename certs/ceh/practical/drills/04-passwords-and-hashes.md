@@ -1,6 +1,6 @@
 # Drill Pack 04 — Passwords & Hashes
 
-> Deep, timed practice for the **"what is the password of user X?" / "crack this hash"** Practical family. **Prereq:** generate the [challenge-lab](../challenge-lab/) (`../challenge-lab/setup-challenges.sh` → `~/ceh-practical-challenges/`) and `gunzip -k /usr/share/wordlists/rockyou.txt.gz`. Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md); theory: [Module 06 — System Hacking](../../modules/06-system-hacking/). Online/shadow box: Metasploitable2 `192.168.56.20` (`msfadmin`/`msfadmin`). **Crack only hashes from your own lab.**
+> Deep, timed practice for the **"what is the password of user X?" / "crack this hash"** Practical family. **Prereq:** generate the [challenge-lab](../challenge-lab/README.md) (`../challenge-lab/setup-challenges.sh` → `~/ceh-practical-challenges/`) and `gunzip -k /usr/share/wordlists/rockyou.txt.gz`. Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md); theory: [Module 06 — System Hacking](../../modules/06-system-hacking/README.md). Online/shadow box: Metasploitable2 `192.168.56.20` (`msfadmin`/`msfadmin`). **Crack only hashes from your own lab.**
 
 Set these once, then **the loop never changes: get the hash → name it (`hashid`) → pick the mode → crack.** The mode is everything: the right `-m` cracks in seconds, the wrong one "runs" forever and finds nothing.
 
@@ -227,4 +227,4 @@ When every row is ✅ cold, you own the whole **identify → mode → crack** lo
 - Hashcat — example hashes (one sample of every mode): https://hashcat.net/wiki/doku.php?id=example_hashes
 - Hashcat wiki: https://hashcat.net/wiki/ · John the Ripper (Openwall): https://www.openwall.com/john/
 - THC-Hydra: https://github.com/vanhauser-thc/thc-hydra · NetExec: https://www.netexec.wiki/
-- Cheatsheet: [`../../cheatsheets/hashcat-john.md`](../../cheatsheets/hashcat-john.md) · Tool course: [Module 06 — System Hacking](../../modules/06-system-hacking/)
+- Cheatsheet: [`../../cheatsheets/hashcat-john.md`](../../cheatsheets/hashcat-john.md) · Tool course: [Module 06 — System Hacking](../../modules/06-system-hacking/README.md)

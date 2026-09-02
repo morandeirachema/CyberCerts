@@ -1,6 +1,6 @@
 # Module 17 — Hacking Mobile Platforms · Guided Lab Walkthrough
 
-> A step-by-step, **do-it-in-order** lab against **your own** environment only. Use an **Android emulator** (Android Studio AVD / Genymotion) or a **device you own**, and a **deliberately-vulnerable training app you build or download** for learning (e.g. an intentionally-broken "DIVA"-style app or one you write). **Never** decompile, tamper with, or MITM an app or account that isn't yours — that is illegal and violates the [EC-Council Candidate Agreement](https://www.eccouncil.org/). Outputs shown are **representative** — yours will differ. See [`../../labs/`](../../labs/).
+> A step-by-step, **do-it-in-order** lab against **your own** environment only. Use an **Android emulator** (Android Studio AVD / Genymotion) or a **device you own**, and a **deliberately-vulnerable training app you build or download** for learning (e.g. an intentionally-broken "DIVA"-style app or one you write). **Never** decompile, tamper with, or MITM an app or account that isn't yours — that is illegal and violates the [EC-Council Candidate Agreement](https://www.eccouncil.org/). Outputs shown are **representative** — yours will differ. See [`../../labs/`](../../labs/README.md).
 
 **Goal:** walk the mobile app-attack chain — **static triage → secrets on the device → traffic off the device** — then *watch an MDM/MAM + PAM control turn each win into a loss.*
 

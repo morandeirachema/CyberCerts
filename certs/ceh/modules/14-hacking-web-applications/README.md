@@ -1,6 +1,6 @@
 # Module 14 — Hacking Web Applications
 
-> **One-liner:** attacking the *application logic* running on top of the web server — input-handling flaws (XSS, injection, file upload), broken authentication/session management, access-control failures (IDOR), SSRF, and insecure deserialization. This is the module 13 (web *server*) attacks aim at the platform; this one aims at *your code*. SQL injection is big enough to get its own module ([15](../15-sql-injection/)).
+> **One-liner:** attacking the *application logic* running on top of the web server — input-handling flaws (XSS, injection, file upload), broken authentication/session management, access-control failures (IDOR), SSRF, and insecure deserialization. This is the module 13 (web *server*) attacks aim at the platform; this one aims at *your code*. SQL injection is big enough to get its own module ([15](../15-sql-injection/README.md)).
 
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
@@ -23,7 +23,7 @@
 
 ```mermaid
 flowchart LR
-    A["Footprint<br/>tech stack, dirs, APIs"] --> B["Analyze web app<br/>map inputs, params, cookies"] --> C["Attack surface<br/>auth · session · access control · input validation · logic · APIs"]
+    A["Footprint<br/>tech stack, dirs, APIs"] --> B["Analyze web app<br/>map inputs, params, cookies"] --> C["Attack surface<br/>auth · session · access control ·<br/>input validation · logic · APIs"]
 ```
 
 ### OWASP Top 10 (2021) — memorize the list

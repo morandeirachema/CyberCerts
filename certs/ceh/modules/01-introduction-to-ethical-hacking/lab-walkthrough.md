@@ -4,7 +4,7 @@
 
 **Goal:** prove your lab is isolated, produce a scope/Rules-of-Engagement note, and place a real technique on the Cyber Kill Chain and MITRE ATT&CK.
 
-**Targets:** the lab from [`../../labs/`](../../labs/) — Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`, Windows DC `192.168.56.30`.
+**Targets:** the lab from [`../../labs/`](../../labs/README.md) — Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`, Windows DC `192.168.56.30`.
 
 ---
 

@@ -23,9 +23,9 @@ flowchart TB
     subgraph WS["Web server — Apache / Nginx / IIS"]
         DR["Document root — /var/www, wwwroot<br/>← default pages, WebDAV"]
         MOD["Modules / handlers — PHP, CGI, .NET<br/>← misconfig, source disclosure"]
-        SVC["Runs as service account — www-data / AppPool<br/>← privilege boundary"]
+        SVC["Runs as service account<br/>— www-data / AppPool<br/>← privilege boundary"]
     end
-    WS --> APP["App / scripts"] --> DB["Database backend<br/>← creds in config, secrets in web root"]
+    WS --> APP["App / scripts"] --> DB["Database backend<br/>← creds in config,<br/>secrets in web root"]
     WS --> OS["Operating system / patch level<br/>← unpatched CVEs, kernel"]
 ```
 
@@ -72,7 +72,7 @@ flowchart LR
 
 ## Commands & techniques (lab-ready)
 
-> Targets: **Metasploitable2** (`192.168.56.20`, real Apache with WebDAV/phpMyAdmin/TWiki) and the **DVWA** host (`localhost:8081`). Lab only. See [`../../labs/`](../../labs/).
+> Targets: **Metasploitable2** (`192.168.56.20`, real Apache with WebDAV/phpMyAdmin/TWiki) and the **DVWA** host (`localhost:8081`). Lab only. See [`../../labs/`](../../labs/README.md).
 
 ```bash
 # --- Fingerprint & banner grab ---

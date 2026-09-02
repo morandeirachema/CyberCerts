@@ -1,6 +1,6 @@
 # Module 18 — IoT and OT Hacking · Guided Lab Walkthrough
 
-> A step-by-step, **do-it-in-order** lab against **your own** environment only. Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ. See [`../../labs/`](../../labs/) and [`../../labs/topology.md`](../../labs/topology.md).
+> A step-by-step, **do-it-in-order** lab against **your own** environment only. Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ. See [`../../labs/`](../../labs/README.md) and [`../../labs/topology.md`](../../labs/topology.md).
 
 > ⛔ **OT SAFETY — read this first.** Never scan, connect to, or write to **any real ICS/OT device, PLC, or IoT product you do not own** on an isolated bench. A stray Modbus write or an aggressive scan can trip a safety system, damage equipment, or hurt people. Everything below targets **your own loopback simulators, your own firmware images, and Shodan's *index* — which you query, never connect to.** If you see a Shodan/Censys result, you look at the *count and metadata only*; you do **not** open a session to it.
 
@@ -10,7 +10,7 @@
 
 **Prereqs:** `mosquitto` + `mosquitto-clients` installed, Python with `pip install pymodbus`, `binwalk` installed, and (optional) a Shodan account/API key (`shodan init <KEY>`). A firmware image **you legally own** (e.g. from your own router vendor's download page) saved as `firmware.bin`.
 
-> 💡 **Prefer one command?** Parts B and C are containerised in [`../../labs/ot/`](../../labs/ot/) — `docker compose -f labs/ot/docker-compose.yml up -d --build` gives you the MQTT broker and Modbus simulator with the clients already inside the images (no host install). Come back here for Part A (Shodan) and the firmware carving in C3.
+> 💡 **Prefer one command?** Parts B and C are containerised in [`../../labs/ot/`](../../labs/ot/README.md) — `docker compose -f labs/ot/docker-compose.yml up -d --build` gives you the MQTT broker and Modbus simulator with the clients already inside the images (no host install). Come back here for Part A (Shodan) and the firmware carving in C3.
 
 ---
 
@@ -138,7 +138,7 @@ Every "win" above exists because the protocol assumes a **trusted, isolated netw
 | FC3 read + FC6 write on Modbus | No auth/authorization/crypto in the protocol | IT/OT segmentation; deny writes from IT; PSM/PSMP jump host into OT |
 | Grepped firmware for hardcoded creds | Secrets baked into the image | Signed firmware + secure boot; vault/rotate device creds |
 
-**PAM through-line:** treat OT as **crown-jewel Tier 0**. No human or vendor touches L0/L1 directly — every path goes through a **jump host in the IDMZ** with JIT, MFA, approval, and full session recording. Map these to [`../../defender-pam/`](../../defender-pam/).
+**PAM through-line:** treat OT as **crown-jewel Tier 0**. No human or vendor touches L0/L1 directly — every path goes through a **jump host in the IDMZ** with JIT, MFA, approval, and full session recording. Map these to [`../../defender-pam/`](../../defender-pam/README.md).
 
 ## Cleanup
 ```bash

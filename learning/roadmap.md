@@ -60,7 +60,7 @@ above assumes the ones before it.
 
 ```mermaid
 flowchart TD
-    F["Foundations<br/>foundations/ · prerequisites/ · protocols/"] --> CEH["CEH (now)<br/>fundamentals through the attacker's eyes"]
+    F["Foundations<br/>foundations/ ·<br/>prerequisites/ · protocols/"] --> CEH["CEH (now)<br/>fundamentals through<br/>the attacker's eyes"]
     CEH --> SOC["CySA+<br/>detect & respond"]
     CEH --> OFF["PenTest+ → PNPT → OSCP<br/>hands-on offensive proof"]
     CEH --> CLOUD["AZ-500 / AWS Security<br/>cloud privileged identity"]

@@ -2,7 +2,7 @@
 
 > **6 hours · 20 challenges · ~18 min each · pass ≈ 14/20 (~70%).** Exam 02 leans **harder than [Exam 01](exam-01.md)**: more Active Directory, more multi-step work, and two **chained** challenges where the answer to one attack feeds the next. Sit it in one timed block, no peeking at the key, and screenshot every answer before you submit.
 >
-> **Setup:** [lab](../../labs/) running — Kali `192.168.56.10`, Metasploitable2 `192.168.56.20` (`msfadmin`), DC/ADCS `192.168.56.30` = `ceh.lab` (`jdoe` / `Passw0rd!`), member `ws01` `192.168.56.31`, Docker web `localhost:8081–8084` — plus the [challenge-lab](../challenge-lab/) generated to `~/ceh-practical-challenges/` (`C=~/ceh-practical-challenges`). Recipes stay open: [challenge-playbooks.md](../challenge-playbooks.md).
+> **Setup:** [lab](../../labs/README.md) running — Kali `192.168.56.10`, Metasploitable2 `192.168.56.20` (`msfadmin`), DC/ADCS `192.168.56.30` = `ceh.lab` (`jdoe` / `Passw0rd!`), member `ws01` `192.168.56.31`, Docker web `localhost:8081–8084` — plus the [challenge-lab](../challenge-lab/README.md) generated to `~/ceh-practical-challenges/` (`C=~/ceh-practical-challenges`). Recipes stay open: [challenge-playbooks.md](../challenge-playbooks.md).
 
 ## Challenges
 
@@ -125,8 +125,8 @@ Mark each answer right only if it matches **exactly** — case, punctuation, and
 |---|---|---|
 | **18–20** | Exam-ready, with margin | You are pacing well under time — book with confidence. |
 | **14–17** | **Pass (≈70%)** | You'd pass, but re-drill the domains you dropped so a bad draw can't sink you. |
-| **10–13** | Borderline | Rework each missed domain in [`../drills/`](../drills/) until it's ✅ under time, then re-sit. |
-| **< 10** | Not yet | Go back to the per-domain packs in [`../drills/`](../drills/) and regenerate the [`../challenge-lab/`](../challenge-lab/) artifacts; build fluency before another full run. |
+| **10–13** | Borderline | Rework each missed domain in [`../drills/`](../drills/README.md) until it's ✅ under time, then re-sit. |
+| **< 10** | Not yet | Go back to the per-domain packs in [`../drills/`](../drills/README.md) and regenerate the [`../challenge-lab/`](../challenge-lab/README.md) artifacts; build fluency before another full run. |
 
 **After scoring:** for every miss, note the domain (M02 recon, M04 enum, M06 AD, M08 sniffing, M13 web, M15 crypto/passwords, M16 wireless, M20 stego/exploit) and re-drill it — the AD-heavy items (3, 7, 11, 15, 18, 20) and the two chained ones (14, 20) are where this exam is deliberately harder than Exam 01. Log results in [`../../PROGRESS.md`](../../PROGRESS.md), then take Exam 01 or regenerate a fresh challenge-lab set and go again.
 

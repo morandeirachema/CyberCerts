@@ -37,7 +37,7 @@ flowchart TB
     end
 
     SIEM["SIEM / SOC"]
-    EPM["EPM<br/>endpoint least-privilege + credential theft blocking"]
+    EPM["EPM<br/>endpoint least-privilege +<br/>credential theft blocking"]
 
     U --> ID --> PVWA
     V --> RA --> PVWA

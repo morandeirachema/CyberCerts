@@ -5,7 +5,7 @@
 
 > **⚖️ Ethics first.** Everything internet-facing in this chapter uses **`example.com`** (a reserved documentation domain that's safe to name) and stands in for **a domain you actually own**. WHOIS, Google, Shodan, and theHarvester reach out to the *public internet* — only ever point them at your own assets. The **DNS and zone-transfer** commands target your isolated lab DC (`192.168.56.30`, zone `ceh.lab`). Recon on anyone else's infrastructure without written permission is a crime.
 
-This chapter is the Kali-hands-on companion to **CEH [Module 02 — Footprinting & Reconnaissance](../modules/02-footprinting-and-reconnaissance/)**. Read that for the exam theory; do the commands here.
+This chapter is the Kali-hands-on companion to **CEH [Module 02 — Footprinting & Reconnaissance](../modules/02-footprinting-and-reconnaissance/README.md)**. Read that for the exam theory; do the commands here.
 
 ---
 
@@ -211,7 +211,7 @@ port:3389 org:"Your Org"    # find your own exposed RDP
 
 ## Sources
 
-- CEH Module 02 — Footprinting & Reconnaissance: [`../modules/02-footprinting-and-reconnaissance/`](../modules/02-footprinting-and-reconnaissance/)
+- CEH Module 02 — Footprinting & Reconnaissance: [`../modules/02-footprinting-and-reconnaissance/`](../modules/02-footprinting-and-reconnaissance/README.md)
 - WHOIS (Kali Tools) — https://www.kali.org/tools/whois/
 - ISC BIND — `dig` / DNS — https://www.isc.org/bind/
 - dnsrecon — https://github.com/darkoperator/dnsrecon

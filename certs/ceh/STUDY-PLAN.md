@@ -9,14 +9,14 @@ A cadence for someone working full-time (aim ~8–10 hrs/week). Adjust freely. E
 - **Do the lab, don't just read it.** CEH questions are heavily tool- and command-oriented. Muscle memory beats recognition.
 - **Use your PAM/sysadmin lens.** For every attack, ask "which control I already run would have stopped this?" That mapping is your fastest path to retention — it's in every module's *Defender & PAM* section.
 - **Track ports/protocols from day one.** Start filling [`cheatsheets/ports-and-protocols.md`](cheatsheets/ports-and-protocols.md) in Week 1 and review it every single week.
-- **New to Linux/Kali?** Work through the [`kali/`](kali/) course (chapters 00–05) *before* Week 1 — it teaches the terminal and tools every module assumes.
+- **New to Linux/Kali?** Work through the [`kali/`](kali/README.md) course (chapters 00–05) *before* Week 1 — it teaches the terminal and tools every module assumes.
 - **Study smart.** Each module ships a one-page `facts.md`, original `practice-questions.md`, and Anki `flashcards.csv`. Drill them with the copy-paste prompts in [`AI-STUDY-WORKFLOW.md`](AI-STUDY-WORKFLOW.md), and confirm nothing's missing with [`BLUEPRINT-COVERAGE.md`](BLUEPRINT-COVERAGE.md).
 
 ## Schedule
 
 | Week | Modules | Focus | Lab targets |
 |---|---|---|---|
-| 0 (setup) | — | Stand up the lab; confirm blueprint & eligibility; if new to Linux, do [`kali/`](kali/) ch. 00–05 | All (`docker compose up`, `vagrant up`) |
+| 0 (setup) | — | Stand up the lab; confirm blueprint & eligibility; if new to Linux, do [`kali/`](kali/README.md) ch. 00–05 | All (`docker compose up`, `vagrant up`) |
 | 1 | 01 Intro · 02 Footprinting | Ethics, methodology, OSINT, passive recon | External recon; WHOIS/DNS |
 | 2 | 03 Scanning · 04 Enumeration | Host discovery, port/version scanning, service enum | Metasploitable, DVWA host |
 | 3 | 05 Vuln Analysis · 06 System Hacking | Scoring (CVSS), scanners, privesc, cred access | Metasploitable, Windows AD lab |
@@ -37,12 +37,12 @@ A cadence for someone working full-time (aim ~8–10 hrs/week). Adjust freely. E
 
 ```mermaid
 flowchart LR
-    S1["1. READ — module README, concepts + exam-testable facts"]
-    S2["2. TOOLS — run each key command once in the lab"]
-    S3["3. LAB — complete the module's lab exercise"]
-    S4["4. DEFEND — read Defender & PAM mapping; note the control"]
-    S5["5. RECALL — take practice-questions.md, drill flashcards.csv"]
-    S6["6. TRACK — tick the box in PROGRESS.md"]
+    S1["1. READ — module README,<br/>concepts + exam-testable facts"]
+    S2["2. TOOLS — run each key<br/>command once in the lab"]
+    S3["3. LAB — complete the<br/>module's lab exercise"]
+    S4["4. DEFEND — read Defender &<br/>PAM mapping; note the control"]
+    S5["5. RECALL — take<br/>practice-questions.md,<br/>drill flashcards.csv"]
+    S6["6. TRACK — tick the<br/>box in PROGRESS.md"]
     S1 --> S2 --> S3 --> S4 --> S5 --> S6
 ```
 

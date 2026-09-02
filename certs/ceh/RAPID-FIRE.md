@@ -4,7 +4,7 @@
 
 ## How to use
 - **Drill one set (10 Q) in ~15 minutes**, then expand its answer key and score. One or two sets a day builds recall fast.
-- Log misses in [PROGRESS.md](PROGRESS.md); re-drill the weak module with its [`facts.md`](modules/) + [`flashcards.csv`](modules/) (import into Anki).
+- Log misses in [PROGRESS.md](PROGRESS.md); re-drill the weak module with its [`facts.md`](modules/README.md) + [`flashcards.csv`](modules/README.md) (import into Anki).
 - Coverage spans **all 20 modules** plus AI-driven hacking and the defender/PAM angle; sets mix topics like the real exam.
 - Tactics: [EXAM-STRATEGY.md](EXAM-STRATEGY.md) · term lookups: [GLOSSARY.md](GLOSSARY.md) · timed simulation: the [mocks](MOCK-EXAM-FULL.md).
 
@@ -998,6 +998,6 @@
 | First 100 (sets 1–10) | ≥ 80% before moving on |
 | Full 200 (sets 1–20) | ≥ 85% cold = a strong knowledge base |
 
-Missed several in one module? That's your syllabus — re-read its [guide](modules/), drill its flashcards, then re-take those sets.
+Missed several in one module? That's your syllabus — re-read its [guide](modules/README.md), drill its flashcards, then re-take those sets.
 
 > This bank is for **volume repetition**. For the **timed exam experience**, use [MOCK-EXAM.md](MOCK-EXAM.md) (50 Q) and [MOCK-EXAM-FULL.md](MOCK-EXAM-FULL.md) (125 Q). No dumps — every question here is original.

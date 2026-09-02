@@ -1,6 +1,6 @@
 # Module 13 — Hacking Web Servers · Guided Lab Walkthrough
 
-> Step-by-step against **your own lab** ([`../../labs/`](../../labs/)) — never a server you don't own. Target the **Metasploitable2** Apache host (`192.168.56.20`, real WebDAV/phpMyAdmin/TWiki) from **Kali** (`192.168.56.10`); the DVWA Docker host (`localhost:8081`) is a fallback. Each step: command, what you should see, a hint, and the defender/PAM takeaway. Outputs are **representative**.
+> Step-by-step against **your own lab** ([`../../labs/`](../../labs/README.md)) — never a server you don't own. Target the **Metasploitable2** Apache host (`192.168.56.20`, real WebDAV/phpMyAdmin/TWiki) from **Kali** (`192.168.56.10`); the DVWA Docker host (`localhost:8081`) is a fallback. Each step: command, what you should see, a hint, and the defender/PAM takeaway. Outputs are **representative**.
 
 **Goal:** footprint a web server, discover its hidden tree, then turn a **WebDAV `PUT`** misconfiguration into a foothold — and see why every step maps to a hardening control, not a code fix.
 
@@ -21,7 +21,7 @@ PORT   STATE SERVICE VERSION
 
 <details><summary>Hint</summary>No banner? Add `-sV --version-intensity 9`. If port 80 is filtered, confirm the VM is up with `nmap -sn 192.168.56.0/24` and that Kali is on the host-only net.</details>
 
-**Defender/PAM view:** the version banner is free intel for an attacker. Suppression is obscurity — the real control is a **patch cadence + accurate inventory** ([`../../defender-pam/`](../../defender-pam/)).
+**Defender/PAM view:** the version banner is free intel for an attacker. Suppression is obscurity — the real control is a **patch cadence + accurate inventory** ([`../../defender-pam/`](../../defender-pam/README.md)).
 
 ### A2. Raw response headers (banner grab)
 ```bash

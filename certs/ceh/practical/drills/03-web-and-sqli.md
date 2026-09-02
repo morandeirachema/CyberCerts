@@ -1,6 +1,6 @@
 # Drill Pack 03 — Web & SQL Injection
 
-> Deep, Practical-style pack for **web app hacking + SQL injection**. Every challenge has a full solution (payloads, the DVWA cookie, expected output, exact answer, and a ⚡ faster route). Solve from the recipes in [`../challenge-playbooks.md`](../challenge-playbooks.md) with a timer running; expand the solution only when done or stuck. Theory lives in [Module 14 — Hacking Web Applications](../../modules/14-hacking-web-applications/) and [Module 15 — SQL Injection](../../modules/15-sql-injection/). **Lab targets only.**
+> Deep, Practical-style pack for **web app hacking + SQL injection**. Every challenge has a full solution (payloads, the DVWA cookie, expected output, exact answer, and a ⚡ faster route). Solve from the recipes in [`../challenge-playbooks.md`](../challenge-playbooks.md) with a timer running; expand the solution only when done or stuck. Theory lives in [Module 14 — Hacking Web Applications](../../modules/14-hacking-web-applications/README.md) and [Module 15 — SQL Injection](../../modules/15-sql-injection/README.md). **Lab targets only.**
 
 > **Setup.** Docker web apps on localhost: **DVWA `:8081`**, **Juice Shop `:8082`**, **WebGoat `:8083`**, **bWAPP `:8084`**. Log into DVWA (`admin` / `password`), open **DVWA Security** and set the level each challenge asks for, then copy your `PHPSESSID` (Firefox DevTools → Storage → Cookies, or Burp). Everywhere below, replace `<sess>` with that value. The security cookie is sent alongside it, e.g. `--cookie="PHPSESSID=<sess>; security=low"`.
 

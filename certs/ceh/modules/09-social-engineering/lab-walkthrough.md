@@ -1,6 +1,6 @@
 # Module 09 — Social Engineering · Guided Lab Walkthrough
 
-> A step-by-step, **do-it-in-order** lab against **your own** environment only (the AD + mail lab in [`../../labs/`](../../labs/) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the action, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
+> A step-by-step, **do-it-in-order** lab against **your own** environment only (the AD + mail lab in [`../../labs/`](../../labs/README.md) — see [`../../labs/topology.md`](../../labs/topology.md)). Each step gives the action, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are **representative** — yours will differ.
 
 > ⚠️ **AUTHORIZED SIMULATION ONLY.** Every step below targets **lab accounts you created** (`alice@ceh.lab`, `bob@ceh.lab`) on **your own** mail/AD lab, or **your own** test inbox. Sending a phish, cloning a login page, spoofing a header, or pretexting a **real** person or third-party org — even "to prove a point" — is fraud/unauthorized access and is illegal and unethical **without written authorization, defined scope, and consenting recipients**. If a recipient did not consent and isn't yours, **do not send it.** Full stop.
 
@@ -28,7 +28,7 @@ Starting phishing server at http://0.0.0.0:80
 
 <details><summary>Hint if the UI won't load</summary>Gophish prints a one-time admin password to stdout on first run — scroll up. Accept the self-signed cert warning; it's your own lab cert. Confirm nothing else holds port 80 (`sudo ss -ltnp | grep :80`).</details>
 
-**Defender/PAM view:** a phishing-simulation platform is exactly what a blue team uses for *authorized* awareness campaigns and click-rate metrics. Mapping lives in [`../../defender-pam/`](../../defender-pam/).
+**Defender/PAM view:** a phishing-simulation platform is exactly what a blue team uses for *authorized* awareness campaigns and click-rate metrics. Mapping lives in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### A2. Build the campaign — recipients are lab users ONLY
 In the UI, create in order: **Sending Profile** (your lab SMTP) → **Email Template** ("IT password expiry") → **Landing Page** (a cloned login) → **Users & Groups** containing **only** `alice@ceh.lab` and `bob@ceh.lab` → **Campaign**, then launch.
@@ -43,7 +43,7 @@ Clicked Link    alice@ceh.lab
 
 <details><summary>Hint: no "Email Sent"?</summary>Test the Sending Profile with the UI's "Send Test Email" button. If SMTP auth fails, re-check the lab mail server creds; if mail queues but never delivers, confirm `alice`/`bob` mailboxes exist on the lab server.</details>
 
-**Defender/PAM view:** open/click telemetry is the same signal a mail gateway and a report-phish button surface in production — see the phishing row in [`../../defender-pam/`](../../defender-pam/).
+**Defender/PAM view:** open/click telemetry is the same signal a mail gateway and a report-phish button surface in production — see the phishing row in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### A3. Capture the submitted credential, then apply the control
 Log in as `alice` (your test user), click the link, and submit a **fake** password on the landing page. Watch Gophish record it:
@@ -58,7 +58,7 @@ Now enable **FIDO2/WebAuthn** (or a TOTP step) on the test accounts and re-run t
 
 <details><summary>Hint</summary>If you don't have WebAuthn wired to the lab app, simulate the control conceptually: the harvested password is *valid* but authentication now requires a hardware-bound factor the fake page can't relay.</details>
 
-**Defender/PAM view:** [phishing-resistant MFA](../../defender-pam/) makes A3's harvested password unusable; detection = impossible-travel logon right after credential entry. See [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
+**Defender/PAM view:** [phishing-resistant MFA](../../defender-pam/README.md) makes A3's harvested password unusable; detection = impossible-travel logon right after credential entry. See [`../../defender-pam/detection-engineering.md`](../../defender-pam/detection-engineering.md).
 
 ---
 
@@ -83,7 +83,7 @@ sudo setoolkit
 
 <details><summary>Hint: clone looks broken?</summary>Some pages pull assets from paths SET can't rewrite — that's fine for the concept. Confirm the harvester is listening (`sudo ss -ltnp | grep :80`) and browse to `http://192.168.56.10` from a lab host.</details>
 
-**Defender/PAM view:** a cloned login is what phishing-resistant MFA neutralizes — origin-bound WebAuthn won't authenticate against the attacker's host even with the right password. See [`../../defender-pam/`](../../defender-pam/).
+**Defender/PAM view:** a cloned login is what phishing-resistant MFA neutralizes — origin-bound WebAuthn won't authenticate against the attacker's host even with the right password. See [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### B2. Submit a lab credential and read the capture
 From a lab browser, as your test user, submit a **fake** credential on the clone.
@@ -118,7 +118,7 @@ Authentication-Results: mx.ceh.lab; spf=fail dkim=fail dmarc=fail
 
 <details><summary>Hint: all results say "none"?</summary>`none` (not `pass`/`fail`) means the *sending* domain published no SPF/DKIM/DMARC records. Publish records for `ceh.lab` in the lab DNS, then re-send to see `fail` on a spoof and `pass` on a legitimate message.</details>
 
-**Defender/PAM view:** **SPF + DKIM + DMARC** with a reject policy is the direct control against exact-domain spoofing used in **BEC/whaling** — see the phishing/BEC mapping in [`../../defender-pam/`](../../defender-pam/).
+**Defender/PAM view:** **SPF + DKIM + DMARC** with a reject policy is the direct control against exact-domain spoofing used in **BEC/whaling** — see the phishing/BEC mapping in [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### C2. Help-desk vishing drill (privileged reset refusal)
 Script a **vishing** call against **your own** lab help-desk runbook: as `alice`, phone the "help desk" and pressure them to reset a **privileged** account password — no ticket, urgent tone.

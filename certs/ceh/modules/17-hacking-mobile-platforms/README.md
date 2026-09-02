@@ -59,10 +59,10 @@ That's why **MDM blocks rooted/jailbroken devices** from enrolling or accessing 
 
 ```mermaid
 flowchart TB
-    S["Insecure Storage<br/>secrets in SharedPreferences / plist / sqlite in cleartext"]
-    K["Insecure Comms<br/>no TLS / no cert pinning → MITM reads traffic"]
-    A["Weak Auth<br/>client-side auth, guessable tokens, no server check"]
-    Y["Weak Crypto<br/>hardcoded keys, ECB, MD5, home-rolled ciphers"]
+    S["Insecure Storage<br/>secrets in SharedPreferences<br/>/ plist / sqlite in cleartext"]
+    K["Insecure Comms<br/>no TLS / no cert pinning<br/>→ MITM reads traffic"]
+    A["Weak Auth<br/>client-side auth, guessable<br/>tokens, no server check"]
+    Y["Weak Crypto<br/>hardcoded keys, ECB,<br/>MD5, home-rolled ciphers"]
 ```
 
 ### Where sensitive data hides on the device
@@ -93,7 +93,7 @@ flowchart TB
 
 ## Commands & techniques (lab-ready)
 
-> Use an **emulator or a test device you own**. Never analyze or tamper with apps/accounts that aren't yours. See [`../../labs/`](../../labs/).
+> Use an **emulator or a test device you own**. Never analyze or tamper with apps/accounts that aren't yours. See [`../../labs/`](../../labs/README.md).
 
 ```bash
 # --- Pull and statically inspect an APK ---

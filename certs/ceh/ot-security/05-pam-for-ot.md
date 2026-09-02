@@ -2,7 +2,7 @@
 
 > Level 4. The expert control. In OT you often **can't patch, can't run an agent, and can't reboot** — so the exposure isn't the device, it's the **access path**. Privileged Access Management makes a brokered, recorded, least-privilege jump host the **only** way in. This is the CyberArk-centric architecture that operationalizes the [IDMZ](01-foundations.md) and [IEC 62443 conduits](04-defense.md).
 
-← Back to the [ladder](README.md) · Foundation: [`../defender-pam/`](../defender-pam/)
+← Back to the [ladder](README.md) · Foundation: [`../defender-pam/`](../defender-pam/README.md)
 
 ## Why PAM is *the* OT control
 
@@ -102,4 +102,4 @@ flowchart LR
 - NIST SP 800-82 Rev. 3 (remote access guidance) — https://csrc.nist.gov/pubs/sp/800/82/r3/final
 
 ---
-Back to the [OT Security ladder](README.md) · Related: [Module 18](../modules/18-iot-and-ot-hacking/README.md) · [OT lab](../labs/ot/) · [defender-pam](../defender-pam/)
+Back to the [OT Security ladder](README.md) · Related: [Module 18](../modules/18-iot-and-ot-hacking/README.md) · [OT lab](../labs/ot/README.md) · [defender-pam](../defender-pam/README.md)

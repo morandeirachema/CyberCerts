@@ -1,10 +1,10 @@
 # Kali Linux for CEH — Deep Tool Tutorial
 
-> A hands-on guide to the tools CEH tests, organized by **phase**, with real command syntax you run against **your own [lab](labs/)** (Kali `192.168.56.10` · Metasploitable2 `192.168.56.20` · DC/ADCS `192.168.56.30` · Docker web on `localhost:8081–8084`). Pairs with the [cheatsheets](cheatsheets/) (quick reference) and the module [labs](modules/) (driven exercises).
+> A hands-on guide to the tools CEH tests, organized by **phase**, with real command syntax you run against **your own [lab](labs/README.md)** (Kali `192.168.56.10` · Metasploitable2 `192.168.56.20` · DC/ADCS `192.168.56.30` · Docker web on `localhost:8081–8084`). Pairs with the [cheatsheets](cheatsheets/README.md) (quick reference) and the module [labs](modules/README.md) (driven exercises).
 
 > **⚖️ Authorized targets only.** Everything below is for your isolated lab or systems you have written permission to test. Kali ships *offensive* tools — pointing them at anything else is a crime.
 
-> 🎓 **New to Linux/Kali?** This page is the fast reference. For a **from-zero, beginner→mastery course** (17 chapters, "what is Linux" → attacking Active Directory), start with [`kali/`](kali/).
+> 🎓 **New to Linux/Kali?** This page is the fast reference. For a **from-zero, beginner→mastery course** (17 chapters, "what is Linux" → attacking Active Directory), start with [`kali/`](kali/README.md).
 
 ## Contents
 - [0. Setup & conventions](#0-setup--conventions)
@@ -85,7 +85,7 @@ sudo nmap -sU --top-ports 50 $TARGET                # 4. top UDP (slow)
 sudo nmap --script vuln $TARGET                     # NSE vuln scripts
 ```
 - `-oA` saves in all formats (grepable/xml/normal) — feed the XML to Metasploit later.
-- Evasion: `-f` (fragment), `-D RND:5` (decoys), `-g 53` (source port), `-T2` (slower). See [Module 12](modules/12-evading-ids-firewalls-honeypots/).
+- Evasion: `-f` (fragment), `-D RND:5` (decoys), `-g 53` (source port), `-T2` (slower). See [Module 12](modules/12-evading-ids-firewalls-honeypots/README.md).
 
 **masscan** — internet-scale speed (rate-limit it): `sudo masscan 192.168.56.0/24 -p1-65535 --rate 1000`.
 **netdiscover** — ARP host discovery on a LAN. **hping3** — craft individual packets / firewall testing.
@@ -155,7 +155,7 @@ sqlmap -u "http://localhost:8081/vulnerabilities/sqli/?id=1&Submit=Submit" \
        --cookie="PHPSESSID=<yours>; security=low" --batch --dbs
 ```
 
-> **How to use:** proxy the app through Burp, map every input, then tamper by hand in Repeater; reach for sqlmap/ffuf to *automate* what you proved manually. Full drills: [Module 14](modules/14-hacking-web-applications/) & [15](modules/15-sql-injection/).
+> **How to use:** proxy the app through Burp, map every input, then tamper by hand in Repeater; reach for sqlmap/ffuf to *automate* what you proved manually. Full drills: [Module 14](modules/14-hacking-web-applications/README.md) & [15](modules/15-sql-injection/README.md).
 
 ---
 
@@ -215,7 +215,7 @@ Modes to know: `0` MD5 · `100` SHA1 · `1000` NTLM · `1800` sha512crypt · `56
 
 ## 8. Active Directory / identity (Modules 04–06)
 
-The highest-value skill set. Practice on the [AD lab](labs/ansible/) and the [capstone](labs/capstone.md).
+The highest-value skill set. Practice on the [AD lab](labs/ansible/README.md) and the [capstone](labs/capstone.md).
 
 **Impacket** (prefixed `impacket-*` on Kali):
 ```bash
@@ -258,7 +258,7 @@ sudo bettercap -iface eth0        # then: set arp.spoof.targets <victim>; arp.sp
 sudo responder -I eth0 -wv
 ```
 
-> **How to use:** sniff to prove cleartext leaks and to capture hashes (Responder → §7). Encryption + switch hardening kill these; that's the lesson. Full drill: [Module 08](modules/08-sniffing/).
+> **How to use:** sniff to prove cleartext leaks and to capture hashes (Responder → §7). Encryption + switch hardening kill these; that's the lesson. Full drill: [Module 08](modules/08-sniffing/README.md).
 
 ---
 
@@ -277,7 +277,7 @@ hashcat -m 22000 cap.hc22000 /usr/share/wordlists/rockyou.txt   # or crack with 
 ```
 **wifite** automates the above; **reaver** attacks WPS PINs.
 
-> **How to use:** capture the 4-way handshake (deauth to speed it up), then crack offline. WPA3/SAE removes the offline-crack path. Details: [Module 16](modules/16-hacking-wireless-networks/).
+> **How to use:** capture the 4-way handshake (deauth to speed it up), then crack offline. WPA3/SAE removes the offline-crack path. Details: [Module 16](modules/16-hacking-wireless-networks/README.md).
 
 ---
 
@@ -295,7 +295,7 @@ Once you have a foothold:
   ```
 - **chisel** (fast reverse tunnel), **ssh -D** (dynamic SOCKS proxy), **socat**.
 
-> **How to use:** escalate → loot creds → use them to pivot deeper. Every step maps to a Maintaining-Access technique in [Module 06](modules/06-system-hacking/).
+> **How to use:** escalate → loot creds → use them to pivot deeper. Every step maps to a Maintaining-Access technique in [Module 06](modules/06-system-hacking/README.md).
 
 ---
 
@@ -304,7 +304,7 @@ Once you have a foothold:
 - **tmux** — run long scans in detachable panes: `tmux new -s ceh`; detach `Ctrl-b d`; reattach `tmux a -t ceh`.
 - **Organize output:** one dir per engagement; always `nmap -oA`, save pcaps/loot to git-ignored folders (see repo `.gitignore`).
 - **Notes:** **CherryTree**, **Obsidian**, or Markdown — capture command + output + finding as you go (mirrors the module lab-log tables).
-- **Reporting:** structure findings as *title → severity (CVSS) → evidence → impact → remediation* (the [vuln-analysis](modules/05-vulnerability-analysis/) framing). **Faraday**/**Dradis** for team reporting.
+- **Reporting:** structure findings as *title → severity (CVSS) → evidence → impact → remediation* (the [vuln-analysis](modules/05-vulnerability-analysis/README.md) framing). **Faraday**/**Dradis** for team reporting.
 
 ---
 

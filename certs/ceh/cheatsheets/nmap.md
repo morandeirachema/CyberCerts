@@ -53,7 +53,7 @@ nmap -sU -p 47808 --script bacnet-info     127.0.0.1   # BACnet (UDP, building a
 nmap -sV -p 1883  --script mqtt-subscribe  127.0.0.1   # MQTT topics (anonymous)
 ```
 
-> ⛔ **Only against simulators / devices you own.** A scan that's routine on IT can crash a fragile PLC. On a real assessment, prefer **passive** discovery (span port, Shodan/Censys *index*) and never `-T4`/`-A` an OT segment. Practice these on [`../labs/ot/`](../labs/ot/).
+> ⛔ **Only against simulators / devices you own.** A scan that's routine on IT can crash a fragile PLC. On a real assessment, prefer **passive** discovery (span port, Shodan/Censys *index*) and never `-T4`/`-A` an OT segment. Practice these on [`../labs/ot/`](../labs/ot/README.md).
 
 ## Timing & performance
 

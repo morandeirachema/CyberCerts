@@ -145,7 +145,7 @@ Attack models: **ciphertext-only, known-plaintext (KPA), chosen-plaintext (CPA),
 
 ## Commands & techniques (lab-ready)
 
-> Run these on **your own lab host** (see [`../../labs/`](../../labs/) / [`../../labs/topology.md`](../../labs/topology.md)). Only crack hashes **you generated** or captured from **your own** lab targets.
+> Run these on **your own lab host** (see [`../../labs/`](../../labs/README.md) / [`../../labs/topology.md`](../../labs/topology.md)). Only crack hashes **you generated** or captured from **your own** lab targets.
 
 ```bash
 # --- Symmetric encrypt/decrypt (AES-256-CBC with a proper KDF) ---
@@ -206,7 +206,7 @@ gpg --verify file.txt.sig file.txt
 | Steganographic exfiltration | Entropy/size anomalies on outbound files; DLP hits | DLP, egress filtering, steganalysis on attachments |
 | MITM on unauthenticated DH | Signature/cert validation failures | **Authenticated key exchange** (signed ECDHE), PKI trust, pinning |
 
-> **PAM playbook for crypto:** your vault **encrypts secrets at rest** with an **HSM/KMS-held master key** (envelope encryption), **rotates** keys and secrets on schedule and on compromise, and manages **certificate lifecycles** (issue → renew → revoke) so nothing expires or lingers. Store passwords with **Argon2/bcrypt**, keep private/root keys in an **HSM** where they can be used but never extracted, and sign audit trails for **non-repudiation**. Map to [`../../defender-pam/`](../../defender-pam/).
+> **PAM playbook for crypto:** your vault **encrypts secrets at rest** with an **HSM/KMS-held master key** (envelope encryption), **rotates** keys and secrets on schedule and on compromise, and manages **certificate lifecycles** (issue → renew → revoke) so nothing expires or lingers. Store passwords with **Argon2/bcrypt**, keep private/root keys in an **HSM** where they can be used but never extracted, and sign audit trails for **non-repudiation**. Map to [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### 🔐 PAM engineering deep-dive (CyberArk)
 

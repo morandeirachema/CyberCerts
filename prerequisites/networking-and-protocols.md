@@ -62,7 +62,7 @@ flowchart TD
         S2["→ recorded, credential-injected,<br/>sub-protocol controlled"]
         S1 --- S2
     end
-    subgraph INFRA["INFRASTRUCTURE protocols — the bastion<br/>RELIES on these around the session"]
+    subgraph INFRA["INFRASTRUCTURE<br/>protocols — the bastion<br/>RELIES on these around the session"]
         I1["Auth / federation:<br/>LDAP (389/636) · RADIUS<br/>(1812) · TACACS+<br/>(49) · Kerberos (88) · SAML ·<br/>OIDC/OAuth2 · SCIM"]
         I2["Transport: TLS/SSL (443)"]
         I3["Ops / audit: SNMP<br/>(161) · Syslog (514)"]

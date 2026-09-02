@@ -2,7 +2,7 @@
 
 > Pull secrets out of packet captures the way the Practical asks: *"what are the username and password in this pcap?"*, *"export the transferred file"*, *"crack this hash from the capture."* Every challenge has a **full solution** — the Wireshark GUI steps **and** the `tshark`/`tcpdump` command, what you should see, the exact answer, and a ⚡ faster note. Solve under the timer; expand the solution only when done or stuck.
 >
-> **Prereq:** generate the [challenge-lab](../challenge-lab/) (`../challenge-lab/setup-challenges.sh`) so `~/ceh-practical-challenges/pcap/traffic.pcap` exists, and have the [lab](../../labs/) Metasploitable2 (`192.168.56.20`, cleartext FTP) reachable. Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md) · concepts: [Module 08 — Sniffing](../../modules/08-sniffing/) · tool drills: [`../../kali/12-sniffing-mitm.md`](../../kali/12-sniffing-mitm.md).
+> **Prereq:** generate the [challenge-lab](../challenge-lab/README.md) (`../challenge-lab/setup-challenges.sh`) so `~/ceh-practical-challenges/pcap/traffic.pcap` exists, and have the [lab](../../labs/README.md) Metasploitable2 (`192.168.56.20`, cleartext FTP) reachable. Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md) · concepts: [Module 08 — Sniffing](../../modules/08-sniffing/README.md) · tool drills: [`../../kali/12-sniffing-mitm.md`](../../kali/12-sniffing-mitm.md).
 >
 > Set these first so the commands paste clean (lab-only — every capture is your own traffic on `192.168.56.0/24`):
 > ```bash
@@ -214,7 +214,7 @@ Packet   Protocol   Username   Info
 | ⚠️ | Solved but slow, or needed a peek at the solution |
 | ❌ | Couldn't produce the answer |
 
-Re-drill anything not ✅. Exam-critical muscle memory: **Follow TCP/HTTP Stream**, `http.request.method=="POST"` + `http.file_data`, `ftp.request.command=="PASS"`, **File → Export Objects** / `--export-objects`, and `hashcat -m 5600` for a captured NetNTLMv2. All nine ✅ under time → move to the next pack in [`../drills/`](../drills/) or a [simulated exam](../exams/).
+Re-drill anything not ✅. Exam-critical muscle memory: **Follow TCP/HTTP Stream**, `http.request.method=="POST"` + `http.file_data`, `ftp.request.command=="PASS"`, **File → Export Objects** / `--export-objects`, and `hashcat -m 5600` for a captured NetNTLMv2. All nine ✅ under time → move to the next pack in [`../drills/`](../drills/README.md) or a [simulated exam](../exams/README.md).
 
 ## Sources
 - Wireshark — User Guide (Follow Stream, Export Objects, Statistics): https://www.wireshark.org/docs/wsug_html_chunked/

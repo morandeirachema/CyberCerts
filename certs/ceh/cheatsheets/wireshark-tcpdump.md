@@ -1,6 +1,6 @@
 # Wireshark & tcpdump
 
-Capture and read traffic; extract creds and files from a `.pcap`. Pairs with [Module 08](../modules/08-sniffing/) and the [PCAP forensics drills](../practical/drills/06-pcap-forensics.md). **Own lab segment only.**
+Capture and read traffic; extract creds and files from a `.pcap`. Pairs with [Module 08](../modules/08-sniffing/README.md) and the [PCAP forensics drills](../practical/drills/06-pcap-forensics.md). **Own lab segment only.**
 
 ## tcpdump (CLI capture)
 ```bash

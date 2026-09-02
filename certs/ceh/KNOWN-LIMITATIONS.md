@@ -17,7 +17,7 @@ Trust these areas *only* after confirming them yourself:
 | **A practice-question answer you disagree with** | the module guide + the primary source | The questions are original/concept-based; an occasional imperfect stem is possible — treat a dispute as a prompt to check, not gospel |
 
 ## Lab & drill answers are *representative*, not guaranteed
-- **Exact answers:** Metasploitable2 facts, the DVWA/Juice Shop labs, and the [challenge-lab](practical/challenge-lab/) artifacts (stego/pcap/crypto/hashes) are deterministic — the answers in the drills are correct.
+- **Exact answers:** Metasploitable2 facts, the DVWA/Juice Shop labs, and the [challenge-lab](practical/challenge-lab/README.md) artifacts (stego/pcap/crypto/hashes) are deterministic — the answers in the drills are correct.
 - **Representative answers:** the **Windows AD lab** is one *you* build with *your own* passwords and eval-VM build. So AD drill/exam answers (service-account passwords, exact NT hashes, OS build strings, port counts) are **illustrative** — always read *your own* tool output. The drills say this throughout.
 
 ## Practice questions are original — not exam dumps

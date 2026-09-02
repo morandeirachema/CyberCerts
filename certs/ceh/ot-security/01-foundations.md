@@ -54,7 +54,7 @@ flowchart TB
         L5["L5 — Enterprise network<br/>corporate IT, internet-facing"]
         L4["L4 — Site business & logistics<br/>ERP, email, IT services"]
     end
-    IDMZ["L3.5 — IDMZ (the OT/IT boundary)<br/>jump hosts · proxies · brokers · patch/AV relays"]
+    IDMZ["L3.5 — IDMZ (the OT/IT boundary)<br/>jump hosts · proxies ·<br/>brokers · patch/AV relays"]
     subgraph OT["OT / Plant floor"]
         L3["L3 — Site operations<br/>MES, historians, EWS, patch/AV"]
         L2["L2 — Area supervisory control<br/>HMI, SCADA servers"]
@@ -72,9 +72,9 @@ The clean Purdue layers were drawn before business wanted **real-time plant data
 
 ```mermaid
 flowchart LR
-    C["Business drivers<br/>cloud analytics · remote support · IIoT · cost"]
-    C --> R["Result<br/>IT and OT networks flatten & interconnect"]
-    R --> X["Risk<br/>an IT phishing foothold can now reach a PLC"]
+    C["Business drivers<br/>cloud analytics · remote<br/>support · IIoT · cost"]
+    C --> R["Result<br/>IT and OT networks<br/>flatten & interconnect"]
+    R --> X["Risk<br/>an IT phishing foothold<br/>can now reach a PLC"]
 ```
 
 Almost every modern OT incident is really an **IT intrusion that pivoted into OT** because convergence removed the air gap. That is precisely why segmentation ([04](04-defense.md)) and brokered, least-privilege access ([05](05-pam-for-ot.md)) are the load-bearing controls — the protocols themselves ([02](02-protocols.md)) offer no protection.

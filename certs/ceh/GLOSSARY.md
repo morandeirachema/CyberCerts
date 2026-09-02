@@ -1,6 +1,6 @@
 # CEH v13 — Glossary & Acronym Index
 
-Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open while you study — many CEH questions hinge on knowing exactly what an acronym expands to and does. `[NN]` points to the most relevant [module](modules/); `[dp]` points to the [defender-pam](defender-pam/) knowledge base.
+Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open while you study — many CEH questions hinge on knowing exactly what an acronym expands to and does. `[NN]` points to the most relevant [module](modules/README.md); `[dp]` points to the [defender-pam](defender-pam/README.md) knowledge base.
 
 > Comprehensive across all 20 modules. Missing a term? Add it in a PR.
 

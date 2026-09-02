@@ -12,7 +12,7 @@ Two ideas to lock in first:
 - **Enumeration is active.** You are making real requests to the target's services — sometimes anonymously, sometimes with credentials. This is louder than scanning and always lab-only.
 - **Names are the prize.** A valid username isn't just trivia — it's half of a login. Chapter 10 (password attacks) and chapter 11 (Active Directory) *start* from the user and share lists you build right here.
 
-This whole chapter maps to **CEH [Module 04](../modules/04-enumeration/)** — read it alongside for the exam theory (port numbers, NetBIOS suffix codes, countermeasures).
+This whole chapter maps to **CEH [Module 04](../modules/04-enumeration/README.md)** — read it alongside for the exam theory (port numbers, NetBIOS suffix codes, countermeasures).
 
 ### The lab targets
 | Target | IP | What we'll enumerate |
@@ -216,7 +216,7 @@ sudo ike-scan -A 192.168.56.30    # -A = probe aggressive mode (weaker, leaks a 
 ➡️ [07 — Vulnerability analysis](07-vulnerability-analysis.md): taking the services and versions you enumerated and matching them to known vulnerabilities with nikto, searchsploit, and OpenVAS.
 
 ## Sources
-- CEH Module 04 — Enumeration (this course): [`../modules/04-enumeration/`](../modules/04-enumeration/)
+- CEH Module 04 — Enumeration (this course): [`../modules/04-enumeration/`](../modules/04-enumeration/README.md)
 - NetExec (nxc) official wiki — https://www.netexec.wiki/
 - enum4linux-ng — https://github.com/cddmp/enum4linux-ng
 - Samba (smbclient / rpcclient) man pages — https://www.samba.org/

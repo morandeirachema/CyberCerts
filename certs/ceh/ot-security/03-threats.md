@@ -10,11 +10,11 @@ Michael Assante and Robert M. Lee (SANS, 2015) extended Lockheed Martin's kill c
 
 ```mermaid
 flowchart TB
-    subgraph S1["Stage 1 — IT intrusion (get in, learn the process)"]
-        A1["Recon"] --> A2["Weaponize / Deliver"] --> A3["Exploit / Install"] --> A4["C2"] --> A5["Act — pivot into OT, collect process data"]
+    subgraph S1["Stage 1 — IT intrusion (get<br/>in, learn the process)"]
+        A1["Recon"] --> A2["Weaponize / Deliver"] --> A3["Exploit / Install"] --> A4["C2"] --> A5["Act — pivot into OT,<br/>collect process data"]
     end
-    subgraph S2["Stage 2 — ICS attack (act on the physical process)"]
-        B1["Develop — build the OT-specific capability"] --> B2["Test — against a mirrored/known system"] --> B3["Deliver — into the control network"] --> B4["Install / Modify — PLC logic, HMI, SIS"] --> B5["Execute — cause the physical effect"]
+    subgraph S2["Stage 2 — ICS attack (act<br/>on the physical process)"]
+        B1["Develop — build the<br/>OT-specific capability"] --> B2["Test — against a<br/>mirrored/known system"] --> B3["Deliver — into the control network"] --> B4["Install / Modify —<br/>PLC logic, HMI, SIS"] --> B5["Execute — cause the physical effect"]
     end
     A5 --> B1
 ```

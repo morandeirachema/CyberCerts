@@ -48,7 +48,7 @@ Memorize these — CEH tests port↔service recognition directly, and enumeratio
 
 ## ICS / OT & IoT protocol ports (Module 18)
 
-Most of these have **no authentication or encryption by design** — the control is segmentation, not the protocol. Practice them locally with [`../labs/ot/`](../labs/ot/).
+Most of these have **no authentication or encryption by design** — the control is segmentation, not the protocol. Practice them locally with [`../labs/ot/`](../labs/ot/README.md).
 
 | Port | Proto | Service | Notes / attack angle | Module |
 |---|---|---|---|---|

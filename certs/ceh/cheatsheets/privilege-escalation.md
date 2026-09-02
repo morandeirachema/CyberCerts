@@ -1,6 +1,6 @@
 # Privilege Escalation
 
-From a foothold to root/SYSTEM. Pairs with [Module 06](../modules/06-system-hacking/) and [Kali ch.14](../kali/14-post-exploitation-pivoting.md). **Lab / authorized only.**
+From a foothold to root/SYSTEM. Pairs with [Module 06](../modules/06-system-hacking/README.md) and [Kali ch.14](../kali/14-post-exploitation-pivoting.md). **Lab / authorized only.**
 
 ## Linux — enumerate first
 ```bash

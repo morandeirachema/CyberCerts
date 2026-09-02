@@ -1,6 +1,6 @@
 # Deep Technical References
 
-Where to go *past* exam-concept depth into real tradecraft. These are the community-standard, well-known technical references — use them to turn "I recognize this attack" into "I can execute and defend it." Practice only against your own [lab](../labs/) or authorized targets.
+Where to go *past* exam-concept depth into real tradecraft. These are the community-standard, well-known technical references — use them to turn "I recognize this attack" into "I can execute and defend it." Practice only against your own [lab](../labs/README.md) or authorized targets.
 
 > The module `README.md` **Sources** sections link topic-specific pages; this is the master index of the canon.
 
@@ -50,4 +50,4 @@ Where to go *past* exam-concept depth into real tradecraft. These are the commun
 - Hack The Box: https://www.hackthebox.com/ · TryHackMe: https://tryhackme.com/
 - VulnHub (downloadable VMs): https://www.vulnhub.com/
 
-> **How to use these with this repo:** finish a module → run its [lab-walkthrough](../modules/) → then open the matching HackTricks / Hacker Recipes page and go one level deeper on the same target. The repo gives you the map and the "why"; these give you the full tradecraft.
+> **How to use these with this repo:** finish a module → run its [lab-walkthrough](../modules/README.md) → then open the matching HackTricks / Hacker Recipes page and go one level deeper on the same target. The repo gives you the map and the "why"; these give you the full tradecraft.

@@ -88,7 +88,7 @@ Functions (Lambda / Cloud Functions / Azure Functions) push even more to the pro
 
 ## Commands & techniques (lab-ready)
 
-> ⚠️ **AUTHORIZATION — read this first.** Run cloud assessment tools **only against a cloud account you own**, and know your provider's testing policy — even self-service pentesting of *managed* services can require notice. Aggressive tools like **Pacu** modify resources; use a **throwaway/free-tier account** with nothing valuable in it. Local container/Kubernetes work stays on **your own workstation** (the Docker range in [`../../labs/`](../../labs/) / [`../../labs/topology.md`](../../labs/topology.md)).
+> ⚠️ **AUTHORIZATION — read this first.** Run cloud assessment tools **only against a cloud account you own**, and know your provider's testing policy — even self-service pentesting of *managed* services can require notice. Aggressive tools like **Pacu** modify resources; use a **throwaway/free-tier account** with nothing valuable in it. Local container/Kubernetes work stays on **your own workstation** (the Docker range in [`../../labs/`](../../labs/README.md) / [`../../labs/topology.md`](../../labs/topology.md)).
 
 ```bash
 # --- Posture audit of YOUR OWN account (read-only) ---
@@ -148,7 +148,7 @@ capsh --print                                     # excess Linux capabilities?
 | K8s API/dashboard exposure | Anonymous API calls, dashboard hits, kubelet access | **RBAC least privilege**, network policy, private API endpoint, disable anonymous auth |
 | Console/root access without MFA | Sign-in events lacking MFA, root usage | Enforce MFA/SSO via IdP, **sealed & monitored break-glass** root/owner accounts |
 
-> **PAM playbook for cloud:** identity **is** the perimeter. Kill **standing privilege** with **JIT** elevation, use **CIEM** to continuously right-size entitlements, replace **long-lived keys** with short-lived federated credentials, store secrets in **Vault / cloud KMS** (never env vars or code), and keep **break-glass** root/owner accounts sealed behind hardware MFA with alerting on every use. See [`../../defender-pam/`](../../defender-pam/).
+> **PAM playbook for cloud:** identity **is** the perimeter. Kill **standing privilege** with **JIT** elevation, use **CIEM** to continuously right-size entitlements, replace **long-lived keys** with short-lived federated credentials, store secrets in **Vault / cloud KMS** (never env vars or code), and keep **break-glass** root/owner accounts sealed behind hardware MFA with alerting on every use. See [`../../defender-pam/`](../../defender-pam/README.md).
 
 ### 🔐 PAM engineering deep-dive (CyberArk)
 

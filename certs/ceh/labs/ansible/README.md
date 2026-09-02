@@ -45,9 +45,9 @@ Ansible configures Windows; it does not create the VMs. Provide two Windows VMs 
 ```mermaid
 flowchart TD
     D["Domain ceh.lab - NetBIOS CEH"]
-    T0["OU=Tier0 — t0-admin, + Protected Users — forest control"]
-    T1["OU=Tier1 — t1-svradmin, svc-sql - Kerberoastable — server admins"]
-    T2["OU=Tier2 — t2-helpdesk — workstation admins"]
+    T0["OU=Tier0 — t0-admin, + Protected<br/>Users — forest control"]
+    T1["OU=Tier1 — t1-svradmin, svc-sql<br/>- Kerberoastable — server admins"]
+    T2["OU=Tier2 — t2-helpdesk<br/>— workstation admins"]
     STD["OU=Standard — jdoe — normal user"]
     D --> T0
     D --> T1

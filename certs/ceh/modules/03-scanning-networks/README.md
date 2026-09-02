@@ -81,7 +81,7 @@ sequenceDiagram
 
 ## Commands & techniques (lab-ready)
 
-> **Safety:** every command targets your own lab only — Metasploitable2 (`192.168.56.20`) and the segment `192.168.56.0/24`. `-sS`, `-O`, `-sU`, and masscan need root (`sudo`). Never scan networks you don't own. See [`../../labs/`](../../labs/).
+> **Safety:** every command targets your own lab only — Metasploitable2 (`192.168.56.20`) and the segment `192.168.56.0/24`. `-sS`, `-O`, `-sU`, and masscan need root (`sudo`). Never scan networks you don't own. See [`../../labs/`](../../labs/README.md).
 
 ```bash
 # --- Host discovery (no port scan) ---

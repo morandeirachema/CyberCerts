@@ -3,7 +3,7 @@
 > **What you'll learn:** what Metasploit is, its core building blocks (exploit, payload, encoder, auxiliary, post module, handler), how to drive `msfconsole` with a database behind it, and a full attack — from scanning into the DB, to exploiting Metasploitable2, to a Meterpreter session, to building your own payload with `msfvenom`.
 > **Prerequisites:** [08 — Web application hacking](08-web-hacking.md). ⬅️ [Course index](README.md)
 
-This is the chapter where everything from 04–08 pays off: you *found* a weakness, now you *use* it. We map to CEH [Module 06 — System Hacking](../modules/06-system-hacking/). Everything here is **lab only** — Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`.
+This is the chapter where everything from 04–08 pays off: you *found* a weakness, now you *use* it. We map to CEH [Module 06 — System Hacking](../modules/06-system-hacking/README.md). Everything here is **lab only** — Kali `192.168.56.10`, Metasploitable2 `192.168.56.20`.
 
 ---
 
@@ -258,4 +258,4 @@ Now run `lab_payload.exe` on your Windows lab VM. The handler catches the connec
 - Kali Tools — Metasploit Framework — https://www.kali.org/tools/metasploit-framework/
 - Offensive Security — Metasploit Unleashed (free course) — https://www.offsec.com/metasploit-unleashed/
 - Rapid7 — msfvenom reference — https://docs.rapid7.com/metasploit/msfvenom/
-- CEH mapping — [Module 06 — System Hacking](../modules/06-system-hacking/)
+- CEH mapping — [Module 06 — System Hacking](../modules/06-system-hacking/README.md)

@@ -1,6 +1,6 @@
 # Steganography & File Forensics
 
-Extract hidden data from images/files, crack archives, decode/decrypt. Pairs with the [challenge lab](../practical/challenge-lab/) and the [stego/crypto drills](../practical/drills/08-stego-and-crypto.md). **Practice on your own files only.**
+Extract hidden data from images/files, crack archives, decode/decrypt. Pairs with the [challenge lab](../practical/challenge-lab/README.md) and the [stego/crypto drills](../practical/drills/08-stego-and-crypto.md). **Practice on your own files only.**
 
 ## Triage any suspicious file (do these first, in order)
 ```bash

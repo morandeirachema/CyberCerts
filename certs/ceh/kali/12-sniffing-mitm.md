@@ -34,7 +34,7 @@ To read *someone else's* traffic on a switch, you have to make it flow through y
 | ARP poisoning | Forging ARP replies to redirect a victim's traffic to you |
 | MITM | Sitting between two hosts so their traffic passes through you |
 
-The full attack taxonomy (MAC flooding, DHCP starvation, DNS poisoning, and the defenses) lives in [Module 08 — Sniffing](../modules/08-sniffing/).
+The full attack taxonomy (MAC flooding, DHCP starvation, DNS poisoning, and the defenses) lives in [Module 08 — Sniffing](../modules/08-sniffing/README.md).
 
 ## ⚠️ Safety first — read before you poison anything
 
@@ -107,7 +107,7 @@ The real power is the **display filter** bar at the top. Unlike tcpdump's captur
 
 **Follow TCP Stream** is the killer feature: right-click any packet → **Follow → TCP Stream**. Wireshark stitches every packet of that one conversation back together and shows it as plain text — the whole FTP or HTTP exchange in one readable window, client text in one color and server text in another.
 
-> Wireshark **display filters** (`http.request`) are a different language from tcpdump **capture filters** (`tcp port 80`). Mixing them up is the #1 beginner error — see [Module 08](../modules/08-sniffing/).
+> Wireshark **display filters** (`http.request`) are a different language from tcpdump **capture filters** (`tcp port 80`). Mixing them up is the #1 beginner error — see [Module 08](../modules/08-sniffing/README.md).
 
 ## Proving it: capturing cleartext credentials
 
@@ -202,7 +202,7 @@ You should see the username and cracked password once hashcat finds it in the wo
 3. Capture an HTTPS session and confirm you see only **TLS Application Data** — write down why encryption beat you.
 4. Enable IP forwarding, then use bettercap to ARP-poison `192.168.56.31` ↔ `192.168.56.1`; watch `net.sniff` show the victim's traffic. Turn it off cleanly with `arp.spoof off`.
 5. Run Responder on `eth1`, trigger a bad name lookup from a Windows host, capture the NetNTLMv2 hash, and crack it with `hashcat -m 5600`.
-6. In your notes, match each attack to its defense (encryption, DAI, disabling LLMNR) using [Module 08](../modules/08-sniffing/).
+6. In your notes, match each attack to its defense (encryption, DAI, disabling LLMNR) using [Module 08](../modules/08-sniffing/README.md).
 
 ## Next
 

@@ -172,7 +172,7 @@ You should see `192.168.56.20` next to a MAC like `08:00:27:...` — proof Kali 
 6. Run `arp -n` and record the MAC address of `192.168.56.20`.
 
 ## Next
-➡️ [04 — Recon & OSINT](04-recon-osint.md): turning these fundamentals into information gathering — whois, DNS digging, and mapping a target's footprint before you ever send a scan. Also see CEH [Module 03 — Scanning Networks](../modules/03-scanning-networks/), which builds directly on ports, TCP flags, and the handshake covered here.
+➡️ [04 — Recon & OSINT](04-recon-osint.md): turning these fundamentals into information gathering — whois, DNS digging, and mapping a target's footprint before you ever send a scan. Also see CEH [Module 03 — Scanning Networks](../modules/03-scanning-networks/README.md), which builds directly on ports, TCP flags, and the handshake covered here.
 
 ## Sources
 - Cloudflare Learning — What is an IP address? https://www.cloudflare.com/learning/dns/glossary/what-is-my-ip-address/

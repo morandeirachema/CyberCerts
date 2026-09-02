@@ -2,7 +2,7 @@
 
 Where [`../drills.md`](../drills.md) is a quick 15-challenge sampler, these are **deep per-domain packs** — 8–12 Practical-style challenges each, every one with a **full step-by-step solution walkthrough** (commands + expected output + the exact answer), progressing from easy to hard. Solve under a timer; expand the solution only when done or stuck.
 
-> **Setup:** the [lab](../../labs/) running, and the [challenge-lab](../challenge-lab/) generated (`../challenge-lab/setup-challenges.sh`) for the stego/pcap/crypto/hash packs. Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md).
+> **Setup:** the [lab](../../labs/README.md) running, and the [challenge-lab](../challenge-lab/README.md) generated (`../challenge-lab/setup-challenges.sh`) for the stego/pcap/crypto/hash packs. Recipes: [`../challenge-playbooks.md`](../challenge-playbooks.md).
 
 | Pack | Drills what | Uses |
 |---|---|---|
@@ -20,4 +20,4 @@ Where [`../drills.md`](../drills.md) is a quick 15-challenge sampler, these are 
 1. Pick a pack matching a weak area from your [skills checklist](../skills-checklist.md).
 2. **Timer on.** Solve each challenge from the [recipes](../challenge-playbooks.md), not the solution.
 3. Score ✅/⚠️/❌; re-drill anything not ✅ under time.
-4. When every pack is ✅, take a full [simulated exam](../exams/).
+4. When every pack is ✅, take a full [simulated exam](../exams/README.md).
