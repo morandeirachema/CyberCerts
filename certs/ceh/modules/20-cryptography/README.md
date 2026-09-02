@@ -2,6 +2,8 @@
 
 > **One-liner:** the math that protects (and, when misused, exposes) everything else — symmetric vs. asymmetric ciphers, hashing, PKI, TLS, and the attacks against them. For a PAM practitioner this is home turf: your vault encrypts secrets at rest, signs audit trails, rotates keys, and manages certificate lifecycles. The exam tests definitions precisely, so get the pairings exact.
 
+> **📖 Concept page:** [domains/20-cryptography.md](../../domains/20-cryptography.md) — the source-grounded overview with Mermaid flows and countermeasures.
+
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
 ## Exam focus

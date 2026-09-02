@@ -2,6 +2,8 @@
 
 > **One-liner:** turning the recon map into a live target list — which hosts are up, which ports are open, what's listening, and what OS it runs. This is Nmap's module, and the exam tests scan *types* and *flags* precisely. For a sysadmin, it's the same discovery you run to inventory a subnet — just from the attacker's chair.
 
+> **📖 Concept page:** [domains/03-scanning-networks.md](../../domains/03-scanning-networks.md) — the source-grounded overview with Mermaid flows and countermeasures.
+
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
 ## Exam focus

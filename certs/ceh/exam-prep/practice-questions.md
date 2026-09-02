@@ -2,6 +2,8 @@
 
 A bank of **50+ multiple-choice practice questions** organised by module/topic, each with the correct answer and a short explanation. They are study aids built around standard, documented Certified Ethical Hacker (CEH) v13 concepts.
 
+> ❓ **More questions in the course layer:** per-module [practice questions](../modules/README.md), the [50-question mock](../MOCK-EXAM.md), the [125-question full mock](../MOCK-EXAM-FULL.md) and the [200-question rapid-fire bank](../RAPID-FIRE.md).
+
 > **Unofficial practice questions — NOT real EC-Council exam questions.** These are pedagogical study aids written for this hub to rehearse documented CEH concepts. They are not drawn from, affiliated with, or endorsed by EC-Council, and they do not reproduce any actual exam item. The real exam is **125 questions in 4 hours**; the passing mark is a scaled cut-score (roughly 60–85%).
 
 ## How to use these

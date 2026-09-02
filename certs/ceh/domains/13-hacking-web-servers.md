@@ -2,6 +2,9 @@
 
 A **web server** is the software (and host) that accepts Hypertext Transfer Protocol (HTTP/HTTPS) requests and returns web content — for example Apache HTTP Server, Nginx, or Microsoft Internet Information Services (IIS). This module looks at the web server as **infrastructure**: its architecture, the misconfigurations and weaknesses attackers target, and how to harden it. (The next module, [14-hacking-web-applications.md](14-hacking-web-applications.md), covers the *application* running on top.)
 
+> 🧪 **Course folder for this module:** [modules/13-hacking-web-servers/](../modules/13-hacking-web-servers/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > All techniques here are described **conceptually for understanding and defense**. Attacking web servers you do not own is illegal and is permitted **only with explicit written authorization**. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md).
 
 ## Learning objectives

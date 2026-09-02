@@ -2,6 +2,8 @@
 
 This page explains how the Certified Ethical Hacker (CEH) exams are structured, how you become eligible to sit them, how they are delivered and proctored, the retake rules, and how the certification stays valid afterward. Figures that change between versions are flagged so you verify them against the EC-Council before relying on them.
 
+> 🎟️ **Booking logistics** (scheduling, cost, ECE policy, blueprint download) are in the course's [EXAM-LOGISTICS.md](../EXAM-LOGISTICS.md).
+
 ## Learning objectives
 
 - Describe the format of the CEH knowledge exam and the CEH Practical exam.

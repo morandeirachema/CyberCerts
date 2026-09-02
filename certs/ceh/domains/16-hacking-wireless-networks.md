@@ -2,6 +2,9 @@
 
 Wireless networks broadcast over the air, so anyone within radio range can *hear* the traffic — there is no cable to physically protect. Wireless security is therefore about **encrypting** what is broadcast and **authenticating** who may join. This page covers the Wi-Fi security protocols (WEP, WPA, WPA2, WPA3) at a conceptual level, the main wireless threats, and how to defend against them.
 
+> 🧪 **Course folder for this module:** [modules/16-hacking-wireless-networks/](../modules/16-hacking-wireless-networks/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 This is defence-oriented exam preparation. Capturing, cracking, or joining networks you do not own is illegal without **explicit written authorisation** and a defined scope (see [legal-and-ethics.md](../00-overview/legal-and-ethics.md)). No cracking commands or capture recipes are given.
 
 ## Learning objectives

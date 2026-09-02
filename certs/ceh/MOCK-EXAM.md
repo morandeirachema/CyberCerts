@@ -2,6 +2,8 @@
 
 > **50 original, concept-based questions** drawn across **all 20 modules**, in mixed order — the way the real exam presents them. Not a dump. The **answer key** (with one-line rationale + module reference) is at the bottom — take the test *first*, then score.
 
+> ❓ **Also:** the concept track's [practice questions](exam-prep/practice-questions.md) (by module, with explanations).
+
 ## How to take it
 - **Time-box it:** the real exam is ~1.9 min/question, so give yourself **~95 minutes** for these 50. Practice the pace.
 - **First pass fast, flag the hard ones, second pass on flags** — and never leave a blank (no penalty for guessing).

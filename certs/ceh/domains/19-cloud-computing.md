@@ -2,6 +2,9 @@
 
 **Cloud computing** delivers computing resources — servers, storage, databases, networking, software — on demand over the internet, billed by use, instead of running everything in your own data centre. For a sysadmin, the cloud changes *who* is responsible for *what*, introduces new abstractions (containers, serverless), and creates new ways to misconfigure things. This page covers the service models (IaaS/PaaS/SaaS), the **shared-responsibility model**, containers and serverless, cloud threats, **Cloud Security Posture Management (CSPM)**, and defences.
 
+> 🧪 **Course folder for this module:** [modules/19-cloud-computing/](../modules/19-cloud-computing/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 This is defence-oriented exam preparation. Testing cloud environments is bound by **explicit written authorisation** *and* the provider's rules of engagement (see [legal-and-ethics.md](../00-overview/legal-and-ethics.md)). No exploit steps are provided.
 
 ## Learning objectives

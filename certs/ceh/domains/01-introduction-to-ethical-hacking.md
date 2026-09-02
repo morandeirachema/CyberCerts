@@ -2,6 +2,9 @@
 
 This module is the foundation of the **Certified Ethical Hacker (CEH)** program from the **EC-Council (International Council of E-Commerce Consultants)**. It establishes the vocabulary and mental models you will use throughout the rest of your studies: what *information security* actually protects, how attackers are categorized, how an attack unfolds end to end, and the laws and frameworks that govern defensive work. Coming from a system administration background, you already know how to *operate* systems; this module reframes that knowledge through the lens of *protecting* them and understanding how they are attacked.
 
+> 🧪 **Course folder for this module:** [modules/01-introduction-to-ethical-hacking/](../modules/01-introduction-to-ethical-hacking/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > **Authorization and legality — read first.** Every technique discussed in the CEH program is legal to perform **only** with explicit, written authorization (a signed scope-of-work, rules of engagement, or penetration-test contract) covering the specific systems involved. Performing reconnaissance, scanning, or exploitation against systems you do not own or are not contracted to test is a crime in most jurisdictions. This material is **educational and defense-oriented**: it explains attack concepts so you can detect, prevent, and respond to them. It contains no operational attack playbooks.
 
 ## Learning objectives

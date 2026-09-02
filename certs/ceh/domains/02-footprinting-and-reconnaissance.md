@@ -2,6 +2,9 @@
 
 Footprinting and reconnaissance is the first active phase of an ethical-hacking engagement: the systematic collection of information about a target organisation, its people, and its technology before any deeper testing begins. The goal is to build a detailed *profile* of the target — its internet-facing systems, domains, network ranges, technologies, and employees — so that later phases are focused and efficient.
 
+> 🧪 **Course folder for this module:** [modules/02-footprinting-and-reconnaissance/](../modules/02-footprinting-and-reconnaissance/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 This module teaches the concepts from a defender's standpoint. Everything here is **educational** and **defence-oriented**. These techniques are legal **only** with explicit written authorisation from the system owner, performed within a defined scope and Rules of Engagement (RoE). Using them against systems you do not own or are not authorised to test is a crime in most jurisdictions. See [./01-introduction-to-ethical-hacking.md](01-introduction-to-ethical-hacking.md) and the overview at [../00-overview/five-phases-of-hacking.md](../00-overview/five-phases-of-hacking.md).
 
 > For a systems administrator moving into security: footprinting is mostly *passive research using public sources*. Much of what an attacker learns about your organisation is information you (or your colleagues, or third-party services) have already published. Reconnaissance is therefore as much a defensive discipline — knowing your own exposure — as an offensive one.

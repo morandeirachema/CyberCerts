@@ -2,6 +2,8 @@
 
 > CEH v13's headline addition. Two directions you must understand: **(1) using AI to augment the ethical-hacking workflow**, and **(2) attacking and defending AI systems themselves**. This doc is the cross-cutting companion to the 20 modules — AI now touches every phase. Pairs with [EXAM-STRATEGY.md](EXAM-STRATEGY.md) and the [defender-pam](defender-pam/README.md) knowledge base.
 
+> 🤖 **See also:** the concept page [00-overview/ai-in-ethical-hacking.md](00-overview/ai-in-ethical-hacking.md).
+
 > **⚖️ Same ethics apply.** Use AI-assisted techniques only within your authorized scope. AI lowers the effort bar for attackers *and* defenders — the authorization boundary does not move.
 
 ---

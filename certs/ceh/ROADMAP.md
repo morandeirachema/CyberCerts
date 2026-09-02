@@ -2,6 +2,8 @@
 
 The whole repo sequenced into one ladder — from "never opened a terminal" to "operates confidently on both sides of an attack." CEH sits in the middle (Stages 1–4); Stage 5 is where you keep climbing after the cert. Work the stages in order; don't skip the foundations.
 
+> 🧭 **See also:** [career/ceh-career-and-adjacent-certs.md](career/ceh-career-and-adjacent-certs.md) and the repo-wide [sysadmin → PAM architect roadmap](../../learning/roadmap.md).
+
 ```mermaid
 flowchart TD
     S0["Stage 0 — Foundations<br/>Linux · terminal · networking · lab"] --> S1["Stage 1 — Understand attacks<br/>the 20 modules (theory)"]

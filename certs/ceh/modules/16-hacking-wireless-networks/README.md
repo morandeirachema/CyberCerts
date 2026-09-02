@@ -4,6 +4,8 @@
 
 > ⚠️ **LEGALITY — read first.** Deauth, handshake capture, PMKID grabbing, evil-twin, and WPS attacks against a network **you do not own or have written authorization to test are illegal** (unauthorized access + interference with radio communications) in essentially every jurisdiction. Every command below is for **your own AP/router and your own client devices**, on an isolated SSID you control. Do not attack a neighbour's, an employer's, or a public network. Monitor-mode/injection also needs a capable adapter — you are transmitting on regulated spectrum.
 
+> **📖 Concept page:** [domains/16-hacking-wireless-networks.md](../../domains/16-hacking-wireless-networks.md) — the source-grounded overview with Mermaid flows and countermeasures.
+
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
 ## Exam focus

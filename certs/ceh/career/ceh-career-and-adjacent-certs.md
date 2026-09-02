@@ -2,6 +2,8 @@
 
 This page puts the Certified Ethical Hacker (CEH) in context: the roles it supports, how it compares with adjacent certifications, its relevance to the United States Department of Defense (DoD) workforce framework, and a suggested learning order for someone moving from systems administration into cybersecurity. Market claims here are kept **qualitative** or attributed to a named, dated source; for live demand and salary figures, consult the cited sources directly.
 
+> 🧭 **See also:** the course's [beginner → master roadmap](../ROADMAP.md) and the repo-wide [sysadmin → PAM architect roadmap](../../../learning/roadmap.md), which sets the certification order for this repo.
+
 > For a sysadmin: your operating-system, networking, and Active Directory background is a genuine advantage. CEH reframes that knowledge from the attacker's side, which makes it a natural breadth-first entry into security. See [what-is-ceh.md](../00-overview/what-is-ceh.md).
 
 ## Learning objectives

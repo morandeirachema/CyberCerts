@@ -2,6 +2,9 @@
 
 **Cryptography** is the science of protecting information using mathematics — keeping it confidential, verifying it has not been altered, and proving who created it. It underpins almost every other security control: HyperText Transfer Protocol Secure (HTTPS), Virtual Private Networks (VPNs), disk encryption, digital signatures, and the wireless and cloud protections covered elsewhere in this hub. This page explains symmetric vs. asymmetric cryptography, hashing, **Public Key Infrastructure (PKI)**, the major algorithms, crypto attacks at a concept level, disk/email encryption, and best practices.
 
+> 🧪 **Course folder for this module:** [modules/20-cryptography/](../modules/20-cryptography/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 This is defence-oriented exam preparation. Cryptanalysis or password attacks against systems you do not own require **explicit written authorisation** (see [legal-and-ethics.md](../00-overview/legal-and-ethics.md)). No attack recipes are provided.
 
 ## Learning objectives

@@ -2,6 +2,8 @@
 
 > **One-liner:** attacking the *application logic* running on top of the web server — input-handling flaws (XSS, injection, file upload), broken authentication/session management, access-control failures (IDOR), SSRF, and insecure deserialization. This is the module 13 (web *server*) attacks aim at the platform; this one aims at *your code*. SQL injection is big enough to get its own module ([15](../15-sql-injection/README.md)).
 
+> **📖 Concept page:** [domains/14-hacking-web-applications.md](../../domains/14-hacking-web-applications.md) — the source-grounded overview with Mermaid flows and countermeasures.
+
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
 ## Exam focus

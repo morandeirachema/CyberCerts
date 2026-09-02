@@ -2,6 +2,9 @@
 
 Defensive systems — **Intrusion Detection Systems (IDS)**, **Intrusion Prevention Systems (IPS)**, **firewalls**, and **honeypots** — are the controls that watch for, block, and study attacks. CEH covers how attackers *try to evade* these controls. In keeping with this hub's defensive focus, this module explains **how these systems work, where they are placed, and how to DETECT evasion and tune defenses** — not how to evade them for malicious purposes.
 
+> 🧪 **Course folder for this module:** [modules/12-evading-ids-firewalls-honeypots/](../modules/12-evading-ids-firewalls-honeypots/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > Everything here is for **building and improving defenses**. Any testing of these controls is permitted **only with explicit written authorization** and a defined scope. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md).
 
 ## Learning objectives

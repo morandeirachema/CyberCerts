@@ -2,6 +2,9 @@
 
 *Packet sniffing* is the act of capturing and inspecting the data units (packets) that travel across a network. A defender uses sniffing for troubleshooting and intrusion detection; an attacker uses it to steal credentials, session tokens, and other secrets that cross the wire in the clear. This module explains how sniffing works, why some networks and protocols are vulnerable, and how to defend against it.
 
+> 🧪 **Course folder for this module:** [modules/08-sniffing/](../modules/08-sniffing/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > All techniques here are described **conceptually for understanding and defense**. Performing them against systems you do not own is illegal in most jurisdictions and is permitted **only with explicit written authorization** and a defined scope. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md).
 
 ## Learning objectives

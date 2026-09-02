@@ -2,6 +2,8 @@
 
 > **One-liner:** the classic "untrusted input reaches the SQL interpreter" flaw — how to find it, how to exploit it by hand and with sqlmap, and why the fix is *parameterized queries + a least-privilege DB account*. For a PAM reader this is a story about a service account with far too much power on the database.
 
+> **📖 Concept page:** [domains/15-sql-injection.md](../../domains/15-sql-injection.md) — the source-grounded overview with Mermaid flows and countermeasures.
+
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
 ## Exam focus

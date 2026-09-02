@@ -2,6 +2,8 @@
 
 Quick-reference material to keep open **during** a lab or the [Practical](../practical/README.md), and to drill in the final weeks. The exam and the labs both reward fast recall of ports, flags, and tool→purpose pairs.
 
+> 🧾 **Exam-day sheet:** the concept track's [cheat sheet](../exam-prep/cheat-sheet.md) condenses the knowledge-exam facts.
+
 ### Knowledge-exam recall
 | Sheet | Use it for |
 |---|---|

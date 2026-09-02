@@ -2,6 +2,8 @@
 
 Once you have a local lab ([building-a-ceh-lab.md](building-a-ceh-lab.md)), online practice platforms let you keep building hands-on skill against legally provided targets without maintaining the infrastructure yourself. This page lists well-known, legitimate platforms, each described factually with its purpose.
 
+> 🧪 **See also:** the course's [practice platforms list](../resources/practice-labs.md) and the runnable self-hosted [lab](README.md).
+
 > **The one rule that governs all of them: only practise on systems you own or are explicitly authorised to use.** Every platform below provides targets it owns or has arranged for you to attack, and your authorisation is limited to those targets. Pointing these skills at anything outside the platform's sandbox — a real website, a company, a neighbour's network — is unauthorised and illegal in most jurisdictions. See [../00-overview/legal-and-ethics.md](../00-overview/legal-and-ethics.md).
 
 ## Learning objectives

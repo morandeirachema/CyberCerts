@@ -2,6 +2,9 @@
 
 A **session** is the established, authenticated context between a client and a server — proven by a **session identifier (session ID)** such as a cookie or token. **Session hijacking** is the act of taking over that already-authenticated session so the attacker is treated as the legitimate user, **without ever needing the password**. This is powerful because it sidesteps authentication entirely: the user already logged in, and the attacker steals or predicts the proof.
 
+> 🧪 **Course folder for this module:** [modules/11-session-hijacking/](../modules/11-session-hijacking/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > All techniques here are described **conceptually for understanding and defense**. Hijacking sessions on systems you do not own is illegal and is permitted **only with explicit written authorization**. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md).
 
 ## Learning objectives

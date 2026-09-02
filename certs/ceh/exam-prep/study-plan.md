@@ -2,6 +2,8 @@
 
 A structured, ordered path through this study hub for the **Certified Ethical Hacker (CEH) v13** exam (code **312-50v13**). It maps the **20 modules** and the **5 phases of ethical hacking** onto a week-by-week schedule, gives logistics for both the knowledge exam and **CEH Practical**, and offers study tips tuned for a systems administrator.
 
+> 🗓️ **Course-track plan:** the merged course ships its own [12-week plan](../STUDY-PLAN.md) built around the module folders, labs and mock exams. Use whichever cadence fits; both cover the same 20 modules.
+
 > **Time estimates below are SUGGESTIONS, not requirements.** They assume you are a working sysadmin studying part-time. Compress or stretch them to fit your own pace, prior knowledge, and exam date. EC-Council does not publish a mandated study duration.
 
 ## Learning objectives

@@ -2,6 +2,9 @@
 
 **Structured Query Language (SQL) injection** is a web-application attack in which an attacker inserts (injects) malicious SQL fragments into input that an application passes into a database query. When the application builds its query by gluing user input directly into the command text, the database cannot tell *data* from *instructions* — so attacker-supplied "data" gets executed as part of the query.
 
+> 🧪 **Course folder for this module:** [modules/15-sql-injection/](../modules/15-sql-injection/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 This page explains **conceptually** why SQLi happens and how to defend against it. It is educational and defence-oriented. Probing or exploiting any system you do not own is illegal without **explicit written authorisation** and a defined scope (see [legal-and-ethics.md](../00-overview/legal-and-ethics.md)). No working exploit recipe is provided here.
 
 ## Learning objectives

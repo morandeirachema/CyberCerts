@@ -2,6 +2,9 @@
 
 The **Internet of Things (IoT)** is the universe of network-connected everyday devices — cameras, sensors, smart locks, thermostats, medical devices. **Operational Technology (OT)** is the hardware and software that monitors and controls **physical** industrial processes — factory lines, power grids, water treatment, building systems. Both extend the attack surface far beyond traditional IT, often onto devices that were never designed with security in mind. This page covers IoT/OT concepts, common protocols, the attack surface, the **Purdue model**, and defences.
 
+> 🧪 **Course folder for this module:** [modules/18-iot-and-ot-hacking/](../modules/18-iot-and-ot-hacking/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 This is defence-oriented exam preparation. Attacks against IoT/OT — especially OT, where impact can be physical and dangerous — require **explicit written authorisation** and extreme care (see [legal-and-ethics.md](../00-overview/legal-and-ethics.md)). No exploit steps are provided.
 
 ## Learning objectives

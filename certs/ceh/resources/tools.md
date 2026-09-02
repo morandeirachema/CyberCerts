@@ -2,6 +2,8 @@
 
 The tools CEH expects you to recognize, grouped by where they're used. Homepages only — install most of these from Kali (`sudo apt install <tool>`) or their repos. Kali tool docs: https://www.kali.org/tools/
 
+> 🛠️ **See also:** [tools/tools-by-phase.md](../tools/tools-by-phase.md) (purpose per phase and module) and the [Kali reference](../KALI-TUTORIAL.md) (syntax).
+
 ## Recon / footprinting (Module 02)
 - theHarvester — https://github.com/laramies/theHarvester
 - Recon-ng — https://github.com/lanmaster53/recon-ng

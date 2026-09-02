@@ -2,6 +2,9 @@
 
 *System hacking* is the phase where an attacker, having already gathered information and found weaknesses, turns that knowledge into actual control of a target host. EC-Council's **Certified Ethical Hacker (CEH)** program frames it as a structured methodology with four conceptual goals: **gaining access, escalating privileges, maintaining access, and clearing tracks.** For a systems administrator moving into security, this module is the mirror image of your day job — the same accounts, hashes, services, and logs you manage are exactly what an attacker targets, so understanding their goals tells you precisely what to defend.
 
+> 🧪 **Course folder for this module:** [modules/06-system-hacking/](../modules/06-system-hacking/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > All techniques here are described **conceptually for understanding and defense**. They are legal **only with explicit written authorization** and a defined scope (an engagement contract or rules of engagement). Performing them against systems you do not own is illegal in most jurisdictions. This page contains **no operational playbooks, no exploit code, and no command lines** — only concepts and defenses. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md).
 
 ## Learning objectives

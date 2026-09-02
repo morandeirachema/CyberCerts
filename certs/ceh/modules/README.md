@@ -2,6 +2,8 @@
 
 One guide per official module. Each follows the same structure ([`00-TEMPLATE.md`](00-TEMPLATE.md)):
 
+> 📖 Each module also has a **concept page** under [../domains/](../domains/README.md) — read it first for the overview, then work the folder here.
+
 1. **Exam focus** — what CEH actually tests here
 2. **Key concepts** — the testable facts, taxonomies, definitions
 3. **Key tools** — with official links

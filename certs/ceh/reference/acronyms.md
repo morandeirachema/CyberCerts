@@ -2,6 +2,8 @@
 
 > 🔁 This is the **CEH / offensive** acronym list. For PAM & identity acronyms, see the [PAM acronyms reference](../../../reference/acronyms.md).
 
+> 📇 **Course glossary:** the merged course's [GLOSSARY.md](../GLOSSARY.md) expands the same acronyms with module references.
+
 A comprehensive, categorised reference of acronyms and initialisms you will meet across the Certified Ethical Hacker (CEH) curriculum and this study hub. Each table gives the **acronym**, its **expansion**, and a **one-line context** to anchor it in CEH terms. Acronyms are expanded on first use throughout the hub; this page is the master list.
 
 Where a term is offensive, it is described **neutrally with a defensive framing** — the point of CEH is to understand attacks so you can defend against them. For broader prose definitions, see the [glossary](glossary.md).

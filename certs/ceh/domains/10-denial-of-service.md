@@ -2,6 +2,9 @@
 
 A **Denial-of-Service (DoS)** attack aims to make a system, service, or network **unavailable** to its legitimate users — attacking the *availability* leg of the confidentiality–integrity–availability (CIA) triad. A **Distributed Denial-of-Service (DDoS)** attack does the same thing from **many** sources at once (often a botnet), which makes it far harder to filter and to trace.
 
+> 🧪 **Course folder for this module:** [modules/10-denial-of-service/](../modules/10-denial-of-service/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > All techniques here are described **conceptually for understanding and defense**. Launching DoS/DDoS traffic against systems you do not own is illegal in most jurisdictions and is permitted **only with explicit written authorization**. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md).
 
 ## Learning objectives

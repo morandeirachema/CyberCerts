@@ -2,6 +2,8 @@
 
 A cadence for someone working full-time (aim ~8–10 hrs/week). Adjust freely. Each week = read the module guide(s) + do the lab exercise + review the defender/PAM mapping + update [`PROGRESS.md`](PROGRESS.md).
 
+> 🗓️ **Concept-track plan:** [exam-prep/study-plan.md](exam-prep/study-plan.md) sequences the concept pages and the overview docs; this plan sequences the module folders and labs.
+
 > This plan assumes your self-hosted lab is already running. Build it **before Week 1** using [`labs/README.md`](labs/README.md).
 
 ## Ground rules

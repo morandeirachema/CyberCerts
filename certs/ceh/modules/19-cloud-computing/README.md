@@ -2,6 +2,8 @@
 
 > **One-liner:** attacking and defending IaaS/PaaS/SaaS, containers, Kubernetes, and serverless — where the perimeter is gone and **identity is everything**. The signature cloud breaches (public buckets, over-permissive IAM, stolen instance-role creds via SSRF) are all failures of the exact discipline a PAM practitioner owns: least privilege, short-lived credentials, and secrets management.
 
+> **📖 Concept page:** [domains/19-cloud-computing.md](../../domains/19-cloud-computing.md) — the source-grounded overview with Mermaid flows and countermeasures.
+
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
 ## Exam focus

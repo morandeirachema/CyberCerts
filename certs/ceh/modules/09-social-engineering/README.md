@@ -4,6 +4,8 @@
 
 > ⚠️ **SAFETY / LEGAL:** Run phishing simulations and pretext calls **only inside your own lab, against your own test accounts**. Sending a phish, cloning a login page, or pretexting a real person or third-party org — even "to prove a point" — is illegal (fraud/unauthorized access) and unethical without written authorization and scope. Every command below targets lab accounts you created.
 
+> **📖 Concept page:** [domains/09-social-engineering.md](../../domains/09-social-engineering.md) — the source-grounded overview with Mermaid flows and countermeasures.
+
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
 ## Exam focus

@@ -2,6 +2,9 @@
 
 Smartphones combine a personal computer, a camera, a microphone, location sensors, and corporate data in one always-connected device. That makes them a high-value target. This page covers mobile threats on **Android** and **iOS**, common attack vectors, the **OWASP Mobile Top 10**, and **Mobile Device Management (MDM)** — plus the defences a sysadmin needs to know.
 
+> 🧪 **Course folder for this module:** [modules/17-hacking-mobile-platforms/](../modules/17-hacking-mobile-platforms/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 This is defence-oriented exam preparation. Attacking, rooting, or installing software on devices you do not own or administer requires **explicit written authorisation** (see [legal-and-ethics.md](../00-overview/legal-and-ethics.md)). No exploit steps are provided.
 
 ## Learning objectives

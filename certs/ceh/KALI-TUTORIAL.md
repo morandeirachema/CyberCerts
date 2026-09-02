@@ -2,6 +2,8 @@
 
 > A hands-on guide to the tools CEH tests, organized by **phase**, with real command syntax you run against **your own [lab](labs/README.md)** (Kali `192.168.56.10` · Metasploitable2 `192.168.56.20` · DC/ADCS `192.168.56.30` · Docker web on `localhost:8081–8084`). Pairs with the [cheatsheets](cheatsheets/README.md) (quick reference) and the module [labs](modules/README.md) (driven exercises).
 
+> 🛠️ **Tool-to-module map:** [tools/tools-by-phase.md](tools/tools-by-phase.md).
+
 > **⚖️ Authorized targets only.** Everything below is for your isolated lab or systems you have written permission to test. Kali ships *offensive* tools — pointing them at anything else is a crime.
 
 > 🎓 **New to Linux/Kali?** This page is the fast reference. For a **from-zero, beginner→mastery course** (17 chapters, "what is Linux" → attacking Active Directory), start with [`kali/`](kali/README.md).

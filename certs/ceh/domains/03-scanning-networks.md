@@ -2,6 +2,9 @@
 
 Scanning is the second phase of the ethical hacking lifecycle. After footprinting and reconnaissance gathered information *about* a target from the outside, scanning actively probes the target's network to turn that broad picture into a concrete map: which machines are alive, which doors (ports) are open, what software is listening behind them, and what operating system (OS) each host runs.
 
+> 🧪 **Course folder for this module:** [modules/03-scanning-networks/](../modules/03-scanning-networks/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > **Authorization first.** Active scanning sends packets *to* systems you do not own. It is legal only with **explicit written authorization** (a signed scope/rules-of-engagement document). Scanning networks without permission can be a criminal offense in most jurisdictions. This page is **conceptual, defense-oriented exam preparation** — it explains *what* techniques are and *how to defend against them*, not operational attack playbooks.
 
 This module connects backward to [Footprinting and Reconnaissance](02-footprinting-and-reconnaissance.md) and forward to [Enumeration](04-enumeration.md), and it sits inside the broader [five phases of hacking](../00-overview/five-phases-of-hacking.md). Acronyms used here are also collected in the [acronyms reference](../reference/acronyms.md).

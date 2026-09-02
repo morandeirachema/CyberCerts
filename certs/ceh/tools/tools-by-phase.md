@@ -2,6 +2,8 @@
 
 This page is a quick reference to common tools that appear across the Certified Ethical Hacker (CEH) curriculum, organised by the phase or module where they are typically used. The focus is strictly on **what each tool is for** — its category and purpose — so you can recognise tool names on the exam and choose the right *type* of tool for a given task in an authorised lab.
 
+> 🛠️ **Hands-on versions:** the [Kali one-page reference](../KALI-TUTORIAL.md), the [Kali course](../kali/README.md) and the course's [tool homepages by phase](../resources/tools.md).
+
 > **Ethics and legality first.** Every tool below can be misused. Only ever run these against systems you **own** or are **explicitly authorised in writing** to test, inside an isolated lab or an authorised range. Running these against third-party systems without permission is a crime in most jurisdictions. See [../00-overview/legal-and-ethics.md](../00-overview/legal-and-ethics.md). This page deliberately contains **no command-line recipes, exploit code, or attack steps** — only descriptions of purpose. To practise safely, build a lab first: [../labs/building-a-ceh-lab.md](../labs/building-a-ceh-lab.md).
 
 ## Learning objectives

@@ -2,6 +2,8 @@
 
 > Fill in the **verify** fields yourself from the official pages. Policy and pricing change; do not rely on third-party numbers for booking.
 
+> 🎟️ **See also:** [00-overview/exam-and-eligibility.md](00-overview/exam-and-eligibility.md) for the sourced exam and eligibility overview.
+
 ## 1. Eligibility (two paths)
 
 EC-Council offers two routes to sit the exam:

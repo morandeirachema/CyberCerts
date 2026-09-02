@@ -2,6 +2,8 @@
 
 The Certified Ethical Hacker (CEH) version 13 is marketed by the EC-Council as **"CEH AI"** because it weaves artificial intelligence (AI) into all of its modules. For a systems administrator studying CEH, this page explains *why* AI was added, *how* AI assists each of the five phases of ethical hacking at a conceptual level, the AI-driven *threats* a defender must understand, and how to *secure* the AI systems your organisation is increasingly deploying. AI is presented here strictly as a tool that accelerates an *authorised* tester and that defenders must learn to anticipate — never as a way to do anything you could not lawfully do by hand.
 
+> 🤖 **Deeper course treatment:** [AI-IN-ETHICAL-HACKING.md](../AI-IN-ETHICAL-HACKING.md) (AI across the phases, attacking/defending AI) and [AI-STUDY-WORKFLOW.md](../AI-STUDY-WORKFLOW.md).
+
 > Everything on this page is **educational and defence-oriented**. AI does not change the law: every technique remains legal **only** with explicit written authorisation, an agreed scope, and Rules of Engagement (RoE). See [legal-and-ethics.md](legal-and-ethics.md) — the most important page in this hub.
 
 ## Learning objectives

@@ -2,6 +2,8 @@
 
 > **One-liner:** the vocabulary, laws, methodology, and control frameworks that the rest of CEH is built on. Low on tools, high on definitions — and the exam tests those definitions precisely.
 
+> **📖 Concept page:** [domains/01-introduction-to-ethical-hacking.md](../../domains/01-introduction-to-ethical-hacking.md) — the source-grounded overview with Mermaid flows and countermeasures.
+
 > **📚 Study companions:** [Facts sheet](facts.md) · [Practice questions](practice-questions.md) · [Flashcards (Anki)](flashcards.csv) · [Lab walkthrough](lab-walkthrough.md)
 
 ## Exam focus

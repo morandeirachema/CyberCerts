@@ -2,6 +2,9 @@
 
 *Social engineering* is the art of manipulating people into breaking normal security procedures — revealing information, granting access, or performing actions — by exploiting trust, authority, fear, urgency, or helpfulness rather than a technical flaw. Because it targets humans, it bypasses firewalls, encryption, and patches, which is why it remains one of the most common entry points into organizations.
 
+> 🧪 **Course folder for this module:** [modules/09-social-engineering/](../modules/09-social-engineering/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > All techniques here are described **conceptually for understanding and defense**. Conducting social-engineering tests against real people or organizations is permitted **only with explicit written authorization** and a defined scope. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md).
 
 ## Learning objectives

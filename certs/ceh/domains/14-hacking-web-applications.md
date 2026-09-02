@@ -2,6 +2,9 @@
 
 A **web application** is the custom code that runs on top of a web server to deliver dynamic, interactive functionality — logins, shopping carts, dashboards, Application Programming Interfaces (APIs). Because this code processes attacker-controlled input and handles sensitive data, it is one of the largest attack surfaces in any organization. This module covers web-application architecture, the attack categories CEH expects, and the **OWASP Top 10** as the industry reference for the most critical risks.
 
+> 🧪 **Course folder for this module:** [modules/14-hacking-web-applications/](../modules/14-hacking-web-applications/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > All techniques here are described **conceptually for understanding and defense**. Testing web applications you do not own is illegal and is permitted **only with explicit written authorization**. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md). For the underlying platform, see [13-hacking-web-servers.md](13-hacking-web-servers.md).
 
 ## Learning objectives

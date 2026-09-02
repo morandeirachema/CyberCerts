@@ -2,6 +2,8 @@
 
 The single most important rule in ethical hacking is **only test systems you own or are explicitly authorised to test**. A self-contained home lab solves this completely: every machine in it belongs to you, so you can practise the full Certified Ethical Hacker (CEH) methodology legally. This page explains how to build that lab so it is **isolated** (cannot touch the internet or your home network) and **recoverable** (you can reset it in seconds).
 
+> 🐳 **Runnable version:** the course ships the lab this page describes — Docker web targets, Vagrant VMs and an Ansible AD/PAM lab — in [labs/README.md](README.md).
+
 > **Why isolation matters.** Intentionally vulnerable practice machines are, by design, full of security holes. If one is reachable from the internet — or even from your home Wi-Fi — it can be compromised by outsiders and used against others. An isolated lab keeps your practice attacks *inside the lab* and keeps outside attackers *out*. Combined with the legality point above, isolation is non-negotiable. See [../00-overview/legal-and-ethics.md](../00-overview/legal-and-ethics.md).
 
 ## Learning objectives

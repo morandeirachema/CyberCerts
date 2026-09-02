@@ -2,6 +2,8 @@
 
 Use these alongside your self-hosted [`../labs/`](../labs/README.md) to build reps. All are legal, authorized environments — never practice on anything outside them or your own lab.
 
+> 🧪 **See also:** [labs/practice-ranges.md](../labs/practice-ranges.md) for a longer, sourced discussion of each range.
+
 ## Guided / beginner-friendly
 - TryHackMe — https://tryhackme.com/  (guided rooms; has CEH-adjacent and beginner paths)
 - OverTheWire wargames (Bandit → Natas) — https://overthewire.org/wargames/  (free, pure CLI/web fundamentals)

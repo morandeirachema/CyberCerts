@@ -3,6 +3,8 @@
 > 🔁 This is the **CEH / offensive** glossary. For PAM & identity terms, see the
 > [PAM glossary](../../../reference/glossary.md) — the two are complementary, not duplicated.
 
+> 📇 **Course glossary:** the merged course keeps its own acronym-dense [GLOSSARY.md](../GLOSSARY.md); the two overlap and are kept for their different formats.
+
 An alphabetical glossary of ethical-hacking and Certified Ethical Hacker (CEH) terms, each defined concisely **in CEH context**. Offensive techniques are defined neutrally with a defensive framing — you learn them to detect and stop them. For acronym expansions, see the [acronyms reference](acronyms.md).
 
 Cross-links point to the relevant CEH v13 module under [../domains/](../domains/README.md) and to the overview docs under [../00-overview/](../00-overview/). Module filenames follow the official 20-module structure; if a target page does not yet exist, the link records where the topic belongs.

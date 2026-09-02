@@ -2,6 +2,9 @@
 
 Enumeration is the phase where an ethical hacker actively connects to a target's running services to pull out concrete, named details: user accounts, machine names, network shares, group memberships, routing tables, and service configuration. Where scanning answers *"what is alive and what ports are open?"*, enumeration answers *"who and what is actually behind those open ports, and what can it tell me?"*. It is deeper and noisier than scanning because it requires establishing real connections (sessions, queries, lookups) rather than just probing.
 
+> 🧪 **Course folder for this module:** [modules/04-enumeration/](../modules/04-enumeration/README.md) — the
+> guide plus its facts sheet, practice questions, flashcards and lab walkthrough.
+
 > **Authorisation first.** Every technique on this page is legal **only** with explicit written authorisation from the system owner, performed inside an agreed scope and Rules of Engagement (RoE). Enumeration creates real connections and is highly visible in logs — doing it without permission is a crime in most jurisdictions. This page is conceptual, defence-oriented exam preparation. It names tools and explains their *purpose* (as the Certified Ethical Hacker (CEH) program does); it does **not** provide operational playbooks or exploit code. See [../00-overview/legal-and-ethics.md](../00-overview/legal-and-ethics.md).
 
 ## Learning objectives

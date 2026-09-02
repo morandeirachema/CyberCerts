@@ -2,6 +2,8 @@
 
 Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open while you study — many CEH questions hinge on knowing exactly what an acronym expands to and does. `[NN]` points to the most relevant [module](modules/README.md); `[dp]` points to the [defender-pam](defender-pam/README.md) knowledge base.
 
+> 📇 **See also:** the concept track's [glossary](reference/glossary.md) and [acronyms](reference/acronyms.md), and the repo-wide [PAM glossary](../../reference/glossary.md).
+
 > Comprehensive across all 20 modules. Missing a term? Add it in a PR.
 
 ---

@@ -2,6 +2,8 @@
 
 A dense, last-mile quick reference for the **Certified Ethical Hacker (CEH) v13** knowledge exam (code **312-50v13**). Use it for spaced review and final-week drilling, paired with the [study-plan.md](study-plan.md) and [practice-questions.md](practice-questions.md).
 
+> 🧾 **Hands-on cheatsheets:** the course's [cheatsheets/](../cheatsheets/README.md) (ports, nmap, Metasploit, hashcat, AD, web/SQLi, Wireshark…) complement this exam-day sheet.
+
 > This is a condensed reference, not a teaching page. Each line assumes you have already read the relevant module. Acronyms are expanded on first use.
 
 ## Exam-day facts
