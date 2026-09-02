@@ -1,0 +1,36 @@
+# CEH OT/ICS range — deliberately insecure industrial protocols, LOOPBACK ONLY.
+# MQTT and Modbus have NO authentication by design; this range lets you feel that
+# firsthand and map each finding to the PAM/segmentation control that contains it.
+# Pairs with modules/18-iot-and-ot-hacking/ and defender-pam/.
+#
+#   Bring up:  docker compose -f labs/ot/docker-compose.yml up -d
+#   Tear down: docker compose -f labs/ot/docker-compose.yml down -v
+#
+# ⛔ SAFETY: never point these tools at a real PLC/IoT device you do not own on an
+# isolated bench. A stray Modbus write can trip safety systems or damage equipment.
+
+name: ceh-ot-range
+
+services:
+  mqtt:
+    image: eclipse-mosquitto:2
+    container_name: ceh-mqtt
+    ports:
+      - "127.0.0.1:${MQTT_PORT:-1883}:1883"     # MQTT, cleartext + anonymous (lab)
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    restart: unless-stopped
+    networks: [ot]
+
+  modbus:
+    build: ./modbus
+    image: ceh-modbus-sim:latest
+    container_name: ceh-modbus
+    ports:
+      - "127.0.0.1:${MODBUS_PORT:-5020}:5020"    # Modbus/TCP (real PLCs use 502)
+    restart: unless-stopped
+    networks: [ot]
+
+networks:
+  ot:
+    driver: bridge
