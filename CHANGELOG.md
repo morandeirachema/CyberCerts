@@ -2,6 +2,36 @@
 
 Notable changes to this study repo. Dates are when the work landed on `main`.
 This is a documentation repo, so "changes" are content additions and corrections.
+Entries before 2026-09-02 come from the former *WallixCerts* repo this one grew out of.
+
+## 2026-09-02
+
+### Changed — repository merge: WallixCerts + CEH → CyberCerts
+- **Merged two study repos into one vendor-neutral hub** for the sysadmin → PAM architect
+  path: the multi-cert hub (formerly *WallixCerts*) is the base; the standalone *CEH* course
+  repo was merged under `certs/ceh/` with its full git history.
+- **Removed all WALLIX certification material** (`certs/wallix/`: cert tracks, product
+  portfolio, deep dives, labs, exam prep, career pages). Vendor PAM certifications (WALLIX,
+  CyberArk, Palo Alto Networks) are out of scope by design; vendors remain only as market
+  facts or a labelled architecture example.
+- **Scrubbed WALLIX references** from every remaining page: links into the deleted folder
+  were removed or redirected to vendor-neutral pages (`foundations/`,
+  `certs/ceh/defender-pam/`), WALLIX cert codes and product framing were rewritten
+  generically, and `prerequisites/linux-cli-for-wce-p.md` became
+  `linux-cli-for-pam-engineers.md`. `attack-to-defense-matrix.md` now maps attacks to
+  generic PAM controls.
+- **CEH hub = concept pages + full course.** `certs/ceh/README.md` combines both: the
+  domain concept pages sit beside the 20 module folders (guide, facts, questions,
+  flashcards, lab), the Kali course, the runnable lab, mock exams, the defender/PAM
+  knowledge base and the OT curriculum.
+- **New root README and roadmap** organised as a professional path, not a cert list: a
+  four-level ladder (sysadmin → PAM architect) with exit criteria, a ten-competency map
+  (learn · practise · prove), and the certification order — **CEH first**, then CySA+,
+  PenTest+/PNPT/OSCP, cloud security, CISSP.
+- **Tooling:** the CEH course CI moved to `.github/workflows/ceh-validate.yml` (runs inside
+  `certs/ceh/`); `scripts/check-docs.py` link-checks the CEH subtree but leaves its style
+  rules to `certs/ceh/scripts/validate.py`; `.gitignore` and `LICENSE` merged; `mkdocs.yml`
+  nav rebuilt; `CLAUDE.md`, `CONTRIBUTING.md`, `MAINTENANCE.md`, `SECURITY.md` rewritten.
 
 ## 2026-06-22
 

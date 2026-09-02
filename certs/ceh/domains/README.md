@@ -7,6 +7,10 @@ covers the **concepts**, a **Mermaid flow**, the **tools** (by purpose), and a
 > ⚖️ Techniques here are for **authorized, educational use only** — see
 > [legal & ethics](../00-overview/legal-and-ethics.md).
 
+> 📘 These are the **concept pages**. Each module also has a full **course folder** under
+> [modules/](../modules/README.md) — guide, facts sheet, practice questions, flashcards and a
+> lab walkthrough — and the [hub README](../README.md) links both side by side.
+
 | # | Module | Theme |
 |---|--------|-------|
 | 1 | [Introduction to Ethical Hacking](01-introduction-to-ethical-hacking.md) | CIA triad, kill chain, hacker classes, laws |

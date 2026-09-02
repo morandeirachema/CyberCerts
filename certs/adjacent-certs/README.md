@@ -5,7 +5,7 @@ these now have their **own full study hubs** (linked below); the pages here rema
 one-screen orientations — what each cert is, its scope, exam format, and where it fits a
 career path.
 
-> Full hubs in this repo: [WALLIX/PAM](../wallix/pam-bastion/README.md) · [CEH](../ceh/README.md) ·
+> Full hubs in this repo: [CEH](../ceh/README.md) ·
 > [Security+](../security-plus/README.md) · [CySA+](../cysa-plus/README.md) ·
 > [PenTest+](../pentest-plus/README.md) · [OSCP](../oscp/README.md) · [PNPT](../pnpt/README.md).
 
@@ -25,5 +25,5 @@ career path.
 > and **[PenTest+](../pentest-plus/README.md)** (vendor-neutral pentesting, PT0-003).
 
 See the **[learning roadmap](../../learning/roadmap.md)** for how these slot in around the
-CEH and WALLIX/PAM tracks, and the CEH hub's
+CEH and PAM tracks (CISSP and cloud security are the architect-level milestones), and the CEH hub's
 [career & adjacent certs](../ceh/career/ceh-career-and-adjacent-certs.md) page.

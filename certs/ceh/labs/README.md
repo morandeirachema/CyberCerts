@@ -11,6 +11,9 @@ A runnable practice range you fully control. Three layers:
 | **Capstone chain** | [`capstone.md`](capstone.md) | Full recon→Kerberoast→delegation→ADCS→DCSync→cover-tracks engagement | all AD modules |
 | **Blue-team lab** | [`blue-team-lab.md`](blue-team-lab.md) | Run the capstone attacks, then **detect** each in Sysmon/logs with Sigma | defender-pam, detection |
 
+> 📖 Design principles and the public practice ranges that complement this lab:
+> [building-a-ceh-lab.md](building-a-ceh-lab.md) · [practice-ranges.md](practice-ranges.md).
+
 > 🔒 **This lab is isolated on purpose.** These images are *deliberately vulnerable*. Keep them on a host-only / internal network, never bridge them to the internet or your production LAN, and never expose the published ports beyond localhost. See [`topology.md`](topology.md).
 
 ---

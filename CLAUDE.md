@@ -4,110 +4,83 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A **documentation-only repository** (pure Markdown, no source code, no build/test/lint
-tooling) — a **self-study hub** for a sysadmin moving into cybersecurity and specializing
-in Privileged Access Management (PAM) with the WALLIX suite and its
-[WALLIX Academy](https://www.wallix.com/support-services/wallix-academy/) certifications.
-There is nothing to build or run — work is editing `.md` files; validation is review/
-preview of Markdown only.
+A **documentation-first study hub** for a systems administrator moving toward a
+**Privileged Access Management (PAM) architect** role. It is **vendor-neutral**: PAM is
+taught as a discipline, and the certification hubs are exam-body certs (EC-Council CEH,
+CompTIA, OffSec, TCM Security, ISC2, cloud providers). It was formed on 2026-09-02 by merging
+two earlier repos: a multi-cert hub (formerly *WallixCerts*) and a standalone *CEH* course
+repo (now `certs/ceh/`, history preserved).
 
-**Folder layout (reorganized 2026-06):** all certification hubs live under one top-level
-**`certs/`** folder; shared knowledge stays at the repo root. So the top level is:
-`certs/`, `foundations/`, `prerequisites/`, `protocols/`, `reference/`, `learning/`,
-`attack-to-defense-matrix.md`, plus `scripts/`, `.github/`, and root docs.
+**Scope decision to respect:** vendor PAM certification tracks — **WALLIX, CyberArk,
+Palo Alto Networks** — are deliberately **excluded** and must not be re-added. Vendors may
+appear only as market facts (`foundations/pam-market-landscape.md`) or as a clearly
+labelled worked architecture example (`certs/ceh/defender-pam/pam-architecture.md`).
 
-- **`certs/`** — every cert hub, each self-contained with its own `README.md`:
-  - **`certs/wallix/`** (primary) — all WALLIX material: `overview/` (cert framework +
-    product portfolio), `pam-bastion/` · `iag/` · `idaas/` · `ot-pam4ot/` (the cert tracks),
-    `deep-dives/` (Bastion & suite internals), `labs/`, `exam-prep/`, `career/`.
-  - **`certs/ceh/`** (EC-Council CEH v13), **`certs/security-plus/`**, **`certs/cysa-plus/`**,
-    **`certs/pentest-plus/`** (CompTIA), **`certs/oscp/`** (OffSec PEN-200),
-    **`certs/pnpt/`** (TCM Security), and **`certs/adjacent-certs/`** (one-page overviews:
-    CISSP, cloud).
-- **Shared fundamentals at root** (every hub uses them): `foundations/` (PAM concepts) →
-  `prerequisites/` (Linux, AD, networking, crypto) → `protocols/` (Kerberos, TLS, SAML…
-  mechanisms), plus `reference/` (glossary, acronyms, compliance, sources) and `learning/`
-  (roadmap, platforms).
+**The owner's path:** WALLIX certs are behind them; **CEH is the current/next cert**, chosen
+to learn the fundamentals. The root `README.md` and `learning/roadmap.md` are organised as a
+*professional skill path* (four levels, ten competencies, certs as milestones), not a cert
+list — keep that framing when editing them.
 
-The suggested WALLIX reading order is foundations → prerequisites → `certs/wallix/`
-(products & certs → deep-dives → labs → exam-prep → career). Cross-folder links are relative
-(`../<folder>/<file>.md`); the root `README.md` is the whole-repo hub and `certs/README.md`
+## Folder layout
+
+- **`certs/`** — one self-contained hub per certification, each with its own `README.md`:
+  - **`certs/ceh/`** (primary) — two layers in one folder: the *concept pages*
+    (`00-overview/`, `domains/`, `tools/`, `exam-prep/`, `career/`, `reference/`,
+    `labs/building-a-ceh-lab.md`, `labs/practice-ranges.md`) and the *full course* merged
+    from the CEH repo (`modules/NN-*/` with `README` + `facts.md` + `practice-questions.md`
+    + `flashcards.csv` + `lab-walkthrough.md`, `kali/`, `labs/` infra, `practical/`,
+    `defender-pam/`, `ot-security/`, `cheatsheets/`, `resources/`, `scripts/`, and the
+    top-level `ROADMAP.md`, `STUDY-PLAN.md`, `EXAM-*.md`, `MOCK-EXAM*.md`, `RAPID-FIRE.md`,
+    `GLOSSARY.md`, `PROGRESS.md`, `KNOWN-LIMITATIONS.md`, `AI-*.md`, `BLUEPRINT-COVERAGE.md`,
+    `KALI-TUTORIAL.md`).
+  - `certs/security-plus/`, `certs/cysa-plus/`, `certs/pentest-plus/` (CompTIA),
+    `certs/oscp/` (OffSec), `certs/pnpt/` (TCM Security), `certs/adjacent-certs/`
+    (one-page overviews: CISSP, cloud security, plus short orientations).
+- **Shared fundamentals at root**: `foundations/` (PAM concepts, threats, market) →
+  `prerequisites/` (Linux, the PAM engineer's CLI, Windows/AD, networking, crypto) →
+  `protocols/` (Kerberos, AD, LDAP, RADIUS, TLS, SSH, SAML, OIDC mechanisms), plus
+  `reference/` (glossary, acronyms, compliance, sources), `learning/` (roadmap, platforms)
+  and `attack-to-defense-matrix.md` (CEH attacks ↔ PAM controls, MITRE ATT&CK IDs).
+- `scripts/` (quality gate, Mermaid wrapper, site builder), `.github/workflows/`, `mkdocs.yml`.
+
+Cross-folder links are relative (`../<folder>/<file>.md`; from `certs/<hub>/<section>/` the
+root is `../../../`). The root `README.md` is the whole-repo map and `certs/README.md`
 indexes the hubs.
 
-**Multiple certifications:** the repo is a multi-certification study collection.
-**WALLIX / PAM is the primary hub** (`certs/wallix/`). Keep each certification's material
-inside its own hub under `certs/`; all follow the same conventions
-(Mermaid-only diagrams, no fabrication, a `Sources` section per page). **CEH and the other
-offensive hubs' attack topics stay
-conceptual/defensive** — countermeasures + written-authorization framing, never weaponized
-how-tos.
+## Two gates, two conventions
 
-## Organizing principle: the certification taxonomy
+| Area | Gate | Run |
+|------|------|-----|
+| Everything except `certs/ceh/` | `scripts/check-docs.py` (`quality.yml`): no ASCII art, balanced fences, valid Mermaid with fit-to-text labels, a `## Sources` section per content page, zero broken links/anchors | `python3 scripts/check-docs.py` |
+| `certs/ceh/` | `certs/ceh/scripts/validate.py` (`ceh-validate.yml`, runs with `working-directory: certs/ceh`): links, anchors, Mermaid, flashcard CSVs; plus py_compile, docker compose config, Ansible YAML, ShellCheck | `cd certs/ceh && python3 scripts/validate.py` |
 
-The directory layout deliberately mirrors WALLIX's own certification taxonomy, so you
-must understand the taxonomy to know where content belongs:
-
-- **Three levels** build on each other: `WCA` (Administrator) → `WCP` (Professional) →
-  `WCE` (Expert).
-- **Code format** is `WC{level}-{track}`; an `e` prefix means the e-learning variant
-  (e.g. `eWCP-P`). Track suffixes: `P` = PAM/Bastion, `G` = IAG, `I` = IDaaS,
-  `P-OT` = OT.
-- Each **track** is a folder under `certs/wallix/` (`pam-bastion/`, `iag/`, `idaas/`,
-  `ot-pam4ot/`); each **certification** is one file inside it. `certs/wallix/overview/` holds
-  the cross-cutting framework doc and the product-portfolio technical reference.
-
-Known wrinkle to preserve: the WALLIX **website and the catalog use inconsistent codes**
-(e.g. `WCP-G` vs `eWCP-G`, `WCP-I` vs `eWCP-I`). Document both rather than "correcting"
-one.
-
-## Per-certification doc convention
-
-When adding or editing a certification doc, follow the established structure (see
-`certs/wallix/pam-bastion/wcp-p-professional.md` as the canonical example): a title + summary
-table (code / level / product / duration / format / prerequisite / exam / status),
-then **Target audience → Prerequisites → Objective → Curriculum/modules (as a table) →
-Lab environment → Assessment → Path/links → Sources**. Curricula are transcribed module-
-by-module from the catalog, including lab names.
+`check-docs.py` still **link-checks** `certs/ceh/` (so cross-links between the two layers
+stay valid) but does not apply its style rules there (`STYLE_EXEMPT_DIRS`); the CEH
+template `modules/00-TEMPLATE.md` is skipped for links. Run **both** gates before committing.
 
 ## Sourcing discipline (most important)
 
-This is a factual reference, so accuracy rules over completeness. **NO FABRICATION is a
-hard rule** (the repo owner insists): never invent facts, figures, dates, URLs, product
-behaviors, or exam questions presented as real. Every claim traces to a cited source or
-is clearly labeled as a pedagogical example/estimate.
+**NO FABRICATION is a hard rule** (the repo owner insists): never invent facts, figures,
+dates, URLs, product behaviors, or exam questions presented as real. Every claim traces to a
+cited source or is clearly labeled as a pedagogical example/estimate.
 
-- The **primary source** is the official training catalog
-  (`WALLIX_TRAINING_2025-2026_ENG.pdf`); the live Academy page and product docs are
-  secondary. Every doc ends with a **Sources** list of the URLs actually used.
-- Where a fact is unknown, write **"not specified in sources"** — never invent it.
-  (Notably, WALLIX does not publish exam question counts or certification validity
-  periods; keep these marked as unspecified.)
-- **Flag uncertainties inline.** The product portfolio's "Key uncertainties" section is
-  the model. Established corrections to preserve: inWebo is a *technology partner* (not
-  acquired); WALLIX IAG = the acquired *Kleverware* product; PAM4OT is *Bastion packaged
-  for OT*, not a separate engine; Bastion has ANSSI CSPN + BSI BSZ but no confirmed
-  Common Criteria EAL.
-- When a doc cites a WALLIX PDF whose served version differs from its URL label, note the
-  served version (the portfolio doc does this for Bastion 12.3.2 and Access Manager
-  5.2.4.0).
-
-## Scope decision to respect
-
-The **EPM / `WCP-E` (BestSafe) certification is intentionally excluded** — it was
-"FUTURE" in the 2023 catalog and absent from the current one. BestSafe remains in
-`certs/wallix/overview/product-portfolio.md` as a current *product*, but do not re-add it as a
-certification track unless WALLIX publishes one.
+- Exam specifics come from the exam body (EC-Council, CompTIA, OffSec, TCM, ISC2, Microsoft,
+  AWS). Where a fact is unknown, write **"not specified in sources"**. The CEH hub
+  deliberately does **not** print blueprint domain weights (public sources disagree).
+- Practice questions are **original**, never dumps.
+- Every content page outside `certs/ceh/` ends with a **Sources** list of the URLs used.
 
 ## Conventions
 
-- **Diagrams are always Mermaid, never ASCII art.** Author every diagram as a
-  GitHub-rendered ` ```mermaid ` block (`flowchart`, `sequenceDiagram`, `erDiagram`,
-  `quadrantChart`, `timeline`). Quote labels with special chars (`id["a/b (c)"]`), use
-  `<br/>` for line breaks, keep node IDs alphanumeric, and avoid reserved words (`end`,
-  `graph`, `subgraph`) as IDs. Leave genuine code/CLI/config blocks as code. The repo was
-  fully converted to Mermaid — keep it that way. See CONTRIBUTING.md for the type table.
-- **Cross-link with relative paths** between docs; link into the product portfolio using
-  its section anchors (e.g. `product-portfolio.md#3-wallix-trustelem-...`).
-- **Dates** are written absolute (e.g. "2026-06-17"), not relative.
+- **Diagrams are always Mermaid, never ASCII art.** Quote labels with special chars, use
+  `<br/>` for line breaks (each line ≤ ~36–44 chars; `scripts/wrap-mermaid-labels.py`
+  auto-wraps), alphanumeric node IDs, no reserved words (`end`, `graph`, `subgraph`) as IDs.
+- **Offensive content stays conceptual/defensive** — countermeasures and written-authorization
+  framing, never weaponized how-tos; hands-on work goes to the isolated `certs/ceh/labs/`.
+- **Dates** are written absolute (e.g. "2026-09-02"), not relative.
 - **Commits:** do not include any author/tool attribution lines (no "Co-Authored-By",
   no Claude references) — repo-wide convention.
+- When adding a page: put it in the right hub/section, add it to that folder's `README.md`
+  index and (if it belongs in the site nav) to `mkdocs.yml`; new sources go to
+  `reference/sources.md`. New cert hubs also go on the path in the root `README.md`,
+  `certs/README.md` and `learning/roadmap.md`.

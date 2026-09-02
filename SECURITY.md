@@ -6,8 +6,9 @@ and **factual accuracy**, not software vulnerabilities.
 
 ## Responsible / authorized use
 
-Parts of this repo (notably the [CEH hub](certs/ceh/README.md)) explain **offensive** security
-concepts. They are written at an **educational, defense-oriented** level and paired with
+Parts of this repo (notably the [CEH hub](certs/ceh/README.md) and the other offensive
+hubs) explain **offensive** security concepts and ship a deliberately vulnerable
+[self-hosted lab](certs/ceh/labs/README.md) — keep it isolated from any real network. They are written at an **educational, defense-oriented** level and paired with
 countermeasures. Any hands-on use of these techniques is legal **only** against systems you
 own or are **explicitly authorized in writing** to test. See
 [CEH → legal & ethics](certs/ceh/00-overview/legal-and-ethics.md). The maintainers do not condone
@@ -18,7 +19,7 @@ unauthorized access.
 There's no software to exploit here, so there's nothing to disclose privately. Instead:
 
 - **Factual error, outdated fact, or unsupported claim** → open a
-  [content-correction issue](https://github.com/morandeirachema/WallixCerts/issues/new?template=content-correction.md) and include
+  [content-correction issue](https://github.com/morandeirachema/CyberCerts/issues/new?template=content-correction.md) and include
   the page, the claim, and a citable source. Accuracy is the whole point of this repo
   (see the no-fabrication rule in [CONTRIBUTING.md](CONTRIBUTING.md)).
 - **Broken link, diagram, or build problem** → open a regular issue.

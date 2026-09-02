@@ -1,12 +1,12 @@
 # Learning — roadmap & platforms
 
-Where to start and where to practice — the cross-cutting guides that tie the repo's hubs
-(WALLIX/PAM, CEH, protocols, adjacent certs) into one journey.
+Where to start and where to practise — the cross-cutting guides that tie the repo's hubs
+(PAM foundations, protocols, CEH and the other certs) into one professional journey.
 
 | Page | What it gives you |
 |------|-------------------|
-| [Roadmap](roadmap.md) | A suggested cybersecurity certification path — foundations → Security+ → CEH / WALLIX-PAM → OSCP / PNPT / cloud → CISSP — with each stage mapped to repo sections |
-| [Platforms](platforms.md) | The best free & paid platforms to study and practice (TryHackMe, Hack The Box, PortSwigger, blue-team ranges, CTFs, cloud labs…), grouped by purpose and mapped to the path |
+| [Roadmap](roadmap.md) | The sysadmin → PAM architect ladder: four professional levels with exit criteria, a ten-competency map (learn · practise · prove), and the certification order — **CEH first**, then CySA+, PenTest+/PNPT/OSCP, cloud security, CISSP — each mapped to repo sections |
+| [Platforms](platforms.md) | The best free & paid platforms to study and practise (TryHackMe, Hack The Box, PortSwigger, blue-team ranges, CTFs, cloud labs…), grouped by purpose and mapped to the path |
 
-See also the [Attack → Defense matrix](../attack-to-defense-matrix.md) and the
-[main hub](../README.md).
+See also the [Attack → Defense matrix](../attack-to-defense-matrix.md), the self-hosted
+[CEH lab](../certs/ceh/labs/README.md), and the [main hub](../README.md).

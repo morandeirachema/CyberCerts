@@ -1,30 +1,38 @@
 # Contributing
 
-This repo is an **unofficial, source-grounded study hub** for WALLIX and Privileged
-Access Management (PAM). Contributions are welcome — but accuracy is the whole point of
-the project, so please follow these rules.
+This repo is an **unofficial, source-grounded, vendor-neutral study hub** for a sysadmin
+moving toward a Privileged Access Management (PAM) architect role. Contributions are
+welcome — but accuracy is the whole point of the project, so please follow these rules.
 
 ## The one hard rule: no fabrication
 
 **Never invent facts, figures, dates, URLs, product behaviors, or exam questions
 presented as real.** Every factual claim must either:
 
-- trace to a cited official source (WALLIX docs, standards bodies, vendor pages), or
+- trace to a cited official source (exam-body pages, standards bodies, RFCs, vendor docs), or
 - be clearly labeled as a pedagogical example, estimate, or "suggested" value.
 
 If you don't know something, write **"not specified in sources"** — do not guess. Flag
-any uncertainty inline. Practice questions must carry the disclaimer that they are
-unofficial study aids, not real exam content.
+any uncertainty inline. Practice questions must be original and carry the disclaimer that
+they are unofficial study aids, not real exam content — **never exam dumps**.
+
+## Scope
+
+- **In scope:** vendor-neutral PAM / identity-security knowledge, the protocols beneath it,
+  and study hubs for vendor-neutral or exam-body certifications (EC-Council, CompTIA,
+  OffSec, TCM Security, ISC2, cloud-provider security certs).
+- **Out of scope by design:** vendor PAM certification tracks (WALLIX, CyberArk,
+  Palo Alto Networks, …). Vendors may appear as market facts (analyst placements) or as a
+  clearly labelled worked architecture example, never as a certification hub.
 
 ## Sourcing
 
-- Prefer **official WALLIX documentation** for product specifics: the
-  [training catalog](https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf),
-  `wallix.com`, `pam.wallix.one`, `trustelem-doc.wallix.com`. Use reputable sources
-  (NIST, MITRE ATT&CK, RFCs, ENISA, standards bodies, analyst press) for general topics.
-- **Every page ends with a `## Sources` section** listing the URLs actually used.
-- When citing a WALLIX PDF whose served version differs from its URL label, note the
-  served version (e.g. Bastion Admin Guide served as v12.3.2).
+- Prefer the **exam body's official pages** for cert specifics (EC-Council, CompTIA, OffSec,
+  TCM Security, ISC2, Microsoft, AWS). Use reputable sources (NIST, MITRE ATT&CK, RFCs,
+  ENISA, standards bodies, analyst press) for general topics.
+- **Every content page ends with a `## Sources` section** listing the URLs actually used.
+  (The CEH course under `certs/ceh/` follows its own conventions — see below.)
+- When citing a PDF whose served version differs from its URL label, note the served version.
 
 ## Page conventions
 
@@ -33,16 +41,16 @@ unofficial study aids, not real exam content.
 - Lean into the three things this repo is built around: **concepts** explained from first
   principles, **flows** (diagrams — see the Diagrams rule below), and **acronyms** (expand
   every acronym on first use, e.g. "Privileged Access Management (PAM)").
-- Use tables, lists, and fenced code blocks. Write **dates absolute** (e.g. `2026-06-17`).
+- Use tables, lists, and fenced code blocks. Write **dates absolute** (e.g. `2026-09-02`).
 - **Cross-link with relative paths.** Top-level folders are siblings, so use
-  `../<folder>/<file>.md`. Don't duplicate the product portfolio — link to it and go deeper.
+  `../<folder>/<file>.md`; from inside a cert hub, count the depth (`../../../` from
+  `certs/<hub>/<section>/`).
 - No author or tool attribution anywhere in files **or commit messages**.
 
 ### Diagrams — always Mermaid, never ASCII art
 
 Author **every diagram as a GitHub-rendered [Mermaid](https://mermaid.js.org/) block**
-(` ```mermaid `). Do **not** use ASCII / box-drawing art — the whole repo was converted to
-Mermaid and new diagrams must match. Pick the fitting type:
+(` ```mermaid `). Do **not** use ASCII / box-drawing art. Pick the fitting type:
 
 | Use for | Mermaid type |
 |---------|--------------|
@@ -57,21 +65,36 @@ Syntax rules so it renders on GitHub: quote labels containing spaces/special cha
 never use reserved words (`end`, `graph`, `subgraph`) as IDs. Leave genuine
 code/CLI/config blocks as code. Translate faithfully — never invent steps or facts.
 
-**Boxes must fit their text.** Mermaid sizes a node box to its widest line, so keep each
-node-label line short (≈ ≤ 36 characters) and **wrap long labels with `<br/>`** into a few
-short lines. Run **`python scripts/wrap-mermaid-labels.py`** to auto-wrap them; the quality
-gate (`scripts/check-docs.py`) fails on over-wide flowchart labels.
+**Boxes must fit their text.** Keep each node-label line short (≈ ≤ 36 characters) and
+**wrap long labels with `<br/>`**. Run **`python scripts/wrap-mermaid-labels.py`** to
+auto-wrap them; the quality gate (`scripts/check-docs.py`) fails on over-wide flowchart labels.
+
+## Two gates, two conventions
+
+| Area | Gate | Conventions |
+|------|------|-------------|
+| Everything except `certs/ceh/` | [`scripts/check-docs.py`](scripts/check-docs.py) (workflow `quality.yml`) | Rules above: Mermaid only, no ASCII, a `## Sources` per content page, fit-to-text labels, zero broken links |
+| `certs/ceh/` (the merged CEH course) | [`certs/ceh/scripts/validate.py`](certs/ceh/scripts/validate.py) (workflow `ceh-validate.yml`) + link-checking by `check-docs.py` | Its own structure: per-module `README` + `facts.md` + `practice-questions.md` + `flashcards.csv` + `lab-walkthrough.md`; see [`certs/ceh/KNOWN-LIMITATIONS.md`](certs/ceh/KNOWN-LIMITATIONS.md) and [`certs/ceh/scripts/README.md`](certs/ceh/scripts/README.md) |
+
+Run both locally before committing:
+
+```bash
+python3 scripts/check-docs.py
+(cd certs/ceh && python3 scripts/validate.py)
+```
 
 ## Adding a new page
 
-1. Put it in the right section folder. WALLIX material goes under `certs/wallix/`
-   (`certs/wallix/overview/`, `certs/wallix/pam-bastion/`, `certs/wallix/deep-dives/`, `certs/wallix/labs/`,
-   `certs/wallix/exam-prep/`, `certs/wallix/career/`); shared fundamentals stay at the root
-   (`foundations/`, `prerequisites/`, `protocols/`, `reference/`); other certs are their
-   own hubs under `certs/` (`certs/ceh/`, `certs/security-plus/`, `certs/cysa-plus/`, `certs/pentest-plus/`, `certs/oscp/`, `certs/pnpt/`).
-2. Add a row for it in that folder's `README.md` index.
-3. If it's a new certification, follow the structure of
-   `certs/wallix/pam-bastion/wcp-p-professional.md` and add it to the matrix in the root `README.md`.
+1. Put it in the right folder. Shared fundamentals stay at the root (`foundations/`,
+   `prerequisites/`, `protocols/`, `reference/`, `learning/`); each certification is its own
+   hub under `certs/` (`certs/ceh/`, `certs/security-plus/`, `certs/cysa-plus/`,
+   `certs/pentest-plus/`, `certs/oscp/`, `certs/pnpt/`, `certs/adjacent-certs/`).
+2. Add a row for it in that folder's `README.md` index (and in `mkdocs.yml` if it should
+   appear in the site nav).
+3. If it's a new certification hub, mirror an existing hub's structure
+   (`00-overview/` → `domains/` → `exam-prep/` → `reference/`), add it to
+   `certs/README.md`, and place it on the path in the root `README.md` and
+   `learning/roadmap.md`.
 4. Add any new authoritative URLs to `reference/sources.md`.
 
 ## Periodic verification checklist
@@ -79,22 +102,22 @@ gate (`scripts/check-docs.py`) fails on over-wide flowchart labels.
 Some facts drift over time. Re-check these against primary sources before relying on them,
 and update the affected pages + their `## Sources`:
 
-- [ ] **WALLIX training catalog year** — currently the 2025–2026 catalog. Check for a newer edition.
-- [ ] **Certification validity period & exam question counts** — *not specified in sources*; check if WALLIX ever publishes them.
-- [ ] **Website-vs-catalog code mismatch** (`WCP-G` vs `eWCP-G`, etc.) — confirm it still exists.
-- [ ] **WCA-G (IAG Administrator)** — listed "coming soon"; check if it has launched.
+- [ ] **Exam versions and codes** — CEH v13 (312-50), Security+ SY0-701, CySA+ CS0-003,
+      PenTest+ PT0-003, OSCP/OSCP+ (PEN-200), PNPT, CISSP; check for newer versions and
+      retirement dates on each provider's site.
+- [ ] **Exam logistics** (question counts, durations, cut scores, prices) — verify on the
+      provider before booking; the CEH hub's `EXAM-LOGISTICS.md` is the model.
 - [ ] **Analyst placements (change yearly):** Gartner Magic Quadrant for PAM and
-      KuppingerCole Leadership Compass for PAM — update WALLIX's position and the year.
-- [ ] **WALLIX product doc versions** referenced in `certs/wallix/deep-dives/` (Bastion 12.3.2, Access
-      Manager 5.2.4.0, Deployment 12.0.2) — note newer served versions.
-- [ ] **WALLIX product security certifications** — ANSSI CSPN / BSI BSZ versions and dates.
-- [ ] **Adjacent certifications** flagged as time-sensitive in `certs/wallix/career/`: Microsoft
-      **AZ-500** (retirement date), **(ISC)² CC** (outline refresh), and the exact program
-      names for CyberArk / Delinea / One Identity — verify on each provider's site.
+      KuppingerCole Leadership Compass for PAM — update `foundations/pam-market-landscape.md`.
+- [ ] **Cloud certs** flagged as time-sensitive in `certs/adjacent-certs/`: Microsoft
+      **AZ-500** (retirement date) and the AWS Security specialty.
+- [ ] **Regulations** in `reference/compliance-and-standards.md` — NIS2 transposition
+      status, DORA, ISO 27001 edition.
 
 ## License & disclaimer
 
 By contributing you agree to license your contribution under the repository's
-[LICENSE](LICENSE). This project is **not affiliated with or endorsed by WALLIX**;
-"WALLIX", "Bastion", "Trustelem", "BestSafe", and related names are trademarks of their
-respective owners and are used here for identification and educational purposes only.
+[LICENSE](LICENSE). This project is **not affiliated with or endorsed by** EC-Council,
+CompTIA, OffSec, TCM Security, ISC2, or any PAM vendor; certification and product names
+are trademarks of their respective owners and are used here for identification and
+educational purposes only.

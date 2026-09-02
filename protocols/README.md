@@ -7,7 +7,7 @@ encrypted and how*. Every page is grounded in the relevant RFCs/standards and us
 
 These are the protocols a Privileged Access Management (PAM) engineer, an ethical hacker,
 and a sysadmin all need to reason about — they show up across the
-[WALLIX/PAM](../certs/wallix/pam-bastion/README.md) and [CEH](../certs/ceh/README.md) hubs.
+[PAM foundations](../foundations/README.md) and the [CEH](../certs/ceh/README.md) hub.
 
 ## Pages
 
@@ -44,4 +44,5 @@ Active Directory **is** a directory service that combines Kerberos (authenticati
 
 - Crypto building blocks (symmetric/asymmetric, hashing, PKI): [cryptography & PKI](../prerequisites/cryptography-and-pki.md).
 - Ports & a protocol-family overview: [networking & protocols](../prerequisites/networking-and-protocols.md).
-- How WALLIX Bastion / Access Manager use these for auth: [authentication & Access Manager](../certs/wallix/deep-dives/authentication-and-access-manager.md).
+- How a PAM platform uses them — session brokering, vault access, federated login, tiering: [PAM playbook](../certs/ceh/defender-pam/pam-playbook.md) and [reference architecture](../certs/ceh/defender-pam/pam-architecture.md).
+- The attacks against them — Kerberoasting, delegation abuse, token theft: [identity attack paths](../certs/ceh/defender-pam/identity-attack-paths.md).

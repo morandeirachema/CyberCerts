@@ -33,7 +33,7 @@ cd ~/engagements/acme-2026
 | `exploits/` | Scripts and payloads you wrote or downloaded for this job |
 | `report/` | The deliverable(s) you'll actually send |
 
-**Keep `loot/` out of git.** Password hashes and captured traffic must never land in a public (or even private) repo by accident. This course's [`.gitignore`](../.gitignore) already ignores the dangerous folders — mirror that habit in your own engagement repos:
+**Keep `loot/` out of git.** Password hashes and captured traffic must never land in a public (or even private) repo by accident. This course's [`.gitignore`](../../../.gitignore) already ignores the dangerous folders — mirror that habit in your own engagement repos:
 
 ```gitignore
 # never commit stolen data or secrets
