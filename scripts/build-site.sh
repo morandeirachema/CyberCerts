@@ -11,14 +11,19 @@ cd "$(dirname "$0")/.."
 
 rm -rf site-src
 mkdir -p site-src
+# Scripts and workflow files are copied too (as plain static files) so that the
+# pages that link to them (README, CONTRIBUTING, MAINTENANCE, certs/ceh/*) resolve
+# on the site as well as on GitHub. Issue/PR templates are left out.
 rsync -a \
-  --exclude '.git' \
-  --exclude '.github' \
+  --exclude '/.git' \
+  --include '/.github/' \
+  --include '/.github/workflows/***' \
+  --exclude '/.github/*' \
   --exclude '.claude' \
-  --exclude 'site' \
-  --exclude 'site-src' \
-  --exclude 'scripts' \
-  --exclude 'mkdocs.yml' \
+  --exclude '/site' \
+  --exclude '/site-src' \
+  --exclude '/mkdocs.yml' \
+  --exclude '__pycache__' \
   ./ site-src/
 
 echo "Populated ./site-src — now run: mkdocs build  (or mkdocs serve / mkdocs gh-deploy --force)"

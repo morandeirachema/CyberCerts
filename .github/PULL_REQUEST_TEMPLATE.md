@@ -11,4 +11,6 @@ Briefly describe the addition/fix and which page(s) it touches.
 - [ ] Each new/changed page ends with a **`## Sources`** section.
 - [ ] Diagrams are **Mermaid**, never ASCII art.
 - [ ] Acronyms are expanded on first use; cross-links are **relative** and resolve.
-- [ ] I ran the quality gate locally: `python scripts/check-docs.py` (passes).
+- [ ] I ran both gates locally and they pass: `python3 scripts/check-docs.py` and
+      `(cd certs/ceh && python3 scripts/validate.py)`.
+- [ ] Nothing vendor-certification-specific (WALLIX / CyberArk / Palo Alto tracks) was added — see the scope note in `CONTRIBUTING.md`.

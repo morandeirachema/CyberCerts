@@ -24,5 +24,7 @@ jobs:
         run: pip install mkdocs-material
       - name: Assemble docs_dir (content lives at repo root)
         run: bash scripts/build-site.sh
-      - name: Build and deploy to gh-pages
+      - name: Build strictly (any unresolved link or nav problem fails the job)
+        run: mkdocs build --strict
+      - name: Deploy to gh-pages
         run: mkdocs gh-deploy --force
