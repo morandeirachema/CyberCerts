@@ -35,6 +35,12 @@ SOURCES_EXEMPT = {
     'README.md', 'CLAUDE.md', 'CONTRIBUTING.md', 'CHANGELOG.md',
     'SECURITY.md', 'LICENSE', 'MAINTENANCE.md',
 }
+# The CEH course (merged from its own repo) follows its own conventions and has
+# its own gate (certs/ceh/scripts/validate.py, run by ceh-validate.yml). Its
+# links are still checked here; the style rules (ASCII, Sources, label width)
+# are not enforced on it.
+STYLE_EXEMPT_DIRS = ('certs/ceh/',)
+LINK_SKIP = {'certs/ceh/modules/00-TEMPLATE.md'}  # placeholder paths by design
 
 ASCII_RE = re.compile(r'[─-╿▀-▟]|\+--|--\+')
 LINK_RE = re.compile(r'(?<!\!)\[[^\]]*\]\(([^)]+)\)')
@@ -69,9 +75,10 @@ issues = []
 for f in MD:
     text = open(f, encoding='utf-8').read()
     lines = text.splitlines()
+    style = not f.startswith(STYLE_EXEMPT_DIRS)
 
     for i, line in enumerate(lines, 1):
-        if ASCII_RE.search(line):
+        if style and ASCII_RE.search(line):
             issues.append(f"ASCII art: {f}:{i}")
             break
 
@@ -87,15 +94,17 @@ for f in MD:
             if re.match(r'\s*(end|subgraph|graph)\s*[\[\(]', line):
                 issues.append(f"Reserved word as Mermaid node id: {f}: {line.strip()[:40]}")
         # Flowchart node boxes should fit their text: no over-wide single label line.
-        if first.startswith(('flowchart', 'graph')):
+        if style and first.startswith(('flowchart', 'graph')):
             for _opener, label in re.findall(r'([\[({]+)"([^"]*)"', body):
                 for seg in label.split('<br/>'):
                     if len(seg) > 44 and ' ' in seg.strip():
                         issues.append(f"Over-wide Mermaid label (wrap with <br/>): {f}: {seg[:48]!r}")
 
-    if os.path.basename(f) not in SOURCES_EXEMPT and not re.search(r'(?im)^#+\s*sources\b', text):
+    if style and os.path.basename(f) not in SOURCES_EXEMPT and not re.search(r'(?im)^#+\s*sources\b', text):
         issues.append(f"Missing Sources section: {f}")
 
+    if f in LINK_SKIP:
+        continue
     d = os.path.dirname(f)
     for ln, line in enumerate(lines, 1):
         for tgt in LINK_RE.findall(line):

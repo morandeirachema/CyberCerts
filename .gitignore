@@ -16,3 +16,37 @@ CLAUDE.local.md
 # MkDocs build output / assembled docs_dir
 site/
 site-src/
+
+# --- CEH course (certs/ceh/) — lab & VM artifacts
+.vagrant/
+*.box
+*.vdi
+*.vmdk
+*.log
+certs/ceh/labs/ansible/*.retry
+certs/ceh/labs/ansible/vault-password*
+*.vault
+
+# Secrets & local env (never commit)
+.env
+*.pem
+*.key
+*.crt
+credentials*
+loot/
+captures/
+*.pcap
+*.pcapng
+*.hccapx
+*.cap
+hashes.txt
+cracked.txt
+
+# Tooling
+__pycache__/
+*.pyc
+node_modules/
+
+# Generated Anki decks
+anki-decks/
+*.apkg

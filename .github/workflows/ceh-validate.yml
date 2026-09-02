@@ -1,4 +1,7 @@
-name: validate
+name: CEH course validation
+
+# The CEH course under certs/ceh/ keeps its own integrity gate (links, anchors,
+# Mermaid, flashcard CSVs, lab configs, shell scripts). Runs from that folder.
 
 on:
   push:
@@ -6,9 +9,13 @@ on:
   pull_request:
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: certs/ceh
+
 jobs:
   integrity:
-    name: Repo integrity, scripts, lab configs
+    name: CEH course integrity, scripts, lab configs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
