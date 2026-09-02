@@ -74,7 +74,7 @@ A common progression is **CEH for breadth/methodology vocabulary → a practical
 
 - **Budget-friendly stepping stone:** the TCM Security **PNPT** is frequently used as a more affordable, also-practical lead-in or alternative to OSCP — see [pnpt.md](pnpt.md).
 - **Foundational baseline first:** if you lack a vendor-neutral security baseline, [security-plus.md](security-plus.md) comes earlier.
-- **Relative to WALLIX / Privileged Access Management (PAM):** OSCP's AD-attack and privilege-escalation focus is exactly the lateral-movement and credential-abuse activity that PAM platforms such as WALLIX are designed to constrain — useful attacker context for defenders deploying PAM.
+- **Relative to Privileged Access Management (PAM):** OSCP's AD-attack and privilege-escalation focus is exactly the lateral-movement and credential-abuse activity that PAM platforms are designed to constrain — useful attacker context for defenders deploying PAM.
 
 ```mermaid
 flowchart LR
@@ -82,7 +82,7 @@ flowchart LR
     CEHnode --> PNPTnode["PNPT<br/>(practical, budget-friendly)"]
     PNPTnode --> OSCPnode["OSCP / OSCP+<br/>(hands-on depth, 24h)"]
     OSCPnode --> Senior(["Senior offensive / red-team roles"])
-    OSCPnode -.->|"AD attacks & priv-esc context"| PAM["WALLIX / PAM hub"]
+    OSCPnode -.->|"AD attacks & priv-esc context"| PAM["PAM / identity security"]
 ```
 
 ## Study resources

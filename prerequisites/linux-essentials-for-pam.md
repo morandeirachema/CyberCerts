@@ -1,16 +1,16 @@
 # Linux Essentials for PAM
 
 A sysadmin's bridge into Privileged Access Management (PAM) starts with Linux,
-because the **WALLIX Bastion** is a **Debian-based GNU/Linux appliance**. It boots
-Linux, runs Linux services (`syslog-ng`, `redemption`, MariaDB), proxies **Secure
-Shell (SSH)** connections, and exposes a Linux command-line interface (CLI) that the
-**WCE-P** (WALLIX Certified Expert – PAM) certification explicitly requires you to
-know. This file teaches the Linux building blocks you will lean on every day and ties
-each one to *how Bastion uses it*.
+because almost every **PAM bastion / session proxy** ships as a **GNU/Linux appliance**
+(typically Debian- or RHEL-derived). It boots Linux, runs Linux services (a syslog
+daemon, the proxy engines, a database), proxies **Secure Shell (SSH)** connections, and
+exposes a Linux command-line interface (CLI) that expert-level PAM administration
+explicitly requires you to know. This file teaches the Linux building blocks you will
+lean on every day and ties each one to *how a PAM bastion uses it*.
 
 > **Acronym warning (read this twice):** In the Linux world, **PAM = Pluggable
 > Authentication Modules** — a local authentication framework (`/etc/pam.d/`). In *our*
-> world, **PAM = Privileged Access Management** — the WALLIX product category. Same
+> world, **PAM = Privileged Access Management** — the security product category. Same
 > three letters, completely different things. This file flags which is meant every
 > time. See [../reference/acronyms.md](../reference/acronyms.md).
 
@@ -24,9 +24,9 @@ By the end of this file you should be able to:
 - Manage Linux **users, groups, and file permissions**.
 - Describe **systemd** services and how to inspect them.
 - Find logs via **journald** and `/var/log`.
-- Disambiguate **Linux PAM** (Pluggable Authentication Modules) from **WALLIX PAM**
+- Disambiguate **Linux PAM** (Pluggable Authentication Modules) from **PAM**
   (Privileged Access Management).
-- Map each concept to a concrete behaviour of the WALLIX Bastion appliance.
+- Map each concept to a concrete behaviour of a PAM bastion appliance.
 
 ---
 
@@ -49,17 +49,17 @@ ssh alice@server.example.com
 ssh -p 2222 alice@server.example.com
 ```
 
-### Why this matters for Bastion
+### Why this matters for a PAM bastion
 
-The WALLIX Bastion **Session Manager** is, at heart, an **SSH proxy** (plus RDP, VNC,
-Telnet, etc.). The administrator's `ssh` client connects to the *Bastion*, not the
-target. The Bastion authenticates the admin, then opens a *second* SSH connection to
+A PAM bastion's **session manager** is, at heart, an **SSH proxy** (plus RDP, VNC,
+Telnet, etc.). The administrator's `ssh` client connects to the *bastion*, not the
+target. The bastion authenticates the admin, then opens a *second* SSH connection to
 the real target on the admin's behalf, injecting the vaulted credential. The admin
 never learns the target password. Two SSH legs, one broker in the middle:
 
 ```mermaid
 flowchart LR
-    Admin["Admin<br/>ssh client<br/>(own identity)"] -->|"SSH leg 1<br/>port 22 — admin login"| Bastion["WALLIX Bastion<br/>(proxy)<br/>recorded + audited"]
+    Admin["Admin<br/>ssh client<br/>(own identity)"] -->|"SSH leg 1<br/>port 22 — admin login"| Bastion["PAM bastion<br/>(proxy)<br/>recorded + audited"]
     Bastion -->|"SSH leg 2<br/>port 22 — injected target account"| Target["Target server"]
 ```
 
@@ -123,10 +123,10 @@ AllowGroups ssh-users           # only members of this group may connect
 
 Reload after editing: `sudo systemctl reload sshd` (see systemd below).
 
-> **Bastion tie-in:** Bastion **rotates** the SSH keys it stores for target accounts
-> and supports SSH **sub-protocols** (shell, SCP, SFTP, X11, direct-TCPIP) that you can
-> allow or deny per authorization. Understanding `sshd_config` on the *target* side
-> helps you grasp what Bastion is negotiating on the second SSH leg.
+> **PAM tie-in:** A PAM bastion **rotates** the SSH keys it stores for target accounts
+> and typically lets you allow or deny SSH **sub-protocols** (shell, SCP, SFTP, X11,
+> direct-TCPIP) per authorization. Understanding `sshd_config` on the *target* side
+> helps you grasp what the bastion is negotiating on the second SSH leg.
 
 #### `known_hosts` — trusting server identities
 
@@ -139,8 +139,8 @@ it changed, SSH warns of a possible **man-in-the-middle (MITM)** attack.
 ssh-keygen -R server.example.com
 ```
 
-> **Bastion tie-in:** Bastion maintains its own known-hosts trust for the *target* leg
-> and can pin/verify target host keys, protecting the Bastion→target hop from MITM.
+> **PAM tie-in:** A PAM bastion maintains its own known-hosts trust for the *target* leg
+> and can pin/verify target host keys, protecting the bastion→target hop from MITM.
 
 ---
 
@@ -168,11 +168,12 @@ with `visudo`) says exactly which user may run which command as whom:
 alice  ALL=(root) NOPASSWD: /usr/bin/systemctl restart nginx
 ```
 
-> **Bastion tie-in:** Bastion has **scenario accounts** that automate `su`/`sudo` at the
-> start of an SSH session — e.g., log in as an unprivileged account, then auto-elevate
-> to root using a vaulted password the user never sees. This is least-privilege +
-> credential injection in action. (Endpoint-side elevation is BestSafe's job; see the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).)
+> **PAM tie-in:** Most PAM bastions support **login scenarios** that automate `su`/`sudo`
+> at the start of an SSH session — e.g., log in as an unprivileged account, then
+> auto-elevate to root using a vaulted password the user never sees. This is
+> least-privilege + credential injection in action. (Endpoint-side elevation is the job
+> of an **Endpoint Privilege Management (EPM)** tool — see
+> [../foundations/pam-iam-iga-idaas-epm.md](../foundations/pam-iam-iga-idaas-epm.md).)
 
 ---
 
@@ -217,7 +218,7 @@ chown alice:alice file.txt     # change owner and group
 `chmod 600` = owner read+write (6), group nothing (0), others nothing (0). SSH will
 **refuse to use a private key** that other users can read — a classic first-day gotcha.
 
-> **Bastion tie-in:** The Bastion appliance is Linux; understanding owner/group/`rwx`
+> **PAM tie-in:** The PAM appliance is Linux; understanding owner/group/`rwx`
 > lets you read appliance file listings, fix key-file permissions in labs, and reason
 > about why `sshd` rejects a misconfigured key.
 
@@ -239,12 +240,11 @@ sudo systemctl enable sshd     # start automatically at boot
 systemctl list-units --type=service   # all active services
 ```
 
-> **Bastion tie-in:** Bastion's internal components run as services/processes —
-> `redemption` (the RDP proxy engine), `wabgui` (admin GUI), `wabrestapi` (REST API),
-> MariaDB, `syslog-ng`, `wabwatchdog`, etc. (per the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#architecture-deployment-ha-integrations)).
-> WCE-P troubleshooting often means checking whether one of these services is healthy —
-> exactly the `systemctl status` muscle memory you build here.
+> **PAM tie-in:** A PAM appliance's internal components run as services/processes —
+> the RDP and SSH proxy engines, the admin web GUI, the REST API, the database, the
+> syslog daemon, a watchdog, etc. Expert-level troubleshooting often means checking
+> whether one of these services is healthy — exactly the `systemctl status` muscle
+> memory you build here.
 
 ---
 
@@ -268,27 +268,28 @@ grep "Failed password" /var/log/auth.log   # spot brute-force attempts
 `/var/log/auth.log` records every login, `sudo`, and `su` — the raw material of access
 auditing.
 
-> **Bastion tie-in:** Bastion centralizes and **forwards logs via Syslog**
-> (`syslog-ng`, **UDP/TCP 514**) to a **SIEM (Security Information and Event
-> Management)** platform, and records full session video/transcripts on top. The Linux
-> logging skills here are the foundation for understanding Bastion's audit pipeline.
-> See protocol details in
-> [networking-and-protocols.md](networking-and-protocols.md).
+> **PAM tie-in:** A PAM bastion centralizes and **forwards logs via Syslog**
+> (**UDP/TCP 514**) to a **SIEM (Security Information and Event Management)**
+> platform, and records full session video/transcripts on top. The Linux logging
+> skills here are the foundation for understanding the PAM audit pipeline. See protocol
+> details in [networking-and-protocols.md](networking-and-protocols.md) and what to
+> alert on in
+> [../certs/ceh/defender-pam/detection-engineering.md](../certs/ceh/defender-pam/detection-engineering.md).
 
 ---
 
 ## 6. The two PAMs — never confuse them again
 
-| | **Linux PAM** | **WALLIX PAM** |
+| | **Linux PAM** | **PAM (Privileged Access Management)** |
 |---|---|---|
 | Stands for | **P**luggable **A**uthentication **M**odules | **P**rivileged **A**ccess **M**anagement |
-| What it is | A local Linux framework that lets programs (login, sudo, sshd) plug in auth methods | A security product category / WALLIX Bastion |
+| What it is | A local Linux framework that lets programs (login, sudo, sshd) plug in auth methods | A security product category: bastions, vaults, session proxies |
 | Lives in | `/etc/pam.d/`, `/lib/.../security/*.so` | A network appliance brokering privileged sessions |
 | Scope | One host's authentication logic | Enterprise-wide privileged access control |
-| Example | `pam_unix.so` checks `/etc/shadow`; `pam_google_authenticator.so` adds TOTP | Bastion vaults a root password and records the session |
+| Example | `pam_unix.so` checks `/etc/shadow`; `pam_google_authenticator.so` adds TOTP | A bastion vaults a root password and records the session |
 
 Both can appear in the same sentence: *"We configured the target's **Linux PAM** stack
-to require MFA, and put the host behind **WALLIX PAM** (Bastion) for session
+to require MFA, and put the host behind a **PAM bastion** for session
 recording."* When in doubt, expand the acronym.
 
 ```mermaid
@@ -298,7 +299,7 @@ flowchart LR
         B["pam_*_otp (2nd factor)"]
         C["pam_limits.so (resource)"]
     end
-    subgraph WPAM["WALLIX Bastion — WALLIX<br/>PAM (enterprise)"]
+    subgraph WPAM["PAM bastion —<br/>Privileged Access Mgmt (enterprise)"]
         D["Vaults credentials"]
         E["Brokers + records session"]
         F["Across the enterprise"]
@@ -308,15 +309,15 @@ flowchart LR
 
 ---
 
-## How this maps to the certifications
+## How this maps to PAM roles
 
-- **WCA-P / WCP-P** (Administrator / Professional): expect SSH, RDP, proxy concepts,
-  and "Linux fundamentals" as stated prerequisites
-  (see [pam-bastion track](../certs/wallix/pam-bastion/README.md)).
-- **WCE-P** (Expert): explicitly requires **GNU/Linux command-line** knowledge — the
-  `systemctl`, `journalctl`, permissions, and SSH-config skills above are directly
-  exercised in advanced deployment and troubleshooting labs
-  (see [wce-p-expert.md](../certs/wallix/pam-bastion/wce-p-expert.md)).
+- **PAM administrator / professional level:** expect SSH, RDP, proxy concepts, and
+  "Linux fundamentals" as stated prerequisites of most vendor certification tracks
+  (see [../learning/roadmap.md](../learning/roadmap.md)).
+- **PAM expert level:** advanced deployment and troubleshooting on any appliance
+  requires **GNU/Linux command-line** knowledge — the `systemctl`, `journalctl`,
+  permissions, and SSH-config skills above are directly exercised. Continue with
+  [linux-cli-for-pam-engineers.md](linux-cli-for-pam-engineers.md).
 
 ---
 
@@ -329,4 +330,3 @@ flowchart LR
 - `sudo` / `sudoers` manual: https://www.sudo.ws/docs/man/sudoers.man/
 - systemd / `systemctl` documentation: https://www.freedesktop.org/software/systemd/man/latest/systemctl.html
 - `journalctl` documentation: https://www.freedesktop.org/software/systemd/man/latest/journalctl.html
-- WALLIX Bastion architecture/components: [product-portfolio.md](../certs/wallix/overview/product-portfolio.md) (compiled from WALLIX Bastion 12.0.2 Deployment Guide and 12.3.2 Administration Guide)

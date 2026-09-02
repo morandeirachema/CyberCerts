@@ -231,7 +231,7 @@ procedures (TTPs)** describe *how* an actor operates at increasing levels of det
   on real-world observation. Analysts use it to **map detections to technique coverage**,
   describe an intrusion in shared language, and find gaps. (See also the
   [attack-to-defense matrix](../../../attack-to-defense-matrix.md), which maps techniques to
-  PAM/WALLIX controls.)
+  PAM controls.)
 - **Indicator of compromise (IoC)** — evidence an intrusion *has occurred* (a malicious hash,
   IP, domain, or registry key). **Indicator of attack (IoA)** — behavior suggesting an attack
   is *in progress* (the *actions*, not the artifacts). IoAs are harder to evade because they

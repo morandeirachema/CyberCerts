@@ -65,9 +65,10 @@ flowchart TD
 > credentials. PAM exists largely to kill these four patterns — by **vaulting**,
 > **injecting** (so humans never see secrets), and **rotating** them.
 
-For the WALLIX data model that represents many of these (accounts, domains, devices,
-services, the vault), see the
-[Bastion ACL data model](../certs/wallix/overview/product-portfolio.md#core-pam-concepts--the-acl-data-model).
+Every PAM platform models these as objects (accounts, domains, devices, services, the
+vault) that access policies are then attached to — see the
+[PAM playbook](../certs/ceh/defender-pam/pam-playbook.md) for the control set built
+on top of that inventory.
 
 ---
 
@@ -142,9 +143,8 @@ flowchart LR
    tools (IGA/IAG) also hunt for.
 
 The **check-out / check-in** loop (with optional account locking and "change password
-at check-in") is exactly how WALLIX Bastion's Password Manager implements steps 2–3 —
-see the
-[Bastion password/secrets management section](../certs/wallix/overview/product-portfolio.md#password--secrets-management).
+at check-in") is how the password-manager component of any PAM platform implements
+steps 2–3.
 
 ---
 
@@ -182,15 +182,13 @@ see the
 - [PAM threat landscape](pam-threat-landscape.md) — how each account type is attacked.
 - [Core concepts: least privilege, JIT, vaulting, rotation](core-concepts-least-privilege-jit-zero-trust.md)
 - [PAM vs IAM / IGA / IDaaS / EPM / CIEM](pam-iam-iga-idaas-epm.md)
-- [WALLIX product portfolio](../certs/wallix/overview/product-portfolio.md)
+- [PAM playbook](../certs/ceh/defender-pam/pam-playbook.md) — vaulting, JIT, tiering.
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---
 
 ## Sources
 
-- WALLIX Bastion datasheet (2021): https://www.wallix.com/wp-content/uploads/2021/10/DATASHEET_2021_BASTION_EN.pdf
-- WALLIX Bastion Functional Administration Guide (served v12.3.2): https://pam.wallix.one/documentation/admin-doc/bastion_en_administration_guide.pdf
 - NIST SP 800-63B Digital Identity Guidelines (authenticators/credentials): https://pages.nist.gov/800-63-3/sp800-63b.html
 - NIST SP 800-53 Rev. 5 (AC-2 Account Management, AC-6 Least Privilege): https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 - CISA — Identity & Access Management / default credentials guidance: https://www.cisa.gov/topics/cybersecurity-best-practices/identity-and-access-management

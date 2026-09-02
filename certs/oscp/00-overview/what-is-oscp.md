@@ -62,7 +62,7 @@ flowchart LR
     Knowledge --> Practical["PNPT<br/>(practical, budget-friendly)"]
     Practical --> OSCPnode["OSCP / OSCP+<br/>(hands-on depth, 24h exam)"]
     OSCPnode --> Senior(["Senior offensive /<br/>red-team roles"])
-    OSCPnode -.->|"AD attacks &<br/>priv-esc context"| PAM["WALLIX / PAM hub<br/>(defensive controls)"]
+    OSCPnode -.->|"AD attacks &<br/>priv-esc context"| PAM["PAM foundations<br/>(defensive controls)"]
 ```
 
 The arrows show one common progression, not a hard requirement — many candidates approach OSCP directly from a strong sysadmin or networking background.
@@ -82,7 +82,7 @@ A common progression is **CEH for breadth/methodology vocabulary → a practical
 
 ## Why this matters to defenders (and PAM)
 
-OSCP's focus on **Active Directory (AD) attacks, privilege escalation, and lateral movement** is exactly the credential-abuse and lateral-movement activity that Privileged Access Management (PAM) platforms such as WALLIX are designed to constrain. Understanding how attackers chain a foothold into domain compromise makes you a sharper defender. See the [attack-to-defense matrix](../../../attack-to-defense-matrix.md) and the [WALLIX / PAM hub](../../wallix/pam-bastion/README.md).
+OSCP's focus on **Active Directory (AD) attacks, privilege escalation, and lateral movement** is exactly the credential-abuse and lateral-movement activity that Privileged Access Management (PAM) platforms are designed to constrain. Understanding how attackers chain a foothold into domain compromise makes you a sharper defender. See the [attack-to-defense matrix](../../../attack-to-defense-matrix.md) and the [PAM foundations](../../../foundations/README.md).
 
 ## Where to go next
 

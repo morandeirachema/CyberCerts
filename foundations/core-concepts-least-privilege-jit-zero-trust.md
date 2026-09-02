@@ -101,8 +101,8 @@ handed out. (NIST SP 800-207 defines Zero Trust Architecture.)
 
 Classic example: the person who *requests* a privileged change should not be the same
 person who *approves* it. SoD prevents both fraud and single-point error. Governance
-tools (IGA/IAG) detect **SoD violations** / "toxic combinations" of rights — see the
-[WALLIX IAG section](../certs/wallix/overview/product-portfolio.md#5-wallix-iag--identity--access-governance).
+tools (IGA/IAG) detect **SoD violations** / "toxic combinations" of rights — see
+[PAM vs IAM / IGA / IDaaS / EPM](pam-iam-iga-idaas-epm.md).
 
 ### Four-eyes / dual control
 
@@ -111,8 +111,8 @@ tools (IGA/IAG) detect **SoD violations** / "toxic combinations" of rights — s
 
 In PAM this appears two ways: an **approval workflow** (a second person must approve a
 session before it opens) and **live session monitoring** ("4-eyes" = watch only;
-"4-hands" = the supervisor can also take control). See
-[Bastion real-time monitoring](../certs/wallix/overview/product-portfolio.md#session-management).
+"4-hands" = the supervisor can also take control). See the session-brokering
+controls in the [PAM playbook](../certs/ceh/defender-pam/pam-playbook.md).
 
 ### Session isolation
 
@@ -188,9 +188,8 @@ flowchart LR
 > SoD = Separation of Duties · ZSP = Zero Standing Privileges.
 
 This is exactly the behaviour a PAM tool's **approval workflow + time-frame +
-single-connection** options provide; in WALLIX Bastion these live on the
-authorization's *Approval* tab — see
-[Bastion approval / four-eyes workflows](../certs/wallix/overview/product-portfolio.md#session-management).
+single-connection** options provide; most platforms expose them as settings on the
+authorization (access policy) object itself.
 
 ---
 
@@ -263,7 +262,7 @@ policies usually combine both: a *time-limited* session that *also* needs approv
 - [Privileged accounts & credentials](privileged-accounts-and-credentials.md)
 - [PAM threat landscape](pam-threat-landscape.md)
 - [PAM vs IAM / IGA / IDaaS / EPM / CIEM](pam-iam-iga-idaas-epm.md)
-- [WALLIX product portfolio](../certs/wallix/overview/product-portfolio.md)
+- [PAM playbook](../certs/ceh/defender-pam/pam-playbook.md) — vaulting, JIT, tiering, session brokering.
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---
@@ -274,6 +273,4 @@ policies usually combine both: a *time-limited* session that *also* needs approv
 - NIST SP 800-207 Zero Trust Architecture: https://csrc.nist.gov/pubs/sp/800/207/final
 - NIST — Zero Trust Architecture project / SP 1800-35: https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture
 - Gartner — Just-in-Time (JIT) privileged access & glossary: https://www.gartner.com/en/information-technology/glossary/privileged-access-management-pam
-- WALLIX Bastion Functional Administration Guide (served v12.3.2) — approval/four-eyes, check-out/check-in, recording: https://pam.wallix.one/documentation/admin-doc/bastion_en_administration_guide.pdf
-- WALLIX Bastion product page (Zero Trust, JIT, least privilege framing): https://www.wallix.com/products/privileged-access-management/
 - ISO/IEC 27001 / 27002 (access control objectives): https://www.iso.org/standard/27001

@@ -161,9 +161,8 @@ gateway (brokering + JIT), and making everything auditable (non-repudiation).*
 
 The complementary **endpoint** control — removing local admin so there is no
 standing privilege to escalate or reuse in the first place — is **Endpoint Privilege
-Management (EPM)**; WALLIX delivers it via BestSafe. See
-[pam-iam-iga-idaas-epm.md](pam-iam-iga-idaas-epm.md) and the
-[product portfolio](../certs/wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
+Management (EPM)**. See [pam-iam-iga-idaas-epm.md](pam-iam-iga-idaas-epm.md) and the
+[PAM playbook](../certs/ceh/defender-pam/pam-playbook.md).
 
 ---
 
@@ -189,7 +188,8 @@ Management (EPM)**; WALLIX delivers it via BestSafe. See
 - [Privileged accounts & credentials](privileged-accounts-and-credentials.md)
 - [Core concepts: least privilege, JIT, Zero Trust](core-concepts-least-privilege-jit-zero-trust.md)
 - [PAM vs IAM / IGA / IDaaS / EPM](pam-iam-iga-idaas-epm.md)
-- [WALLIX product portfolio](../certs/wallix/overview/product-portfolio.md)
+- [Identity attack paths](../certs/ceh/defender-pam/identity-attack-paths.md) — the attacks in depth.
+- [Attack-to-defense matrix](../attack-to-defense-matrix.md)
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---
@@ -204,6 +204,5 @@ Management (EPM)**; WALLIX delivers it via BestSafe. See
 - MITRE ATT&CK — Phishing (T1566): https://attack.mitre.org/techniques/T1566/
 - MITRE ATT&CK — Valid Accounts (T1078): https://attack.mitre.org/techniques/T1078/
 - Lockheed Martin — Cyber Kill Chain: https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html
-- WALLIX Bastion product page (PAM as breach mitigation): https://www.wallix.com/products/privileged-access-management/
 - Verizon Data Breach Investigations Report (DBIR): https://www.verizon.com/business/resources/reports/dbir/
 - ENISA Threat Landscape: https://www.enisa.europa.eu/topics/cyber-threats/threats-and-trends

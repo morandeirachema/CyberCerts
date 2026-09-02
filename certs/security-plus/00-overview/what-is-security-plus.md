@@ -1,6 +1,6 @@
 # What is CompTIA Security+ (SY0-701)?
 
-CompTIA **Security+** is a vendor-neutral, foundational cybersecurity certification from **CompTIA (the Computing Technology Industry Association)**. It validates the baseline knowledge and skills needed to perform core security functions and pursue an entry-level security role. The current exam is **SY0-701**. This page explains what the credential is, who it is for, and where it sits in a learning path — including how it relates to this repo's CEH and WALLIX/PAM material.
+CompTIA **Security+** is a vendor-neutral, foundational cybersecurity certification from **CompTIA (the Computing Technology Industry Association)**. It validates the baseline knowledge and skills needed to perform core security functions and pursue an entry-level security role. The current exam is **SY0-701**. This page explains what the credential is, who it is for, and where it sits in a learning path — including how it relates to this repo's CEH and PAM (identity-security) material.
 
 > **Unofficial & no fabrication.** This hub is not affiliated with or endorsed by CompTIA. Exam specifics come from CompTIA's official Security+ page; anything volatile (exam code, retirement date, price, renewal terms) is flagged **"verify on CompTIA"** and should be re-checked there before you rely on it.
 
@@ -9,7 +9,7 @@ CompTIA **Security+** is a vendor-neutral, foundational cybersecurity certificat
 - Explain what Security+ is and who issues it (CompTIA).
 - Describe what "vendor-neutral" and "foundational" mean for this credential.
 - Identify who Security+ is for and the experience CompTIA recommends.
-- Place Security+ in a sysadmin-to-security path and relate it to this repo's CEH and WALLIX/PAM hubs.
+- Place Security+ in a sysadmin-to-security path and relate it to this repo's CEH and [PAM](../../../foundations/README.md) hubs.
 - Summarise its US Department of Defense (DoD) 8140 relevance and where to confirm it.
 
 ## Who issues Security+? (CompTIA)
@@ -22,7 +22,7 @@ Always treat the official CompTIA Security+ page as the authoritative source for
 
 Two properties define where Security+ fits:
 
-- **Vendor-neutral** — it is not tied to any single product or platform. It teaches concepts (firewalls, identity, encryption, logging) rather than how to operate one vendor's tool. This contrasts with product certifications such as the **WALLIX Academy** credentials in this repo's [main hub](../../../README.md), which certify a specific Privileged Access Management (PAM) product.
+- **Vendor-neutral** — it is not tied to any single product or platform. It teaches concepts (firewalls, identity, encryption, logging) rather than how to operate one vendor's tool. This contrasts with vendor product certifications, which certify a specific product (for example a particular Privileged Access Management (PAM) platform).
 - **Foundational** — it is **breadth, not depth**. Security+ surveys threats, architecture, operations, and governance at a working level rather than drilling into one platform or into hands-on exploitation. It is widely treated as an early, baseline credential rather than a specialist one.
 
 Security+ also has a **defensive (blue-team) lean**: it is oriented toward securing, monitoring, and governing systems, with offensive techniques covered conceptually as threats to defend against.
@@ -59,14 +59,14 @@ flowchart LR
     NetPlus --> SecPlus["CompTIA Security+<br/>(foundational,<br/>defensive lean)"]
     SecPlus --> Blue["Defensive track<br/>CySA+ / SOC analyst"]
     SecPlus --> Red["Offensive track<br/>CEH / PenTest+"]
-    SecPlus -.->|"identity &<br/>least-privilege<br/>concepts"| PAM["WALLIX / PAM<br/>(product specialism)"]
+    SecPlus -.->|"identity &<br/>least-privilege<br/>concepts"| PAM["PAM / identity security<br/>(specialism)"]
     Red --> Hands["Hands-on offensive<br/>OSCP / PNPT"]
 ```
 
 How it relates to the other study hubs in this repository:
 
 - **Relative to this repo's CEH hub:** Security+ and the **CEH (Certified Ethical Hacker)** are both vendor-neutral and breadth-focused, but Security+ leans **defensive/foundational** while CEH adds the **offensive lens** on top. A common order is Security+ then CEH. See [../../ceh/README.md](../../ceh/README.md) and the [CEH career & adjacent certs page](../../ceh/career/ceh-career-and-adjacent-certs.md).
-- **Relative to WALLIX / Privileged Access Management (PAM):** Security+ teaches the access-control, identity, and least-privilege concepts that PAM products such as WALLIX **operationalise**. It is useful conceptual background before working with a specific PAM platform — see this repo's [WALLIX/PAM learning-path hub](../../../README.md) and the [WALLIX product & certification docs](../../wallix/overview/).
+- **Relative to Privileged Access Management (PAM):** Security+ teaches the access-control, identity, and least-privilege concepts that PAM products **operationalise**. It is useful conceptual background before working with a specific PAM platform — see this repo's [PAM foundations](../../../foundations/README.md) and the [learning roadmap](../../../learning/roadmap.md).
 - **Shared fundamentals:** the cross-cutting [protocols reference](../../../protocols/README.md) (TLS, Kerberos, LDAP, SAML, OIDC/OAuth2, RADIUS, SSH) and the repo [reference glossary and acronyms](../../../reference/README.md) reinforce concepts that appear across Security+, CEH, and PAM.
 
 ## DoD 8140 relevance *(verify on DoD / CompTIA)*
@@ -86,5 +86,5 @@ Security+ is long-established as a **United States Department of Defense (DoD)**
 
 - CompTIA — Security+ (SY0-701) official certification page (provider, vendor-neutral/foundational positioning, recommended experience of Network+ and ~2 years, DoD 8140 alignment): https://www.comptia.org/en-us/certifications/security/
 - US DoD Cyber Workforce, Directive 8140 (formerly 8570) — verify current Security+ mapping: https://public.cyber.mil/
-- Related in this repo: [../../ceh/README.md](../../ceh/README.md) · [../../README.md](../../../README.md) (WALLIX/PAM hub) · [../../protocols/README.md](../../../protocols/README.md) · [../../reference/README.md](../../../reference/README.md) · one-page overview superseded by this hub: [../../adjacent-certs/security-plus.md](../../adjacent-certs/security-plus.md)
+- Related in this repo: [../../ceh/README.md](../../ceh/README.md) · [../../README.md](../../../README.md) (repo hub) · [../../protocols/README.md](../../../protocols/README.md) · [../../reference/README.md](../../../reference/README.md) · one-page overview superseded by this hub: [../../adjacent-certs/security-plus.md](../../adjacent-certs/security-plus.md)
 - Verify all volatile specifics (exam code, retirement date, price, renewal/CEU terms, DoD mapping) on CompTIA's site — programs change.

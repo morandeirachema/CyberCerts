@@ -1,7 +1,7 @@
 # CEH Glossary
 
-> 🔁 This is the **CEH / offensive** glossary. For PAM, identity & WALLIX terms, see the
-> [WALLIX glossary](../../../reference/glossary.md) — the two are complementary, not duplicated.
+> 🔁 This is the **CEH / offensive** glossary. For PAM & identity terms, see the
+> [PAM glossary](../../../reference/glossary.md) — the two are complementary, not duplicated.
 
 An alphabetical glossary of ethical-hacking and Certified Ethical Hacker (CEH) terms, each defined concisely **in CEH context**. Offensive techniques are defined neutrally with a defensive framing — you learn them to detect and stop them. For acronym expansions, see the [acronyms reference](acronyms.md).
 

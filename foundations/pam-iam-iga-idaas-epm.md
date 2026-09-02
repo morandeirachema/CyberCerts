@@ -2,21 +2,19 @@
 
 The identity-security market is a thicket of overlapping three- and four-letter
 acronyms — **IAM, IGA/IAG, IDaaS, SSO, MFA, PAM, PEDM/EPM, CIEM**. This page
-disambiguates each one, shows how they overlap, and maps them onto the **WALLIX**
-product line so you always know which tool does what. A big comparison table and a
+disambiguates each one, shows how they overlap, and explains which product category
+does what so you can place any vendor's offering. A big comparison table and a
 "map of the identity landscape" diagram tie it together.
 
-> Builds on [what-is-pam.md](what-is-pam.md). For the WALLIX products themselves, the
-> authoritative reference is the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md) — this page links into
-> it rather than repeating it.
+> Builds on [what-is-pam.md](what-is-pam.md). For who sells what in each category, see
+> the [PAM market landscape](pam-market-landscape.md).
 
 ## Learning objectives
 
 - Expand and define every acronym in the identity-security stack.
 - Explain how **IAM, IGA, IDaaS, PAM, EPM, and CIEM** overlap and differ.
 - State the **central question** each discipline answers.
-- Map each discipline to its **WALLIX product**.
+- Map each discipline to the **product category** vendors sell it under.
 - Read a single diagram that places all of them in one landscape.
 
 ---
@@ -71,8 +69,8 @@ single highest-impact control against stolen passwords, and a PAM gateway typica
 
 **IAM delivered from the cloud** as a subscription: cloud-hosted SSO, MFA, and identity
 federation, with no on-prem identity servers to run. IDaaS is a *delivery model* for IAM
-features, not a separate discipline. (WALLIX delivers this via Trustelem / WALLIX One
-IDaaS.)
+features, not a separate discipline (Okta, Microsoft Entra ID, and Ping are the
+best-known examples).
 
 ### IGA / IAG — Identity Governance & Administration / Identity & Access Governance
 
@@ -80,9 +78,8 @@ The **governance** layer on top of IAM. Where IAM *operates* access, IGA/IAG **g
 it: **access reviews / certification campaigns** (periodically re-confirm who has what),
 **Separation of Duties (SoD)** / toxic-combination detection, **role mining**, **orphan
 & over-entitled account** clean-up, and **compliance reporting**. The two acronyms are
-near-synonyms; analysts (e.g. Gartner) prefer **IGA**, while WALLIX brands its product
-**IAG** (the acquired Kleverware technology — see
-[IAG section](../certs/wallix/overview/product-portfolio.md#5-wallix-iag--identity--access-governance)).
+near-synonyms; analysts (e.g. Gartner) prefer **IGA**, while some vendors brand their
+product **IAG**.
 Pairing IGA with PAM yields **Privileged Access Governance (PAG)** — governance applied
 specifically to privileged accounts.
 
@@ -103,24 +100,20 @@ done granularly and centrally. It is *least privilege at the action level*.
 The **endpoint-side** application of PEDM: remove local administrator rights from
 workstations/servers, then grant elevation **per application/process** as policy allows.
 This kills the "everyone is local admin" risk that fuels malware and lateral movement.
-WALLIX delivers EPM via **BestSafe**, which assigns privilege to **applications, not
-users** — see
-[BestSafe section](../certs/wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
+EPM products typically assign privilege to **applications/processes, not users**.
 
 > **PAM vs EPM — the key distinction:** PAM controls the **session/credential to a
 > remote target** (the *gateway* side). EPM controls **privilege on the local machine
-> itself** (the *endpoint* side). They are complementary halves of least privilege;
-> WALLIX markets the pair as its **"PAM4ALL"** vision.
+> itself** (the *endpoint* side). They are complementary halves of least privilege,
+> and most PAM vendors sell them as a bundle.
 
 ### CIEM — Cloud Infrastructure Entitlement Management
 
 The newest neighbour. Cloud platforms (AWS/Azure/GCP) sprawl into thousands of fine-
 grained **entitlements** (roles, policies, permissions). CIEM **discovers, analyzes, and
 right-sizes** those entitlements to enforce least privilege in the cloud — essentially
-"IGA-style governance + PAM-style least privilege, specialized for cloud IAM." *Flag: no
-dedicated WALLIX CIEM product is identified in the
-[product portfolio](../certs/wallix/overview/product-portfolio.md); treat CIEM here as
-context for the landscape, not a WALLIX offering.*
+"IGA-style governance + PAM-style least privilege, specialized for cloud IAM." Not
+every PAM vendor has a CIEM product; treat CIEM here as context for the landscape.
 
 > **Acronyms:** **AuthN** = Authentication · **AuthZ** = Authorization ·
 > **SAML** = Security Assertion Markup Language · **OIDC** = OpenID Connect ·
@@ -131,22 +124,17 @@ context for the landscape, not a WALLIX offering.*
 
 ## 3. Big comparison table
 
-| Discipline | Expanded | Scope (who/what) | Core question | Typical capabilities | WALLIX product |
-|---|---|---|---|---|---|
-| **IAM** | Identity & Access Management | All workforce identities | Who is this user & what may they access? | AuthN, AuthZ, lifecycle, SSO, MFA | (foundation; WALLIX adds IDaaS + governance on top) |
-| **IDaaS** | Identity-as-a-Service | Cloud delivery of IAM | Identity from the cloud? | Cloud SSO, MFA, federation, SCIM | **Trustelem** / **WALLIX One IDaaS** |
-| **SSO** | Single Sign-On | Feature of IAM/IDaaS | Log in once for many apps? | SAML/OIDC federation | (within Trustelem) |
-| **MFA** | Multi-Factor Authentication | Feature of IAM/IDaaS | Prove identity with 2nd factor? | Push, TOTP, FIDO2, OTP | **WALLIX Authenticator** (powered by inWebo) in Trustelem |
-| **IGA / IAG** | Identity Governance & Admin / Identity & Access Governance | Governance over all access | Who *should* have access; provable? | Access reviews, SoD, role mining, compliance | **WALLIX IAG** (ex-Kleverware) |
-| **PAM** | Privileged Access Management | Privileged accounts & sessions | Control & record dangerous access? | Vault, broker/proxy, recording, JIT, audit | **WALLIX Bastion** (+ Access Manager) |
-| **PEDM** | Privilege Elevation & Delegation Mgmt | Specific elevated actions | Elevate the action, not the user? | Per-command/app elevation | within **BestSafe** / Bastion |
-| **EPM** | Endpoint Privilege Management | Endpoints (workstations/servers) | Remove local admin, keep users working? | Local-admin removal, app-level privilege, anti-ransomware | **WALLIX BestSafe** |
-| **CIEM** | Cloud Infrastructure Entitlement Mgmt | Cloud entitlements/roles | Right-size cloud permissions? | Entitlement discovery & least-privilege for cloud | *not a WALLIX product (context only)* |
-
-> **Corrections to preserve** (from the portfolio's "Key uncertainties"): **inWebo was
-> NOT acquired** — it is a technology partner powering WALLIX Authenticator; **WALLIX
-> IAG = the acquired Kleverware product**; **BestSafe = a product** built on the Simarks
-> acquisition, not an acquired company.
+| Discipline | Expanded | Scope (who/what) | Core question | Typical capabilities |
+|---|---|---|---|---|
+| **IAM** | Identity & Access Management | All workforce identities | Who is this user & what may they access? | AuthN, AuthZ, lifecycle, SSO, MFA |
+| **IDaaS** | Identity-as-a-Service | Cloud delivery of IAM | Identity from the cloud? | Cloud SSO, MFA, federation, SCIM |
+| **SSO** | Single Sign-On | Feature of IAM/IDaaS | Log in once for many apps? | SAML/OIDC federation |
+| **MFA** | Multi-Factor Authentication | Feature of IAM/IDaaS | Prove identity with 2nd factor? | Push, TOTP, FIDO2, OTP |
+| **IGA / IAG** | Identity Governance & Admin / Identity & Access Governance | Governance over all access | Who *should* have access; provable? | Access reviews, SoD, role mining, compliance |
+| **PAM** | Privileged Access Management | Privileged accounts & sessions | Control & record dangerous access? | Vault, broker/proxy, recording, JIT, audit |
+| **PEDM** | Privilege Elevation & Delegation Mgmt | Specific elevated actions | Elevate the action, not the user? | Per-command/app elevation |
+| **EPM** | Endpoint Privilege Management | Endpoints (workstations/servers) | Remove local admin, keep users working? | Local-admin removal, app-level privilege, anti-ransomware |
+| **CIEM** | Cloud Infrastructure Entitlement Mgmt | Cloud entitlements/roles | Right-size cloud permissions? | Entitlement discovery & least-privilege for cloud |
 
 ---
 
@@ -161,14 +149,14 @@ flowchart TD
         IGA["IGA / IAG<br/>access reviews · SoD ·<br/>role mining · compliance<br/>governs BOTH ordinary and<br/>privileged access"]
     end
     subgraph IDL["IDENTITY LAYER (everyday)<br/>— 'who is this<br/>user?'"]
-        IAM["IAM<br/>AuthN · AuthZ · lifecycle<br/>SSO + MFA<br/>delivered via IDaaS<br/>(WALLIX Trustelem)"]
+        IAM["IAM<br/>AuthN · AuthZ · lifecycle<br/>SSO + MFA<br/>delivered via IDaaS"]
     end
     subgraph PRL["PRIVILEGE LAYER<br/>(dangerous) — 'control<br/>the powerful access'"]
-        PAM["PAM<br/>vault · broker · record · JIT<br/>(WALLIX Bastion + Access Mgr)"]
-        EPM["EPM / PEDM<br/>remove local admin ·<br/>app-level elevation<br/>(WALLIX BestSafe)"]
+        PAM["PAM<br/>vault · broker · record · JIT"]
+        EPM["EPM / PEDM<br/>remove local admin ·<br/>app-level elevation"]
         PAM -->|"pairs with"| EPM
     end
-    CIEM["CLOUD ENTITLEMENTS — CIEM<br/>right-size cloud roles/policies<br/>(context only; not a WALLIX product)"]
+    CIEM["CLOUD ENTITLEMENTS — CIEM<br/>right-size cloud roles/policies"]
 
     IGA -->|"governs"| IAM
     IGA -->|"governs (= PAG)"| PAM
@@ -186,7 +174,7 @@ flowchart TD
 - **IGA/IAG ↔ everything:** governance sits above both and audits who-should-have-what;
   applied to privileged accounts it becomes **PAG**.
 - **PAM ↔ EPM:** session/credential side (PAM) + endpoint side (EPM) = full least
-  privilege ("PAM4ALL").
+  privilege.
 - **IDaaS** is simply *how* IAM (SSO/MFA) is delivered — from the cloud.
 - **CIEM** extends least-privilege governance into cloud entitlements.
 
@@ -202,9 +190,9 @@ flowchart TD
   applied to privileged accounts it is **PAG**.
 - **EPM/PEDM** handle privilege *on the endpoint*; together with PAM they complete least
   privilege.
-- **CIEM** does the same right-sizing for *cloud entitlements* (not a WALLIX product).
-- WALLIX mapping: **Bastion = PAM**, **Trustelem / One IDaaS = IDaaS (SSO/MFA)**,
-  **IAG = governance**, **BestSafe = EPM**.
+- **CIEM** does the same right-sizing for *cloud entitlements*.
+- Vendor mapping: see the [PAM market landscape](pam-market-landscape.md) for which
+  vendors sell which of these categories.
 
 ---
 
@@ -214,19 +202,13 @@ flowchart TD
 - [Privileged accounts & credentials](privileged-accounts-and-credentials.md)
 - [PAM threat landscape](pam-threat-landscape.md)
 - [Core concepts: least privilege, JIT, Zero Trust](core-concepts-least-privilege-jit-zero-trust.md)
-- [WALLIX product portfolio](../certs/wallix/overview/product-portfolio.md)
+- [PAM market landscape](pam-market-landscape.md)
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---
 
 ## Sources
 
-- WALLIX product portfolio (this repo): ../docs/00-overview/product-portfolio.md
-- WALLIX — IDaaS / Trustelem: https://www.wallix.com/products/idaas/
-- WALLIX — Multi-Factor Authentication: https://www.wallix.com/products/multi-factor-authentication-mfa/
-- WALLIX — Identity & Access Governance (IAG): https://www.wallix.com/products/identity-and-access-governance/
-- WALLIX — "IGA and PAM: how identity governance connects with PAM": https://www.wallix.com/blogpost/iga-and-pam-how-identity-governance-administration-connects-with-pam/
-- WALLIX — Endpoint Privilege Management (BestSafe): https://www.wallix.com/endpoint-privilege-management/
 - Gartner — Identity Governance and Administration (IGA) glossary: https://www.gartner.com/en/information-technology/glossary/iga-identity-governance-and-administration
 - Gartner — IDaaS / Access Management glossary: https://www.gartner.com/en/information-technology/glossary/idaas-identity-as-a-service
 - Gartner — Cloud Infrastructure Entitlement Management (CIEM): https://www.gartner.com/en/information-technology/glossary/cloud-infrastructure-entitlement-management-ciem

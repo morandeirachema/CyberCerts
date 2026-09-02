@@ -1,6 +1,6 @@
 # CEH Acronyms Reference
 
-> 🔁 This is the **CEH / offensive** acronym list. For PAM, identity & WALLIX acronyms, see the [WALLIX acronyms reference](../../../reference/acronyms.md).
+> 🔁 This is the **CEH / offensive** acronym list. For PAM & identity acronyms, see the [PAM acronyms reference](../../../reference/acronyms.md).
 
 A comprehensive, categorised reference of acronyms and initialisms you will meet across the Certified Ethical Hacker (CEH) curriculum and this study hub. Each table gives the **acronym**, its **expansion**, and a **one-line context** to anchor it in CEH terms. Acronyms are expanded on first use throughout the hub; this page is the master list.
 

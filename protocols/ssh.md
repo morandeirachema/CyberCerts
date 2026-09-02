@@ -48,7 +48,7 @@ By the end of this file you should be able to:
   dynamic), and **subsystems** such as the **SSH File Transfer Protocol (SFTP)**.
 - Explain the security properties: why host-key verification defeats
   **man-in-the-middle (MITM)** attacks, the risk of weak algorithms and agent forwarding, and
-  why a privileged-access proxy like WALLIX Bastion sits in front of SSH.
+  why a privileged-access proxy (a PAM bastion) sits in front of SSH.
 
 ---
 
@@ -389,15 +389,15 @@ multiplexing is exactly why port forwarding is so useful — and why a bastion m
 - **Password auth and brute force.** `password` auth exposes the account to online guessing;
   prefer `publickey` (+ MFA via `keyboard-interactive`), rate-limit, and never expose
   weak-credentialed SSH directly to the Internet.
-- **Why WALLIX Bastion proxies and records SSH.** A **Privileged Access Management (PAM)**
+- **Why a PAM bastion proxies and records SSH.** A **Privileged Access Management (PAM)**
   bastion terminates the user's SSH session and opens a *second*, separate SSH session to the
   target. Sitting in the middle, it: authenticates the human centrally (and can inject the
   target secret so the user never learns it), enforces the **single trusted point** that fixes
   the TOFU/host-key trust problem at scale, controls which channels are allowed (e.g. block
   port forwarding or SFTP per policy), and **records the session** for audit and replay. See
-  [../deep-dives/bastion-architecture.md](../certs/wallix/deep-dives/bastion-architecture.md) for how this
-  proxy/record design works. Compare with the parallel mechanisms in
-  [./tls.md](tls.md) and [./kerberos.md](kerberos.md).
+  [../certs/ceh/defender-pam/pam-architecture.md](../certs/ceh/defender-pam/pam-architecture.md)
+  for how this proxy/record design fits a PAM reference architecture. Compare with the
+  parallel mechanisms in [./tls.md](tls.md) and [./kerberos.md](kerberos.md).
 
 ---
 
@@ -415,5 +415,5 @@ multiplexing is exactly why port forwarding is so useful — and why a bastion m
 
 > Cross-references: [../prerequisites/linux-essentials-for-pam.md](../prerequisites/linux-essentials-for-pam.md) ·
 > [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md) ·
-> [../deep-dives/bastion-architecture.md](../certs/wallix/deep-dives/bastion-architecture.md) ·
+> [../certs/ceh/defender-pam/pam-architecture.md](../certs/ceh/defender-pam/pam-architecture.md) ·
 > [./tls.md](tls.md) · [./kerberos.md](kerberos.md)

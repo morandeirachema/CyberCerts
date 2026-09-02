@@ -2,11 +2,11 @@
 
 Most enterprises run **Microsoft Active Directory (AD)** as their identity backbone, and
 most privileged targets are **Windows servers** reached over **Remote Desktop Protocol
-(RDP)**. The **WALLIX Bastion** integrates tightly with AD: it authenticates users
-against AD/LDAP, brokers RDP sessions through its **"Redemption"** proxy engine, and can
-use **Kerberos** to reach targets. To master PAM (Privileged Access Management) you must
-first understand the Windows/AD world it protects. This file builds that foundation from
-first principles and ties each concept to Bastion.
+(RDP)**. A **PAM bastion** integrates tightly with AD: it authenticates users against
+AD/LDAP, brokers RDP sessions through its RDP proxy engine, and can use **Kerberos** to
+reach targets. To master PAM (Privileged Access Management) you must first understand
+the Windows/AD world it protects. This file builds that foundation from first principles
+and ties each concept to the PAM bastion.
 
 ## Learning objectives
 
@@ -20,8 +20,8 @@ By the end of this file you should be able to:
   risk of **service accounts**.
 - Explain **LAPS** (Local Administrator Password Solution) and the **Microsoft
   tiered-admin model**.
-- Connect AD/LDAP integration, the RDP "Redemption" proxy, and Kerberos auth to how
-  WALLIX Bastion operates.
+- Connect AD/LDAP integration, RDP proxying, and Kerberos auth to how a PAM bastion
+  operates.
 
 See also [../reference/acronyms.md](../reference/acronyms.md) and
 [networking-and-protocols.md](networking-and-protocols.md).
@@ -55,9 +55,9 @@ flowchart TD
 - **OUs** are about *administration and policy scope* (where a GPO applies).
 - **Groups** are about *permissions* (who can access what). Don't confuse them.
 
-> **Bastion tie-in:** Bastion connects to AD over **LDAP/LDAPS** (Lightweight Directory
+> **PAM tie-in:** A PAM bastion connects to AD over **LDAP/LDAPS** (Lightweight Directory
 > Access Protocol, ports **389/636**) to authenticate users and **map AD groups to
-> Bastion user groups**. You define an AD group like `PAM-Admins`, and Bastion grants
+> PAM user groups**. You define an AD group like `PAM-Admins`, and the bastion grants
 > those members the matching authorizations — so AD remains the single source of truth.
 
 ---
@@ -73,9 +73,9 @@ Domains usually have **two or more DCs** for redundancy; they replicate to each 
 - Compromise a DC and you effectively own the domain — which is exactly why privileged
   access to DCs must be brokered and recorded.
 
-> **Bastion tie-in:** DCs are among the **most critical targets** Bastion protects.
-> Bastion talks to a DC for LDAP authentication and (optionally) Kerberos, and admins
-> reach the DC *through* Bastion over RDP — never directly.
+> **PAM tie-in:** DCs are among the **most critical targets** PAM protects. The bastion
+> talks to a DC for LDAP authentication and (optionally) Kerberos, and admins reach the
+> DC *through* the bastion over RDP — never directly.
 
 ---
 
@@ -86,22 +86,21 @@ Domains usually have **two or more DCs** for redundancy; they replicate to each 
 and sends back keyboard/mouse input. Modern RDP adds:
 
 - **NLA (Network Level Authentication):** authenticate *before* a session is created
-  (default on in Bastion).
+  (most PAM proxies enable it by default).
 - **TLS (Transport Layer Security):** encrypts the channel.
 - **Kerberos:** preferred authentication when available.
 
-> **Bastion tie-in:** Bastion's RDP proxy engine is WALLIX's open-source **"Redemption."**
-> Per the [product portfolio](../certs/wallix/overview/product-portfolio.md#session-management),
-> Redemption supports **NLA (default on)**, **Kerberos (default on from 12.0.1)**, and
-> TLS controls. It records the RDP session as **full-color video**, and the **Session
-> Probe** on Windows targets collects rich metadata (window titles, process start/stop,
-> clipboard) and **pauses keystroke capture on password fields**. RDP **sub-protocols**
-> (clipboard, drive, printer, smartcard, audio) are individually allow/deny per
-> authorization.
+> **PAM tie-in:** A PAM bastion's RDP proxy engine sits between the admin's client and
+> the Windows target. Typical engines support **NLA**, **Kerberos**, and TLS controls,
+> record the RDP session as **full-color video** (often with OCR of window titles), and
+> an optional agent on Windows targets collects rich metadata (window titles, process
+> start/stop, clipboard) while **masking keystrokes in password fields**. RDP
+> **sub-protocols** (clipboard, drive, printer, smartcard, audio) are individually
+> allow/deny per authorization.
 
 ```mermaid
 flowchart LR
-    Admin["Admin<br/>mstsc / HTML5<br/>(own identity)"] -->|"RDP leg 1<br/>port 3389 — admin login"| Bastion["WALLIX Bastion<br/>Redemption (proxy)<br/>recorded video + OCR"]
+    Admin["Admin<br/>mstsc / HTML5<br/>(own identity)"] -->|"RDP leg 1<br/>port 3389 — admin login"| Bastion["PAM bastion<br/>RDP proxy<br/>recorded video + OCR"]
     Bastion -->|"RDP leg 2<br/>port 3389 — injected target account"| Target["Windows target<br/>(DC / server)"]
 ```
 
@@ -155,12 +154,12 @@ sequenceDiagram
 6. **AP-REP:** Service validates it (and proves its own identity — **mutual auth**);
    access granted. **The password itself is never sent to the service.**
 
-> **Bastion tie-in:** Bastion supports **Kerberos** both as a way users authenticate
-> *to* the Bastion and as a way the Bastion authenticates *to* targets. The WCE-P
-> (Expert) curriculum covers **"Kerberos Explicit" and "Kerberos Transparent"** as
-> advanced authentication modes
-> (see [wce-p-expert.md](../certs/wallix/pam-bastion/wce-p-expert.md)). Bastion's RDP proxy uses
-> Kerberos by default from version 12.0.1.
+> **PAM tie-in:** A PAM bastion uses **Kerberos** both as a way users authenticate *to*
+> the bastion and as a way the bastion authenticates *to* targets. Expert-level PAM
+> curricula distinguish **explicit** Kerberos (the bastion holds the target credential
+> and obtains tickets itself) from **transparent** Kerberos (the user's own ticket is
+> passed through), and modern RDP proxies prefer Kerberos over NTLM by default. See
+> [../protocols/kerberos.md](../protocols/kerberos.md).
 
 ---
 
@@ -187,12 +186,12 @@ agent, a database service). They are dangerous because they often have:
 - **passwords that "never change"** (changing them risks breaking the service), so they
   rot for years.
 
-> **Bastion tie-in:** Bastion's **Password Manager/Vault** is built precisely for this:
-> it **vaults and automatically rotates** service-account passwords and SSH keys,
-> removing static credentials from scripts and config files. WALLIX markets the
-> script/RPA case as **AAPM (Application-to-Application Password Management)**, realized
-> via the Bastion REST API + vault plugins (see
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#password--secrets-management)).
+> **PAM tie-in:** A PAM **password vault** is built precisely for this: it **vaults and
+> automatically rotates** service-account passwords and SSH keys, removing static
+> credentials from scripts and config files. The script/RPA case is known as **AAPM
+> (Application-to-Application Password Management)**, realized via the vault's REST API
+> and application plugins (see
+> [../foundations/privileged-accounts-and-credentials.md](../foundations/privileged-accounts-and-credentials.md)).
 
 ---
 
@@ -204,11 +203,11 @@ the *same* password (a common sin), one stolen password unlocks every machine
 free tool that sets a **unique, random local-admin password per machine** and stores it
 securely in AD, rotating it on a schedule.
 
-> **Bastion tie-in:** This is the same *problem* WALLIX solves from the PAM side —
-> Bastion vaults and rotates privileged credentials centrally. (On the endpoint side,
-> **WALLIX BestSafe** rotates local-account passwords to be *unique per computer, per
-> account, per day* — see the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).)
+> **PAM tie-in:** This is the same *problem* PAM solves from the vault side — a bastion
+> vaults and rotates privileged credentials centrally. (On the endpoint side, **Endpoint
+> Privilege Management (EPM)** tools rotate local-account passwords to be *unique per
+> computer and per account* — see
+> [../foundations/pam-iam-iga-idaas-epm.md](../foundations/pam-iam-iga-idaas-epm.md).)
 > LAPS and PAM are complementary layers of the same least-privilege philosophy.
 
 ---
@@ -231,19 +230,22 @@ flowchart TD
 The point: credentials of one tier must never be exposed on a lower tier, because a
 lower tier is more exposed to compromise.
 
-> **Bastion tie-in:** A PAM broker like Bastion *enforces* tiering operationally. Admins
-> connect to a clean broker; the high-tier credential is **injected by the Bastion and
-> never lands on the admin's workstation**, so it can't be harvested by malware on a
-> lower-tier device. JIT access and session recording reinforce the model.
+> **PAM tie-in:** A PAM broker *enforces* tiering operationally. Admins connect to a
+> clean broker; the high-tier credential is **injected by the bastion and never lands on
+> the admin's workstation**, so it can't be harvested by malware on a lower-tier device.
+> JIT access and session recording reinforce the model. Build it hands-on in the tiered
+> AD lab: [../certs/ceh/labs/README.md](../certs/ceh/labs/README.md).
 
 ---
 
-## How this maps to the certifications
+## How this maps to PAM roles
 
-- **WCA-P / WCP-P:** RDP and proxy concepts plus AD/LDAP integration are foundational.
-- **WCE-P (Expert):** **Advanced authentication** module covers RADIUS, **Kerberos
-  Explicit/Transparent**, X.509, and SAML — the AD/Kerberos understanding here is a
-  direct prerequisite (see [wce-p-expert.md](../certs/wallix/pam-bastion/wce-p-expert.md)).
+- **PAM administrator / professional level:** RDP and proxy concepts plus AD/LDAP
+  integration are foundational.
+- **PAM expert level:** advanced authentication covers RADIUS, **Kerberos
+  explicit/transparent**, X.509, and SAML — the AD/Kerberos understanding here is a
+  direct prerequisite (see [../protocols/kerberos.md](../protocols/kerberos.md) and
+  [../protocols/active-directory.md](../protocols/active-directory.md)).
 
 ---
 
@@ -257,4 +259,3 @@ lower tier is more exposed to compromise.
 - Microsoft — Remote Desktop Protocol: https://learn.microsoft.com/en-us/windows/win32/termserv/remote-desktop-protocol
 - Microsoft — Local Administrator Password Solution (Windows LAPS): https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview
 - Microsoft — Enterprise access model / tiered administration: https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model
-- WALLIX Bastion AD/LDAP, Kerberos, RDP "Redemption": [product-portfolio.md](../certs/wallix/overview/product-portfolio.md) (compiled from WALLIX Bastion 12.3.2 Administration Guide and 12.0.2 Deployment Guide)

@@ -6,8 +6,7 @@ their password*. **OpenID Connect (OIDC)** is a thin **authentication** layer bu
 of* OAuth 2.0: it reuses the same flow but adds a standard way to answer "*who is this user,
 and how/when did they log in?*". Together they are the modern, JSON-based answer to the same
 SSO problem that **SAML (Security Assertion Markup Language)** solves with XML — and they are
-what WALLIX One **IDaaS / Trustelem** and **Access Manager** speak when federating to and from
-modern apps.
+what IDaaS services and PAM access gateways speak when federating to and from modern apps.
 
 The distinction is the thing to keep straight from the start:
 
@@ -303,11 +302,12 @@ Keep the two mechanisms distinct, exactly as in SAML:
   for a different audience/client. This is the JWT counterpart of SAML's `AudienceRestriction`
   check.
 
-For how WALLIX brokers these protocols — Access Manager / Bastion as OAuth client and OIDC
-relying party, WALLIX One IDaaS as the OpenID Provider — see
-[../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md)
-and [../deep-dives/idaas-trustelem.md](../certs/wallix/deep-dives/idaas-trustelem.md). For the XML-based
-predecessor solving the same SSO problem, see [./saml.md](saml.md).
+In practice a PAM platform is usually the OAuth client / OIDC **relying party** (its portal
+delegates login to the corporate IdP), while an IDaaS product acts as the **OpenID
+Provider** for downstream apps — see
+[../foundations/pam-iam-iga-idaas-epm.md](../foundations/pam-iam-iga-idaas-epm.md) for how
+those categories relate. For the XML-based predecessor solving the same SSO problem, see
+[./saml.md](saml.md).
 
 ---
 
@@ -327,5 +327,4 @@ predecessor solving the same SSO problem, see [./saml.md](saml.md).
   <https://www.rfc-editor.org/rfc/rfc9700>
 - Related: [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md),
   [./tls.md](tls.md), [./saml.md](saml.md),
-  [../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md),
-  [../deep-dives/idaas-trustelem.md](../certs/wallix/deep-dives/idaas-trustelem.md)
+  [../foundations/pam-iam-iga-idaas-epm.md](../foundations/pam-iam-iga-idaas-epm.md)

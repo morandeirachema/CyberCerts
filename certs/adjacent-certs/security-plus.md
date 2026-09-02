@@ -14,7 +14,7 @@ CompTIA **Security+** is a vendor-neutral, foundational cybersecurity certificat
 - Identify who Security+ is for and what experience CompTIA recommends.
 - Summarise the five exam domains and their weightings.
 - State the verified exam format and note which details change over time.
-- Place Security+ in a sysadmin-to-security path and relate it to this repo's CEH and WALLIX/PAM material.
+- Place Security+ in a sysadmin-to-security path and relate it to this repo's CEH and [PAM (identity-security)](../../foundations/README.md) material.
 
 ## What it is
 
@@ -72,7 +72,7 @@ Security+ is long-established as a **United States Department of Defense (DoD)**
 Security+ is typically a **first or early** security certification — the breadth baseline you earn before choosing an offensive or defensive track.
 
 - **Relative to this repo's CEH hub:** Security+ and **CEH** (EC-Council Certified Ethical Hacker) are both vendor-neutral and breadth-focused, but Security+ leans **defensive/foundational** while CEH adds the **offensive lens** on top. A common order is Security+ then CEH. See [../ceh/README.md](../ceh/README.md) and the [CEH career & adjacent certs page](../ceh/career/ceh-career-and-adjacent-certs.md).
-- **Relative to WALLIX / Privileged Access Management (PAM):** Security+ gives you the access-control, identity, and least-privilege concepts that PAM products such as WALLIX operationalise — useful background before working with a specific PAM platform.
+- **Relative to Privileged Access Management (PAM):** Security+ gives you the access-control, identity, and least-privilege concepts that PAM products operationalise — useful background before working with a specific PAM platform.
 - **Next steps:** depth-focused hands-on certs follow once you pick a track — see the offensive siblings [oscp.md](oscp.md) and [pnpt.md](pnpt.md).
 
 ```mermaid
@@ -80,7 +80,7 @@ flowchart LR
     Sysadmin(["Sysadmin / IT background"]) --> SecPlus["Security+<br/>(foundational, defensive lean)"]
     SecPlus --> CEHnode["CEH<br/>(breadth, offensive lens)"]
     CEHnode --> Hands["Hands-on offensive<br/>PNPT / OSCP"]
-    SecPlus -.->|"identity & least-privilege concepts"| PAM["WALLIX / PAM hub"]
+    SecPlus -.->|"identity & least-privilege concepts"| PAM["PAM / identity security"]
 ```
 
 ## Study resources

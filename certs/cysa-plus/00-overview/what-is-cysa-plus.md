@@ -8,7 +8,7 @@ interpreting logs, hunting for malicious activity, managing vulnerabilities, run
 incident-response process, and communicating findings to stakeholders. The current exam is
 **CS0-003**. This page explains what the credential is, who it is for, the experience
 CompTIA recommends, and where it sits in a learning path — including how it relates to this
-repo's offensive (CEH) and Privileged Access Management (PAM/WALLIX) material.
+repo's offensive (CEH) and Privileged Access Management (PAM) material.
 
 > **Unofficial & no fabrication.** This hub is not affiliated with or endorsed by CompTIA.
 > Exam specifics come from CompTIA's official CySA+ page; anything volatile (exam code,
@@ -25,8 +25,8 @@ After working through this page you should be able to:
   this credential.
 - Identify who CySA+ is for and the experience CompTIA recommends.
 - Place CySA+ in a sysadmin-to-SOC-analyst path, **after Security+**.
-- Relate CySA+ (detection/response) to this repo's **CEH** offense and **WALLIX/PAM**
-  access-control defense.
+- Relate CySA+ (detection/response) to this repo's **CEH** offense and
+  [**PAM**](../../../foundations/README.md) access-control defense.
 - Summarise its US Department of Defense (DoD) 8140 relevance and where to confirm it.
 
 ## Who issues CySA+? (CompTIA)
@@ -47,9 +47,8 @@ Three properties define where CySA+ fits:
 
 - **Vendor-neutral** — it is not tied to a single product. It teaches the *analyst's
   reasoning* (how to read a SIEM alert, correlate logs, scope an incident) rather than how
-  to operate one vendor's console. This contrasts with product certifications such as the
-  **WALLIX Academy** credentials in this repo's [main hub](../../../README.md), which certify a
-  specific Privileged Access Management (PAM) product.
+  to operate one vendor's console. This contrasts with vendor product certifications, which certify a
+  specific product (for example a particular Privileged Access Management (PAM) platform).
 - **Intermediate** — it sits a level **above the foundational Security+**. It assumes you
   already know the vocabulary (CIA triad, controls, cryptography, Zero Trust) and goes
   deeper into **applying** it operationally: analyzing real indicators, prioritizing
@@ -100,7 +99,7 @@ flowchart LR
     SecPlus -.-> PenTest["CompTIA PenTest+ /<br/>CEH (offensive)"]
     CySA --> Adv["Advanced defense<br/>CASP+ / SecurityX"]
     CySA -.->|"detection &<br/>response role"| SOC["SOC analyst /<br/>threat hunter /<br/>IR handler"]
-    CySA -.->|"protect privileged<br/>access it monitors"| PAM["WALLIX / PAM<br/>(product specialism)"]
+    CySA -.->|"protect privileged<br/>access it monitors"| PAM["PAM / identity security<br/>(specialism)"]
 ```
 
 How it relates to the other study hubs in this repository:
@@ -117,7 +116,7 @@ How it relates to the other study hubs in this repository:
   same techniques. Reading the CEH module on a technique (e.g.
   [introduction to ethical hacking](../../ceh/domains/01-introduction-to-ethical-hacking.md))
   tells you what an analyst is hunting for. CySA+ never weaponizes; it defends.
-- **Relative to WALLIX / Privileged Access Management (PAM):** PAM products such as WALLIX
+- **Relative to Privileged Access Management (PAM):** PAM products
   **control and record privileged access**; CySA+ is the analyst who **monitors and
   investigates** that access — privileged-account misuse is a top thing a SOC hunts for (see
   [the PAM threat landscape](../../../foundations/pam-threat-landscape.md)). The
@@ -163,7 +162,7 @@ appears in US government and defence-contractor job requirements.
   <https://public.cyber.mil/>
 - Related in this repo: [../../security-plus/README.md](../../security-plus/README.md) ·
   [../../ceh/README.md](../../ceh/README.md) · [../../README.md](../../../README.md)
-  (WALLIX/PAM hub) · [../../protocols/README.md](../../../protocols/README.md) ·
+  (repo hub) · [../../protocols/README.md](../../../protocols/README.md) ·
   [../../reference/README.md](../../../reference/README.md)
 - Verify all volatile specifics (exam code, retirement date, price, renewal/CEU terms, DoD
   mapping) on CompTIA's site — programs change.

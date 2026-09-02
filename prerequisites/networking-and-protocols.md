@@ -1,10 +1,11 @@
 # Networking and Protocols for PAM
 
-A Privileged Access Management (PAM) broker like **WALLIX Bastion** lives in the network
+A Privileged Access Management (PAM) broker — a **bastion / session proxy** — lives in the network
 *between* administrators and targets. It either **proxies** a protocol (SSH, RDP, VNC,
 Telnet…) or **relies on** a protocol for authentication, federation, or logging (LDAP,
-RADIUS, SAML, Syslog…). To configure and troubleshoot Bastion you must know what each
-protocol is *for*, which **TCP/UDP port** it uses, and **where it shows up in WALLIX**.
+RADIUS, SAML, Syslog…). To configure and troubleshoot a PAM platform you must know what
+each protocol is *for*, which **TCP/UDP port** it uses, and **where it shows up in a PAM
+deployment**.
 This file gives you that map, then walks through three authentication flows you will
 meet constantly: **SAML 2.0 SSO**, **OpenID Connect (OIDC) authorization-code**, and
 **RADIUS**.
@@ -19,9 +20,9 @@ meet constantly: **SAML 2.0 SSO**, **OpenID Connect (OIDC) authorization-code**,
 By the end of this file you should be able to:
 
 - Name each PAM-relevant protocol, its purpose, default port(s), and where it appears in
-  WALLIX (one big reference table).
-- Distinguish **session protocols** (proxied by Bastion) from **infrastructure
-  protocols** (auth/federation/logging Bastion relies on).
+  a PAM deployment (one big reference table).
+- Distinguish **session protocols** (proxied by the bastion) from **infrastructure
+  protocols** (auth/federation/logging the bastion relies on).
 - Walk through the **SAML 2.0 SSO**, **OIDC authorization-code**, and **RADIUS**
   authentication flows.
 
@@ -33,35 +34,35 @@ See [../reference/acronyms.md](../reference/acronyms.md),
 
 ## 1. The master protocol table
 
-| Protocol | Expands to | Purpose | Default port(s) | Transport | Where in WALLIX |
+| Protocol | Expands to | Purpose | Default port(s) | Transport | Where in a PAM deployment |
 |----------|-----------|---------|-----------------|-----------|-----------------|
-| **SSH** | Secure Shell | Encrypted CLI / file transfer / tunnelling | **22** | TCP | **Bastion session proxy** (shell, SCP, SFTP, X11, direct-TCPIP sub-protocols); OT protocol encapsulation |
-| **RDP** | Remote Desktop Protocol | Graphical Windows remote desktop | **3389** | TCP | **Bastion session proxy** via the **"Redemption"** engine (NLA, Kerberos, TLS) |
-| **VNC** | Virtual Network Computing | Graphical remote desktop (cross-platform) | **5900** | TCP | **Bastion session proxy**; session-invite (guest) supported for VNC |
-| **Telnet** | Teletype Network | *Plaintext* remote CLI (legacy) | **23** | TCP | **Bastion session proxy** (legacy/OT devices) |
-| **RLOGIN** | Remote Login | *Plaintext* UNIX remote login (legacy) | **513** | TCP | **Bastion session proxy** (legacy) |
-| **TLS/SSL** | Transport Layer Security / Secure Sockets Layer | Encrypts other protocols (HTTPS = HTTP over TLS) | **443** (HTTPS) | TCP | Bastion admin GUI & REST API; **Access Manager** HTTPS gateway; protects LDAPS, RDP, etc. |
-| **LDAP** | Lightweight Directory Access Protocol | Directory queries / authentication (AD) | **389** | TCP | **Bastion + Access Manager** user authentication against AD/LDAP |
+| **SSH** | Secure Shell | Encrypted CLI / file transfer / tunnelling | **22** | TCP | **Session proxy** (shell, SCP, SFTP, X11, direct-TCPIP sub-protocols); OT protocol encapsulation |
+| **RDP** | Remote Desktop Protocol | Graphical Windows remote desktop | **3389** | TCP | **Session proxy** RDP engine (NLA, Kerberos, TLS) |
+| **VNC** | Virtual Network Computing | Graphical remote desktop (cross-platform) | **5900** | TCP | **Session proxy**; guest/invite sessions |
+| **Telnet** | Teletype Network | *Plaintext* remote CLI (legacy) | **23** | TCP | **Session proxy** (legacy/OT devices) |
+| **RLOGIN** | Remote Login | *Plaintext* UNIX remote login (legacy) | **513** | TCP | **Session proxy** (legacy) |
+| **TLS/SSL** | Transport Layer Security / Secure Sockets Layer | Encrypts other protocols (HTTPS = HTTP over TLS) | **443** (HTTPS) | TCP | Admin GUI & REST API; the **web access gateway**; protects LDAPS, RDP, etc. |
+| **LDAP** | Lightweight Directory Access Protocol | Directory queries / authentication (AD) | **389** | TCP | User authentication against AD/LDAP (bastion and web gateway) |
 | **LDAPS** | LDAP over TLS | Encrypted LDAP | **636** | TCP | Same as LDAP, encrypted (recommended) |
-| **RADIUS** | Remote Authentication Dial-In User Service | Centralized AAA / often the MFA second factor | **1812** (auth), 1813 (acct) | UDP | **Bastion + Access Manager** auth domain; MFA via RADIUS (e.g., Trustelem) |
-| **TACACS+** | Terminal Access Controller Access-Control System Plus | AAA for network devices (Cisco) | **49** | TCP | Bastion directory/authentication integration |
-| **Kerberos** | (named after the 3-headed dog) | Ticket-based SSO authentication | **88** | TCP/UDP | **Bastion** user auth and target auth; RDP Kerberos (default from 12.0.1) |
-| **SAML 2.0** | Security Assertion Markup Language | Browser SSO / identity federation (XML) | **443** (over HTTPS) | TCP | **Access Manager** as SAML **Service Provider**; Trustelem as IdP |
-| **OIDC / OAuth 2.0** | OpenID Connect / Open Authorization | Modern SSO (OIDC) on top of authorization (OAuth 2.0); JSON/JWT | **443** (over HTTPS) | TCP | **Access Manager** auth domain (OIDC **Authorization Code Flow**) |
-| **SCIM** | System for Cross-domain Identity Management | Automated user/group provisioning (JSON/REST) | **443** (over HTTPS) | TCP | **Trustelem** acts as SCIM client to provision downstream apps |
-| **SNMP** | Simple Network Management Protocol | Device monitoring / metrics / traps | **161** (162 traps) | UDP | **Bastion** monitoring (v2c/v3) |
-| **Syslog** | System Logging Protocol | Event/log forwarding to a SIEM | **514** | UDP (often TCP) | **Bastion** log forwarding via `syslog-ng` to a SIEM |
+| **RADIUS** | Remote Authentication Dial-In User Service | Centralized AAA / often the MFA second factor | **1812** (auth), 1813 (acct) | UDP | External auth domain; MFA second factor via a RADIUS/OTP server |
+| **TACACS+** | Terminal Access Controller Access-Control System Plus | AAA for network devices (Cisco) | **49** | TCP | Directory/authentication integration |
+| **Kerberos** | (named after the 3-headed dog) | Ticket-based SSO authentication | **88** | TCP/UDP | User auth to the bastion and bastion auth to targets; RDP Kerberos |
+| **SAML 2.0** | Security Assertion Markup Language | Browser SSO / identity federation (XML) | **443** (over HTTPS) | TCP | Web gateway as SAML **Service Provider**; corporate IdP / IDaaS as IdP |
+| **OIDC / OAuth 2.0** | OpenID Connect / Open Authorization | Modern SSO (OIDC) on top of authorization (OAuth 2.0); JSON/JWT | **443** (over HTTPS) | TCP | Web gateway auth domain (OIDC **Authorization Code Flow**) |
+| **SCIM** | System for Cross-domain Identity Management | Automated user/group provisioning (JSON/REST) | **443** (over HTTPS) | TCP | IDaaS / IGA acts as SCIM client to provision downstream apps |
+| **SNMP** | Simple Network Management Protocol | Device monitoring / metrics / traps | **161** (162 traps) | UDP | Appliance monitoring (v2c/v3) |
+| **Syslog** | System Logging Protocol | Event/log forwarding to a SIEM | **514** | UDP (often TCP) | Appliance log forwarding to a SIEM |
 
 ### Two families to keep straight
 
 ```mermaid
 flowchart TD
-    subgraph SESSION["SESSION protocols —<br/>Bastion PROXIES the<br/>live connection"]
+    subgraph SESSION["SESSION protocols —<br/>the bastion PROXIES the<br/>live connection"]
         S1["SSH (22) · RDP (3389) · VNC (5900) ·<br/>Telnet (23) · RLOGIN (513)"]
         S2["→ recorded, credential-injected,<br/>sub-protocol controlled"]
         S1 --- S2
     end
-    subgraph INFRA["INFRASTRUCTURE protocols — Bastion<br/>RELIES on these around the session"]
+    subgraph INFRA["INFRASTRUCTURE protocols — the bastion<br/>RELIES on these around the session"]
         I1["Auth / federation:<br/>LDAP (389/636) · RADIUS<br/>(1812) · TACACS+<br/>(49) · Kerberos (88) · SAML ·<br/>OIDC/OAuth2 · SCIM"]
         I2["Transport: TLS/SSL (443)"]
         I3["Ops / audit: SNMP<br/>(161) · Syslog (514)"]
@@ -80,17 +81,17 @@ flowchart TD
 SSO** and identity federation. Three roles:
 
 - **Principal** — the user (in a web browser).
-- **Service Provider (SP)** — the app the user wants (here, **WALLIX Access Manager**).
-- **Identity Provider (IdP)** — who authenticates the user (e.g., **WALLIX Trustelem**,
-  Microsoft Entra ID, Okta).
+- **Service Provider (SP)** — the app the user wants (here, the **PAM web access gateway**).
+- **Identity Provider (IdP)** — who authenticates the user (e.g., Microsoft Entra ID,
+  Okta, an IDaaS service).
 
 This is the **SP-initiated** flow (user starts at the app):
 
 ```mermaid
 sequenceDiagram
     participant B as Browser (user)
-    participant SP as Service Provider<br/>(WALLIX Access Manager)
-    participant IdP as Identity Provider<br/>(e.g. Trustelem)
+    participant SP as Service Provider<br/>(PAM web gateway)
+    participant IdP as Identity Provider<br/>(e.g. Entra ID / Okta)
     B->>SP: (1) GET protected resource
     SP->>B: (2) 302 redirect + SAML AuthnReq
     B->>IdP: (3) follow redirect (SAML AuthnRequest) to IdP
@@ -106,11 +107,10 @@ sequenceDiagram
 returns a **signed SAML Assertion** that the browser POSTs to the SP (5–6); the SP
 verifies the IdP's signature and logs the user in (7–8). The SP never sees the password.
 
-> **Bastion tie-in:** **Access Manager** acts as the **SAML Service Provider** (both
-> SP- and IdP-initiated), trusting IdPs like Trustelem/ADFS/Entra. Per the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#access-manager-web-portal--single-point-of-access--gateway),
-> **FIDO2/OTP/push are not native to WAM — they arrive via the federated IdP** over
-> SAML/OIDC.
+> **PAM tie-in:** The PAM web gateway acts as the **SAML Service Provider** (both SP-
+> and IdP-initiated), trusting IdPs like ADFS / Entra ID / Okta. In many PAM products
+> **FIDO2/OTP/push are not native to the gateway — they arrive via the federated IdP**
+> over SAML/OIDC. Mechanism details: [../protocols/saml.md](../protocols/saml.md).
 
 ---
 
@@ -122,13 +122,13 @@ signed **JWT — JSON Web Token**) that proves who the user is. The recommended 
 the **Authorization Code Flow**:
 
 - **Resource Owner** — the user.
-- **Client / Relying Party (RP)** — the app (here, **WALLIX Access Manager**).
+- **Client / Relying Party (RP)** — the app (here, the **PAM web access gateway**).
 - **Authorization Server / OpenID Provider (OP)** — the IdP.
 
 ```mermaid
 sequenceDiagram
     participant B as Browser (user)
-    participant RP as Client / RP<br/>(WALLIX Access Manager)
+    participant RP as Client / RP<br/>(PAM web gateway)
     participant OP as Authorization Server / OP<br/>(IdP)
     B->>RP: (1) click "Log in"
     RP->>B: (2) 302 -> /authorize?response_type=code&client_id=...&scope=openid
@@ -146,9 +146,9 @@ sequenceDiagram
 server call (6–7) authenticated with the `client_secret`, so the tokens never pass
 through the user's browser. The RP then validates the ID Token's signature (8).
 
-> **Bastion tie-in:** **Access Manager** supports **OIDC (Authorization Code Flow)** as
-> an authentication-domain type (per the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#access-manager-web-portal--single-point-of-access--gateway)).
+> **PAM tie-in:** PAM web gateways typically support **OIDC (Authorization Code Flow)**
+> as an authentication-domain type alongside SAML. Mechanism details:
+> [../protocols/oidc-oauth2.md](../protocols/oidc-oauth2.md).
 
 ---
 
@@ -157,14 +157,15 @@ through the user's browser. The RP then validates the ID Token's signature (8).
 **RADIUS (Remote Authentication Dial-In User Service)** is a UDP-based **AAA** protocol
 (auth on **UDP 1812**). In PAM it is the classic way to plug in a **second factor**:
 
-- **NAS (Network Access Server) / RADIUS client** — here, **WALLIX Bastion** or **Access
-  Manager**.
-- **RADIUS server** — the AAA/MFA service (e.g., Trustelem, an OTP server).
+- **NAS (Network Access Server) / RADIUS client** — here, the **PAM bastion** or its
+  **web gateway**.
+- **RADIUS server** — the AAA/MFA service (e.g., an OTP/MFA server, FreeRADIUS in front
+  of a directory).
 
 ```mermaid
 sequenceDiagram
     participant U as User
-    participant RC as RADIUS Client<br/>(WALLIX Bastion / Access Manager)
+    participant RC as RADIUS Client<br/>(PAM bastion / web gateway)
     participant RS as RADIUS Server<br/>(MFA / AAA)
     U->>RC: (1) username + password + OTP (optional)
     RC->>RS: (2) Access-Request (UDP 1812, shared secret)
@@ -181,23 +182,23 @@ secured by a **shared secret** (2). The server may answer **Access-Challenge** t
 an OTP (4a/4b), then finally **Access-Accept** or **Access-Reject** (5). Accounting
 (`Access-Request` on 1813) optionally logs the session.
 
-> **Bastion tie-in:** Bastion and Access Manager both support **RADIUS** auth domains;
-> WALLIX **Trustelem** integrates with Bastion via **LDAP/RADIUS** to deliver MFA. Note
-> RADIUS typically carries PAP and is used as a "**2nd factor only**" mechanism in the
-> Trustelem integration (per the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#supported-protocols--standards)).
+> **PAM tie-in:** PAM bastions and their web gateways support **RADIUS** auth domains,
+> and MFA providers commonly integrate with PAM via **LDAP/RADIUS**. Note RADIUS
+> typically carries PAP, so many PAM products use it as a "**2nd factor only**"
+> mechanism — the password is checked against LDAP/AD and only the OTP travels over
+> RADIUS. Mechanism details: [../protocols/radius.md](../protocols/radius.md).
 
 ---
 
-## How this maps to the certifications
+## How this maps to PAM roles
 
-- **WCA-P / WCP-P:** SSH, RDP, and proxy concepts are stated prerequisites; you will
-  configure session protocols and LDAP/RADIUS auth.
-- **WCE-P (Expert):** the **Advanced authentication** module covers **RADIUS, Kerberos,
-  X.509, and SAML** directly (see
-  [wce-p-expert.md](../certs/wallix/pam-bastion/wce-p-expert.md)); SAML/OIDC are central to
-  Access Manager. The IDaaS track adds **SCIM, SAML, OIDC/OAuth 2.0**
-  (see [ewcp-i-professional.md](../certs/wallix/idaas/ewcp-i-professional.md)).
+- **PAM administrator / professional level:** SSH, RDP, and proxy concepts are stated
+  prerequisites of most vendor tracks; you will configure session protocols and
+  LDAP/RADIUS auth.
+- **PAM expert level:** advanced authentication covers **RADIUS, Kerberos, X.509, and
+  SAML** directly; SAML/OIDC are central to the web access gateway. IDaaS-oriented roles
+  add **SCIM, SAML, OIDC/OAuth 2.0** (see
+  [../foundations/pam-iam-iga-idaas-epm.md](../foundations/pam-iam-iga-idaas-epm.md)).
 
 ---
 
@@ -217,4 +218,3 @@ an OTP (4a/4b), then finally **Access-Accept** or **Access-Reject** (5). Account
 - RFC 5424 — The Syslog Protocol: https://www.rfc-editor.org/rfc/rfc5424
 - RFC 3416 — SNMPv2 protocol operations: https://www.rfc-editor.org/rfc/rfc3416
 - IANA Service Name and Transport Protocol Port Number Registry: https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
-- WALLIX Bastion / Access Manager / Trustelem protocol support: [product-portfolio.md](../certs/wallix/overview/product-portfolio.md)

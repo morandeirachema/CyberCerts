@@ -1,6 +1,6 @@
 # CySA+ Glossary
 
-> 🔁 This is the **CompTIA Cybersecurity Analyst (CySA+) CS0-003** glossary, focused on **Security Operations Center (SOC) / blue-team** terms. For foundational security terms see the [Security+ glossary](../../security-plus/reference/glossary.md) and [Security+ acronyms](../../security-plus/reference/acronyms.md); for Privileged Access Management (PAM) / identity terms see the [WALLIX glossary](../../../reference/glossary.md); for offensive / ethical-hacking terms see the [CEH glossary](../../ceh/reference/glossary.md). The hubs are complementary — where a term is treated more deeply elsewhere, the entry cross-links there rather than repeating it.
+> 🔁 This is the **CompTIA Cybersecurity Analyst (CySA+) CS0-003** glossary, focused on **Security Operations Center (SOC) / blue-team** terms. For foundational security terms see the [Security+ glossary](../../security-plus/reference/glossary.md) and [Security+ acronyms](../../security-plus/reference/acronyms.md); for Privileged Access Management (PAM) / identity terms see the [PAM glossary](../../../reference/glossary.md); for offensive / ethical-hacking terms see the [CEH glossary](../../ceh/reference/glossary.md). The hubs are complementary — where a term is treated more deeply elsewhere, the entry cross-links there rather than repeating it.
 
 An alphabetical glossary of CySA+ terms defined **in CySA+ / SOC analyst context** for a sysadmin moving into a blue-team role. The emphasis is on the analyst's daily vocabulary the exam tests as definitions or scenario distinctions (e.g. IoC vs IoA, false positive vs false negative, CVSS base vs environmental, MTTD vs MTTR). Acronyms are expanded on first use; there is **no full acronym table here** — see the [Security+ acronyms](../../security-plus/reference/acronyms.md) for general expansions and only **CySA+-specific** terms are added below.
 
@@ -175,7 +175,7 @@ An alphabetical glossary of CySA+ terms defined **in CySA+ / SOC analyst context
 - [Security Operations (Domain 1)](../domains/01-security-operations.md) · [Vulnerability Management (Domain 2)](../domains/02-vulnerability-management.md) · [Incident Response & Management (Domain 3)](../domains/03-incident-response-and-management.md) · [Reporting & Communication (Domain 4)](../domains/04-reporting-and-communication.md)
 - [study-plan.md](../exam-prep/study-plan.md) · [practice-questions.md](../exam-prep/practice-questions.md) — the hub's exam-prep pages.
 - [Security+ glossary](../../security-plus/reference/glossary.md) · [Security+ acronyms](../../security-plus/reference/acronyms.md) — foundational terms and full acronym expansions.
-- [WALLIX / PAM glossary](../../../reference/glossary.md) · [CEH glossary](../../ceh/reference/glossary.md) — the repo's sibling glossaries.
+- [PAM glossary](../../../reference/glossary.md) · [CEH glossary](../../ceh/reference/glossary.md) — the repo's sibling glossaries.
 
 ## Sources
 

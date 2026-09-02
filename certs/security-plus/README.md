@@ -68,8 +68,8 @@ Security+ is the **breadth baseline** you earn early — before specializing. It
 with the rest of this repo:
 
 - **Offensive next step** → the [CEH hub](../ceh/README.md) adds the attacker's lens on top.
-- **Defensive / identity depth** → the [WALLIX / PAM hub](../wallix/pam-bastion/README.md)
-  operationalizes the access-control, identity, and least-privilege concepts Security+ surveys.
+- **Defensive / identity depth** → the [PAM foundations](../../foundations/README.md)
+  operationalize the access-control, identity, and least-privilege concepts Security+ surveys.
 - **Mechanisms** → the [protocols](../../protocols/README.md) pages explain the crypto, TLS,
   Kerberos, SAML, and 802.1X that Security+ references.
 - **Career path** → see the [learning roadmap](../../learning/roadmap.md) and

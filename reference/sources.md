@@ -1,44 +1,65 @@
 # Sources
 
-All sources used to compile this documentation, grouped by topic. Compiled 2026-06-17.
-Where a served document version differed from its URL label, the served version is noted.
+All sources used to compile the vendor-neutral foundations and reference pages, grouped
+by topic. Compiled 2026-06-17. Each study page also carries its own `## Sources` section
+with the exact documents it cites; this page is the consolidated index.
 
-## Certification & training (primary)
+## Standards, regulations & frameworks
 
-- WALLIX Academy main page (certification matrix, availability labels): https://www.wallix.com/support-services/wallix-academy/
-- **Training catalog 2025–2026 (EN)** — primary source for all current certs: https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf
-- Training catalog 2023 PAM4ALL (EN) — corroboration / legacy: https://www.wallix.com/wp-content/uploads/2024/02/WALLIX_TRAINING_2023_PAM4ALL_EN.pdf
-- WALLIX support / training landing page: https://www.wallix.com/support/training/
-- Alternate catalog URL (search-surfaced): https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG-1.pdf
+- NIST SP 800-53 Rev. 5 (AC-2, AC-5, AC-6, AU, IA families): https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+- NIST SP 800-63B Digital Identity Guidelines (authenticators): https://pages.nist.gov/800-63-3/sp800-63b.html
+- NIST SP 800-82 Rev. 3 (OT security): https://csrc.nist.gov/pubs/sp/800/82/r3/final
+- NIST SP 800-171 Rev. 3 (protecting CUI): https://csrc.nist.gov/pubs/sp/800/171/r3/final
+- NIST SP 800-207 Zero Trust Architecture: https://csrc.nist.gov/pubs/sp/800/207/final
+- NIST Cybersecurity Framework 2.0: https://www.nist.gov/cyberframework
+- NIST NCCoE — Implementing a Zero Trust Architecture (SP 1800-35): https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture
+- ISO/IEC 27001:2022: https://www.iso.org/standard/27001 · ISO/IEC 27002:2022: https://www.iso.org/standard/75652.html
+- ISA/IEC 62443 series overview: https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards
+- EU NIS2 Directive (EU) 2022/2555: https://eur-lex.europa.eu/eli/dir/2022/2555/oj · ENISA NIS2 resources: https://www.enisa.europa.eu/topics/nis-directive
+- EU DORA Regulation (EU) 2022/2554: https://eur-lex.europa.eu/eli/reg/2022/2554/oj
+- EU GDPR Regulation (EU) 2016/679: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- PCI DSS v4.0.1 document library: https://www.pcisecuritystandards.org/document_library/
+- Sarbanes-Oxley Act of 2002: https://www.govinfo.gov/app/details/PLAW-107publ204
+- HIPAA Security Rule (HHS): https://www.hhs.gov/hipaa/for-professionals/security/index.html
+- NERC CIP standards: https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx
+- ANSSI — CSPN: https://cyber.gouv.fr/la-certification-de-securite-de-premier-niveau-cspn
+- BSI — BSZ: https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Zertifizierung-und-Anerkennung/
 
-## Products (technical background)
+## Protocols & cryptography (IETF / standards bodies)
 
-The full per-product source list lives at the end of
-[docs/00-overview/product-portfolio.md](../certs/wallix/overview/product-portfolio.md#sources).
-Key entry points:
+- IETF — TOTP (RFC 6238): https://www.rfc-editor.org/rfc/rfc6238 · HOTP (RFC 4226): https://www.rfc-editor.org/rfc/rfc4226
+- FIDO Alliance — FIDO2 / WebAuthn / CTAP: https://fidoalliance.org/fido2/
+- Per-protocol RFC lists (SSH, TLS, Kerberos, LDAP, RADIUS, SAML, OIDC/OAuth 2.0) live in the [protocols](../protocols/README.md) pages.
 
-- WALLIX Bastion (PAM): https://www.wallix.com/products/privileged-access-management/
-- Bastion Administration Guide (served v12.3.2): https://pam.wallix.one/documentation/admin-doc/bastion_en_administration_guide.pdf
-- Bastion Deployment Guide (v12.0.2): https://marketplace-wallix.s3.amazonaws.com/bastion_12.0.2_en_deployment_guide.pdf
-- Access Manager Administration Guide (served v5.2.4.0): https://pam.wallix.one/documentation/admin-doc/am-admin-guide_en.pdf
-- WALLIX One (SaaS platform): https://www.wallix.com/products/wallix-one/
-- WALLIX IDaaS / Trustelem: https://www.wallix.com/products/idaas/ · https://trustelem-doc.wallix.com/
-- WALLIX IAG (Identity & Access Governance): https://www.wallix.com/products/identity-and-access-governance/
-- WALLIX BestSafe (EPM): https://www.wallix.com/endpoint-privilege-management/
-- OT.security by WALLIX (PAM4OT): https://www.wallix.com/ot-security/ot-products/ot-pam4ot/
+## Threat intelligence
 
-## Company / market
+- MITRE ATT&CK — Enterprise matrix: https://attack.mitre.org/matrices/enterprise/
+- MITRE ATT&CK — Valid Accounts (T1078): https://attack.mitre.org/techniques/T1078/
+- MITRE ATT&CK — OS Credential Dumping (T1003): https://attack.mitre.org/techniques/T1003/
+- MITRE ATT&CK — Pass-the-Hash / Pass-the-Ticket (T1550): https://attack.mitre.org/techniques/T1550/
+- MITRE ATT&CK — Steal or Forge Kerberos Tickets (T1558): https://attack.mitre.org/techniques/T1558/
+- MITRE ATT&CK — Phishing (T1566): https://attack.mitre.org/techniques/T1566/
+- Lockheed Martin — Cyber Kill Chain: https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html
+- Verizon Data Breach Investigations Report (DBIR): https://www.verizon.com/business/resources/reports/dbir/
+- ENISA Threat Landscape: https://www.enisa.europa.eu/topics/cyber-threats/threats-and-trends
+- CISA — Identity & Access Management guidance: https://www.cisa.gov/topics/cybersecurity-best-practices/identity-and-access-management
 
-- About WALLIX: https://www.wallix.com/company/about-wallix/
-- Euronext 10-years listing communication (2025-06-17): https://live.euronext.com/en/products/equities/company-news/2025-06-17-wallix-new-european-leader-cybersecurity-celebrates-ten
-- Kleverware acquisition (IAG): https://www.actusnews.com/en/wallix/pr/2023/05/16/wallix-acquires-kleverware-a-leading-player-in-identity-and-access-governance
+## Analyst frameworks & PAM market
+
+- Gartner — PAM glossary: https://www.gartner.com/en/information-technology/glossary/privileged-access-management-pam
+- Gartner — IGA glossary: https://www.gartner.com/en/information-technology/glossary/iga-identity-governance-and-administration
+- Gartner — IDaaS glossary: https://www.gartner.com/en/information-technology/glossary/idaas-identity-as-a-service
+- Gartner — CIEM glossary: https://www.gartner.com/en/information-technology/glossary/cloud-infrastructure-entitlement-management-ciem
+- Gartner — Magic Quadrant methodology: https://www.gartner.com/en/research/methodologies/magic-quadrants-research
+- Gartner — Magic Quadrant for PAM (2025 landing): https://www.gartner.com/en/documents/7051198
+- KuppingerCole — Leadership Compass: Privileged Access Management: https://www.kuppingercole.com/research/lc80830/privileged-access-management
+- Vendor press releases on 2025 MQ placement — CyberArk: https://www.cyberark.com/press/cyberark-named-a-leader-in-the-2025-gartner-magic-quadrant-for-privileged-access-management/ · BeyondTrust: https://www.beyondtrust.com/blog/entry/gartner-pam-magic-quadrant · Delinea: https://delinea.com/news/delinea-named-a-leader-in-2025-gartner-magic-quadrant-for-pam-for-seventh-consecutive-time · One Identity: https://www.oneidentity.com/analyst-report/one-identity-is-named-a-visionary-in-the-2025-gartner-magic-quadrant-for-pam/ · WALLIX: https://www.wallix.com/press/wallix-recognized-as-a-visionary-for-the-third-consecutive-year-in-the-2025-gartner-magic-quadrant-for-pam-solutions/
+- Vendor product pages cited on the market page — CyberArk PAM: https://www.cyberark.com/products/privileged-access-manager/ · BeyondTrust Password Safe: https://www.beyondtrust.com/products/password-safe · Delinea (ThycoticCentrify rebrand): https://delinea.com/news/thycoticcentrify-is-now-delinea · One Identity Safeguard: https://www.oneidentity.com/one-identity-safeguard/ · Broadcom Symantec PAM: https://www.broadcom.com/products/identity/pam · Microsoft Entra PIM: https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure
+- Full list, including the WALLIX CSPN/BSZ certification releases: see the `## Sources` section of [pam-market-landscape.md](../foundations/pam-market-landscape.md).
 
 ## Notes & caveats
 
-- **Exam question count** and **certification validity period** are *not specified* in
-  any official WALLIX source consulted.
-- **Code inconsistency:** website uses `WCP-G`/`WCP-I`/`eWCP-P OT`; catalog datasheets use
-  `eWCP-G`/`eWCP-I`/`eWCP-P-OT` (same certs).
-- For product-level uncertainties (inWebo partnership vs. acquisition, PAM4OT as Bastion
-  packaging, BestSafe platform support, no Common Criteria EAL, etc.) see the
-  "Key uncertainties flagged" section of the product portfolio doc.
+- Analyst placements change every year; every placement cited in this repo is tagged
+  with the report year it comes from.
+- Vendor certification-program details (exam length, validity period) are not tracked
+  here — see [adjacent certs](../certs/adjacent-certs/README.md) for the vendor ladders.

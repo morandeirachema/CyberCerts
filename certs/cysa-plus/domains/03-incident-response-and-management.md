@@ -107,7 +107,7 @@ Beyond the named phases, CompTIA tests the analyst's hands-on management activit
 |---|---|
 | **Detection & analysis** | Correlate alerts, separate signal from noise, confirm an incident. |
 | **Evidence acquisition** | Preserve data defensibly — maintain **chain of custody**, follow the **order of volatility** (capture RAM/cache before disk before archives), hash to prove integrity, work on copies. |
-| **Data and log analysis** | Examine SIEM, endpoint, network, DNS, authentication, and application logs to reconstruct the attack. See [Troubleshooting & Logs](../../wallix/deep-dives/troubleshooting-and-logs.md). |
+| **Data and log analysis** | Examine SIEM, endpoint, network, DNS, authentication, and application logs to reconstruct the attack. See [PAM detection engineering](../../ceh/defender-pam/detection-engineering.md). |
 | **Scope and impact** | Identify every affected system, account, and data set, and the business consequence (downtime, data loss, regulatory exposure). |
 | **Severity / prioritization** | Rank the incident using functional impact, information impact, and recoverability — drives resourcing and escalation. |
 
@@ -141,4 +141,4 @@ A clear, well-managed incident produces three durable outputs: a **timeline** of
 
 ---
 
-*Related: [Domain 2 — Vulnerability Management](02-vulnerability-management.md) · [Domain 4 — Reporting & Communication](04-reporting-and-communication.md) · [Security+ — Security Operations](../../security-plus/domains/04-security-operations.md) · [CEH — Engagement Methodology & Reporting](../../ceh/00-overview/engagement-methodology-and-reporting.md) · [Troubleshooting & Logs](../../wallix/deep-dives/troubleshooting-and-logs.md) · [Attack-to-Defense Matrix](../../../attack-to-defense-matrix.md) · [Acronyms](../../security-plus/reference/acronyms.md)*
+*Related: [Domain 2 — Vulnerability Management](02-vulnerability-management.md) · [Domain 4 — Reporting & Communication](04-reporting-and-communication.md) · [Security+ — Security Operations](../../security-plus/domains/04-security-operations.md) · [CEH — Engagement Methodology & Reporting](../../ceh/00-overview/engagement-methodology-and-reporting.md) · [PAM detection engineering](../../ceh/defender-pam/detection-engineering.md) · [Attack-to-Defense Matrix](../../../attack-to-defense-matrix.md) · [Acronyms](../../security-plus/reference/acronyms.md)*

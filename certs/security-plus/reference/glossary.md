@@ -1,6 +1,6 @@
 # Security+ Glossary
 
-> 🔁 This is the **CompTIA Security+ (SY0-701)** glossary. For PAM/identity terms see the [WALLIX glossary](../../../reference/glossary.md); for offensive / ethical-hacking terms see the [CEH glossary](../../ceh/reference/glossary.md). The three are complementary — where a term is treated in more depth in another hub or a Security+ domain page, the entry cross-links there rather than repeating it.
+> 🔁 This is the **CompTIA Security+ (SY0-701)** glossary. For PAM/identity terms see the [PAM glossary](../../../reference/glossary.md); for offensive / ethical-hacking terms see the [CEH glossary](../../ceh/reference/glossary.md). The three are complementary — where a term is treated in more depth in another hub or a Security+ domain page, the entry cross-links there rather than repeating it.
 
 An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+ exam context** for a sysadmin moving into cybersecurity. The emphasis is on concepts that the exam tests as definitions or scenario distinctions (e.g. due care vs due diligence, RTO vs RPO, fail-open vs fail-closed). For acronym expansions, see [acronyms.md](acronyms.md).
 
@@ -12,7 +12,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 **Acceptable Use Policy (AUP)** — A policy defining how employees may use organisational systems and data. A foundational governance document — see [Domain 5](../domains/05-security-program-management-oversight.md).
 
-**Access control models** — The schemes deciding who may do what: **MAC** (system-enforced labels), **DAC** (owner-set permissions), **RBAC** (role-based), **ABAC** (attribute-based), and rule-based. See the [WALLIX glossary RBAC entry](../../../reference/glossary.md) for the PAM treatment.
+**Access control models** — The schemes deciding who may do what: **MAC** (system-enforced labels), **DAC** (owner-set permissions), **RBAC** (role-based), **ABAC** (attribute-based), and rule-based. See the [PAM glossary RBAC entry](../../../reference/glossary.md) for the PAM treatment.
 
 **Air gap** — Physically isolating a system or network from others (no network connection) so it cannot be reached remotely; common in OT/high-security environments.
 
@@ -20,7 +20,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 **Attestation** — A formal, often signed, assertion that something is true — e.g. that controls are in place, that a configuration matches policy, or (in TPM/secure boot) that a platform booted into a known-good state. Used in audits and supply-chain assurance.
 
-**Attack surface** — The total set of points an attacker could target. Hardening, least privilege and segmentation shrink it. See the [WALLIX glossary](../../../reference/glossary.md).
+**Attack surface** — The total set of points an attacker could target. Hardening, least privilege and segmentation shrink it. See the [PAM glossary](../../../reference/glossary.md).
 
 **Authentication, Authorization, and Accounting (AAA)** — Proving identity, deciding permitted actions, and recording activity — the backbone of access control. See [acronyms.md](acronyms.md).
 
@@ -32,7 +32,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 **Business Impact Analysis (BIA)** — The analysis identifying critical functions and the impact of their loss; it produces the **RTO**, **RPO**, MTD and resource needs that drive continuity planning.
 
-**Blast radius** — How much a single compromise can affect. Segmentation and least privilege contain it — see the [WALLIX glossary](../../../reference/glossary.md).
+**Blast radius** — How much a single compromise can affect. Segmentation and least privilege contain it — see the [PAM glossary](../../../reference/glossary.md).
 
 ## C
 
@@ -56,7 +56,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 **Data sovereignty** — The principle that data is subject to the **laws of the country where it is physically stored/processed**. Drives where cloud data may reside; related to **data residency** (where data is kept) and **localization** (legal requirement to keep it in-country).
 
-**Defense in depth (layered security)** — Layering multiple independent controls so no single failure is catastrophic. See the [WALLIX glossary](../../../reference/glossary.md).
+**Defense in depth (layered security)** — Layering multiple independent controls so no single failure is catastrophic. See the [PAM glossary](../../../reference/glossary.md).
 
 **Disaster Recovery Plan (DRP)** — The plan to restore **IT systems and data** after a disaster; a subset of the broader **BCP**.
 
@@ -68,7 +68,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 **Encryption** — Transforming data so only holders of the key can read it: **symmetric** (one shared key — fast, e.g. AES) and **asymmetric** (public/private key pair — e.g. RSA/ECC). See the [acronyms](acronyms.md#cryptography-pki--hashing) and [Domain 1](../domains/01-general-security-concepts.md).
 
-**Entitlement** — A specific right or permission granted to an identity; governance reviews **right-size** them. See the [WALLIX glossary](../../../reference/glossary.md).
+**Entitlement** — A specific right or permission granted to an identity; governance reviews **right-size** them. See the [PAM glossary](../../../reference/glossary.md).
 
 **Exposure Factor (EF)** — The percentage of an asset's value lost in a single risk event; multiplied by asset value to get **SLE**.
 
@@ -90,7 +90,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 ## H
 
-**Hardening** — Reducing a system's attack surface by removing unneeded services, closing ports, tightening configuration and applying secure defaults. See the [WALLIX glossary](../../../reference/glossary.md).
+**Hardening** — Reducing a system's attack surface by removing unneeded services, closing ports, tightening configuration and applying secure defaults. See the [PAM glossary](../../../reference/glossary.md).
 
 **Honeypot / honeynet** — A **decoy** system (honeypot) or network (honeynet) deployed to detect, divert and study attackers without exposing real assets. A **honeyfile** and **honeytoken** are decoy data/credentials that should never be touched legitimately, so any access is a high-fidelity alert.
 
@@ -106,9 +106,9 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 ## J
 
-**Jump server (jump box / jump host)** — A hardened intermediary host that administrators connect **through** to reach sensitive systems, so they never connect directly. A practical least-privilege/segmentation control — treated in depth in the [WALLIX glossary](../../../reference/glossary.md) (where the WALLIX Bastion *is* the jump server/PAM bastion).
+**Jump server (jump box / jump host)** — A hardened intermediary host that administrators connect **through** to reach sensitive systems, so they never connect directly. A practical least-privilege/segmentation control — treated in depth in the [PAM glossary](../../../reference/glossary.md) (where the PAM bastion *is* the jump server).
 
-**Just-in-Time (JIT) access** — Granting privileged access only at the moment of need, for a limited time, then revoking it. See the [WALLIX glossary](../../../reference/glossary.md).
+**Just-in-Time (JIT) access** — Granting privileged access only at the moment of need, for a limited time, then revoking it. See the [PAM glossary](../../../reference/glossary.md).
 
 ## K
 
@@ -118,7 +118,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 ## L
 
-**Least privilege (PoLP)** — Granting the minimum rights needed for as short a time as needed. A foundational principle — see the [WALLIX glossary](../../../reference/glossary.md) and [Domain 1](../domains/01-general-security-concepts.md).
+**Least privilege (PoLP)** — Granting the minimum rights needed for as short a time as needed. A foundational principle — see the [PAM glossary](../../../reference/glossary.md) and [Domain 1](../domains/01-general-security-concepts.md).
 
 **Load balancing** — Distributing traffic across multiple servers for **availability** and performance; a resilience control (contrast clustering/failover).
 
@@ -126,11 +126,11 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 **Mean Time To Repair (MTTR) / Between Failures (MTBF) / To Failure (MTTF)** — Reliability metrics: average time to **repair** a failure, average time **between** failures of a repairable system, and average lifespan of a **non-repairable** item. Inform availability and sparing decisions.
 
-**Multi-factor authentication (MFA)** — Requiring factors from two or more categories: something you **know**, **have**, **are**, plus location/behaviour. See the [WALLIX glossary](../../../reference/glossary.md).
+**Multi-factor authentication (MFA)** — Requiring factors from two or more categories: something you **know**, **have**, **are**, plus location/behaviour. See the [PAM glossary](../../../reference/glossary.md).
 
 ## N
 
-**Non-repudiation** — Assurance that a party cannot credibly deny an action, because tamper-resistant, attributable evidence exists (e.g. a **digital signature** or individually-attributed logs). See the [WALLIX glossary](../../../reference/glossary.md).
+**Non-repudiation** — Assurance that a party cannot credibly deny an action, because tamper-resistant, attributable evidence exists (e.g. a **digital signature** or individually-attributed logs). See the [PAM glossary](../../../reference/glossary.md).
 
 ## O
 
@@ -170,7 +170,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 **Segmentation (network segmentation / microsegmentation)** — Dividing a network into isolated zones (VLANs, subnets, firewalls; microsegmentation goes per-workload) to limit lateral movement and contain breaches. A **defense-in-depth** and **zero-trust** building block.
 
-**Separation of duties (SoD)** — Splitting a sensitive process so no single person controls it end-to-end (e.g. requester ≠ approver), preventing fraud and error. Related to **least privilege** and **dual control** — see the [WALLIX glossary](../../../reference/glossary.md).
+**Separation of duties (SoD)** — Splitting a sensitive process so no single person controls it end-to-end (e.g. requester ≠ approver), preventing fraud and error. Related to **least privilege** and **dual control** — see the [PAM glossary](../../../reference/glossary.md).
 
 **Single Loss Expectancy (SLE)** — The expected monetary loss from **one** occurrence of a risk: `SLE = Asset Value × Exposure Factor`. Feeds the annual figure **ALE**. *(Example: a $10,000 asset with a 25% exposure factor gives SLE = $2,500 — illustrative figures.)*
 
@@ -204,9 +204,9 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 **Zero-day** — A vulnerability that is exploited **before** a patch or signature exists, so traditional detection misses it; behavioural detection and defense in depth are the mitigations.
 
-**Zero Trust** — A security model assuming **no implicit trust** from network location: *"never trust, always verify."* Every request is authenticated, authorized and continuously evaluated; built from a **policy engine/administrator** (control plane) enforcing access to the **data plane**. See the [WALLIX glossary](../../../reference/glossary.md) and NIST SP 800-207.
+**Zero Trust** — A security model assuming **no implicit trust** from network location: *"never trust, always verify."* Every request is authenticated, authorized and continuously evaluated; built from a **policy engine/administrator** (control plane) enforcing access to the **data plane**. See the [PAM glossary](../../../reference/glossary.md) and NIST SP 800-207.
 
-**Zero Trust Network Access (ZTNA)** — Applying zero trust to connectivity: per-session access to **specific** resources after verification, rather than dropping a user onto the whole network as a VPN does. See the [WALLIX glossary](../../../reference/glossary.md).
+**Zero Trust Network Access (ZTNA)** — Applying zero trust to connectivity: per-session access to **specific** resources after verification, rather than dropping a user onto the whole network as a VPN does. See the [PAM glossary](../../../reference/glossary.md).
 
 ---
 
@@ -214,7 +214,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 - [acronyms.md](acronyms.md) — expansions of every abbreviation used above.
 - [General Security Concepts (Domain 1)](../domains/01-general-security-concepts.md) · [Threats, Vulnerabilities & Mitigations (Domain 2)](../domains/02-threats-vulnerabilities-mitigations.md) · [Security Architecture (Domain 3)](../domains/03-security-architecture.md) · [Security Operations (Domain 4)](../domains/04-security-operations.md) · [Security Program Management & Oversight (Domain 5)](../domains/05-security-program-management-oversight.md)
-- [WALLIX / PAM glossary](../../../reference/glossary.md) · [CEH glossary](../../ceh/reference/glossary.md) — the repo's sibling glossaries.
+- [PAM glossary](../../../reference/glossary.md) · [CEH glossary](../../ceh/reference/glossary.md) — the repo's sibling glossaries.
 - [Exam format and objectives](../00-overview/exam-and-objectives.md)
 
 ## Sources

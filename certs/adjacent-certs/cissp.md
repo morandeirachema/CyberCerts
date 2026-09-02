@@ -9,7 +9,7 @@ The **CISSP (Certified Information Systems Security Professional)** is a manager
 - List the **eight CBK (Common Body of Knowledge) domains** and their scope.
 - Summarise the **exam format** (CAT — Computerized Adaptive Testing) with verified, cited specifics.
 - State the **experience requirement** and the **Associate of (ISC)²** route.
-- Explain **how CISSP fits** alongside the [CEH](../ceh/README.md) and [WALLIX/PAM](../wallix/overview/product-portfolio.md) tracks.
+- Explain **how CISSP fits** alongside the [CEH](../ceh/README.md) and [PAM (identity-security)](../../foundations/README.md) tracks.
 
 ## What it is
 
@@ -43,7 +43,7 @@ The Common Body of Knowledge (CBK) is organised into eight domains:
 
 Domain weightings are revised periodically — confirm the current percentages in the **CISSP Certification Exam Outline (verify on isc2.org)**.
 
-> Domain 5 (Identity and Access Management) is where CISSP overlaps most directly with **Privileged Access Management (PAM)** and the WALLIX track — see [How it fits](#how-it-fits-a-cyber-path).
+> Domain 5 (Identity and Access Management) is where CISSP overlaps most directly with **Privileged Access Management (PAM)** — see [How it fits](#how-it-fits-a-cyber-path).
 
 ## Exam format
 
@@ -70,19 +70,19 @@ Domain weightings are revised periodically — confirm the current percentages i
 
 ## How it fits a cyber path
 
-CISSP is the **breadth/management** anchor of a certification path; CEH and WALLIX/PAM add **offensive** and **deep technical/PAM** depth.
+CISSP is the **breadth/management** anchor of a certification path; CEH and PAM add **offensive** and **deep technical/PAM** depth.
 
 ```mermaid
 flowchart LR
     SYSADMIN["Sysadmin /<br/>infrastructure"] --> CEH["CEH<br/>(hands-on offensive)"]
-    SYSADMIN --> PAM["WALLIX PAM<br/>(WCA-P / WCP-P / WCE-P)"]
+    SYSADMIN --> PAM["PAM / identity security<br/>(architect track)"]
     CEH --> CISSP["CISSP<br/>(managerial breadth)"]
     PAM --> CISSP
     CISSP --> LEAD["Security architect /<br/>manager / CISO"]
 ```
 
 - **Relation to [CEH](../ceh/README.md):** CEH proves you can *find and exploit* weaknesses; CISSP proves you can *govern and design* the controls that prevent them. CISSP **Domain 6 (Security Assessment and Testing)** frames penetration testing from the management side that CEH performs hands-on.
-- **Relation to WALLIX / PAM ([product portfolio](../wallix/overview/product-portfolio.md)):** CISSP **Domain 5 (IAM)** covers the identity, least-privilege, and access-control principles that a **Privileged Access Management (PAM)** product like WALLIX Bastion *enforces in practice*. CISSP gives you the policy and risk vocabulary; the [WALLIX certification framework](../wallix/overview/certification-framework.md) gives you the product-level skills.
+- **Relation to PAM ([foundations](../../foundations/README.md)):** CISSP **Domain 5 (IAM)** covers the identity, least-privilege, and access-control principles that a **Privileged Access Management (PAM)** platform *enforces in practice*. CISSP gives you the policy and risk vocabulary; the [PAM foundations](../../foundations/what-is-pam.md) and [PAM playbook](../ceh/defender-pam/pam-playbook.md) give you the implementation-level skills.
 - **Sequencing:** Most sysadmins reach CISSP **after** gaining the five years' experience, often holding CEH and/or a PAM credential first. The exam can be passed earlier via the Associate route.
 
 ## Study resources
@@ -97,7 +97,6 @@ flowchart LR
 
 - [Cloud security certifications](cloud-security.md) — sibling adjacent-cert overview.
 - [CEH hub](../ceh/README.md) and [CEH cloud-computing domain](../ceh/domains/19-cloud-computing.md).
-- [WALLIX product portfolio](../wallix/overview/product-portfolio.md) and [certification framework](../wallix/overview/certification-framework.md).
 
 ## Sources
 

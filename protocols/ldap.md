@@ -2,7 +2,7 @@
 
 The **Lightweight Directory Access Protocol (LDAP)** is the on-the-wire protocol used to
 read from and write to a **directory service** — a specialised, read-optimised database
-of people, groups, computers, and services arranged as a tree. When **WALLIX Bastion**
+of people, groups, computers, and services arranged as a tree. When a **PAM bastion**
 authenticates a user against **Active Directory (AD)** or an OpenLDAP server, it speaks
 LDAP. This page explains *how the protocol actually works*: how the data is structured,
 what messages cross the wire, how a client proves its identity (the **bind**), and —
@@ -34,9 +34,7 @@ By the end of this page you should be able to:
 See [../prerequisites/networking-and-protocols.md](../prerequisites/networking-and-protocols.md)
 for ports and transport, [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md)
 for TLS and certificates, [./tls.md](tls.md) for the TLS handshake itself,
-[./kerberos.md](kerberos.md) for the GSSAPI/Kerberos bind mechanism, and
-[../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md)
-for how WALLIX consumes LDAP/AD identities.
+and [./kerberos.md](kerberos.md) for the GSSAPI/Kerberos bind mechanism.
 
 ---
 
@@ -134,7 +132,7 @@ three families. **Until a bind succeeds, the connection is treated as anonymous.
 - **EXTERNAL** — "use the identity already established by a lower layer." In practice this
   means the **TLS client certificate**: after TLS mutual authentication, the client binds
   with SASL EXTERNAL and the server derives the DN from the certificate. No password crosses
-  the wire at all. (This is how WALLIX/AD can do **X.509 certificate** authentication.)
+  the wire at all. (This is how a PAM platform or AD can do **X.509 certificate** authentication.)
 - **GSSAPI** — the **Generic Security Services Application Programming Interface**, which in
   directory deployments means **Kerberos v5**. The client presents a Kerberos service ticket
   for the directory's `ldap/host` Service Principal Name (SPN); no password is sent to the
@@ -159,7 +157,7 @@ password would travel in cleartext — see §6.)
 
 ```mermaid
 sequenceDiagram
-    participant C as LDAP client<br/>(e.g. WALLIX Bastion)
+    participant C as LDAP client<br/>(e.g. a PAM bastion)
     participant S as LDAP / AD server
 
     Note over C,S: TCP connect (then TLS — LDAPS:636 or StartTLS on 389)
@@ -242,7 +240,7 @@ Two consequences to internalise:
 
 1. **A simple bind on plain port 389 (no StartTLS) sends the DN and password in cleartext.**
    A passive sniffer captures the credential. This is why RFC 4513 forbids simple binds
-   without a confidentiality layer, and why WALLIX/AD deployments use **LDAPS (636)** or
+   without a confidentiality layer, and why PAM/AD deployments use **LDAPS (636)** or
    **StartTLS** for the bind that validates user passwords.
 2. **TLS protects the channel, not the stored data.** It encrypts the connection between
    client and directory; it says nothing about how passwords are hashed *inside* the

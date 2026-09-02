@@ -7,7 +7,7 @@ security who wants to know where to actually build skill — not just read about
 options are highlighted throughout, and offensive practice is deliberately balanced with
 defensive (blue-team) practice.
 
-> **These are independent third-party platforms, not WALLIX or this repo.** Details change.
+> **These are independent third-party platforms, not this repo.** Details change.
 > Anything volatile — pricing, exact subscription tiers, free-vs-paid boundaries — is stated
 > only in general terms; always **check current pricing on each platform's own site** before
 > committing. This page is the broader master list; the CEH hands-on subset lives in
@@ -113,12 +113,14 @@ Official environments tied to a specific certification. See each cert's overview
 | EC-Council iLabs · CEH Engage · CEH Compete | Official CEH practical components — a virtualised lab range (iLabs), a four-phase mock engagement (Engage), and monthly CTF challenges (Compete) | Paid (part of the CEH program) | Practice aligned to the [CEH](../certs/ceh/README.md) curriculum | https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/ |
 | OffSec PEN-200 (OSCP) | OffSec's hands-on penetration-testing course and lab that prepares you for the OSCP/OSCP+ exam | Paid (course + labs + exam bundles) | The [OSCP](../certs/adjacent-certs/oscp.md) journey | https://www.offsec.com/courses/pen-200/ |
 | TCM Security Academy (PNPT) | The Practical Ethical Hacking path and PNPT exam from TCM Security | Both — free fundamentals; paid courses/exam | The [PNPT](../certs/adjacent-certs/pnpt.md), an affordable practical cert | https://tcm-sec.com/academy/ |
-| WALLIX Academy | WALLIX's official training and certification for its products (PAM/Bastion, plus IAG/IDaaS/OT), across the WCA-P → WCP-P → WCE-P levels | Paid instructor-led training; some free partner e-learning | The WALLIX/PAM certs — see the [WALLIX hub](../README.md) | https://www.wallix.com/support-services/wallix-academy/ |
 
-> **WALLIX Academy labs are gated to enrolled trainees.** This repo's
-> [labs/README.md](../certs/wallix/labs/README.md) and [home-lab build](../certs/wallix/labs/building-a-home-lab.md) explain
-> what you can practise on a self-built AD + Windows + Linux substrate where the official
-> labs are not available to you.
+> **PAM vendor training is gated to customers/partners.** CyberArk, BeyondTrust, Delinea
+> and WALLIX each run their own academy and certification ladder, usually requiring an
+> enrolled trainee or partner account to reach the product labs. Until you have that
+> access, this repo's self-hosted [lab](../certs/ceh/labs/README.md) (Docker + Vagrant +
+> an Ansible AD lab with a tiered-admin PAM model) lets you practise the concepts —
+> vaulting, tiering, JIT, session brokering — on a self-built AD + Windows + Linux
+> substrate. See [adjacent certs](../certs/adjacent-certs/README.md) for the vendor ladders.
 
 ## Reference / knowledge bases
 
@@ -148,7 +150,7 @@ flowchart TD
     SEC --> BLUE["Blue team / SOC / DFIR<br/>LetsDefend · CyberDefenders<br/>Blue Team Labs Online · RangeForce"]
     CEHS --> HANDS["OSCP / PNPT (hands-on)<br/>OffSec PEN-200 + Proving Grounds<br/>TCM Academy · Hack The Box · VulnHub"]
     SEC --> CLOUD["Cloud security<br/>AWS Skill Builder · Microsoft Learn<br/>CloudGoat · flAWS / flAWS2"]
-    BLUE --> WPAM["WALLIX / PAM<br/>WALLIX Academy (gated to trainees)<br/>+ self-built home lab"]
+    BLUE --> WPAM["PAM / identity<br/>vendor academies (gated)<br/>+ self-hosted AD lab"]
     HANDS --> SNR["CISSP (senior)<br/>SANS · Pluralsight<br/>Coursera / edX"]
     WPAM --> SNR
     CLOUD --> SNR
@@ -163,11 +165,11 @@ flowchart TD
 - **Hands-on beats passive.** Watching a course is not learning a skill. Treat courses as
   scaffolding and spend most of your time on labs, ranges, and CTFs.
 - **Balance offence with defence.** It is easy to chase only hacking platforms. For most
-  roles — including a [PAM/identity engineer](../README.md) — defensive practice
+  roles — including a PAM/identity engineer (see the [hub](../README.md)) — defensive practice
   (LetsDefend, CyberDefenders, Blue Team Labs Online) is at least as valuable.
 - **Match the platform to the cert.** Use the vendor-specific environments
-  (EC-Council for CEH, OffSec for OSCP, TCM for PNPT, WALLIX Academy for the PAM certs) when
-  you are preparing for that specific exam.
+  (EC-Council for CEH, OffSec for OSCP, TCM for PNPT, the PAM vendor's own academy for a
+  product cert) when you are preparing for that specific exam.
 - **As a sysadmin, you start ahead.** Your OS, networking, and Active Directory experience
   transfers directly — move quickly through the beginner material and dwell on the
   attacker's-perspective and detection parts that are new to you.
@@ -177,7 +179,7 @@ flowchart TD
 - [learning-roadmap.md](roadmap.md) — the certification path these platforms support.
 - [ceh/labs/practice-ranges.md](../certs/ceh/labs/practice-ranges.md) — the CEH hands-on subset of this list.
 - [ceh/labs/building-a-ceh-lab.md](../certs/ceh/labs/building-a-ceh-lab.md) — build the isolated home lab the offline platforms complement.
-- [labs/README.md](../certs/wallix/labs/README.md) — the WALLIX/PAM hands-on lab pages.
+- [ceh/labs/README.md](../certs/ceh/labs/README.md) — the self-hosted Docker/Vagrant/Ansible AD lab with a tiered-admin PAM model.
 - [adjacent-certs/README.md](../certs/adjacent-certs/README.md) — overviews of the certs the vendor platforms map to.
 
 ## Sources
@@ -210,7 +212,6 @@ flowchart TD
 - CloudGoat (Rhino Security Labs) — https://github.com/RhinoSecurityLabs/cloudgoat
 - flAWS — http://flaws.cloud · flAWS2 — http://flaws2.cloud
 - EC-Council Certified Ethical Hacker (CEH) — https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/
-- WALLIX Academy — https://www.wallix.com/support-services/wallix-academy/
 - MITRE ATT&CK — https://attack.mitre.org
 - OWASP — https://owasp.org
 - NIST Computer Security Resource Center — https://csrc.nist.gov

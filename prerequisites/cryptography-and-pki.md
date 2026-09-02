@@ -1,12 +1,12 @@
 # Cryptography and PKI for PAM
 
-Privileged Access Management (PAM) is cryptography in production. **WALLIX Bastion**
+Privileged Access Management (PAM) is cryptography in production. A **PAM bastion**
 encrypts its vault and sessions with **AES-256**, encrypts its disk at rest with
 **LUKS**, authenticates users and servers with **X.509 certificates** and **SSH keys**,
 rotates **RSA keys (≥3072 bits)**, and supports **MFA** built on **TOTP** and
 **FIDO2/WebAuthn**. You cannot reason about a PAM appliance without the cryptographic
 vocabulary below. This file teaches it from first principles and ties each piece to
-Bastion.
+the PAM appliance.
 
 ## Learning objectives
 
@@ -19,7 +19,7 @@ By the end of this file you should be able to:
   and revocation via **CRL / OCSP**, and read a **certificate trust chain**.
 - Compare **SSH key types** (RSA / ECDSA / Ed25519).
 - Explain the crypto behind MFA: **TOTP** and **FIDO2 / WebAuthn**.
-- Connect each to how WALLIX Bastion uses it.
+- Connect each to how a PAM appliance uses it.
 
 See [../reference/acronyms.md](../reference/acronyms.md) and
 [networking-and-protocols.md](networking-and-protocols.md).
@@ -52,11 +52,10 @@ In practice systems combine them: asymmetric crypto **exchanges a symmetric sess
 key**, then fast symmetric crypto protects the bulk data. That is exactly what TLS and
 SSH do.
 
-> **Bastion tie-in:** Per the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#architecture-deployment-ha-integrations),
-> Bastion uses **AES-256** (symmetric) for data, **SHA-2** for hashing, **ECC** and
-> **RSA (private keys ≥ 3072 bits)** for asymmetric operations, with a selectable crypto
-> policy (`WABSecurityLevel`, **SOG-IS CES 1.3** recommended).
+> **PAM tie-in:** A typical PAM appliance uses **AES-256** (symmetric) for data,
+> **SHA-2** for hashing, **ECC** and **RSA (private keys ≥ 3072 bits)** for asymmetric
+> operations, usually with a selectable crypto policy aligned to a recognised
+> recommendation such as the **SOG-IS Agreed Cryptographic Mechanisms**.
 
 ---
 
@@ -72,10 +71,10 @@ sudo cryptsetup luksFormat /dev/sdb1
 sudo cryptsetup open /dev/sdb1 vault   # unlock -> /dev/mapper/vault
 ```
 
-> **Bastion tie-in:** Bastion's **encryption at rest = LUKS (dm-crypt)** with **AES-256**
-> (per the product portfolio). The credential vault and session recordings sit on
-> encrypted storage; recordings are further encrypted so **only the originating Bastion
-> can replay them**.
+> **PAM tie-in:** PAM appliances implement **encryption at rest** with **LUKS
+> (dm-crypt)** and **AES-256**. The credential vault and session recordings sit on
+> encrypted storage; recordings are usually further encrypted with an appliance-specific
+> key so **only the originating appliance (or a holder of its key) can replay them**.
 
 ---
 
@@ -88,7 +87,7 @@ symmetric session key. Simplified TLS 1.2/1.3 flow:
 ```mermaid
 sequenceDiagram
     participant C as Client (browser / ssh client)
-    participant S as Server (Bastion GUI, Access Manager)
+    participant S as Server (PAM GUI / web gateway)
     C->>S: (1) ClientHello: TLS versions, cipher list, random
     S->>C: (2) ServerHello: chosen cipher + server random
     S->>C: (3) Certificate (server's X.509 + chain)
@@ -104,9 +103,9 @@ below); an ephemeral key exchange (**ECDHE**) lets both sides derive the same se
 without sending it (5), giving **forward secrecy**; both confirm with `Finished` (6); the
 rest of the conversation is fast symmetric **AES** (7).
 
-> **Bastion tie-in:** TLS protects the Bastion admin GUI, the **REST API**, the **Access
-> Manager** HTTPS gateway, **LDAPS**, and RDP/TLS. WAM also supports **X.509 client
-> certificate** authentication with **CRL/OCSP** checking (per the product portfolio).
+> **PAM tie-in:** TLS protects the PAM admin GUI, the **REST API**, the **web access
+> gateway**, **LDAPS**, and RDP/TLS. Most gateways also support **X.509 client
+> certificate** authentication with **CRL/OCSP** checking.
 
 ---
 
@@ -155,9 +154,9 @@ flowchart TD
     Leaf -.->|verify back up to| V
 ```
 
-> **Bastion tie-in:** Bastion/WAM present server certificates (verified via this chain),
-> and WAM can authenticate users by **X.509 client certificate** with **CRL/OCSP**
-> revocation checks. Using a proper internal CA (rather than self-signed leaf certs)
+> **PAM tie-in:** The bastion and its web gateway present server certificates (verified
+> via this chain), and the gateway can authenticate users by **X.509 client
+> certificate** with **CRL/OCSP** revocation checks. Using a proper internal CA (rather than self-signed leaf certs)
 > avoids browser warnings and enables revocation.
 
 ---
@@ -180,11 +179,9 @@ ssh-keygen -t rsa -b 4096             # when RSA is required for compatibility
 ssh-keygen -t ecdsa -b 384            # elliptic-curve alternative
 ```
 
-> **Bastion tie-in:** Bastion **generates and rotates** SSH keys for target accounts and
-> supports **RSA / DSA / ECDSA** key generation; the default password-change policy uses
-> **RSA key size 4096**, and stored RSA private keys are **≥ 3072 bits** (per the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#password--secrets-management)).
-> Avoid legacy short RSA/DSA keys.
+> **PAM tie-in:** A PAM vault **generates and rotates** SSH keys for target accounts;
+> typical rotation policies default to **RSA 4096** or Ed25519, and stored RSA private
+> keys should be **≥ 3072 bits** (NIST SP 800-57). Avoid legacy short RSA/DSA keys.
 
 ---
 
@@ -230,22 +227,22 @@ it **signs a server challenge with the private key**, which never leaves the dev
 signature is **bound to the site's origin**, so a phishing site cannot replay it — this
 is why FIDO2 is called **phishing-resistant**.
 
-> **Bastion tie-in:** Bastion delivers MFA via **RADIUS/SAML** and **WALLIX Trustelem**;
-> Trustelem itself supports **TOTP**, the **WALLIX Authenticator** (push + TOTP), and
-> **FIDO2 security keys via WebAuthn**, plus smart cards (per the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md#3-wallix-trustelem--idaas-sso--mfa--identity-federation)).
-> Note FIDO2/push are **not native to Access Manager** — they arrive through the
+> **PAM tie-in:** A PAM bastion usually delivers MFA via **RADIUS** (OTP) or
+> **SAML/OIDC** federation to an IdP / IDaaS service; the IdP is where **TOTP**, push,
+> **FIDO2 security keys via WebAuthn**, and smart cards are actually enforced. In many
+> PAM products FIDO2/push are **not native to the gateway** — they arrive through the
 > federated IdP over SAML/OIDC.
 
 ---
 
-## How this maps to the certifications
+## How this maps to PAM roles
 
-- **WCA-P / WCP-P:** TLS, certificates, SSH keys, and the vault's encryption underpin
-  daily configuration (password policies, certificate setup, secret rotation).
-- **WCE-P (Expert):** **Advanced authentication** covers **X.509** and **2-factor**;
+- **PAM administrator / professional level:** TLS, certificates, SSH keys, and the
+  vault's encryption underpin daily configuration (password policies, certificate setup,
+  secret rotation).
+- **PAM expert level:** advanced authentication covers **X.509** and **2-factor**;
   understanding the TLS handshake, trust chains, CRL/OCSP, and key rotation is directly
-  exercised (see [wce-p-expert.md](../certs/wallix/pam-bastion/wce-p-expert.md)).
+  exercised (see [../protocols/tls.md](../protocols/tls.md)).
 
 ---
 
@@ -265,4 +262,3 @@ is why FIDO2 is called **phishing-resistant**.
 - FIDO Alliance — FIDO2 specifications: https://fidoalliance.org/specifications/
 - LUKS / cryptsetup (dm-crypt) documentation: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/home
 - SOG-IS Agreed Cryptographic Mechanisms: https://www.sogis.eu/documents/cc/crypto/SOGIS-Agreed-Cryptographic-Mechanisms-1.3.pdf
-- WALLIX Bastion AES-256 / LUKS / RSA≥3072 / certificate auth: [product-portfolio.md](../certs/wallix/overview/product-portfolio.md)

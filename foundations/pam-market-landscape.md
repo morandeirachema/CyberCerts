@@ -1,10 +1,10 @@
-# The PAM Market Landscape — Vendors, Analysts, and WALLIX's Position
+# The PAM Market Landscape — Vendors and Analyst Frameworks
 
-*Compiled 2026-06-17 from analyst press summaries, vendor product pages, and WALLIX press releases. Placements and rankings change every year — each one below is tagged with the year of the report it comes from. Where a fact could not be confirmed in the sources consulted, it is marked "not specified in sources."*
+*Compiled 2026-06-17 from analyst press summaries, vendor product pages, and vendor press releases. Placements and rankings change every year — each one below is tagged with the year of the report it comes from. Where a fact could not be confirmed in the sources consulted, it is marked "not specified in sources."*
 
-This page is written for a systems administrator beginning a cybersecurity career in **Privileged Access Management (PAM)**. It explains the two analyst frameworks buyers rely on, compares the major vendors factually, and shows where **WALLIX** — the European (French) PAM vendor whose certifications this repository documents — sits in that market and why.
+This page is written for a systems administrator beginning a cybersecurity career in **Privileged Access Management (PAM)**. It explains the two analyst frameworks buyers rely on, compares the major vendors factually, and shows how the global leaders and the regional specialists differentiate from one another.
 
-For the WALLIX product details referenced throughout, see [../docs/00-overview/product-portfolio.md](../certs/wallix/overview/product-portfolio.md). For how a sysadmin builds toward a PAM role, see [../career/sysadmin-to-pam-roadmap.md](../certs/wallix/career/sysadmin-to-pam-roadmap.md).
+For the product categories these vendors sell (PAM, IDaaS, IGA, EPM, CIEM), see [pam-iam-iga-idaas-epm.md](pam-iam-iga-idaas-epm.md). For how a sysadmin builds toward a PAM role, see [../learning/roadmap.md](../learning/roadmap.md) and [../certs/adjacent-certs/README.md](../certs/adjacent-certs/README.md).
 
 ---
 
@@ -12,9 +12,9 @@ For the WALLIX product details referenced throughout, see [../docs/00-overview/p
 
 - **PAM (Privileged Access Management)** is a mature, consolidated market with a small number of large global vendors and several regional specialists.
 - Two analyst frameworks dominate buyer shortlists: the **Gartner Magic Quadrant (MQ) for PAM** and the **KuppingerCole Leadership Compass for PAM**.
-- In the **2025 Gartner MQ for PAM**, the Leaders were **CyberArk, BeyondTrust, and Delinea**; **WALLIX** was a **Visionary** (its third consecutive year as a Visionary, 2023–2025) and is described as the **only European vendor** in the quadrant.
-- In the **KuppingerCole Leadership Compass for PAM 2026**, **WALLIX** was named an **Overall Leader** for the **fifth consecutive year**, alongside the usual global leaders.
-- WALLIX's differentiators are **European digital sovereignty**, sovereign security certifications (**ANSSI CSPN** in France, **BSI BSZ** in Germany), simplicity and an SME/mid-market focus, strong **OT (Operational Technology)** coverage, and an integrated suite (**PAM + IDaaS + IAG + EPM**).
+- In the **2025 Gartner MQ for PAM**, the Leaders were **CyberArk, BeyondTrust, and Delinea**; **One Identity** and **WALLIX** were **Visionaries** (WALLIX for the third consecutive year, and described as the **only European vendor** in the quadrant).
+- In the **KuppingerCole Leadership Compass for PAM 2026**, the Overall Leaders included the usual global leaders plus **WALLIX** (its fifth consecutive year), out of 35+ vendors evaluated.
+- Beyond raw scale, vendors differentiate on **regional/digital sovereignty** and national security certifications (e.g. **ANSSI CSPN**, **BSI BSZ**), **simplicity / SME focus**, **OT (Operational Technology)** coverage, **remote/third-party access**, and how much of an integrated suite (**PAM + IDaaS + IGA + EPM**) they offer.
 
 ---
 
@@ -82,16 +82,15 @@ quadrantChart
 
 > **Reading tip:** "Visionary" is **not** a lesser grade than "Leader" on the same scale — it means strong *vision* with narrower *execution/scale* (frequently a smaller or regional vendor). For a buyer who values innovation and fit over sheer global footprint, Visionaries are legitimate shortlist candidates.
 
-**WALLIX in the Gartner MQ for PAM:**
+**Placements in the 2025 Gartner MQ for PAM** (report published 13 Oct 2025; the full quadrant graphic is behind Gartner's paywall, so these come from the vendors' own press releases):
 
-| Report year | WALLIX placement | Notes |
+| Vendor | 2025 placement | Notes |
 |---|---|---|
-| 2022 | **Leader** | Per WALLIX company communications (see product portfolio). |
-| 2023 | **Visionary** | First of three consecutive Visionary years. |
-| 2024 | **Visionary** | |
-| 2025 | **Visionary** (3rd consecutive year) | Report published 13 Oct 2025; WALLIX press release 14 Oct 2025. WALLIX states it remains the **only European player** represented in the quadrant. Cited strengths: **WALLIX One Remote Access** (all major session protocols), **OT/CPS** (industrial / cyber-physical) coverage, and customer proximity. |
-
-In the **2025** edition, the **Leaders** were **CyberArk, BeyondTrust, and Delinea** (CyberArk positioned furthest in Completeness of Vision; BeyondTrust highest in Ability to Execute). **One Identity** was also a **Visionary** alongside WALLIX. *(Source: vendor press releases below; the full quadrant graphic is behind Gartner's paywall.)*
+| **CyberArk** | **Leader** | Positioned furthest in Completeness of Vision. |
+| **BeyondTrust** | **Leader** | Positioned highest in Ability to Execute. |
+| **Delinea** | **Leader** | Seventh consecutive Leader placement (as Thycotic/Centrify before the merger). |
+| **One Identity** | **Visionary** | Safeguard within the One Identity fabric. |
+| **WALLIX** | **Visionary** (3rd consecutive year, 2023–2025) | States it is the **only European vendor** in the quadrant. Cited strengths: remote-access coverage of all major session protocols, **OT/CPS** (industrial / cyber-physical) coverage, and customer proximity. |
 
 ### 2.2 KuppingerCole Leadership Compass for PAM
 
@@ -104,13 +103,9 @@ In the **2025** edition, the **Leaders** were **CyberArk, BeyondTrust, and Delin
 
 A vendor named an **Overall Leader** scores strongly across all dimensions. The PAM Leadership Compass evaluates a large field — **35+ vendors** in the 2026 edition.
 
-**WALLIX in the KuppingerCole Leadership Compass for PAM:**
+The 2026 edition (published 28 May 2026) named the global leaders as Overall Leaders and also **WALLIX** for the fifth consecutive year, citing **agentless** identity/session management, **OT/industrial** support (called a "rare differentiator"), browser-based session access, metadata-enriched session recording with real-time alerts, standing-privilege reduction, and **alignment with European digital sovereignty** ("particularly relevant for organizations with strong European assurance requirements").
 
-| Report year | WALLIX placement | Notes |
-|---|---|---|
-| Through **2026** edition | **Overall Leader — 5th consecutive year** | 2026 edition published 28 May 2026; 35+ vendors evaluated. Cited strengths: **agentless** identity/session management, **OT/industrial** support (called a "rare differentiator"), Web Session Manager (browser-based access), metadata-enriched session recording with real-time alerts, standing-privilege reduction, and **alignment with European digital sovereignty**. KuppingerCole notes WALLIX is "particularly relevant for organizations with strong European assurance requirements." |
-
-> **Why two frameworks differ for the same vendor:** Gartner's single MQ blends scale-heavy "execution" with "vision," so a strong-but-smaller regional vendor like WALLIX lands as a **Visionary**. KuppingerCole rates **Product/Innovation/Market separately** and combines them, so the same vendor can reach **Overall Leader**. Neither is "wrong" — they weight market footprint differently. Always read the *year* and the *methodology*, not just the label.
+> **Why two frameworks differ for the same vendor:** Gartner's single MQ blends scale-heavy "execution" with "vision," so a strong-but-smaller regional vendor (WALLIX is the clearest example) lands as a **Visionary**. KuppingerCole rates **Product/Innovation/Market separately** and combines them, so the same vendor can reach **Overall Leader**. Neither is "wrong" — they weight market footprint differently. Always read the *year* and the *methodology*, not just the label.
 
 ---
 
@@ -134,19 +129,19 @@ The table below is a factual snapshot for orientation, not an endorsement. "Adja
 
 ---
 
-## 4. WALLIX differentiators
+## 4. How vendors differentiate beyond scale
 
-WALLIX competes less on raw scale (where CyberArk/BeyondTrust/Delinea lead) and more on **sovereignty, simplicity, and breadth of integrated coverage**.
+The global leaders (CyberArk, BeyondTrust, Delinea) compete on breadth and footprint. Everyone else competes on a narrower axis. Knowing these axes helps you read any vendor pitch — or job description — quickly.
 
-| Differentiator | What it means | Why it matters |
-|---|---|---|
-| **European digital sovereignty** | French vendor; solutions developed in Europe; data residency in EU data centers; the **only European vendor** in the Gartner MQ for PAM (per WALLIX, 2025). | EU public sector and regulated firms increasingly require sovereign suppliers (avoiding exposure to non-EU jurisdiction). Aligns with **NIS2** and **DORA**. |
-| **Sovereign security certifications** | **ANSSI CSPN** (France) on WALLIX Bastion; **BSI BSZ** (Germany) awarded **29 Sep 2025** on WALLIX PAM **v12.0.14** — with **ANSSI↔BSI mutual recognition** so one certification is honored in both countries. WALLIX states it is the only PAM vendor certified via the BSI BSZ process recognized in both Germany and France. | Independent, government-grade assurance — a procurement gate for sovereign and critical-infrastructure buyers. *(No Common Criteria EAL level is confirmed in sources — see product portfolio.)* |
-| **Simplicity & SME/mid-market focus** | Agentless on targets; fast deployment; SaaS delivery via **WALLIX One** aimed at organizations without large security teams ("WALLIX takes care of it for you"). | Lowers the skills/effort barrier — attractive where the cybersecurity skills shortage bites hardest. |
-| **OT / industrial security** | **PAM4OT** under the *OT.security by WALLIX* brand; agentless access to PLCs/HMIs; industrial-protocol encapsulation in SSH; alliances with Schneider Electric, Cisco, Nozomi. Analysts (Gartner 2025, KuppingerCole 2026) call OT/CPS coverage a genuine differentiator. | Industrial operators need privileged-access control without disrupting production — an area many IT-only PAM tools cover weakly. |
-| **Integrated suite (PAM + IDaaS + IAG + EPM)** | One vendor across **Bastion (PAM)**, **Trustelem (IDaaS — SSO/MFA)**, **IAG (governance, ex-Kleverware)**, and **BestSafe (EPM/PEDM)**. | Fewer vendors to integrate; converges PAM with identity governance and endpoint least-privilege under a single roof. |
-
-See [../docs/00-overview/product-portfolio.md](../certs/wallix/overview/product-portfolio.md) for the full technical detail and certification caveats behind each of these.
+| Differentiation axis | What it means | Who plays there (examples) | Why it matters |
+|---|---|---|---|
+| **Regional / digital sovereignty** | Vendor developed and hosted inside the buyer's jurisdiction; EU data residency. | WALLIX (French; the only European vendor in the 2025 Gartner MQ, per its own press); ARCON in EMEA/APAC. | EU public sector and regulated firms increasingly require sovereign suppliers. Aligns with **NIS2** and **DORA**. |
+| **National security certifications** | Government-grade product evaluation such as **ANSSI CSPN** (France) or **BSI BSZ** (Germany), with ANSSI↔BSI mutual recognition. | WALLIX holds ANSSI CSPN and, since 29 Sep 2025, BSI BSZ on its PAM v12.0.14. Other vendors typically cite Common Criteria, FIPS 140, or SOC 2 instead. | A procurement gate for sovereign and critical-infrastructure buyers. Always check *which* certification and *which* product version. |
+| **Simplicity & SME/mid-market focus** | Agentless on targets; fast deployment; SaaS delivery aimed at organizations without large security teams. | Delinea (Secret Server time-to-value), WALLIX (WALLIX One SaaS). | Lowers the skills/effort barrier — attractive where the cybersecurity skills shortage bites hardest. |
+| **Remote / third-party access** | Vendor-and-contractor access through the PAM gateway without VPN. | BeyondTrust (Privileged Remote Access), CyberArk, WALLIX. | Third-party access is a leading breach vector and an audit focus. |
+| **OT / industrial security** | Agentless access to PLCs/HMIs; industrial-protocol handling; alliances with OT vendors (Schneider Electric, Cisco, Nozomi). | WALLIX — analysts (Gartner 2025, KuppingerCole 2026) call its OT/CPS coverage a genuine differentiator; see [../certs/ceh/ot-security/05-pam-for-ot.md](../certs/ceh/ot-security/05-pam-for-ot.md). | Industrial operators need privileged-access control without disrupting production — an area many IT-only PAM tools cover weakly. |
+| **Integrated identity suite (PAM + IDaaS + IGA + EPM)** | One vendor across vaulting/sessions, SSO/MFA, governance, and endpoint least-privilege. | CyberArk (Identity Security Platform), One Identity (fabric), WALLIX (PAM + IDaaS + IAG + EPM). | Fewer vendors to integrate; converges PAM with identity governance and endpoint least-privilege under a single roof. |
+| **Secrets / DevOps** | Machine-to-machine secrets, dynamic credentials, PKI. | HashiCorp Vault (adjacent), CyberArk Conjur. | Application secrets sprawl is a separate problem from human admin sessions. |
 
 ---
 
@@ -159,7 +154,7 @@ quadrantChart
     title Illustrative PAM positioning (for learning only)
     x-axis "Suite breadth / global scale (low)" --> "Suite breadth / global scale (high)"
     y-axis "Lower European / OT emphasis" --> "European sovereignty / OT focus (high)"
-    quadrant-1 "WALLIX lane: EU-sovereign suite + OT"
+    quadrant-1 "EU-sovereign suite + OT"
     quadrant-2 "Regional / EMEA-APAC"
     quadrant-3 "Legacy enterprise"
     quadrant-4 "Global PAM Leaders"
@@ -179,7 +174,7 @@ Adjacent tools (different primary job, often compared to PAM, sitting outside th
 | **HashiCorp Vault** | machine/app secrets, dynamic creds (DevOps) |
 | **Microsoft Entra PIM** | JIT activation of cloud admin roles (Microsoft ecosystem) |
 
-**How to read it:** The global **Leaders** (CyberArk, BeyondTrust, Delinea) dominate the high-scale right side. **WALLIX** occupies the upper-right blend of **suite breadth plus European sovereignty and OT** — the lane that earns it "Visionary" at Gartner and "Overall Leader" at KuppingerCole. The adjacent tools sit outside the core PAM box because their primary purpose is secrets management (Vault) or cloud-role JIT (Entra PIM), not full session-brokering PAM.
+**How to read it:** The global **Leaders** (CyberArk, BeyondTrust, Delinea) dominate the high-scale right side. **WALLIX** occupies the upper-right blend of **suite breadth plus European sovereignty and OT** — the lane that earns it "Visionary" at Gartner and "Overall Leader" at KuppingerCole. **ARCON** sits in the regional lane on the left. The adjacent tools sit outside the core PAM box because their primary purpose is secrets management (Vault) or cloud-role JIT (Entra PIM), not full session-brokering PAM.
 
 ---
 
@@ -189,8 +184,7 @@ Adjacent tools (different primary job, often compared to PAM, sitting outside th
 - **Know the frameworks by name and year.** Saying "WALLIX was a Gartner *Visionary* in the 2025 MQ and a KuppingerCole *Overall Leader* in 2026" is precise; "WALLIX is top-rated" is not.
 - **Sovereignty and OT are growth lanes.** EU regulation (NIS2, DORA) and industrial security are where European specialists like WALLIX differentiate — useful context if you target EU public-sector or industrial employers.
 - **Adjacent tools are not substitutes.** Expect to integrate PAM with secrets managers (Vault) and cloud-identity JIT (Entra PIM) rather than replace one with the other.
-
-Next: [../career/sysadmin-to-pam-roadmap.md](../certs/wallix/career/sysadmin-to-pam-roadmap.md).
+- **Vendor certifications are secondary to concepts.** Each leader runs its own certification track; pick one once you know which product your target employers run. See [../certs/adjacent-certs/README.md](../certs/adjacent-certs/README.md) and [../learning/roadmap.md](../learning/roadmap.md).
 
 ---
 

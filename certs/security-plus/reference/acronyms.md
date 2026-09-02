@@ -1,6 +1,6 @@
 # Security+ Acronyms Reference
 
-> 🔁 This is the **CompTIA Security+ (SY0-701)** acronym list. For offensive / ethical-hacking acronyms see the [CEH acronyms reference](../../ceh/reference/acronyms.md); for PAM, identity & WALLIX acronyms see the [WALLIX acronyms reference](../../../reference/acronyms.md). The three lists overlap heavily (cryptography, protocols, governance) and are complementary, not duplicated — where an entry is treated in more depth in another hub, that is noted.
+> 🔁 This is the **CompTIA Security+ (SY0-701)** acronym list. For offensive / ethical-hacking acronyms see the [CEH acronyms reference](../../ceh/reference/acronyms.md); for PAM & identity acronyms see the [PAM acronyms reference](../../../reference/acronyms.md). The three lists overlap heavily (cryptography, protocols, governance) and are complementary, not duplicated — where an entry is treated in more depth in another hub, that is noted.
 
 CompTIA Security+ is famous for its **long official acronym list**: the exam objectives end with an acronym appendix you are expected to recognise on sight. This page is a comprehensive, categorised reference covering that list (and a few closely-adjacent terms). Each table gives the **acronym**, its **expansion**, and a **one-line context** in Security+ terms. Acronyms are expanded on first use throughout the hub; this page is the master list.
 
@@ -24,7 +24,7 @@ CompTIA Security+ is famous for its **long official acronym list**: the exam obj
 
 ## Cryptography, PKI & hashing
 
-Maps mainly to **Domain 1 (General Security Concepts)** cryptographic solutions. Overlaps the [CEH](../../ceh/reference/acronyms.md#cryptography) and [WALLIX](../../../reference/acronyms.md) lists.
+Maps mainly to **Domain 1 (General Security Concepts)** cryptographic solutions. Overlaps the [CEH](../../ceh/reference/acronyms.md#cryptography) and [PAM](../../../reference/acronyms.md) lists.
 
 | Acronym | Expansion | Context |
 | --- | --- | --- |
@@ -68,7 +68,7 @@ Maps mainly to **Domain 1 (General Security Concepts)** cryptographic solutions.
 
 ## Authentication, identity & access
 
-Maps mainly to **Domain 1** (cryptography/access concepts) and **Domain 4 (Security Operations)** identity management. Overlaps the [WALLIX identity glossary](../../../reference/glossary.md).
+Maps mainly to **Domain 1** (cryptography/access concepts) and **Domain 4 (Security Operations)** identity management. Overlaps the [PAM / identity glossary](../../../reference/glossary.md).
 
 | Acronym | Expansion | Context |
 | --- | --- | --- |
@@ -85,7 +85,7 @@ Maps mainly to **Domain 1** (cryptography/access concepts) and **Domain 4 (Secur
 | SAML | Security Assertion Markup Language | XML standard for exchanging authentication/authorization assertions in federated SSO. |
 | OAuth | Open Authorization | Delegated-**authorization** framework letting an app access resources on a user's behalf. |
 | OIDC | OpenID Connect | Identity (**authentication**) layer built on top of OAuth 2.0. |
-| PAM | Privileged Access Management | Controlling, vaulting and auditing privileged accounts — the [WALLIX hub](../../../README.md) topic. |
+| PAM | Privileged Access Management | Controlling, vaulting and auditing privileged accounts — the [PAM foundations](../../../foundations/README.md) topic. |
 | PAM | Pluggable Authentication Modules | (Linux) Framework for plugging authentication methods into services — context disambiguates from the above. |
 | RBAC | Role-Based Access Control | Granting access via roles that bundle permissions. |
 | ABAC | Attribute-Based Access Control | Granting access from evaluated attributes (user, resource, environment). |
@@ -207,7 +207,7 @@ Maps to **Domain 2 (Threats)** and **Domain 4**. Overlaps the [CEH web table](..
 
 ## Governance, risk & compliance
 
-Maps mainly to **Domain 5 (Security Program Management and Oversight, 20%)**. Overlaps the [WALLIX compliance map](../../../reference/compliance-and-standards.md) and [CEH governance table](../../ceh/reference/acronyms.md#governance--standards).
+Maps mainly to **Domain 5 (Security Program Management and Oversight, 20%)**. Overlaps the [PAM compliance map](../../../reference/compliance-and-standards.md) and [CEH governance table](../../ceh/reference/acronyms.md#governance--standards).
 
 | Acronym | Expansion | Context |
 | --- | --- | --- |
@@ -369,7 +369,7 @@ Maps mainly to **Domain 2 (Threats, Vulnerabilities, and Mitigations, 22%)**. Of
 - [Security Operations (Domain 4)](../domains/04-security-operations.md)
 - [Security Program Management and Oversight (Domain 5)](../domains/05-security-program-management-oversight.md)
 - [Exam format and objectives](../00-overview/exam-and-objectives.md) — where to download CompTIA's official acronym appendix.
-- [WALLIX acronyms](../../../reference/acronyms.md) · [CEH acronyms](../../ceh/reference/acronyms.md) — the repo's sibling lists.
+- [PAM acronyms](../../../reference/acronyms.md) · [CEH acronyms](../../ceh/reference/acronyms.md) — the repo's sibling lists.
 
 ## Sources
 

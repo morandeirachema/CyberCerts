@@ -5,9 +5,9 @@ centralised **AAA — Authentication, Authorization, and Accounting**. A device 
 in *through* — a **Network Access Server (NAS)** — does not store credentials itself; it
 forwards each login to a central **RADIUS server**, which decides accept or reject and can
 return policy (the "authorization") to apply, while a parallel accounting channel records who
-was connected and for how long. In **WALLIX Bastion** and **Access Manager**, RADIUS is a
-common **external authentication** method and a frequent carrier for the **Multi-Factor
-Authentication (MFA)** second factor.
+was connected and for how long. In PAM platforms (bastions, session proxies, access
+gateways), RADIUS is a common **external authentication** method and a frequent carrier for
+the **Multi-Factor Authentication (MFA)** second factor.
 
 This page explains the mechanism honestly, including the part most summaries get wrong:
 **RADIUS does not encrypt the packet.** Only the `User-Password` attribute is obfuscated,
@@ -39,9 +39,7 @@ By the end of this page you should be able to:
 See [../prerequisites/networking-and-protocols.md](../prerequisites/networking-and-protocols.md)
 for ports/transport, [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md)
 for MD5/TLS background, [./tls.md](tls.md) for the TLS that RadSec rides on,
-[./kerberos.md](kerberos.md) for an alternative ticket-based scheme, and
-[../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md)
-for how WALLIX uses RADIUS as an authentication domain and MFA second factor.
+and [./kerberos.md](kerberos.md) for an alternative ticket-based scheme.
 
 ---
 
@@ -52,13 +50,13 @@ for how WALLIX uses RADIUS as an authentication domain and MFA second factor.
 | **Authentication** | Proving *who* the user is (verify credential). |
 | **Authorization** | Deciding *what* the authenticated user may do — returned as attributes (VLAN, filter, idle timeout, service type…). In RADIUS, **authentication and authorization are combined** in the same Access-Accept. |
 | **Accounting** | Recording session facts (start, stop, bytes, duration) for audit/billing — a *separate* RFC (2866) and a *separate* port. |
-| **NAS (Network Access Server)** | The RADIUS **client**: the VPN concentrator, Wi-Fi controller, switch, or — here — **WALLIX Bastion** acting on the user's behalf. It never returns the decision itself. |
+| **NAS (Network Access Server)** | The RADIUS **client**: the VPN concentrator, Wi-Fi controller, switch, or — here — a **PAM bastion** acting on the user's behalf. It never returns the decision itself. |
 | **RADIUS server** | The decision point holding/validating credentials and policy. |
 | **Shared secret** | A pre-configured **symmetric secret** known to *both* the NAS and the server (per NAS-server pair). It is **never sent on the wire**; it is mixed into MD5 computations to authenticate the server and to hide the password. |
 
 ```mermaid
 flowchart LR
-    U["User"] --> NAS["NAS / RADIUS client<br/>(e.g. WALLIX Bastion)"]
+    U["User"] --> NAS["NAS / RADIUS client<br/>(e.g. a PAM bastion)"]
     NAS -- "UDP 1812 (auth)" --> SRV["RADIUS server"]
     NAS -- "UDP 1813 (acct)" --> SRV
     SRV -. "shared secret<br/>(pre-shared, never sent)" .- NAS
@@ -112,7 +110,7 @@ Each **AVP** is `Type (1 byte) | Length (1 byte) | Value`. Standard attributes i
 ```mermaid
 sequenceDiagram
     participant U as User
-    participant NAS as NAS (RADIUS client)<br/>e.g. WALLIX Bastion
+    participant NAS as NAS (RADIUS client)<br/>e.g. a PAM bastion
     participant S as RADIUS server
 
     U->>NAS: Login (username + password)
@@ -244,7 +242,7 @@ integrity, **not** encryption.
 The standard attribute set is finite, so RFC 2865 reserves attribute **type 26
 (`Vendor-Specific`)** as an extension envelope. A VSA carries a **Vendor-ID** (an IANA
 "enterprise number") plus vendor-defined sub-attributes, letting a vendor return proprietary
-authorization data (group names, role mappings, custom timeouts). WALLIX and other products use
+authorization data (group names, role mappings, custom timeouts). PAM and network products use
 VSAs to pass product-specific policy in an Access-Accept. VSAs are ordinary cleartext AVPs —
 they enjoy no special protection.
 

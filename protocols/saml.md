@@ -5,9 +5,9 @@ based open standard for exchanging **authentication** and **authorization** info
 between security domains. Its dominant use is **web browser Single Sign-On (SSO)**: a user
 authenticates once at a central **Identity Provider (IdP)** and then reaches many separate
 **Service Providers (SPs)** — web applications — without re-entering credentials at each one.
-When WALLIX **Access Manager** federates login out to a corporate IdP, or when WALLIX One
-**IDaaS / Trustelem** acts *as* the IdP for a third-party SaaS app, SAML 2.0 is one of the
-protocols doing that work.
+When a PAM access gateway federates login out to a corporate IdP, or when an **IDaaS**
+service acts *as* the IdP for a third-party SaaS app, SAML 2.0 is one of the protocols
+doing that work.
 
 This page explains the **mechanism**: who the parties are, what a SAML **assertion** is and
 what it contains, how the browser carries messages between IdP and SP (**bindings**), the
@@ -309,11 +309,11 @@ needs the signature; encryption is added when attribute confidentiality matters.
 - **`RelayState` as untrusted input.** It is attacker-influenceable and not signed; validate it
   to prevent open redirects.
 
-For how WALLIX consumes/produces SAML in practice — Access Manager and Bastion as SAML SP, and
-WALLIX One IDaaS as IdP — see
-[../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md)
-and [../deep-dives/idaas-trustelem.md](../certs/wallix/deep-dives/idaas-trustelem.md). For the newer,
-JSON/JWT-based federation alternative, see [./oidc-oauth2.md](oidc-oauth2.md).
+In practice a PAM platform is usually the SAML **SP** (its web portal trusts the corporate
+IdP), while an IDaaS product plays the **IdP** role for downstream apps — see
+[../foundations/pam-iam-iga-idaas-epm.md](../foundations/pam-iam-iga-idaas-epm.md) for how
+those product categories relate. For the newer, JSON/JWT-based federation alternative, see
+[./oidc-oauth2.md](oidc-oauth2.md).
 
 ---
 
@@ -334,5 +334,4 @@ JSON/JWT-based federation alternative, see [./oidc-oauth2.md](oidc-oauth2.md).
   <https://www.w3.org/TR/xmlenc-core/>
 - Related: [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md),
   [./tls.md](tls.md), [./oidc-oauth2.md](oidc-oauth2.md),
-  [../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md),
-  [../deep-dives/idaas-trustelem.md](../certs/wallix/deep-dives/idaas-trustelem.md)
+  [../foundations/pam-iam-iga-idaas-epm.md](../foundations/pam-iam-iga-idaas-epm.md)

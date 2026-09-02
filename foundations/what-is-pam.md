@@ -7,9 +7,10 @@ that every PAM solution is built on, and shows where PAM sits in the wider secur
 stack. A flow diagram traces how a single privileged session travels through a PAM
 gateway.
 
-> This is a *concepts* page. It is product-neutral. For how WALLIX implements these
-> ideas (Bastion, Access Manager, the Vault), see the
-> [product portfolio](../certs/wallix/overview/product-portfolio.md).
+> This is a *concepts* page. It is product-neutral. For how these ideas map onto a
+> concrete control set and reference architecture, see the
+> [PAM playbook](../certs/ceh/defender-pam/pam-playbook.md) and
+> [PAM architecture](../certs/ceh/defender-pam/pam-architecture.md).
 
 ## Learning objectives
 
@@ -176,9 +177,8 @@ flowchart TD
   **SSO** and **MFA**) — then takes over for the privileged leg of the journey.
 - **PAM feeds the SIEM** with session and audit events.
 - **PAM complements EPM/PEDM**: PAM controls the *session* to a target; EPM controls
-  *privilege on the endpoint itself* (removing local admin). WALLIX pairs Bastion (PAM)
-  with BestSafe (EPM) under its "PAM4ALL" least-privilege vision — see the
-  [product portfolio](../certs/wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
+  *privilege on the endpoint itself* (removing local admin). Most PAM vendors pair a
+  session/vault product with an EPM product under a single least-privilege story.
 
 ---
 
@@ -238,9 +238,10 @@ the target. Even if the workstation is compromised, the attacker cannot extract 
 target password from it, and cannot reach the target except through the recorded,
 policed gateway.
 
-For the WALLIX-specific realization of this flow (Session Manager, Password
-Manager/Vault, Access Manager, credential injection, "Redemption" RDP proxy), see the
-[product portfolio Bastion section](../certs/wallix/overview/product-portfolio.md#1-wallix-bastion--privileged-access-management-pam).
+For how this flow is realised as a set of controls (vaulting, JIT, tiering, session
+brokering) and a deployable architecture, see the
+[PAM playbook](../certs/ceh/defender-pam/pam-playbook.md) and
+[PAM architecture](../certs/ceh/defender-pam/pam-architecture.md).
 
 ---
 
@@ -266,15 +267,13 @@ Manager/Vault, Access Manager, credential injection, "Redemption" RDP proxy), se
 - [PAM threat landscape](pam-threat-landscape.md) — why these accounts are attacked.
 - [Core concepts: least privilege, JIT, Zero Trust](core-concepts-least-privilege-jit-zero-trust.md)
 - [PAM vs IAM / IGA / IDaaS / EPM](pam-iam-iga-idaas-epm.md) — the acronym soup.
-- [WALLIX product portfolio](../certs/wallix/overview/product-portfolio.md)
+- [PAM market landscape](pam-market-landscape.md) — the vendors that implement this.
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---
 
 ## Sources
 
-- WALLIX — Privileged Access Management product page: https://www.wallix.com/products/privileged-access-management/
-- WALLIX Bastion datasheet (2021): https://www.wallix.com/wp-content/uploads/2021/10/DATASHEET_2021_BASTION_EN.pdf
 - NIST SP 800-53 Rev. 5 (AC-6 Least Privilege): https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 - NIST SP 800-207 Zero Trust Architecture: https://csrc.nist.gov/pubs/sp/800/207/final
 - Gartner — Privileged Access Management (PAM) glossary definition: https://www.gartner.com/en/information-technology/glossary/privileged-access-management-pam

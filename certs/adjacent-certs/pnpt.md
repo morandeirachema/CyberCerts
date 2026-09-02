@@ -14,7 +14,7 @@ The **Practical Network Penetration Tester (PNPT)** is a hands-on penetration-te
 - Identify who the PNPT is for and the suggested preparation.
 - Summarise the exam's scope.
 - State the verified exam format and mark volatile details.
-- Position the PNPT as a practical, affordable lead-in or alternative to OSCP, and relate it to this repo's CEH and WALLIX/PAM material.
+- Position the PNPT as a practical, affordable lead-in or alternative to OSCP, and relate it to this repo's CEH and [PAM (identity-security)](../../foundations/README.md) material.
 
 ## What it is
 
@@ -65,7 +65,7 @@ The PNPT sits on the **practical offensive** track, typically after a breadth fo
 - **Budget-friendly OSCP alternative:** the PNPT is markedly cheaper than OSCP and is engagement-style (OSINT → external → AD → report → debrief) rather than a points-based flag exam. Many use it as a confidence-building lead-in to [OSCP](oscp.md), or as a standalone practical credential. The free retake lowers the cost of a first failure.
 - **Relative to this repo's CEH hub:** **CEH** (EC-Council Certified Ethical Hacker) is largely **knowledge/breadth** (mostly multiple-choice); the PNPT is **fully hands-on and report-driven**. CEH gives the methodology vocabulary; the PNPT proves you can run an end-to-end engagement. See [../ceh/README.md](../ceh/README.md) and the [CEH career & adjacent certs page](../ceh/career/ceh-career-and-adjacent-certs.md).
 - **Foundational baseline first:** if you need a vendor-neutral baseline, start with [security-plus.md](security-plus.md).
-- **Relative to WALLIX / Privileged Access Management (PAM):** the PNPT's AD-compromise and lateral-movement focus mirrors exactly the privileged-credential abuse that PAM platforms such as WALLIX aim to prevent and audit — strong attacker context for defenders working with PAM.
+- **Relative to Privileged Access Management (PAM):** the PNPT's AD-compromise and lateral-movement focus mirrors exactly the privileged-credential abuse that PAM platforms aim to prevent and audit — strong attacker context for defenders working with PAM.
 
 ```mermaid
 flowchart LR
@@ -73,7 +73,7 @@ flowchart LR
     CEHnode --> PNPTnode["PNPT<br/>(practical engagement<br/>+ live debrief)"]
     PNPTnode --> OSCPnode["OSCP / OSCP+<br/>(harder hands-on depth)"]
     PNPTnode --> Senior(["Practical pentest roles"])
-    PNPTnode -.->|"AD attack & pivot context"| PAM["WALLIX / PAM hub"]
+    PNPTnode -.->|"AD attack & pivot context"| PAM["PAM / identity security"]
 ```
 
 ## Study resources
