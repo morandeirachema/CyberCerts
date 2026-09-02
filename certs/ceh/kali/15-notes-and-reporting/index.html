@@ -8092,7 +8092,7 @@ script<span class="w"> </span>-a<span class="w"> </span>~/engagements/acme-2026/
 </tr>
 </tbody>
 </table>
-<p>Plain Markdown is the honest recommendation for a beginner: it's future-proof, diffs cleanly in git, and forces you to write structured text. A minimal <code>notes/log.md</code> might just be a running table (mirror the <strong>lab-log tables</strong> at the bottom of every course <a href="../modules/">module</a> — that habit scales straight into real engagements):</p>
+<p>Plain Markdown is the honest recommendation for a beginner: it's future-proof, diffs cleanly in git, and forces you to write structured text. A minimal <code>notes/log.md</code> might just be a running table (mirror the <strong>lab-log tables</strong> at the bottom of every course <a href="../../modules/">module</a> — that habit scales straight into real engagements):</p>
 <div class="highlight"><pre><span></span><code>| Time  | Host           | Command                        | Result                          |
 |-------|----------------|--------------------------------|---------------------------------|
 | 10:14 | 192.168.56.20  | nmap -sV -oA scans/msf2 ...    | 21/ftp vsftpd 2.3.4, 445/smb    |
@@ -8123,7 +8123,7 @@ flameshot<span class="w"> </span>gui<span class="w">                  </span><sp
 <tr>
 <td><strong>Severity (CVSS)</strong></td>
 <td>How bad, on a standard scale?</td>
-<td>Critical — CVSS 9.8 (see <a href="../modules/05-vulnerability-analysis/">Module 05</a>)</td>
+<td>Critical — CVSS 9.8 (see <a href="../../modules/05-vulnerability-analysis/">Module 05</a>)</td>
 </tr>
 <tr>
 <td><strong>Affected asset</strong></td>
@@ -8147,7 +8147,7 @@ flameshot<span class="w"> </span>gui<span class="w">                  </span><sp
 </tr>
 </tbody>
 </table>
-<p><strong>Severity</strong> uses <strong>CVSS</strong> (Common Vulnerability Scoring System, a 0.0–10.0 score maintained by FIRST — the full metric groups and severity bands are covered in <a href="../modules/05-vulnerability-analysis/">Module 05</a>). Don't invent numbers: look the CVE up on the <a href="https://nvd.nist.gov/">NVD</a> and cite its score and vector.</p>
+<p><strong>Severity</strong> uses <strong>CVSS</strong> (Common Vulnerability Scoring System, a 0.0–10.0 score maintained by FIRST — the full metric groups and severity bands are covered in <a href="../../modules/05-vulnerability-analysis/">Module 05</a>). Don't invent numbers: look the CVE up on the <a href="https://nvd.nist.gov/">NVD</a> and cite its score and vector.</p>
 <p>A copy-paste template for <code>notes/findings.md</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="gu">### Finding: Anonymous FTP backdoor command execution (vsftpd 2.3.4)</span>
 
@@ -8164,7 +8164,7 @@ flameshot<span class="w"> </span>gui<span class="w">                  </span><sp
 <span class="k">-</span><span class="w"> </span><span class="gs">**Remediation:**</span> Remove/upgrade the backdoored vsftpd build to a current
   patched version; restrict FTP exposure; monitor for the <span class="sb">`:)`</span> trigger.
 </code></pre></div>
-<p>The evidence is what makes it a <em>finding</em> and not an opinion — the command and its output let the client reproduce it. This is exactly the standardisation flow (<a href="../modules/05-vulnerability-analysis/">CVE → CVSS → CWE → CPE</a>) that Module 05 drills.</p>
+<p>The evidence is what makes it a <em>finding</em> and not an opinion — the command and its output let the client reproduce it. This is exactly the standardisation flow (<a href="../../modules/05-vulnerability-analysis/">CVE → CVSS → CWE → CPE</a>) that Module 05 drills.</p>
 <h2 id="the-structure-of-a-pentest-report">The structure of a pentest report<a class="headerlink" href="#the-structure-of-a-pentest-report" title="Permanent link">&para;</a></h2>
 <p>Individual findings are the ingredients; the <strong>report</strong> is the meal. A standard professional report has five parts:</p>
 <table>
@@ -8241,7 +8241,7 @@ flameshot<span class="w"> </span>gui<span class="w">                  </span><sp
 <li>Run <code>nmap -sV -sC -oA ~/engagements/lab-2026/scans/msf2 192.168.56.20</code> and confirm all <strong>three</strong> output files exist (<code>ls scans/</code>).</li>
 <li>Take a screenshot of the nmap results with <code>flameshot gui</code>, annotate one open port, and save it to <code>screenshots/</code>.</li>
 <li>In <code>notes/findings.md</code>, write up <strong>one</strong> vulnerability using the six-part template (Title → Severity → Asset → Evidence → Impact → Remediation). Look up its real CVSS on the <a href="https://nvd.nist.gov/">NVD</a>.</li>
-<li>Fill in a lab-log row like the tables at the bottom of every <a href="../modules/">module</a> — make it a habit that carries into real work.</li>
+<li>Fill in a lab-log row like the tables at the bottom of every <a href="../../modules/">module</a> — make it a habit that carries into real work.</li>
 </ol>
 <h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h2>
 <p>➡️ <a href="../appendix-troubleshooting/">Appendix — Troubleshooting</a>: the common beginner errors across every chapter and how to fix them fast.</p>
@@ -8255,7 +8255,7 @@ flameshot<span class="w"> </span>gui<span class="w">                  </span><sp
 <li>FIRST — CVSS specification: https://www.first.org/cvss/</li>
 <li>NIST — National Vulnerability Database (NVD): https://nvd.nist.gov/</li>
 <li>PTES — Penetration Testing Execution Standard (reporting): http://www.pentest-standard.org/</li>
-<li>Related: <a href="../modules/05-vulnerability-analysis/">Module 05 — Vulnerability Analysis</a></li>
+<li>Related: <a href="../../modules/05-vulnerability-analysis/">Module 05 — Vulnerability Analysis</a></li>
 </ul>
 
 

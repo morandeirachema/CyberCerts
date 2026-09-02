@@ -8116,7 +8116,7 @@
 <h1 id="blue-team-lab-attack-it-then-detect-it">Blue-Team Lab — Attack It, Then Detect It<a class="headerlink" href="#blue-team-lab-attack-it-then-detect-it" title="Permanent link">&para;</a></h1>
 <p>The rest of the repo teaches you to <em>break in</em>. This lab makes the <a href="../../defender-pam/detection-engineering/">detection-engineering</a> theory <strong>doable</strong>: you run the <a href="../capstone/">capstone</a> attacks, then hunt your own footprints in the logs. Understanding both sides is the master-level skill — and the repo's whole premise (every attack has a control) becomes real when you <em>see</em> the attack fire.</p>
 <blockquote>
-<p><strong>Prereqs:</strong> the Windows <a href="ansible/">AD lab</a> running (dc01 <code>192.168.56.30</code>, ws01 <code>192.168.56.31</code>). Everything here runs on <strong>your own lab</strong>. This is defensive tooling — safe to run anywhere you own.</p>
+<p><strong>Prereqs:</strong> the Windows <a href="../ansible/">AD lab</a> running (dc01 <code>192.168.56.30</code>, ws01 <code>192.168.56.31</code>). Everything here runs on <strong>your own lab</strong>. This is defensive tooling — safe to run anywhere you own.</p>
 </blockquote>
 <h2 id="setup-the-sensors-once">Setup the sensors (once)<a class="headerlink" href="#setup-the-sensors-once" title="Permanent link">&para;</a></h2>
 <p><strong>1. Sysmon</strong> — the single best free endpoint sensor. Install on dc01 and ws01:

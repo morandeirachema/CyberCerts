@@ -7986,7 +7986,7 @@
 </tr>
 </tbody>
 </table>
-<p>The full attack taxonomy (MAC flooding, DHCP starvation, DNS poisoning, and the defenses) lives in <a href="../modules/08-sniffing/">Module 08 — Sniffing</a>.</p>
+<p>The full attack taxonomy (MAC flooding, DHCP starvation, DNS poisoning, and the defenses) lives in <a href="../../modules/08-sniffing/">Module 08 — Sniffing</a>.</p>
 <h2 id="safety-first-read-before-you-poison-anything">⚠️ Safety first — read before you poison anything<a class="headerlink" href="#safety-first-read-before-you-poison-anything" title="Permanent link">&para;</a></h2>
 <p><strong>ARP poisoning and Responder are disruptive, active attacks.</strong> They send forged traffic to other machines. On a real corporate or home network they cause outages, trip security alarms, and are illegal without written authorization.</p>
 <ul>
@@ -8079,7 +8079,7 @@ You should see the file fill while the FTP session happens, and on read-back the
 </table>
 <p><strong>Follow TCP Stream</strong> is the killer feature: right-click any packet → <strong>Follow → TCP Stream</strong>. Wireshark stitches every packet of that one conversation back together and shows it as plain text — the whole FTP or HTTP exchange in one readable window, client text in one color and server text in another.</p>
 <blockquote>
-<p>Wireshark <strong>display filters</strong> (<code>http.request</code>) are a different language from tcpdump <strong>capture filters</strong> (<code>tcp port 80</code>). Mixing them up is the #1 beginner error — see <a href="../modules/08-sniffing/">Module 08</a>.</p>
+<p>Wireshark <strong>display filters</strong> (<code>http.request</code>) are a different language from tcpdump <strong>capture filters</strong> (<code>tcp port 80</code>). Mixing them up is the #1 beginner error — see <a href="../../modules/08-sniffing/">Module 08</a>.</p>
 </blockquote>
 <h2 id="proving-it-capturing-cleartext-credentials">Proving it: capturing cleartext credentials<a class="headerlink" href="#proving-it-capturing-cleartext-credentials" title="Permanent link">&para;</a></h2>
 <p>Old protocols send passwords in the clear. Let's capture one against Metasploitable2 (<code>192.168.56.20</code>), which runs a cleartext FTP server.</p>
@@ -8149,7 +8149,7 @@ You should see the username and cracked password once hashcat finds it in the wo
 <li>Capture an HTTPS session and confirm you see only <strong>TLS Application Data</strong> — write down why encryption beat you.</li>
 <li>Enable IP forwarding, then use bettercap to ARP-poison <code>192.168.56.31</code> ↔ <code>192.168.56.1</code>; watch <code>net.sniff</code> show the victim's traffic. Turn it off cleanly with <code>arp.spoof off</code>.</li>
 <li>Run Responder on <code>eth1</code>, trigger a bad name lookup from a Windows host, capture the NetNTLMv2 hash, and crack it with <code>hashcat -m 5600</code>.</li>
-<li>In your notes, match each attack to its defense (encryption, DAI, disabling LLMNR) using <a href="../modules/08-sniffing/">Module 08</a>.</li>
+<li>In your notes, match each attack to its defense (encryption, DAI, disabling LLMNR) using <a href="../../modules/08-sniffing/">Module 08</a>.</li>
 </ol>
 <h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h2>
 <p>➡️ <a href="../13-wireless/">13 — Wireless</a>: the same sniffing ideas over the air — monitor mode, capturing handshakes, and cracking Wi-Fi with the aircrack-ng suite.</p>

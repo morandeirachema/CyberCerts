@@ -8056,7 +8056,7 @@
 <h1 id="running-kali-on-a-linux-pc-kvm-vm-or-docker-claude-code">Running Kali on a Linux PC — KVM VM or Docker (+ Claude Code)<a class="headerlink" href="#running-kali-on-a-linux-pc-kvm-vm-or-docker-claude-code" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><a href="../00-getting-started/">00 — Getting started</a> covers the beginner <strong>VirtualBox</strong> path on Windows/macOS. This guide is for running Kali on a <strong>Linux host</strong> (like an Ubuntu laptop), where you get two better, native options — a <strong>KVM/QEMU virtual machine</strong> or a <strong>Docker container</strong> — and shows how to drive the whole thing with <strong>Claude Code</strong>. ⬅️ <a href="../">Course index</a></p>
-<p><strong>⚖️ Same rules that never bend:</strong> everything runs against your <strong>own isolated <a href="../labs/">lab</a></strong> or systems you have <strong>written permission</strong> to test. Keep the lab off your home/work LAN.</p>
+<p><strong>⚖️ Same rules that never bend:</strong> everything runs against your <strong>own isolated <a href="../../labs/">lab</a></strong> or systems you have <strong>written permission</strong> to test. Keep the lab off your home/work LAN.</p>
 </blockquote>
 <hr />
 <h2 id="does-your-machine-support-this">Does your machine support this?<a class="headerlink" href="#does-your-machine-support-this" title="Permanent link">&para;</a></h2>
@@ -8111,7 +8111,7 @@ docker<span class="w"> </span>--version<span class="w"> </span><span class="p">;
 </tr>
 <tr>
 <td>Best for</td>
-<td>Quick tool runs, the <a href="../labs/">web</a> &amp; <a href="../labs/ot/">OT</a> labs, CI</td>
+<td>Quick tool runs, the <a href="../../labs/">web</a> &amp; <a href="../../labs/ot/">OT</a> labs, CI</td>
 <td>The full <a href="../">Kali course</a>, GUI, wireless</td>
 </tr>
 </tbody>
@@ -8151,7 +8151,7 @@ Run it with your notes/loot mounted from the host and on the repo's lab network:
 <span class="c1">#   reach the repo web lab (localhost:8081-8084) from the container: add  --network host</span>
 </code></pre></div></p>
 <blockquote>
-<p><strong>Networking note:</strong> with <code>--network host</code> the container shares your host's network, so <code>127.0.0.1:8081</code> reaches the <a href="../labs/">web lab</a>. Otherwise attach it to the lab's Docker network. Never expose these ports beyond localhost.</p>
+<p><strong>Networking note:</strong> with <code>--network host</code> the container shares your host's network, so <code>127.0.0.1:8081</code> reaches the <a href="../../labs/">web lab</a>. Otherwise attach it to the lab's Docker network. Never expose these ports beyond localhost.</p>
 </blockquote>
 <hr />
 <h2 id="path-b-kvmqemu-virtual-machine-full-desktop">Path B — KVM/QEMU virtual machine (full desktop)<a class="headerlink" href="#path-b-kvmqemu-virtual-machine-full-desktop" title="Permanent link">&para;</a></h2>
@@ -8224,7 +8224,7 @@ claude<span class="w">          </span><span class="c1"># first run opens a brow
 </code></pre></div>
 <h3 id="two-places-to-run-it">Two places to run it<a class="headerlink" href="#two-places-to-run-it" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>On the host — as the orchestrator.</strong> Let Claude Code build the Kali image, manage libvirt VMs, bring up the <a href="../labs/">web</a>/<a href="../labs/ot/">OT</a> labs, run the repo tooling (<a href="../scripts/README.md"><code>scripts/quiz.py</code></a>), and keep your notes. This is exactly the workflow that built this repo.</li>
+<li><strong>On the host — as the orchestrator.</strong> Let Claude Code build the Kali image, manage libvirt VMs, bring up the <a href="../../labs/">web</a>/<a href="../../labs/ot/">OT</a> labs, run the repo tooling (<a href="../scripts/README.md"><code>scripts/quiz.py</code></a>), and keep your notes. This is exactly the workflow that built this repo.</li>
 <li><strong>Inside the Kali VM/container — as the field assistant.</strong> Have it explain tool output, draft the next command, and write up findings while you work. Running it <em>inside</em> the VM/container keeps its blast radius contained.</li>
 </ul>
 <h3 id="a-concrete-day-one-flow">A concrete "day one" flow<a class="headerlink" href="#a-concrete-day-one-flow" title="Permanent link">&para;</a></h3>
@@ -8283,7 +8283,7 @@ claude<span class="w">          </span><span class="c1"># first run opens a brow
 <li>Pick a path: <code>docker run --rm hello-world</code> <strong>or</strong> <code>virt-host-validate qemu</code> (all PASS).</li>
 <li>Boot Kali, log in, <code>passwd</code>, then <code>sudo apt update &amp;&amp; sudo apt full-upgrade -y</code>.</li>
 <li>(VM) take a <code>clean-updated</code> snapshot; (Docker) save your <code>Dockerfile</code>.</li>
-<li>Install Claude Code, sign in, and have it run one <code>nmap</code> against a <a href="../labs/">lab</a> target and explain the output.</li>
+<li>Install Claude Code, sign in, and have it run one <code>nmap</code> against a <a href="../../labs/">lab</a> target and explain the output.</li>
 </ol>
 <h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
 <ul>
@@ -8296,7 +8296,7 @@ claude<span class="w">          </span><span class="c1"># first run opens a brow
 <li>Claude Code — setup &amp; install — https://code.claude.com/docs/en/setup</li>
 </ul>
 <hr />
-<p>Related: <a href="../00-getting-started/">00 — Getting started</a> · <a href="../labs/">Lab environment</a> · <a href="../../AI-STUDY-WORKFLOW/">AI study workflow</a> · <a href="../../AI-IN-ETHICAL-HACKING/">Responsible AI use</a></p>
+<p>Related: <a href="../00-getting-started/">00 — Getting started</a> · <a href="../../labs/">Lab environment</a> · <a href="../../AI-STUDY-WORKFLOW/">AI study workflow</a> · <a href="../../AI-IN-ETHICAL-HACKING/">Responsible AI use</a></p>
 
 
 

@@ -7982,7 +7982,7 @@
         L5["L5 — Enterprise network&lt;br/&gt;corporate IT, internet-facing"]
         L4["L4 — Site business &amp; logistics&lt;br/&gt;ERP, email, IT services"]
     end
-    IDMZ["L3.5 — IDMZ (the OT/IT boundary)&lt;br/&gt;jump hosts · proxies · brokers · patch/AV relays"]
+    IDMZ["L3.5 — IDMZ (the OT/IT boundary)&lt;br/&gt;jump hosts · proxies ·&lt;br/&gt;brokers · patch/AV relays"]
     subgraph OT["OT / Plant floor"]
         L3["L3 — Site operations&lt;br/&gt;MES, historians, EWS, patch/AV"]
         L2["L2 — Area supervisory control&lt;br/&gt;HMI, SCADA servers"]
@@ -7994,9 +7994,9 @@
 <h2 id="itot-convergence-why-the-model-erodes">IT/OT convergence — why the model erodes<a class="headerlink" href="#itot-convergence-why-the-model-erodes" title="Permanent link">&para;</a></h2>
 <p>The clean Purdue layers were drawn before business wanted <strong>real-time plant data in the cloud</strong> and vendors wanted <strong>remote support</strong>. Convergence — remote access, cloud historians, IIoT sensors, shared Active Directory, flat VLANs — punched holes straight through the levels.</p>
 <pre class="mermaid"><code>flowchart LR
-    C["Business drivers&lt;br/&gt;cloud analytics · remote support · IIoT · cost"]
-    C --&gt; R["Result&lt;br/&gt;IT and OT networks flatten &amp; interconnect"]
-    R --&gt; X["Risk&lt;br/&gt;an IT phishing foothold can now reach a PLC"]</code></pre>
+    C["Business drivers&lt;br/&gt;cloud analytics · remote&lt;br/&gt;support · IIoT · cost"]
+    C --&gt; R["Result&lt;br/&gt;IT and OT networks&lt;br/&gt;flatten &amp; interconnect"]
+    R --&gt; X["Risk&lt;br/&gt;an IT phishing foothold&lt;br/&gt;can now reach a PLC"]</code></pre>
 <p>Almost every modern OT incident is really an <strong>IT intrusion that pivoted into OT</strong> because convergence removed the air gap. That is precisely why segmentation (<a href="../04-defense/">04</a>) and brokered, least-privilege access (<a href="../05-pam-for-ot/">05</a>) are the load-bearing controls — the protocols themselves (<a href="../02-protocols/">02</a>) offer no protection.</p>
 <h2 id="checkpoint">✅ Checkpoint<a class="headerlink" href="#checkpoint" title="Permanent link">&para;</a></h2>
 <ul>

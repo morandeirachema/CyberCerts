@@ -7882,7 +7882,7 @@
 
 
 <h1 id="active-directory-attacks">Active Directory Attacks<a class="headerlink" href="#active-directory-attacks" title="Permanent link">&para;</a></h1>
-<p>Quick reference for the AD attack chain (Impacket / NetExec / BloodHound / Certipy). Pairs with <a href="../modules/06-system-hacking/">Module 06</a>, the <a href="../../defender-pam/identity-attack-paths/">identity attack paths</a>, and the <a href="../../labs/capstone/">capstone</a>. <strong>Lab / authorized only.</strong> Vars: <code>DC=192.168.56.30</code>, <code>DOMAIN=ceh.lab</code>, foothold <code>jdoe:'Passw0rd!'</code>.</p>
+<p>Quick reference for the AD attack chain (Impacket / NetExec / BloodHound / Certipy). Pairs with <a href="../../modules/06-system-hacking/">Module 06</a>, the <a href="../../defender-pam/identity-attack-paths/">identity attack paths</a>, and the <a href="../../labs/capstone/">capstone</a>. <strong>Lab / authorized only.</strong> Vars: <code>DC=192.168.56.30</code>, <code>DOMAIN=ceh.lab</code>, foothold <code>jdoe:'Passw0rd!'</code>.</p>
 <blockquote>
 <p>On Kali the Impacket tools are prefixed <code>impacket-*</code>. Kerberos is clock-sensitive — if you see <code>KRB_AP_ERR_SKEW</code>, sync time: <code>sudo ntpdate $DC</code> (or <code>rdate</code>), and point DNS at the DC.</p>
 </blockquote>

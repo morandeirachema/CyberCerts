@@ -8243,7 +8243,7 @@
 <h2 id="key-concepts">Key concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
 <h3 id="where-footprinting-sits-in-the-methodology">Where footprinting sits in the methodology<a class="headerlink" href="#where-footprinting-sits-in-the-methodology" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart LR
-    P["PASSIVE recon&lt;br/&gt;no packets to target&lt;br/&gt;WHOIS, Google, Shodan, social media"] --&gt; A["ACTIVE recon&lt;br/&gt;packets to target&lt;br/&gt;DNS AXFR, traceroute, ping, email tracing"] --&gt; S["Scanning — Module 03&lt;br/&gt;ports / services&lt;br/&gt;nmap, banner grab"]</code></pre>
+    P["PASSIVE recon&lt;br/&gt;no packets to target&lt;br/&gt;WHOIS, Google, Shodan, social media"] --&gt; A["ACTIVE recon&lt;br/&gt;packets to target&lt;br/&gt;DNS AXFR, traceroute,&lt;br/&gt;ping, email tracing"] --&gt; S["Scanning — Module 03&lt;br/&gt;ports / services&lt;br/&gt;nmap, banner grab"]</code></pre>
 <p>The dividing line: <strong>did a packet reach the target's infrastructure?</strong> Querying a public WHOIS server or Shodan's cache = passive. Asking the target's <em>own</em> name server for a zone transfer = active.</p>
 <h3 id="footprinting-objectives-what-you-are-building">Footprinting objectives (what you are building)<a class="headerlink" href="#footprinting-objectives-what-you-are-building" title="Permanent link">&para;</a></h3>
 <table>

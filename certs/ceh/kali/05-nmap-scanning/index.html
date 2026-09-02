@@ -8024,7 +8024,7 @@
 <p><strong>What you'll learn:</strong> what a port scan actually does, every scan type Nmap offers and when to reach for each, how to read the open/closed/filtered verdict, how to fingerprint services and operating systems, the Nmap Scripting Engine, timing and evasion, saving your evidence — and how to turn a scan into your next move. By the end you'll drive Nmap with intent, not guesswork.
 <strong>Prerequisites:</strong> <a href="../04-recon-osint/">04 — Recon &amp; OSINT</a>. ⬅️ <a href="../">Course index</a></p>
 </blockquote>
-<p>Recon (chapter 04) told you <em>who</em> and <em>where</em> your target is. Scanning tells you <em>what's actually listening</em>. <strong>Nmap</strong> ("Network Mapper") is the tool for this — the single most important, most exam-tested tool in the course. Take your time; this is a deep dive that maps directly to <a href="../modules/03-scanning-networks/">Module 03 — Scanning Networks</a>.</p>
+<p>Recon (chapter 04) told you <em>who</em> and <em>where</em> your target is. Scanning tells you <em>what's actually listening</em>. <strong>Nmap</strong> ("Network Mapper") is the tool for this — the single most important, most exam-tested tool in the course. Take your time; this is a deep dive that maps directly to <a href="../../modules/03-scanning-networks/">Module 03 — Scanning Networks</a>.</p>
 <hr />
 <h2 id="what-is-a-port-scan">What is a port scan?<a class="headerlink" href="#what-is-a-port-scan" title="Permanent link">&para;</a></h2>
 <p>A <strong>port</strong> is a numbered door on a machine (0–65535) where a <strong>service</strong> listens — web on 80, SSH on 22, and so on (chapter 03 covers ports in depth). A <strong>port scan</strong> knocks on those doors and notes which ones answer. That list of open ports <em>is</em> your attack surface: every open port is a service you can enumerate and possibly exploit.</p>
@@ -8331,13 +8331,13 @@ sudo<span class="w"> </span>nmap<span class="w"> </span>-sS<span class="w"> </sp
 </code></pre></div>
 <code>--min-rate</code> sets a packet-per-second floor for fine control when a template isn't precise enough. Use <code>-T4</code> for lab work; save <code>-T0/-T1</code> for when you're deliberately practising evasion.</p>
 <h2 id="evasion-basics">Evasion basics<a class="headerlink" href="#evasion-basics" title="Permanent link">&para;</a></h2>
-<p>Firewalls and intrusion-detection systems (IDS) watch for scans. Nmap can dress its packets up to slip past simple ones. This is a preview — <strong><a href="../modules/12-evading-ids-firewalls-honeypots/">Module 12 — Evading IDS, Firewalls &amp; Honeypots</a></strong> goes deep.</p>
+<p>Firewalls and intrusion-detection systems (IDS) watch for scans. Nmap can dress its packets up to slip past simple ones. This is a preview — <strong><a href="../../modules/12-evading-ids-firewalls-honeypots/">Module 12 — Evading IDS, Firewalls &amp; Honeypots</a></strong> goes deep.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nmap<span class="w"> </span>-sS<span class="w"> </span>-f<span class="w"> </span><span class="m">192</span>.168.56.20<span class="w">                </span><span class="c1"># -f: fragment probes into tiny pieces a filter may fail to reassemble</span>
 sudo<span class="w"> </span>nmap<span class="w"> </span>-sS<span class="w"> </span>-D<span class="w"> </span><span class="m">192</span>.168.56.15,192.168.56.16,ME<span class="w"> </span><span class="m">192</span>.168.56.20<span class="w">   </span><span class="c1"># -D: hide your real IP among decoy sources (ME = you)</span>
 sudo<span class="w"> </span>nmap<span class="w"> </span>-sS<span class="w"> </span>-g<span class="w"> </span><span class="m">53</span><span class="w"> </span><span class="m">192</span>.168.56.20<span class="w">             </span><span class="c1"># -g 53 (= --source-port 53): pose as DNS traffic lazy firewalls trust</span>
 </code></pre></div>
 <blockquote>
-<p>These are <em>lab demonstrations</em> to understand the technique — matched by real defensive controls in <a href="../modules/03-scanning-networks/">Module 03</a>. Never test them on networks you don't own.</p>
+<p>These are <em>lab demonstrations</em> to understand the technique — matched by real defensive controls in <a href="../../modules/03-scanning-networks/">Module 03</a>. Never test them on networks you don't own.</p>
 </blockquote>
 <h2 id="save-your-evidence-output-flags">Save your evidence — output flags<a class="headerlink" href="#save-your-evidence-output-flags" title="Permanent link">&para;</a></h2>
 <p>Always save scans. You'll re-read them constantly, and they're your report evidence. <code>-oA</code> writes <strong>all three</strong> formats at once with one basename:</p>
@@ -8435,7 +8435,7 @@ grep<span class="w"> </span>-i<span class="w"> </span>open<span class="w"> </spa
 <li>Nmap port-scanning techniques — https://nmap.org/book/man-port-scanning-techniques.html</li>
 <li>Nmap Scripting Engine (NSE) — https://nmap.org/book/nse.html</li>
 <li>Nmap timing &amp; performance — https://nmap.org/book/man-performance.html</li>
-<li>CEH companion — <a href="../modules/03-scanning-networks/">Module 03 — Scanning Networks</a></li>
+<li>CEH companion — <a href="../../modules/03-scanning-networks/">Module 03 — Scanning Networks</a></li>
 </ul>
 
 

@@ -8047,7 +8047,7 @@
 
 <h1 id="ai-driven-ethical-hacking-ceh-v13">AI-Driven Ethical Hacking (CEH v13)<a class="headerlink" href="#ai-driven-ethical-hacking-ceh-v13" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>CEH v13's headline addition. Two directions you must understand: <strong>(1) using AI to augment the ethical-hacking workflow</strong>, and <strong>(2) attacking and defending AI systems themselves</strong>. This doc is the cross-cutting companion to the 20 modules — AI now touches every phase. Pairs with <a href="../EXAM-STRATEGY/">EXAM-STRATEGY.md</a> and the <a href="defender-pam/">defender-pam</a> knowledge base.</p>
+<p>CEH v13's headline addition. Two directions you must understand: <strong>(1) using AI to augment the ethical-hacking workflow</strong>, and <strong>(2) attacking and defending AI systems themselves</strong>. This doc is the cross-cutting companion to the 20 modules — AI now touches every phase. Pairs with <a href="../EXAM-STRATEGY/">EXAM-STRATEGY.md</a> and the <a href="../defender-pam/">defender-pam</a> knowledge base.</p>
 <p><strong>⚖️ Same ethics apply.</strong> Use AI-assisted techniques only within your authorized scope. AI lowers the effort bar for attackers <em>and</em> defenders — the authorization boundary does not move.</p>
 </blockquote>
 <hr />
@@ -8152,12 +8152,12 @@
 <h3 id="owasp-top-10-for-llm-applications-2025-recognize-the-list">OWASP Top 10 for LLM Applications (2025) — recognize the list<a class="headerlink" href="#owasp-top-10-for-llm-applications-2025-recognize-the-list" title="Permanent link">&para;</a></h3>
 <p>LLM01 Prompt Injection · LLM02 Sensitive Information Disclosure · LLM03 Supply Chain · LLM04 Data &amp; Model Poisoning · LLM05 Improper Output Handling · LLM06 Excessive Agency · LLM07 System Prompt Leakage · LLM08 Vector/Embedding Weaknesses · LLM09 Misinformation · LLM10 Unbounded Consumption.</p>
 <blockquote>
-<p><strong>MITRE ATLAS</strong> is the ATT&amp;CK-style knowledge base for adversarial ML — the AI equivalent of the frameworks in <a href="modules/01-introduction-to-ethical-hacking/">Module 01</a>.</p>
+<p><strong>MITRE ATLAS</strong> is the ATT&amp;CK-style knowledge base for adversarial ML — the AI equivalent of the frameworks in <a href="../modules/01-introduction-to-ethical-hacking/">Module 01</a>.</p>
 </blockquote>
 <hr />
 <h2 id="part-3-defending-ai-and-the-pam-angle">Part 3 — Defending AI, and the PAM angle<a class="headerlink" href="#part-3-defending-ai-and-the-pam-angle" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TB
-    U["User / web content / tool output"] --&gt; G["Input controls&lt;br/&gt;validate, filter, isolate untrusted content"]
+    U["User / web content / tool output"] --&gt; G["Input controls&lt;br/&gt;validate, filter, isolate&lt;br/&gt;untrusted content"]
     G --&gt; M["LLM / model"]
     M --&gt; O["Output controls&lt;br/&gt;never trust output in shell/SQL/eval"]
     O --&gt; T["Tools / actions"]

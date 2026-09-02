@@ -7918,7 +7918,7 @@
 <blockquote>
 <p>⚠️ <strong>STOP — legality &amp; hardware first.</strong> Wi-Fi attacks transmit on <strong>regulated radio spectrum</strong> and touch other devices' traffic. Capturing handshakes, deauthenticating clients, or probing WPS against a network <strong>you do not own or have written permission to test is a crime</strong> almost everywhere. <strong>Only ever target your OWN AP/router and your OWN client devices</strong>, on a throwaway SSID you set up for this. Not a neighbour's, an employer's, a café's — ever.</p>
 <p>The live drills need a <strong>USB Wi-Fi adapter that supports monitor mode + packet injection</strong> (Atheros AR9271, Ralink RT3070/RT5370, Realtek RTL8812AU). A VM's virtual NIC <strong>cannot</strong> do this — USB-passthrough a physical adapter. <strong>No adapter or no test AP? Every drill is still doable:</strong> use the aircrack-ng <strong>sample capture <code>wpa.cap</code></strong> (ESSID <code>test</code>, BSSID <code>00:14:6C:7E:40:80</code>, PSK <strong><code>biscotte</code></strong>) — grab it from the aircrack-ng <em>Cracking WPA</em> tutorial (see <a href="#sources">Sources</a>) and follow each drill's <strong>⚡ faster / no-adapter</strong> note.</p>
-<p>Recipes: <a href="../../challenge-playbooks/"><code>../challenge-playbooks.md</code></a> (wireless section). Theory: <a href="../../modules/16-hacking-wireless-networks/">Module 16 — Hacking Wireless Networks</a>. Tool course: <a href="../../../kali/13-wireless/"><code>../../kali/13-wireless.md</code></a>.</p>
+<p>Recipes: <a href="../../challenge-playbooks/"><code>../challenge-playbooks.md</code></a> (wireless section). Theory: <a href="../../../modules/16-hacking-wireless-networks/">Module 16 — Hacking Wireless Networks</a>. Tool course: <a href="../../../kali/13-wireless/"><code>../../kali/13-wireless.md</code></a>.</p>
 </blockquote>
 <p>Score yourself: <strong>✅ under target time / ⚠️ over time / ❌ needed the solution</strong>. Set placeholders — <code>AA:BB:CC:DD:EE:FF</code> = your AP's BSSID, <code>6</code> = your channel, <code>wlan0</code> = your adapter, <code>11:22:33:44:55:66</code> = your own client's MAC. Re-drill anything not ✅.</p>
 <hr />
@@ -8135,7 +8135,7 @@ aircrack-ng<span class="w"> </span>-w<span class="w"> </span>/usr/share/wordlist
 <li>Aircrack-ng — <code>airodump-ng</code> / <code>aireplay-ng</code> / <code>wash</code> docs — https://www.aircrack-ng.org/documentation.html</li>
 <li>Hashcat — WPA/WPA2 example hashes (mode 22000) — https://hashcat.net/wiki/doku.php?id=example_hashes</li>
 <li>hcxtools / <code>hcxpcapngtool</code> — https://github.com/ZerBea/hcxtools</li>
-<li>CEH Module 16 — Hacking Wireless Networks — <a href="../../modules/16-hacking-wireless-networks/"><code>../../modules/16-hacking-wireless-networks/</code></a></li>
+<li>CEH Module 16 — Hacking Wireless Networks — <a href="../../../modules/16-hacking-wireless-networks/"><code>../../modules/16-hacking-wireless-networks/</code></a></li>
 </ul>
 
 

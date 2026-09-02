@@ -8399,9 +8399,9 @@
 <p>Related terms: <strong>bastion host</strong>, <strong>DMZ / screened subnet</strong>, <strong>default-deny</strong> posture.</p>
 <h3 id="insertion-vs-evasion-vs-dos-ptacek-newsham">Insertion vs Evasion vs DoS (Ptacek &amp; Newsham)<a class="headerlink" href="#insertion-vs-evasion-vs-dos-ptacek-newsham" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TB
-    INS["INSERTION&lt;br/&gt;IDS ACCEPTS a packet the end host REJECTS&lt;br/&gt;attacker pads the IDS view so the signature never matches"]
-    EVA["EVASION&lt;br/&gt;end host ACCEPTS a packet the IDS REJECTS or misses&lt;br/&gt;attack reaches the target but never enters IDS reassembly"]
-    DOS["DoS&lt;br/&gt;exhaust or blind the IDS — flood, resource, fail-open"]
+    INS["INSERTION&lt;br/&gt;IDS ACCEPTS a packet&lt;br/&gt;the end host REJECTS&lt;br/&gt;attacker pads the IDS view so&lt;br/&gt;the signature never matches"]
+    EVA["EVASION&lt;br/&gt;end host ACCEPTS a packet&lt;br/&gt;the IDS REJECTS or misses&lt;br/&gt;attack reaches the target but&lt;br/&gt;never enters IDS reassembly"]
+    DOS["DoS&lt;br/&gt;exhaust or blind the IDS —&lt;br/&gt;flood, resource, fail-open"]
     INS --- EVA --- DOS</code></pre>
 <h3 id="evasion-techniques">Evasion techniques<a class="headerlink" href="#evasion-techniques" title="Permanent link">&para;</a></h3>
 <ul>

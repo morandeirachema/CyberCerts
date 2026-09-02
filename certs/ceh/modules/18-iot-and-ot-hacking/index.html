@@ -8532,15 +8532,15 @@
 <p>Attacks flow <strong>down</strong>; safety flows from keeping people and IT <strong>out</strong> of the lower levels.</p>
 <pre class="mermaid"><code>flowchart TB
     subgraph IT["IT"]
-        L5["L5 Enterprise network — corporate IT, internet-facing"]
-        L4["L4 Site business and logistics — ERP, email, IT services"]
+        L5["L5 Enterprise network —&lt;br/&gt;corporate IT, internet-facing"]
+        L4["L4 Site business and logistics&lt;br/&gt;— ERP, email, IT services"]
     end
-    IDMZ["IDMZ / Level 3.5 — the OT/IT boundary: jump hosts, proxies, brokers"]
+    IDMZ["IDMZ / Level 3.5 — the&lt;br/&gt;OT/IT boundary: jump&lt;br/&gt;hosts, proxies, brokers"]
     subgraph OT["OT"]
-        L3["L3 Site operations — MES, historians, patch/AV, engineering workstations"]
-        L2["L2 Area supervisory control — HMI, SCADA servers"]
-        L1["L1 Basic control — PLCs, RTUs, IEDs run the logic"]
-        L0["L0 Physical process — sensors, actuators, motors, valves"]
+        L3["L3 Site operations — MES,&lt;br/&gt;historians, patch/AV,&lt;br/&gt;engineering workstations"]
+        L2["L2 Area supervisory control&lt;br/&gt;— HMI, SCADA servers"]
+        L1["L1 Basic control — PLCs,&lt;br/&gt;RTUs, IEDs run the logic"]
+        L0["L0 Physical process — sensors,&lt;br/&gt;actuators, motors, valves"]
     end
     L5 --&gt; L4 --&gt; IDMZ --&gt; L3 --&gt; L2 --&gt; L1 --&gt; L0</code></pre>
 <p><strong>IT/OT convergence</strong> flattened these zones (remote access, cloud historians), which is exactly why segmentation and brokered access matter.</p>

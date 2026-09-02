@@ -7989,7 +7989,7 @@
 
 <h1 id="module-13-hacking-web-servers-guided-lab-walkthrough">Module 13 — Hacking Web Servers · Guided Lab Walkthrough<a class="headerlink" href="#module-13-hacking-web-servers-guided-lab-walkthrough" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Step-by-step against <strong>your own lab</strong> (<a href="../../labs/"><code>../../labs/</code></a>) — never a server you don't own. Target the <strong>Metasploitable2</strong> Apache host (<code>192.168.56.20</code>, real WebDAV/phpMyAdmin/TWiki) from <strong>Kali</strong> (<code>192.168.56.10</code>); the DVWA Docker host (<code>localhost:8081</code>) is a fallback. Each step: command, what you should see, a hint, and the defender/PAM takeaway. Outputs are <strong>representative</strong>.</p>
+<p>Step-by-step against <strong>your own lab</strong> (<a href="../../../labs/"><code>../../labs/</code></a>) — never a server you don't own. Target the <strong>Metasploitable2</strong> Apache host (<code>192.168.56.20</code>, real WebDAV/phpMyAdmin/TWiki) from <strong>Kali</strong> (<code>192.168.56.10</code>); the DVWA Docker host (<code>localhost:8081</code>) is a fallback. Each step: command, what you should see, a hint, and the defender/PAM takeaway. Outputs are <strong>representative</strong>.</p>
 </blockquote>
 <p><strong>Goal:</strong> footprint a web server, discover its hidden tree, then turn a <strong>WebDAV <code>PUT</code></strong> misconfiguration into a foothold — and see why every step maps to a hardening control, not a code fix.</p>
 <hr />
@@ -8004,7 +8004,7 @@
 <strong>Observe:</strong> the <code>DAV/2</code> token already hints WebDAV is compiled in — note it. The <code>2.2.8</code> version is your <strong>patch-management</strong> starting point (look the version up; do <strong>not</strong> guess CVE numbers).</p>
 <details><summary>Hint</summary>No banner? Add `-sV --version-intensity 9`. If port 80 is filtered, confirm the VM is up with `nmap -sn 192.168.56.0/24` and that Kali is on the host-only net.</details>
 
-<p><strong>Defender/PAM view:</strong> the version banner is free intel for an attacker. Suppression is obscurity — the real control is a <strong>patch cadence + accurate inventory</strong> (<a href="../../defender-pam/"><code>../../defender-pam/</code></a>).</p>
+<p><strong>Defender/PAM view:</strong> the version banner is free intel for an attacker. Suppression is obscurity — the real control is a <strong>patch cadence + accurate inventory</strong> (<a href="../../../defender-pam/"><code>../../defender-pam/</code></a>).</p>
 <h3 id="a2-raw-response-headers-banner-grab">A2. Raw response headers (banner grab)<a class="headerlink" href="#a2-raw-response-headers-banner-grab" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-sI<span class="w"> </span>http://192.168.56.20
 </code></pre></div>

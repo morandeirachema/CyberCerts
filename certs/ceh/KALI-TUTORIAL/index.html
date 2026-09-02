@@ -8213,9 +8213,9 @@
 
 <h1 id="kali-linux-for-ceh-deep-tool-tutorial">Kali Linux for CEH — Deep Tool Tutorial<a class="headerlink" href="#kali-linux-for-ceh-deep-tool-tutorial" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>A hands-on guide to the tools CEH tests, organized by <strong>phase</strong>, with real command syntax you run against <strong>your own <a href="labs/">lab</a></strong> (Kali <code>192.168.56.10</code> · Metasploitable2 <code>192.168.56.20</code> · DC/ADCS <code>192.168.56.30</code> · Docker web on <code>localhost:8081–8084</code>). Pairs with the <a href="cheatsheets/">cheatsheets</a> (quick reference) and the module <a href="modules/">labs</a> (driven exercises).</p>
+<p>A hands-on guide to the tools CEH tests, organized by <strong>phase</strong>, with real command syntax you run against <strong>your own <a href="../labs/">lab</a></strong> (Kali <code>192.168.56.10</code> · Metasploitable2 <code>192.168.56.20</code> · DC/ADCS <code>192.168.56.30</code> · Docker web on <code>localhost:8081–8084</code>). Pairs with the <a href="../cheatsheets/">cheatsheets</a> (quick reference) and the module <a href="../modules/">labs</a> (driven exercises).</p>
 <p><strong>⚖️ Authorized targets only.</strong> Everything below is for your isolated lab or systems you have written permission to test. Kali ships <em>offensive</em> tools — pointing them at anything else is a crime.</p>
-<p>🎓 <strong>New to Linux/Kali?</strong> This page is the fast reference. For a <strong>from-zero, beginner→mastery course</strong> (17 chapters, "what is Linux" → attacking Active Directory), start with <a href="kali/"><code>kali/</code></a>.</p>
+<p>🎓 <strong>New to Linux/Kali?</strong> This page is the fast reference. For a <strong>from-zero, beginner→mastery course</strong> (17 chapters, "what is Linux" → attacking Active Directory), start with <a href="../kali/"><code>kali/</code></a>.</p>
 </blockquote>
 <h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
 <ul>
@@ -8280,7 +8280,7 @@ sudo<span class="w"> </span>nmap<span class="w"> </span>-sU<span class="w"> </sp
 sudo<span class="w"> </span>nmap<span class="w"> </span>--script<span class="w"> </span>vuln<span class="w"> </span><span class="nv">$TARGET</span><span class="w">                     </span><span class="c1"># NSE vuln scripts</span>
 </code></pre></div>
 - <code>-oA</code> saves in all formats (grepable/xml/normal) — feed the XML to Metasploit later.
-- Evasion: <code>-f</code> (fragment), <code>-D RND:5</code> (decoys), <code>-g 53</code> (source port), <code>-T2</code> (slower). See <a href="modules/12-evading-ids-firewalls-honeypots/">Module 12</a>.</p>
+- Evasion: <code>-f</code> (fragment), <code>-D RND:5</code> (decoys), <code>-g 53</code> (source port), <code>-T2</code> (slower). See <a href="../modules/12-evading-ids-firewalls-honeypots/">Module 12</a>.</p>
 <p><strong>masscan</strong> — internet-scale speed (rate-limit it): <code>sudo masscan 192.168.56.0/24 -p1-65535 --rate 1000</code>.
 <strong>netdiscover</strong> — ARP host discovery on a LAN. <strong>hping3</strong> — craft individual packets / firewall testing.</p>
 <blockquote>
@@ -8332,7 +8332,7 @@ sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">"http:/
 <span class="w">       </span>--cookie<span class="o">=</span><span class="s2">"PHPSESSID=&lt;yours&gt;; security=low"</span><span class="w"> </span>--batch<span class="w"> </span>--dbs
 </code></pre></div></p>
 <blockquote>
-<p><strong>How to use:</strong> proxy the app through Burp, map every input, then tamper by hand in Repeater; reach for sqlmap/ffuf to <em>automate</em> what you proved manually. Full drills: <a href="modules/14-hacking-web-applications/">Module 14</a> &amp; <a href="modules/15-sql-injection/">15</a>.</p>
+<p><strong>How to use:</strong> proxy the app through Burp, map every input, then tamper by hand in Repeater; reach for sqlmap/ffuf to <em>automate</em> what you proved manually. Full drills: <a href="../modules/14-hacking-web-applications/">Module 14</a> &amp; <a href="../modules/15-sql-injection/">15</a>.</p>
 </blockquote>
 <hr />
 <h2 id="6-exploitation-metasploit-framework-module-06">6. Exploitation — Metasploit Framework (Module 06)<a class="headerlink" href="#6-exploitation-metasploit-framework-module-06" title="Permanent link">&para;</a></h2>
@@ -8377,7 +8377,7 @@ Modes to know: <code>0</code> MD5 · <code>100</code> SHA1 · <code>1000</code> 
 </blockquote>
 <hr />
 <h2 id="8-active-directory-identity-modules-0406">8. Active Directory / identity (Modules 04–06)<a class="headerlink" href="#8-active-directory-identity-modules-0406" title="Permanent link">&para;</a></h2>
-<p>The highest-value skill set. Practice on the <a href="labs/ansible/">AD lab</a> and the <a href="../labs/capstone/">capstone</a>.</p>
+<p>The highest-value skill set. Practice on the <a href="../labs/ansible/">AD lab</a> and the <a href="../labs/capstone/">capstone</a>.</p>
 <p><strong>Impacket</strong> (prefixed <code>impacket-*</code> on Kali):
 <div class="highlight"><pre><span></span><code>impacket-GetUserSPNs<span class="w"> </span><span class="nv">$DOMAIN</span>/jdoe:<span class="s1">'Passw0rd!'</span><span class="w"> </span>-dc-ip<span class="w"> </span><span class="nv">$DC</span><span class="w"> </span>-request<span class="w">         </span><span class="c1"># Kerberoast</span>
 impacket-GetNPUsers<span class="w"> </span><span class="nv">$DOMAIN</span>/<span class="w"> </span>-usersfile<span class="w"> </span>users.txt<span class="w"> </span>-dc-ip<span class="w"> </span><span class="nv">$DC</span><span class="w">              </span><span class="c1"># AS-REP roast</span>
@@ -8409,7 +8409,7 @@ sudo<span class="w"> </span>bettercap<span class="w"> </span>-iface<span class="
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-wv
 </code></pre></div></p>
 <blockquote>
-<p><strong>How to use:</strong> sniff to prove cleartext leaks and to capture hashes (Responder → §7). Encryption + switch hardening kill these; that's the lesson. Full drill: <a href="modules/08-sniffing/">Module 08</a>.</p>
+<p><strong>How to use:</strong> sniff to prove cleartext leaks and to capture hashes (Responder → §7). Encryption + switch hardening kill these; that's the lesson. Full drill: <a href="../modules/08-sniffing/">Module 08</a>.</p>
 </blockquote>
 <hr />
 <h2 id="10-wireless-module-16">10. Wireless (Module 16)<a class="headerlink" href="#10-wireless-module-16" title="Permanent link">&para;</a></h2>
@@ -8424,7 +8424,7 @@ hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">22000</
 </code></pre></div>
 <strong>wifite</strong> automates the above; <strong>reaver</strong> attacks WPS PINs.</p>
 <blockquote>
-<p><strong>How to use:</strong> capture the 4-way handshake (deauth to speed it up), then crack offline. WPA3/SAE removes the offline-crack path. Details: <a href="modules/16-hacking-wireless-networks/">Module 16</a>.</p>
+<p><strong>How to use:</strong> capture the 4-way handshake (deauth to speed it up), then crack offline. WPA3/SAE removes the offline-crack path. Details: <a href="../modules/16-hacking-wireless-networks/">Module 16</a>.</p>
 </blockquote>
 <hr />
 <h2 id="11-post-exploitation-pivoting-module-06">11. Post-exploitation &amp; pivoting (Module 06)<a class="headerlink" href="#11-post-exploitation-pivoting-module-06" title="Permanent link">&para;</a></h2>
@@ -8439,7 +8439,7 @@ proxychains<span class="w"> </span>nmap<span class="w"> </span>-sT<span class="w
 </code></pre></div>
 - <strong>chisel</strong> (fast reverse tunnel), <strong>ssh -D</strong> (dynamic SOCKS proxy), <strong>socat</strong>.</p>
 <blockquote>
-<p><strong>How to use:</strong> escalate → loot creds → use them to pivot deeper. Every step maps to a Maintaining-Access technique in <a href="modules/06-system-hacking/">Module 06</a>.</p>
+<p><strong>How to use:</strong> escalate → loot creds → use them to pivot deeper. Every step maps to a Maintaining-Access technique in <a href="../modules/06-system-hacking/">Module 06</a>.</p>
 </blockquote>
 <hr />
 <h2 id="12-workflow-notes-reporting">12. Workflow, notes &amp; reporting<a class="headerlink" href="#12-workflow-notes-reporting" title="Permanent link">&para;</a></h2>
@@ -8447,7 +8447,7 @@ proxychains<span class="w"> </span>nmap<span class="w"> </span>-sT<span class="w
 <li><strong>tmux</strong> — run long scans in detachable panes: <code>tmux new -s ceh</code>; detach <code>Ctrl-b d</code>; reattach <code>tmux a -t ceh</code>.</li>
 <li><strong>Organize output:</strong> one dir per engagement; always <code>nmap -oA</code>, save pcaps/loot to git-ignored folders (see repo <code>.gitignore</code>).</li>
 <li><strong>Notes:</strong> <strong>CherryTree</strong>, <strong>Obsidian</strong>, or Markdown — capture command + output + finding as you go (mirrors the module lab-log tables).</li>
-<li><strong>Reporting:</strong> structure findings as <em>title → severity (CVSS) → evidence → impact → remediation</em> (the <a href="modules/05-vulnerability-analysis/">vuln-analysis</a> framing). <strong>Faraday</strong>/<strong>Dradis</strong> for team reporting.</li>
+<li><strong>Reporting:</strong> structure findings as <em>title → severity (CVSS) → evidence → impact → remediation</em> (the <a href="../modules/05-vulnerability-analysis/">vuln-analysis</a> framing). <strong>Faraday</strong>/<strong>Dradis</strong> for team reporting.</li>
 </ul>
 <hr />
 <h2 id="tool-module-quick-map">Tool → module quick map<a class="headerlink" href="#tool-module-quick-map" title="Permanent link">&para;</a></h2>

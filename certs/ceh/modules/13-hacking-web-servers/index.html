@@ -8224,9 +8224,9 @@
     subgraph WS["Web server — Apache / Nginx / IIS"]
         DR["Document root — /var/www, wwwroot&lt;br/&gt;← default pages, WebDAV"]
         MOD["Modules / handlers — PHP, CGI, .NET&lt;br/&gt;← misconfig, source disclosure"]
-        SVC["Runs as service account — www-data / AppPool&lt;br/&gt;← privilege boundary"]
+        SVC["Runs as service account&lt;br/&gt;— www-data / AppPool&lt;br/&gt;← privilege boundary"]
     end
-    WS --&gt; APP["App / scripts"] --&gt; DB["Database backend&lt;br/&gt;← creds in config, secrets in web root"]
+    WS --&gt; APP["App / scripts"] --&gt; DB["Database backend&lt;br/&gt;← creds in config,&lt;br/&gt;secrets in web root"]
     WS --&gt; OS["Operating system / patch level&lt;br/&gt;← unpatched CVEs, kernel"]</code></pre>
 <h3 id="attack-taxonomy-classic-exam-table">Attack taxonomy (classic exam table)<a class="headerlink" href="#attack-taxonomy-classic-exam-table" title="Permanent link">&para;</a></h3>
 <table>

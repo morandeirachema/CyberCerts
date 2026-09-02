@@ -7986,7 +7986,7 @@ nmap<span class="w"> </span>-sU<span class="w"> </span>-p<span class="w"> </span
 nmap<span class="w"> </span>-sV<span class="w"> </span>-p<span class="w"> </span><span class="m">1883</span><span class="w">  </span>--script<span class="w"> </span>mqtt-subscribe<span class="w">  </span><span class="m">127</span>.0.0.1<span class="w">   </span><span class="c1"># MQTT topics (anonymous)</span>
 </code></pre></div>
 <blockquote>
-<p>⛔ <strong>Only against simulators / devices you own.</strong> A scan that's routine on IT can crash a fragile PLC. On a real assessment, prefer <strong>passive</strong> discovery (span port, Shodan/Censys <em>index</em>) and never <code>-T4</code>/<code>-A</code> an OT segment. Practice these on <a href="../labs/ot/"><code>../labs/ot/</code></a>.</p>
+<p>⛔ <strong>Only against simulators / devices you own.</strong> A scan that's routine on IT can crash a fragile PLC. On a real assessment, prefer <strong>passive</strong> discovery (span port, Shodan/Censys <em>index</em>) and never <code>-T4</code>/<code>-A</code> an OT segment. Practice these on <a href="../../labs/ot/"><code>../labs/ot/</code></a>.</p>
 </blockquote>
 <h2 id="timing-performance">Timing &amp; performance<a class="headerlink" href="#timing-performance" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-T0<span class="w"> </span>...<span class="w"> </span>-T5<span class="w">    </span><span class="c1"># paranoid(0) → insane(5); -T4 common for labs</span>

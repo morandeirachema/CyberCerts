@@ -7967,7 +7967,7 @@
 
 <h1 id="module-09-social-engineering-guided-lab-walkthrough">Module 09 — Social Engineering · Guided Lab Walkthrough<a class="headerlink" href="#module-09-social-engineering-guided-lab-walkthrough" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>A step-by-step, <strong>do-it-in-order</strong> lab against <strong>your own</strong> environment only (the AD + mail lab in <a href="../../labs/"><code>../../labs/</code></a> — see <a href="../../../labs/topology/"><code>../../labs/topology.md</code></a>). Each step gives the action, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are <strong>representative</strong> — yours will differ.</p>
+<p>A step-by-step, <strong>do-it-in-order</strong> lab against <strong>your own</strong> environment only (the AD + mail lab in <a href="../../../labs/"><code>../../labs/</code></a> — see <a href="../../../labs/topology/"><code>../../labs/topology.md</code></a>). Each step gives the action, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are <strong>representative</strong> — yours will differ.</p>
 <p>⚠️ <strong>AUTHORIZED SIMULATION ONLY.</strong> Every step below targets <strong>lab accounts you created</strong> (<code>alice@ceh.lab</code>, <code>bob@ceh.lab</code>) on <strong>your own</strong> mail/AD lab, or <strong>your own</strong> test inbox. Sending a phish, cloning a login page, spoofing a header, or pretexting a <strong>real</strong> person or third-party org — even "to prove a point" — is fraud/unauthorized access and is illegal and unethical <strong>without written authorization, defined scope, and consenting recipients</strong>. If a recipient did not consent and isn't yours, <strong>do not send it.</strong> Full stop.</p>
 </blockquote>
 <p><strong>Goal:</strong> run a phishing simulation end-to-end, harvest a lab credential, dissect a spoofed email — then <em>watch PAM controls turn each win into a loss.</em></p>
@@ -7986,7 +7986,7 @@ Starting phishing server at http://0.0.0.0:80
 <strong>Observe:</strong> everything is self-hosted — the admin console, the landing page, and the sending profile all live in <em>your</em> lab. Log in at <code>https://127.0.0.1:3333</code> with the printed initial credentials.</p>
 <details><summary>Hint if the UI won't load</summary>Gophish prints a one-time admin password to stdout on first run — scroll up. Accept the self-signed cert warning; it's your own lab cert. Confirm nothing else holds port 80 (`sudo ss -ltnp | grep :80`).</details>
 
-<p><strong>Defender/PAM view:</strong> a phishing-simulation platform is exactly what a blue team uses for <em>authorized</em> awareness campaigns and click-rate metrics. Mapping lives in <a href="../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
+<p><strong>Defender/PAM view:</strong> a phishing-simulation platform is exactly what a blue team uses for <em>authorized</em> awareness campaigns and click-rate metrics. Mapping lives in <a href="../../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
 <h3 id="a2-build-the-campaign-recipients-are-lab-users-only">A2. Build the campaign — recipients are lab users ONLY<a class="headerlink" href="#a2-build-the-campaign-recipients-are-lab-users-only" title="Permanent link">&para;</a></h3>
 <p>In the UI, create in order: <strong>Sending Profile</strong> (your lab SMTP) → <strong>Email Template</strong> ("IT password expiry") → <strong>Landing Page</strong> (a cloned login) → <strong>Users &amp; Groups</strong> containing <strong>only</strong> <code>alice@ceh.lab</code> and <code>bob@ceh.lab</code> → <strong>Campaign</strong>, then launch.</p>
 <p><strong>You should see</strong> the campaign timeline begin recording events:
@@ -7997,7 +7997,7 @@ Clicked Link    alice@ceh.lab
 <strong>Observe:</strong> the recipient list is your gate. If any address you don't own appears here, <strong>stop</strong> — the simulation is no longer authorized.</p>
 <details><summary>Hint: no "Email Sent"?</summary>Test the Sending Profile with the UI's "Send Test Email" button. If SMTP auth fails, re-check the lab mail server creds; if mail queues but never delivers, confirm `alice`/`bob` mailboxes exist on the lab server.</details>
 
-<p><strong>Defender/PAM view:</strong> open/click telemetry is the same signal a mail gateway and a report-phish button surface in production — see the phishing row in <a href="../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
+<p><strong>Defender/PAM view:</strong> open/click telemetry is the same signal a mail gateway and a report-phish button surface in production — see the phishing row in <a href="../../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
 <h3 id="a3-capture-the-submitted-credential-then-apply-the-control">A3. Capture the submitted credential, then apply the control<a class="headerlink" href="#a3-capture-the-submitted-credential-then-apply-the-control" title="Permanent link">&para;</a></h3>
 <p>Log in as <code>alice</code> (your test user), click the link, and submit a <strong>fake</strong> password on the landing page. Watch Gophish record it:
 <div class="highlight"><pre><span></span><code>Submitted Data  alice@ceh.lab   (username + password captured)
@@ -8007,7 +8007,7 @@ Now enable <strong>FIDO2/WebAuthn</strong> (or a TOTP step) on the test accounts
 <p><strong>Observe:</strong> <strong>the credential harvest always succeeds</strong> (humans click). The attack only becomes a <em>loss</em> when the stolen secret is worthless.</p>
 <details><summary>Hint</summary>If you don't have WebAuthn wired to the lab app, simulate the control conceptually: the harvested password is *valid* but authentication now requires a hardware-bound factor the fake page can't relay.</details>
 
-<p><strong>Defender/PAM view:</strong> <a href="../../defender-pam/">phishing-resistant MFA</a> makes A3's harvested password unusable; detection = impossible-travel logon right after credential entry. See <a href="../../../defender-pam/detection-engineering/"><code>../../defender-pam/detection-engineering.md</code></a>.</p>
+<p><strong>Defender/PAM view:</strong> <a href="../../../defender-pam/">phishing-resistant MFA</a> makes A3's harvested password unusable; detection = impossible-travel logon right after credential entry. See <a href="../../../defender-pam/detection-engineering/"><code>../../defender-pam/detection-engineering.md</code></a>.</p>
 <hr />
 <h2 id="part-b-set-credential-harvester-clone-a-page-you-own">Part B — SET credential harvester (clone a page you own)<a class="headerlink" href="#part-b-set-credential-harvester-clone-a-page-you-own" title="Permanent link">&para;</a></h2>
 <h3 id="b1-clone-your-own-lab-login-page">B1. Clone your own lab login page<a class="headerlink" href="#b1-clone-your-own-lab-login-page" title="Permanent link">&para;</a></h3>
@@ -8026,7 +8026,7 @@ Now enable <strong>FIDO2/WebAuthn</strong> (or a TOTP step) on the test accounts
 <strong>Observe:</strong> the clone is pixel-identical but the form posts to <strong>your</strong> Kali box. Only <em>you</em>, hitting it from a lab browser as the test user, will submit anything.</p>
 <details><summary>Hint: clone looks broken?</summary>Some pages pull assets from paths SET can't rewrite — that's fine for the concept. Confirm the harvester is listening (`sudo ss -ltnp | grep :80`) and browse to `http://192.168.56.10` from a lab host.</details>
 
-<p><strong>Defender/PAM view:</strong> a cloned login is what phishing-resistant MFA neutralizes — origin-bound WebAuthn won't authenticate against the attacker's host even with the right password. See <a href="../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
+<p><strong>Defender/PAM view:</strong> a cloned login is what phishing-resistant MFA neutralizes — origin-bound WebAuthn won't authenticate against the attacker's host even with the right password. See <a href="../../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
 <h3 id="b2-submit-a-lab-credential-and-read-the-capture">B2. Submit a lab credential and read the capture<a class="headerlink" href="#b2-submit-a-lab-credential-and-read-the-capture" title="Permanent link">&para;</a></h3>
 <p>From a lab browser, as your test user, submit a <strong>fake</strong> credential on the clone.</p>
 <p><strong>You should see</strong> SET print the captured POST:
@@ -8051,7 +8051,7 @@ Authentication-Results: mx.ceh.lab; spf=fail dkim=fail dmarc=fail
 <strong>Observe:</strong> the friendly <code>From:</code> lies, but <code>Return-Path</code>, the <code>Received:</code> chain, and <strong>spf/dkim/dmarc=fail</strong> expose the spoof. This is exactly the tell a mail gateway acts on.</p>
 <details><summary>Hint: all results say "none"?</summary>`none` (not `pass`/`fail`) means the *sending* domain published no SPF/DKIM/DMARC records. Publish records for `ceh.lab` in the lab DNS, then re-send to see `fail` on a spoof and `pass` on a legitimate message.</details>
 
-<p><strong>Defender/PAM view:</strong> <strong>SPF + DKIM + DMARC</strong> with a reject policy is the direct control against exact-domain spoofing used in <strong>BEC/whaling</strong> — see the phishing/BEC mapping in <a href="../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
+<p><strong>Defender/PAM view:</strong> <strong>SPF + DKIM + DMARC</strong> with a reject policy is the direct control against exact-domain spoofing used in <strong>BEC/whaling</strong> — see the phishing/BEC mapping in <a href="../../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
 <h3 id="c2-help-desk-vishing-drill-privileged-reset-refusal">C2. Help-desk vishing drill (privileged reset refusal)<a class="headerlink" href="#c2-help-desk-vishing-drill-privileged-reset-refusal" title="Permanent link">&para;</a></h3>
 <p>Script a <strong>vishing</strong> call against <strong>your own</strong> lab help-desk runbook: as <code>alice</code>, phone the "help desk" and pressure them to reset a <strong>privileged</strong> account password — no ticket, urgent tone.</p>
 <p><strong>You should see</strong> the runbook <strong>refuse</strong> without out-of-band proof:

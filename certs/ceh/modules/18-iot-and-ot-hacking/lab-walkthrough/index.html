@@ -7967,14 +7967,14 @@
 
 <h1 id="module-18-iot-and-ot-hacking-guided-lab-walkthrough">Module 18 — IoT and OT Hacking · Guided Lab Walkthrough<a class="headerlink" href="#module-18-iot-and-ot-hacking-guided-lab-walkthrough" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>A step-by-step, <strong>do-it-in-order</strong> lab against <strong>your own</strong> environment only. Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are <strong>representative</strong> — yours will differ. See <a href="../../labs/"><code>../../labs/</code></a> and <a href="../../../labs/topology/"><code>../../labs/topology.md</code></a>.</p>
+<p>A step-by-step, <strong>do-it-in-order</strong> lab against <strong>your own</strong> environment only. Each step gives the command, what you should observe, a hint, and the defender/PAM takeaway. Outputs shown are <strong>representative</strong> — yours will differ. See <a href="../../../labs/"><code>../../labs/</code></a> and <a href="../../../labs/topology/"><code>../../labs/topology.md</code></a>.</p>
 <p>⛔ <strong>OT SAFETY — read this first.</strong> Never scan, connect to, or write to <strong>any real ICS/OT device, PLC, or IoT product you do not own</strong> on an isolated bench. A stray Modbus write or an aggressive scan can trip a safety system, damage equipment, or hurt people. Everything below targets <strong>your own loopback simulators, your own firmware images, and Shodan's <em>index</em> — which you query, never connect to.</strong> If you see a Shodan/Censys result, you look at the <em>count and metadata only</em>; you do <strong>not</strong> open a session to it.</p>
 </blockquote>
 <p><strong>Goal:</strong> feel <em>why</em> IoT/OT protocols are insecure by design — pub/sub with no auth, register read/write with no identity — then map each finding to the PAM control that contains it.</p>
 <p><strong>Targets:</strong> your own workstation only — <code>127.0.0.1</code> (loopback). No external host is contacted except Shodan's search API in Part A.</p>
 <p><strong>Prereqs:</strong> <code>mosquitto</code> + <code>mosquitto-clients</code> installed, Python with <code>pip install pymodbus</code>, <code>binwalk</code> installed, and (optional) a Shodan account/API key (<code>shodan init &lt;KEY&gt;</code>). A firmware image <strong>you legally own</strong> (e.g. from your own router vendor's download page) saved as <code>firmware.bin</code>.</p>
 <blockquote>
-<p>💡 <strong>Prefer one command?</strong> Parts B and C are containerised in <a href="../../labs/ot/"><code>../../labs/ot/</code></a> — <code>docker compose -f labs/ot/docker-compose.yml up -d --build</code> gives you the MQTT broker and Modbus simulator with the clients already inside the images (no host install). Come back here for Part A (Shodan) and the firmware carving in C3.</p>
+<p>💡 <strong>Prefer one command?</strong> Parts B and C are containerised in <a href="../../../labs/ot/"><code>../../labs/ot/</code></a> — <code>docker compose -f labs/ot/docker-compose.yml up -d --build</code> gives you the MQTT broker and Modbus simulator with the clients already inside the images (no host install). Come back here for Part A (Shodan) and the firmware carving in C3.</p>
 </blockquote>
 <hr />
 <h2 id="part-a-passive-exposure-recon-query-the-index-never-connect">Part A — Passive exposure recon (query the INDEX, never connect)<a class="headerlink" href="#part-a-passive-exposure-recon-query-the-index-never-connect" title="Permanent link">&para;</a></h2>
@@ -8095,7 +8095,7 @@ _firmware.bin.extracted/squashfs-root/etc/shadow:root:$1$...
 </tr>
 </tbody>
 </table>
-<p><strong>PAM through-line:</strong> treat OT as <strong>crown-jewel Tier 0</strong>. No human or vendor touches L0/L1 directly — every path goes through a <strong>jump host in the IDMZ</strong> with JIT, MFA, approval, and full session recording. Map these to <a href="../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
+<p><strong>PAM through-line:</strong> treat OT as <strong>crown-jewel Tier 0</strong>. No human or vendor touches L0/L1 directly — every path goes through a <strong>jump host in the IDMZ</strong> with JIT, MFA, approval, and full session recording. Map these to <a href="../../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
 <h2 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># stop the broker (terminal 1) and Modbus server (terminal 1/C1) with Ctrl-C</span>
 rm<span class="w"> </span>-rf<span class="w"> </span>_firmware.bin.extracted/<span class="w">          </span><span class="c1"># remove extracted firmware rootfs</span>

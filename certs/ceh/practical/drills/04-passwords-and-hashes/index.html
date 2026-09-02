@@ -7949,7 +7949,7 @@
 
 <h1 id="drill-pack-04-passwords-hashes">Drill Pack 04 — Passwords &amp; Hashes<a class="headerlink" href="#drill-pack-04-passwords-hashes" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Deep, timed practice for the <strong>"what is the password of user X?" / "crack this hash"</strong> Practical family. <strong>Prereq:</strong> generate the <a href="../challenge-lab/">challenge-lab</a> (<code>../challenge-lab/setup-challenges.sh</code> → <code>~/ceh-practical-challenges/</code>) and <code>gunzip -k /usr/share/wordlists/rockyou.txt.gz</code>. Recipes: <a href="../../challenge-playbooks/"><code>../challenge-playbooks.md</code></a>; theory: <a href="../../modules/06-system-hacking/">Module 06 — System Hacking</a>. Online/shadow box: Metasploitable2 <code>192.168.56.20</code> (<code>msfadmin</code>/<code>msfadmin</code>). <strong>Crack only hashes from your own lab.</strong></p>
+<p>Deep, timed practice for the <strong>"what is the password of user X?" / "crack this hash"</strong> Practical family. <strong>Prereq:</strong> generate the <a href="../../challenge-lab/">challenge-lab</a> (<code>../challenge-lab/setup-challenges.sh</code> → <code>~/ceh-practical-challenges/</code>) and <code>gunzip -k /usr/share/wordlists/rockyou.txt.gz</code>. Recipes: <a href="../../challenge-playbooks/"><code>../challenge-playbooks.md</code></a>; theory: <a href="../../../modules/06-system-hacking/">Module 06 — System Hacking</a>. Online/shadow box: Metasploitable2 <code>192.168.56.20</code> (<code>msfadmin</code>/<code>msfadmin</code>). <strong>Crack only hashes from your own lab.</strong></p>
 </blockquote>
 <p>Set these once, then <strong>the loop never changes: get the hash → name it (<code>hashid</code>) → pick the mode → crack.</strong> The mode is everything: the right <code>-m</code> cracks in seconds, the wrong one "runs" forever and finds nothing.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">C</span><span class="o">=</span>~/ceh-practical-challenges<span class="w">          </span><span class="c1"># challenge-lab output      | -m tells:</span>
@@ -8221,7 +8221,7 @@ hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span
 <li>Hashcat — example hashes (one sample of every mode): https://hashcat.net/wiki/doku.php?id=example_hashes</li>
 <li>Hashcat wiki: https://hashcat.net/wiki/ · John the Ripper (Openwall): https://www.openwall.com/john/</li>
 <li>THC-Hydra: https://github.com/vanhauser-thc/thc-hydra · NetExec: https://www.netexec.wiki/</li>
-<li>Cheatsheet: <a href="../../../cheatsheets/hashcat-john/"><code>../../cheatsheets/hashcat-john.md</code></a> · Tool course: <a href="../../modules/06-system-hacking/">Module 06 — System Hacking</a></li>
+<li>Cheatsheet: <a href="../../../cheatsheets/hashcat-john/"><code>../../cheatsheets/hashcat-john.md</code></a> · Tool course: <a href="../../../modules/06-system-hacking/">Module 06 — System Hacking</a></li>
 </ul>
 
 

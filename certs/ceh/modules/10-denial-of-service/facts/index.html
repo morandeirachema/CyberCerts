@@ -8069,7 +8069,7 @@
 - <strong>Vault HA / DR</strong> — clustered + disaster-recovery + distributed (satellite) vaults so a DoS on the PAM control plane doesn't lock everyone out.
 - <strong>Load-balanced PSM farm</strong> — the session broker must not be a single bottleneck/SPOF.
 - <strong>Break-glass access</strong> — documented, sealed, dual-control, monitored emergency path that still works when normal auth infrastructure is degraded; alert on any retrieval.</p>
-<p>Mapping lives in <a href="../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
+<p>Mapping lives in <a href="../../../defender-pam/"><code>../../defender-pam/</code></a>.</p>
 <h2 id="top-traps">Top traps<a class="headerlink" href="#top-traps" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Match attack → category</strong> — SYN flood = <strong>protocol/state</strong>; UDP/ICMP/amplification = <strong>volumetric</strong>; Slowloris/HTTP flood = <strong>application-layer</strong>. This mapping is the single most-tested thing.</li>

@@ -8087,7 +8087,7 @@ hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">13100</
 <span class="c1"># You should see: svc-sql's password recovered (it's weak in the lab).</span>
 </code></pre></div>
 <blockquote>
-<p><strong>🛡️ PAM fix:</strong> convert service accounts to a <strong>gMSA</strong> — a <em>group Managed Service Account</em> whose 120+ character password AD rotates automatically. Re-run the roast against the gMSA and the crack <strong>fails</strong> (you can't dictionary a random 120-char key). Also enforce AES-only. Detection: <code>4769</code> TGS requests using RC4 (<code>0x17</code>) encryption. This is the exact control demo in <a href="../modules/06-system-hacking/">Module 06</a>.</p>
+<p><strong>🛡️ PAM fix:</strong> convert service accounts to a <strong>gMSA</strong> — a <em>group Managed Service Account</em> whose 120+ character password AD rotates automatically. Re-run the roast against the gMSA and the crack <strong>fails</strong> (you can't dictionary a random 120-char key). Also enforce AES-only. Detection: <code>4769</code> TGS requests using RC4 (<code>0x17</code>) encryption. This is the exact control demo in <a href="../../modules/06-system-hacking/">Module 06</a>.</p>
 </blockquote>
 <h2 id="step-4-as-rep-roasting">Step 4 — AS-REP roasting<a class="headerlink" href="#step-4-as-rep-roasting" title="Permanent link">&para;</a></h2>
 <p>Some accounts have <em>"Kerberos pre-authentication not required"</em> set. For those, the DC hands out an encrypted blob <strong>before</strong> you prove who you are — so you can grab it without any password and crack it offline.</p>
@@ -8212,7 +8212,7 @@ impacket-ntlmrelayx<span class="w"> </span>-tf<span class="w"> </span>targets.tx
 </tr>
 </tbody>
 </table>
-<p>Full defender mapping: <a href="../../defender-pam/identity-attack-paths/">identity-attack-paths</a> · <a href="../modules/06-system-hacking/">Module 06 — System Hacking</a>.</p>
+<p>Full defender mapping: <a href="../../defender-pam/identity-attack-paths/">identity-attack-paths</a> · <a href="../../modules/06-system-hacking/">Module 06 — System Hacking</a>.</p>
 <h2 id="common-beginner-mistakes">Common beginner mistakes<a class="headerlink" href="#common-beginner-mistakes" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Kerberos clock skew.</strong> Kerberos rejects tickets if your Kali clock differs from the DC by more than ~5 minutes — you'll see <code>KRB_AP_ERR_SKEW</code>. Fix it: <code>sudo ntpdate 192.168.56.30</code> (or <code>sudo rdate -n 192.168.56.30</code>) before any Kerberos/Impacket command.</li>

@@ -7872,7 +7872,7 @@
 
 
 <h1 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h1>
-<p>From a foothold to root/SYSTEM. Pairs with <a href="../modules/06-system-hacking/">Module 06</a> and <a href="../../kali/14-post-exploitation-pivoting/">Kali ch.14</a>. <strong>Lab / authorized only.</strong></p>
+<p>From a foothold to root/SYSTEM. Pairs with <a href="../../modules/06-system-hacking/">Module 06</a> and <a href="../../kali/14-post-exploitation-pivoting/">Kali ch.14</a>. <strong>Lab / authorized only.</strong></p>
 <h2 id="linux-enumerate-first">Linux — enumerate first<a class="headerlink" href="#linux-enumerate-first" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>id<span class="w"> </span><span class="p">;</span><span class="w"> </span>sudo<span class="w"> </span>-l<span class="w"> </span><span class="p">;</span><span class="w"> </span>uname<span class="w"> </span>-a<span class="w"> </span><span class="p">;</span><span class="w"> </span>cat<span class="w"> </span>/etc/os-release
 find<span class="w"> </span>/<span class="w"> </span>-perm<span class="w"> </span>-4000<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w">          </span><span class="c1"># SUID binaries</span>

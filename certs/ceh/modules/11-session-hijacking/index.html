@@ -8244,15 +8244,15 @@
 <h2 id="key-concepts">Key concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
 <h3 id="the-two-levels-the-core-exam-split">The two levels (the core exam split)<a class="headerlink" href="#the-two-levels-the-core-exam-split" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TB
-    subgraph net["NETWORK-LEVEL — hijack the TCP/IP session"]
+    subgraph net["NETWORK-LEVEL — hijack&lt;br/&gt;the TCP/IP session"]
         N1["TCP seq-number prediction"]
         N2["Session desync + injection"]
         N3["RST / FIN hijack"]
         N4["Blind / UDP hijack"]
         N5["Needs MITM or seq guess"]
     end
-    subgraph app["APPLICATION-LEVEL — hijack the app session token"]
-        A1["Steal session cookie via XSS or sniffing"]
+    subgraph app["APPLICATION-LEVEL — hijack&lt;br/&gt;the app session token"]
+        A1["Steal session cookie&lt;br/&gt;via XSS or sniffing"]
         A2["Session fixation"]
         A3["Predictable session IDs"]
         A4["CSRF rides the session"]

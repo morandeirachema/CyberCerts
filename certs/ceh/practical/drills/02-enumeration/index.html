@@ -7938,7 +7938,7 @@
 
 <h1 id="drill-pack-02-enumeration">Drill Pack 02 — Enumeration<a class="headerlink" href="#drill-pack-02-enumeration" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Deep, timed practice for turning open ports into a <strong>named inventory</strong> — shares, users, RIDs, SNMP configs, NFS exports, mail accounts, and directory objects. Each challenge mimics a CEH Practical question. Recipes live in <a href="../../challenge-playbooks/"><code>../challenge-playbooks.md</code></a> (see the <em>"Enumerate this service"</em> pattern); theory in <a href="../../modules/04-enumeration/">Module 04</a>. Answer from the tool output — expand the solution only if stuck.</p>
+<p>Deep, timed practice for turning open ports into a <strong>named inventory</strong> — shares, users, RIDs, SNMP configs, NFS exports, mail accounts, and directory objects. Each challenge mimics a CEH Practical question. Recipes live in <a href="../../challenge-playbooks/"><code>../challenge-playbooks.md</code></a> (see the <em>"Enumerate this service"</em> pattern); theory in <a href="../../../modules/04-enumeration/">Module 04</a>. Answer from the tool output — expand the solution only if stuck.</p>
 <p><strong>Setup:</strong> lab running (<a href="../../../labs/"><code>../../labs/README.md</code></a>). Metasploitable2 <code>192.168.56.20</code> (wide-open SMB / SNMP / SMTP / NFS), Windows DC <code>192.168.56.30</code> = <code>ceh.lab</code> (creds <code>jdoe</code> / <code>Passw0rd!</code>). Set both first so the commands paste clean:
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">T</span><span class="o">=</span><span class="m">192</span>.168.56.20<span class="w">        </span><span class="c1"># Metasploitable2</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">DC</span><span class="o">=</span><span class="m">192</span>.168.56.30<span class="w">       </span><span class="c1"># ceh.lab domain controller</span>
@@ -8134,7 +8134,7 @@ servicePrincipalName: MSSQLSvc/dc01.ceh.lab:1433
 </ul>
 <h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Challenge recipes: <a href="../../challenge-playbooks/"><code>../challenge-playbooks.md</code></a> · Course chapter: <a href="../../../kali/06-enumeration/"><code>../../kali/06-enumeration.md</code></a> · Theory: <a href="../../modules/04-enumeration/">Module 04</a></li>
+<li>Challenge recipes: <a href="../../challenge-playbooks/"><code>../challenge-playbooks.md</code></a> · Course chapter: <a href="../../../kali/06-enumeration/"><code>../../kali/06-enumeration.md</code></a> · Theory: <a href="../../../modules/04-enumeration/">Module 04</a></li>
 <li>NetExec (nxc) wiki — https://www.netexec.wiki/</li>
 <li>enum4linux-ng — https://github.com/cddmp/enum4linux-ng</li>
 <li>Samba (smbclient / rpcclient) — https://www.samba.org/</li>

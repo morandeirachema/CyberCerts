@@ -7907,13 +7907,13 @@
 <p>Everything lives on an isolated host-only / internal network. The Docker web targets are reachable only via <code>localhost</code> published ports on your workstation; the VMs share a private VirtualBox host-only network.</p>
 <pre class="mermaid"><code>flowchart TB
     subgraph WS["YOUR WORKSTATION - host"]
-        subgraph DOCKER["Docker bridge - published to localhost only"]
+        subgraph DOCKER["Docker bridge - published&lt;br/&gt;to localhost only"]
             DVWA["DVWA :8081"]
             JUICE["Juice Shop :8082"]
             WEBGOAT["WebGoat :8083"]
             BWAPP["bWAPP :8084"]
         end
-        subgraph VBOX["VirtualBox host-only network 192.168.56.0/24"]
+        subgraph VBOX["VirtualBox host-only&lt;br/&gt;network 192.168.56.0/24"]
             KALI["Kali attacker&lt;br/&gt;192.168.56.10"]
             META["Metasploitable2 target&lt;br/&gt;192.168.56.20"]
             DC["Windows DC - AD/PAM lab&lt;br/&gt;192.168.56.30 dc01"]
@@ -7921,7 +7921,7 @@
             KALI --&gt; META
             KALI --&gt; DC
         end
-        NOTE["✗ NO route to internet / home LAN from lab segment"]
+        NOTE["✗ NO route to internet /&lt;br/&gt;home LAN from lab segment"]
     end</code></pre>
 <h2 id="ip-port-plan">IP / port plan<a class="headerlink" href="#ip-port-plan" title="Permanent link">&para;</a></h2>
 <table>
@@ -7993,19 +7993,19 @@
 <h2 id="ad-domain-design-pam-flavored">AD domain design (PAM-flavored)<a class="headerlink" href="#ad-domain-design-pam-flavored" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     D["Domain ceh.lab — NetBIOS CEH"]
-    T0["OU=Tier0 — Domain Admins, DC admins, PKI, PAM vault admins — never log on to lower tiers"]
-    T1["OU=Tier1 — server admins — member servers, DBs"]
-    T2["OU=Tier2 — workstation admins / helpdesk"]
+    T0["OU=Tier0 — Domain Admins, DC&lt;br/&gt;admins, PKI, PAM vault admins&lt;br/&gt;— never log on to lower tiers"]
+    T1["OU=Tier1 — server admins&lt;br/&gt;— member servers, DBs"]
+    T2["OU=Tier2 — workstation&lt;br/&gt;admins / helpdesk"]
     U["OU=Users — standard users"]
-    PU["Group Protected Users — high-value accounts — blocks NTLM/delegation cred caching"]
-    ACC["Accounts — jump/PAM break-glass accounts, LAPS-managed local admin"]
+    PU["Group Protected Users —&lt;br/&gt;high-value accounts — blocks&lt;br/&gt;NTLM/delegation cred caching"]
+    ACC["Accounts — jump/PAM break-glass&lt;br/&gt;accounts, LAPS-managed local admin"]
     D --&gt; T0
     D --&gt; T1
     D --&gt; T2
     D --&gt; U
     D --&gt; PU
     D --&gt; ACC</code></pre>
-<p>The AD lab intentionally models the controls a PAM/sysadmin runs so you can both <strong>attack</strong> it (enumeration, Kerberoasting, credential access) and <strong>see the control working</strong> (tiering blocks lateral movement, Protected Users limits cred theft). Attack↔control mapping lives in <a href="../defender-pam/"><code>../defender-pam/</code></a>.</p>
+<p>The AD lab intentionally models the controls a PAM/sysadmin runs so you can both <strong>attack</strong> it (enumeration, Kerberoasting, credential access) and <strong>see the control working</strong> (tiering blocks lateral movement, Protected Users limits cred theft). Attack↔control mapping lives in <a href="../../defender-pam/"><code>../defender-pam/</code></a>.</p>
 
 
 

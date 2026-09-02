@@ -8225,7 +8225,7 @@ assume the standard ports.</p>
         S2["→ recorded, credential-injected,&lt;br/&gt;sub-protocol controlled"]
         S1 --- S2
     end
-    subgraph INFRA["INFRASTRUCTURE protocols — the bastion&lt;br/&gt;RELIES on these around the session"]
+    subgraph INFRA["INFRASTRUCTURE&lt;br/&gt;protocols — the bastion&lt;br/&gt;RELIES on these around the session"]
         I1["Auth / federation:&lt;br/&gt;LDAP (389/636) · RADIUS&lt;br/&gt;(1812) · TACACS+&lt;br/&gt;(49) · Kerberos (88) · SAML ·&lt;br/&gt;OIDC/OAuth2 · SCIM"]
         I2["Transport: TLS/SSL (443)"]
         I3["Ops / audit: SNMP&lt;br/&gt;(161) · Syslog (514)"]
