@@ -47,16 +47,55 @@ Cross-folder links are relative (`../<folder>/<file>.md`; from `certs/<hub>/<sec
 root is `../../../`). The root `README.md` is the whole-repo map and `certs/README.md`
 indexes the hubs.
 
+## Commands
+
+Pure Markdown plus stdlib Python — nothing to install for the gates. Run from the repo root.
+
+```bash
+# Quality gate for everything except certs/ceh/ style rules (links are checked repo-wide)
+python3 scripts/check-docs.py
+
+# The CEH course's own gate (links, anchors, Mermaid, flashcard CSVs) — must run from certs/ceh
+(cd certs/ceh && python3 scripts/validate.py)
+(cd certs/ceh && python3 scripts/validate.py --selftest)   # unit-test the slug logic only
+
+# Auto-wrap over-wide Mermaid flowchart labels (the gate fails on them)
+python3 scripts/wrap-mermaid-labels.py
+
+# Site preview (content lives at the root, so build-site.sh assembles ./site-src first)
+pip install mkdocs-material && bash scripts/build-site.sh && mkdocs serve
+
+# CEH study tools
+python3 certs/ceh/scripts/quiz.py --module 06        # terminal flashcard quiz (--tag, --num, --count)
+python3 certs/ceh/scripts/build_anki.py              # needs: pip install genanki -> anki-decks/ (git-ignored)
+
+# CEH lab (Docker web targets; Vagrant/Ansible layers per certs/ceh/labs/README.md)
+certs/ceh/labs/scripts/setup.sh
+certs/ceh/labs/scripts/reset.sh
+```
+
+CI: `quality.yml` runs `check-docs.py`; `ceh-validate.yml` runs `validate.py` plus
+`py_compile`, `docker compose config`, Ansible YAML parsing and ShellCheck with
+`working-directory: certs/ceh`; `docs.yml` deploys MkDocs to `gh-pages`;
+`external-links.yml` is a weekly non-blocking lychee run.
+
 ## Two gates, two conventions
 
-| Area | Gate | Run |
-|------|------|-----|
-| Everything except `certs/ceh/` | `scripts/check-docs.py` (`quality.yml`): no ASCII art, balanced fences, valid Mermaid with fit-to-text labels, a `## Sources` section per content page, zero broken links/anchors | `python3 scripts/check-docs.py` |
-| `certs/ceh/` | `certs/ceh/scripts/validate.py` (`ceh-validate.yml`, runs with `working-directory: certs/ceh`): links, anchors, Mermaid, flashcard CSVs; plus py_compile, docker compose config, Ansible YAML, ShellCheck | `cd certs/ceh && python3 scripts/validate.py` |
+| Area | Gate | Enforces |
+|------|------|----------|
+| Everything except `certs/ceh/` | `scripts/check-docs.py` | No ASCII art, balanced fences, valid Mermaid with fit-to-text labels (≤ 44 chars per `<br/>` segment), a `## Sources` section per content page (READMEs and root meta files exempt), zero broken links/anchors using GitHub slug rules |
+| `certs/ceh/` | `certs/ceh/scripts/validate.py` | Links, anchors, Mermaid type, `flashcards.csv` rows (exactly 3 non-empty columns) |
 
 `check-docs.py` still **link-checks** `certs/ceh/` (so cross-links between the two layers
 stay valid) but does not apply its style rules there (`STYLE_EXEMPT_DIRS`); the CEH
 template `modules/00-TEMPLATE.md` is skipped for links. Run **both** gates before committing.
+
+**CEH module convention:** every `certs/ceh/modules/NN-*/` folder has `README.md` (the guide,
+structured per `modules/00-TEMPLATE.md`: exam focus → key concepts → key tools → commands →
+Defender & PAM mapping → lab log), `facts.md`, `practice-questions.md`, `flashcards.csv`
+(front,back,tags; a `#tags` comment line groups cards by module) and `lab-walkthrough.md`.
+The matching *concept page* is `certs/ceh/domains/NN-*.md`; keep both linked from
+`certs/ceh/README.md`.
 
 ## Sourcing discipline (most important)
 
