@@ -8,15 +8,27 @@ no Anki needed. Examples:
     python3 scripts/quiz.py --tag kerberos  # cards tagged '...kerberos...'
     python3 scripts/quiz.py --num 20        # a random 20-card round
     python3 scripts/quiz.py --count         # just report deck sizes (non-interactive)
+    python3 scripts/quiz.py --deck ../security-plus/exam-prep/flashcards.csv   # drill any deck
 """
 import argparse, csv, pathlib, random, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
-def load_cards():
+def load_cards(deck_paths=None):
+    """Load cards from the CEH module decks, or from explicit --deck paths.
+
+    deck_paths (if given) are flashcards.csv files resolved relative to the
+    current working directory; the CEH module globs are then skipped entirely.
+    """
+    if deck_paths:
+        files = [pathlib.Path(p) for p in deck_paths]
+    else:
+        files = sorted(ROOT.glob('modules/*/flashcards.csv'))
     cards = []
-    for f in sorted(ROOT.glob('modules/*/flashcards.csv')):
-        mod = f.parent.name
+    for f in files:
+        # For module decks the folder name (e.g. '06-system-hacking') is the label;
+        # for an explicit --deck the hub folder (e.g. 'security-plus') is more useful.
+        mod = f.parent.parent.name if deck_paths else f.parent.name
         for row in csv.reader(f.read_text(encoding='utf-8').splitlines()):
             if not row or row[0].startswith('#') or len(row) < 2:
                 continue
@@ -56,6 +68,9 @@ def drill(cards):
 
 def main():
     ap = argparse.ArgumentParser(description="CEH flashcard quiz")
+    ap.add_argument('--deck', action='append', metavar='PATH',
+                    help="path to a flashcards.csv (relative to the current dir); "
+                         "repeatable. Drills these decks instead of the CEH modules.")
     ap.add_argument('--module', help="module number, e.g. 06")
     ap.add_argument('--tag', help="filter by tag substring (e.g. kerberos)")
     ap.add_argument('--num', type=int, help="limit to N random cards")
@@ -64,7 +79,7 @@ def main():
     ap.add_argument('--list-tags', action='store_true', help="list all tags with counts and exit")
     args = ap.parse_args()
 
-    cards = load_cards()
+    cards = load_cards(args.deck)
     if args.count:
         from collections import Counter
         by = Counter(c['mod'] for c in cards)
