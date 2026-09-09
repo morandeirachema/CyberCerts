@@ -594,7 +594,7 @@ A DMZ web server at `203.0.113.10` must:
 - accept SSH (TCP 22) only from the management network `10.0.9.0/24`;
 - accept nothing else.
 
-The firewall evaluates rules **top-down, first match wins**. From the candidate rules below, select the rules needed and put them in a correct order. Unselected rules are not deployed.
+The firewall evaluates rules **top-down, first match wins**, and has **no implicit deny**: the deployed rule set itself must enforce "accept nothing else." From the candidate rules below, select the rules needed and put them in a correct order. Unselected rules are not deployed.
 
 | Rule | Action | Source | Destination | Protocol/Port |
 | --- | --- | --- | --- | --- |
@@ -618,7 +618,7 @@ For each control (1 to 8), give its **category** (Technical, Managerial, Operati
 5. Restoring a file server from last night's backup after a ransomware event.
 6. A firewall rule that blocks inbound Telnet.
 7. A sign reading "Area under video surveillance" at the loading dock.
-8. A documented risk-assessment process that management runs every year.
+8. A legacy SCADA controller that cannot be patched is placed on an isolated network segment behind strict firewall rules.
 
 Answer format: eight rows of `category / type`.
 
@@ -767,9 +767,9 @@ Distractors (d) cross-site scripting and (h) ARP poisoning are not used.
 | 5 | Restore from backup | Technical / Corrective |
 | 6 | Firewall rule blocking Telnet | Technical / Preventive |
 | 7 | "Under video surveillance" sign | Physical / Deterrent |
-| 8 | Annual risk-assessment process | Managerial / Preventive |
+| 8 | Isolating the unpatchable SCADA controller | Technical / Compensating |
 
-Notes: the domain page lists security-awareness training as operational (carried out by people) and risk assessments and policies as managerial; a sign is both deterrent and directive, and with a surveillance wording the BEST single fit is deterrent. Accept "Managerial / Detective" for row 8 only if you can argue the assessment's purpose is to find weaknesses; the primary reading is that it prevents incidents by directing controls.
+Notes: the domain page lists security-awareness training as operational (carried out by people) and policies as managerial; a sign is both deterrent and directive, and with a surveillance wording the BEST single fit is deterrent. Row 8 is the compensating pattern the Domain 1 page flags ("legacy system can't support X"): the ideal control (patching) is not feasible, so isolation and segmentation stand in for it, which is exactly what the Domain 4 hardening table prescribes for ICS/SCADA. Segmentation is preventive in nature, but a control deployed specifically because the primary control is impossible is BEST typed as compensating.
 
 **PBQ 5 (Domain 1, [Domain 1](../domains/01-general-security-concepts.md)):**
 

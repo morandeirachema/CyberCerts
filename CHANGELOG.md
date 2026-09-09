@@ -21,6 +21,15 @@ Entries before 2026-09-02 come from the former *WallixCerts* repo this one grew 
 - **CEH exam logistics** fields filled from EC-Council's own pages on 2026-09-09
   (application fee, experience wording, Practical pass band, retake policy, membership fee).
 
+### Fixed — review pass over the generated material
+- Every mock item and flashcard was re-checked against the hub pages it cites. Fixes:
+  Security+ PBQ 3 premise (explicit deny) and PBQ 4 row 8 (replaced an ambiguous
+  risk-assessment row with a compensating-control item); CySA+ PBQ 1 scenario, PBQ 2 rubric
+  and PBQ 4 action order; PenTest+ Q47 (CVSS v3.x), Q59 domain tag, PBQ 1 output alignment;
+  eleven flashcards gained the hubs' *verify* caveats on exam-format facts.
+- Three Domain 2 pages (Security+, CySA+, PenTest+) no longer call themselves the largest
+  domain; the PenTest+ cheat sheet's scoring row now matches the overview page.
+
 ### Changed
 - `certs/ceh/labs/practice-ranges.md` merged into the practice kit
   (`certs/ceh/resources/practice-labs.md`); the CEH roadmap's duplicate certification ladder

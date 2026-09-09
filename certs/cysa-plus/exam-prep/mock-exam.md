@@ -767,7 +767,8 @@ answers down before checking the key.
 ### PBQ 1 — Read the log, name the indicator and the ATT&CK tactic (Domain 1)
 
 Eight consolidated SIEM lines from one morning. Internal hosts use private addresses; the
-external address is from a documentation range.
+external address is from a documentation range. `m.alvarez` is a sales analyst whose
+workstation is `ws-231` and who works from the `\\fs-02\sales` share every day.
 
 ```text
 1  2026-05-12 07:58:02  dc01    Logon OK   user=svc_backup  src=10.20.30.41  type=Service
@@ -825,12 +826,12 @@ Assign exactly one action to each alert.
 
 **Actions**
 
-1. Close as a false positive and tune the rule.
-2. Isolate the host with EDR and escalate to incident response.
-3. Enrich and investigate (whois/DNS, reputation, user context) before deciding.
-4. Detonate the file in a sandbox.
-5. Confirm the traffic content with packet capture, then decide.
-6. Escalate as a credential compromise: disable the account and start the IR playbook.
+1. Detonate the file in a sandbox.
+2. Escalate as a credential compromise: disable the account and start the IR playbook.
+3. Close as a false positive and tune the rule.
+4. Confirm the traffic content with packet capture, then decide.
+5. Isolate the host with EDR and escalate to incident response.
+6. Enrich and investigate (whois/DNS, reputation, user context) before deciding.
 
 **Alerts**
 
@@ -953,7 +954,9 @@ explanation, the domain number and the page to re-read.
 **PBQ 1** *(Domain 1 — [Security Operations](../domains/01-security-operations.md))*
 
 - Indicators: **lines 4, 5, 6 and 7**. Lines 1–3 and 8 are normal (a service logon, a network
-  logon, Explorer launching the mail client, a sales user opening a sales file).
+  logon, Explorer launching the mail client, a sales user opening a file on the sales share
+  used every day — worth reviewing when the incident is scoped, but not an indicator on its
+  own).
 - Families: **4 host** (suspicious parent/child chain: a spreadsheet launching a hidden
   PowerShell), **5 network** (download of a payload from an unknown external host — you may
   also argue application, since it is the proxy that saw it), **6 host** (unusual scheduled
@@ -981,8 +984,10 @@ then CVSS with environmental context — exposure and asset value):
 
 Scoring: 2 points if positions 1–4 match, 1 point if V2 and V5 hold positions 1–2 and V1 is not
 in the top three, 1 further point for a justification that names KEV, EPSS and exposure/asset
-value. V1 and V4 may be swapped with a written reason (a 9.8 on a box that is patched anyway
-during the next lab rebuild is a defensible fifth or sixth).
+value. Two swaps are accepted with a written reason: V3 and V6 (V6's higher EPSS against V3's
+higher severity and asset value — the page's flow elevates high EPSS, so either order is
+defensible), and V1 and V4 (a 9.8 on a box that is patched anyway during the next lab rebuild
+is a defensible fifth or sixth).
 
 **PBQ 3** *(Domain 3 — [Incident Response and Management](../domains/03-incident-response-and-management.md))*
 
@@ -1007,12 +1012,12 @@ two swaps above).
 
 | Alert | Action | Why |
 |---|---|---|
-| A1 | 1 | Same benign job, same volume, every night for 90 days: a false positive to tune out and document. |
-| A2 | 2 | A document app spawning encoded PowerShell that drops and runs an executable is a true positive in progress: isolate and escalate. |
-| A3 | 3 | A single small visit to a newly-seen domain is suspicious, not conclusive: enrich (domain age, whois, reputation, what the user was doing) before acting. |
-| A4 | 4 | An unknown macro document with no reputation data is exactly what sandbox detonation is for. |
-| A5 | 5 | Fixed-interval packets to a non-resolver on port 53 look like beaconing or DNS tunneling; packet capture confirms the content before isolation. |
-| A6 | 6 | Impossible travel plus a forwarding rule is the signature of compromised valid credentials: disable the account and start the IR playbook. |
+| A1 | 3 | Same benign job, same volume, every night for 90 days: a false positive to tune out and document. |
+| A2 | 5 | A document app spawning encoded PowerShell that drops and runs an executable is a true positive in progress: isolate and escalate. |
+| A3 | 6 | A single small visit to a newly-seen domain is suspicious, not conclusive: enrich (domain age, whois, reputation, what the user was doing) before acting. |
+| A4 | 1 | An unknown macro document with no reputation data is exactly what sandbox detonation is for. |
+| A5 | 4 | Fixed-interval packets to a non-resolver on port 53 look like beaconing or DNS tunneling; packet capture confirms the content before isolation. |
+| A6 | 2 | Impossible travel plus a forwarding rule is the signature of compromised valid credentials: disable the account and start the IR playbook. |
 
 Scoring: 4 points for six correct, 3 for five, 2 for four, 1 for three, 0 below that.
 

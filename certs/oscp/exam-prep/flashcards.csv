@@ -4,7 +4,7 @@
 #tags column:3
 "OSCP exam — hands-on and report format?","A 24-hour proctored hacking window, then a separate ~24-hour window to write and submit a professional PDF report.","oscp exam format"
 "OSCP total points and pass mark?","100 points total; 70 needed to pass.","oscp exam format"
-"How are the OSCP+ 100 points distributed?","One Active Directory set of 3 machines = 40 points; 3 standalone machines = 60 points (20 each).","oscp exam format"
+"How are the OSCP+ 100 points distributed?","One Active Directory set of 3 machines = 40 points; 3 standalone machines = 60 points (20 each) — verify machine counts and weighting on OffSec.","oscp exam format"
 "Are there bonus points on the OSCP exam?","No — bonus points were removed as of 1 November 2024; the score is exam performance only.","oscp exam format"
 "local.txt vs proof.txt?","local.txt proves low-privilege/initial foothold access; proof.txt proves full privilege escalation (admin/root).","oscp exam format"
 "Can you pass the hacking and still fail OSCP?","Yes — the report is a graded deliverable; insufficient documentation can fail an otherwise-passing exam.","oscp exam format"
