@@ -4,6 +4,29 @@ Notable changes to this study repo. Dates are when the work landed on `main`.
 This is a documentation repo, so "changes" are content additions and corrections.
 Entries before 2026-09-02 come from the former *WallixCerts* repo this one grew out of.
 
+## 2026-09-09
+
+### Changed — from study hub to preparation guide
+- **New repo-wide method:** `learning/how-to-prepare-a-cert.md` — the eight-step procedure
+  every hub applies (commit → official objectives → self-assess → weight-driven plan → the
+  read · do · map · test · drill · track loop → readiness gate → exam week → after), with
+  templates and a readiness rule (80% per domain on a spaced retake, 85% on a timed full
+  mock; the repo's own rule, not an exam body's).
+- **Every cert hub README now opens with "Prepare for it — the procedure"** (Security+,
+  CySA+, PenTest+, PNPT, OSCP): a numbered checklist applying the method to that exam, plus
+  a per-domain tracker. CISSP and cloud-security orientation pages gained a "How to prepare
+  it" section.
+- **CEH: one study plan instead of two.** The concept-track `exam-prep/study-plan.md` was
+  merged into `STUDY-PLAN.md`, which now sequences both layers per week (concept page +
+  course folder + lab targets + a checkable milestone), a Week 0 set-up list, the readiness
+  gate and the optional Practical weeks. The CEH README's "pick your path" became a
+  six-step procedure; `PROGRESS.md` carries the readiness gate.
+- **CEH practice kit:** `resources/practice-labs.md` rewritten to sequence the repo's own
+  lab, drill packs, challenge lab, simulated Practical exams and mocks with the external
+  platforms, week by week and module by module.
+- Root README, `certs/README.md` (new *Plan* column), `learning/README.md` and the roadmap
+  point at the method; `reference/sources.md` gained a learning-science section.
+
 ## 2026-09-02
 
 ### Changed — repository merge: WallixCerts + CEH → CyberCerts

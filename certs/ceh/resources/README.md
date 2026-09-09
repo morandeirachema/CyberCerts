@@ -7,7 +7,7 @@ Curated, verifiable references only. If a link isn't official or well-known, it 
 | [official.md](official.md) | EC-Council + standards bodies (authoritative) |
 | [tools.md](tools.md) | The CEH toolset, grouped by phase, with homepages |
 | [deep-references.md](deep-references.md) | The technical canon (HackTricks, PayloadsAllTheThings, GTFOBins, LOLBAS, ATT&CK…) to go past exam depth |
-| [practice-labs.md](practice-labs.md) | Legit hands-on platforms (HTB, THM, ranges) |
+| [practice-labs.md](practice-labs.md) | **The CEH practice kit** — the repo's labs, drills and mocks plus the legit external platforms, sequenced week by week |
 | [videos.md](videos.md) | Video courses referenced for this repo |
 | [books.md](books.md) | Study books & note frameworks |
 

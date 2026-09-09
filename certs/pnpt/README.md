@@ -2,7 +2,7 @@
 
 # 🟣 PNPT — Study Hub
 
-### A source-grounded study hub for the **TCM Security PNPT**
+### A step-by-step preparation guide for the **TCM Security PNPT**
 
 *Engagement workflow, real diagrams, and exam prep* — a **fully practical** network
 penetration test: OSINT → external → Active Directory → report → a **live debrief**.
@@ -39,6 +39,47 @@ penetration test: OSINT → external → Active Directory → report → a **liv
 | **Included** | 1 attempt **+ 1 free retake**, bundled training; non-expiring *(verify on TCM)* |
 
 Full details: **[exam structure](00-overview/exam-structure.md)**.
+
+## 🛠️ Prepare for it — the procedure
+
+This hub is a **preparation guide** for an engagement-style exam: five days of assessment, a
+professional report, and a live debrief. The method is the repo-wide
+[how to prepare a certification](../../learning/how-to-prepare-a-cert.md); the readiness rule below is this repo's, not
+TCM Security's.
+
+1. **Commit** — read [exam structure](00-overview/exam-structure.md) and confirm the current
+   bundle, retake and validity terms on [TCM's page](https://certifications.tcm-sec.com/pnpt/).
+   Set a date once the AD lab is built and the full workflow has been practised at least once.
+2. **Check the entry level** — the plan's prerequisites section and its "PJPT / fundamentals
+   first" advice; you need the [CEH](../ceh/README.md) breadth, working Linux CLI skills and
+   AD basics ([Windows & AD](../../prerequisites/windows-and-active-directory.md)).
+3. **Build the AD lab** — the plan's lab section; the repo's own
+   [Ansible AD lab](../ceh/labs/README.md) with its tiered-admin model is a ready target.
+4. **Follow the [study plan](exam-prep/study-plan.md)** through the five
+   [engagement phases](topics/README.md): OSINT → external → AD exploitation → lateral
+   movement → reporting. For each: read the page, do it in the lab, write the finding up.
+5. **Rehearse the deliverables** — a full report from your lab notes using a professional
+   template, and the **15-minute debrief** spoken aloud to someone, twice. The report and
+   debrief are graded; the shell is only the evidence.
+6. **Pass the readiness gate** — the full workflow (external foothold → domain compromise)
+   completed end-to-end in the lab from your own notes; report and debrief rehearsed; no
+   open weak-area row.
+7. **Exam week and after** — the plan's exam logistics; then note the certificate's terms,
+   and return to the [roadmap](../../learning/roadmap.md). The defender's view of every step
+   is the [attack → defense matrix](../../attack-to-defense-matrix.md).
+
+### 📈 Track it
+
+| # | Engagement phase | Read | Done in the lab | Written up |
+|---|------------------|:----:|:---------------:|:----------:|
+| 1 | [OSINT & reconnaissance](topics/01-osint-and-reconnaissance.md) | ☐ | ☐ | ☐ |
+| 2 | [External penetration testing](topics/02-external-penetration-testing.md) | ☐ | ☐ | ☐ |
+| 3 | [Active Directory exploitation](topics/03-active-directory-exploitation.md) | ☐ | ☐ | ☐ |
+| 4 | [Lateral movement & pivoting](topics/04-lateral-movement-and-pivoting.md) | ☐ | ☐ | ☐ |
+| 5 | [Reporting & the debrief](topics/05-reporting-and-the-debrief.md) | ☐ | ☐ | ☐ |
+
+- [ ] AD lab built · full workflow end-to-end `__________` · report drafted · debrief rehearsed ×2
+- [ ] Exam booked `__________` · passed `__________`
 
 ## 📦 What's inside
 

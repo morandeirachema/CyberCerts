@@ -85,6 +85,28 @@ flowchart LR
 - **Relation to PAM ([foundations](../../foundations/README.md)):** CISSP **Domain 5 (IAM)** covers the identity, least-privilege, and access-control principles that a **Privileged Access Management (PAM)** platform *enforces in practice*. CISSP gives you the policy and risk vocabulary; the [PAM foundations](../../foundations/what-is-pam.md) and [PAM playbook](../ceh/defender-pam/pam-playbook.md) give you the implementation-level skills.
 - **Sequencing:** Most sysadmins reach CISSP **after** gaining the five years' experience, often holding CEH and/or a PAM credential first. The exam can be passed earlier via the Associate route.
 
+## How to prepare it
+
+Apply the repo-wide [preparation method](../../learning/how-to-prepare-a-cert.md) with these CISSP-specific adjustments
+(this page is an orientation, not a full hub; there is no repo study plan for CISSP yet):
+
+1. **Commit** — check the experience requirement first (five years across two domains, the
+   one-year waiver, or the Associate route above); decide which route you are on before
+   spending on training. Confirm the current CAT format, length and price on isc2.org.
+2. **Objectives** — the official exam outline (linked below) is the coverage map: one row per
+   domain with its published weight; self-score every sub-topic 0–3.
+3. **Plan weight-first**, but read Domain 1 (Security and Risk Management) first: CISSP is
+   answered from a **risk-manager's** viewpoint, and that framing decides most "best answer"
+   items. Your PAM and sysadmin depth covers Domains 5 and 7 well; budget the time on
+   governance, legal, software security and architecture instead.
+4. **Study loop** — read, then test with an official or reputable practice bank, log every
+   miss, drill spaced. Map each identity and access control to what you already run
+   ([foundations](../../foundations/README.md), [compliance & standards](../../reference/compliance-and-standards.md)).
+5. **Readiness gate** — every domain ≥ 80% on a second attempt; a timed full-length practice
+   set ≥ 85% answered as the risk manager, not the engineer.
+6. **After** — endorsement by an ISC2-certified professional, then CPE credits and the annual
+   maintenance fee; calendar the first deadline.
+
 ## Study resources
 
 - **Official (ISC)² CISSP Certification Exam Outline** — the authoritative domain list and weightings: https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline

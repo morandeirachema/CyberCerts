@@ -17,6 +17,7 @@ each milestone. Certifications are proof points; the skills are the goal.
 - Know which repo section builds each competency, how to **practise** it, and which
   certification **proves** it.
 - Have a concrete **certification order** (CEH first) with the reasoning behind it.
+- Know how to **prepare each milestone** the same way: the method, the hub procedure, the gate.
 
 ## The ladder
 
@@ -83,6 +84,25 @@ flowchart TD
 > and paid platforms for every step, from Professor Messer and TryHackMe to Hack The Box,
 > PortSwigger, blue-team ranges, and cloud labs — plus the self-hosted
 > [CEH lab](../certs/ceh/labs/README.md).
+
+## How to prepare each milestone
+
+Every certification on the path is prepared with the same procedure, so the skill of
+*preparing* compounds from cert to cert:
+
+1. Learn the method once: **[how to prepare a certification](how-to-prepare-a-cert.md)**
+   (commit → official objectives → self-assess → plan → study loop → readiness gate →
+   exam week → after).
+2. Open the hub and follow its *Prepare for it — the procedure* section, which applies the
+   method to that exam and carries the tracker:
+   [CEH](../certs/ceh/README.md) ·
+   [Security+](../certs/security-plus/README.md) ·
+   [CySA+](../certs/cysa-plus/README.md) ·
+   [PenTest+](../certs/pentest-plus/README.md) ·
+   [PNPT](../certs/pnpt/README.md) ·
+   [OSCP](../certs/oscp/README.md).
+3. Book only when the hub's **readiness gate** is fully ticked; after the exam, come back
+   here, tick the milestone and move to the next level's competencies.
 
 ## How the offensive and defensive sides reinforce each other
 

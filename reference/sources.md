@@ -57,6 +57,12 @@ with the exact documents it cites; this page is the consolidated index.
 - Vendor product pages cited on the market page — CyberArk PAM: https://www.cyberark.com/products/privileged-access-manager/ · BeyondTrust Password Safe: https://www.beyondtrust.com/products/password-safe · Delinea (ThycoticCentrify rebrand): https://delinea.com/news/thycoticcentrify-is-now-delinea · One Identity Safeguard: https://www.oneidentity.com/one-identity-safeguard/ · Broadcom Symantec PAM: https://www.broadcom.com/products/identity/pam · Microsoft Entra PIM: https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure
 - Full list, including the WALLIX CSPN/BSZ certification releases: see the `## Sources` section of [pam-market-landscape.md](../foundations/pam-market-landscape.md).
 
+## Learning science (the preparation method)
+
+- Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J. & Willingham, D. T. (2013), *Improving Students' Learning With Effective Learning Techniques: Promising Directions From Cognitive and Educational Psychology*, Psychological Science in the Public Interest 14(1): https://doi.org/10.1177/1529100612453266
+- Retrieval Practice — research summaries on retrieval practice, spacing and interleaving: https://www.retrievalpractice.org/
+- Used by: [learning/how-to-prepare-a-cert.md](../learning/how-to-prepare-a-cert.md) and the CEH hub's [exam strategy](../certs/ceh/EXAM-STRATEGY.md).
+
 ## Notes & caveats
 
 - Analyst placements change every year; every placement cited in this repo is tagged

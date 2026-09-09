@@ -2,14 +2,15 @@
 
 # 🔐 CyberCerts
 
-### A **sysadmin → PAM architect** certification study hub
+### A **sysadmin → PAM architect** certification preparation guide
 
-You already run the servers, the directories, and the access. This repo is the study
-material for turning that into a **Privileged Access Management (PAM) architect** profile:
-the PAM foundations, the protocols underneath them, a **professional skill path** (what a
-good PAM architect must actually be able to do), and full study hubs for the certifications
-that mark the milestones — **CEH first**, then the blue-team, offensive, cloud, and
-architect-level certs that round out the profile.
+You already run the servers, the directories, and the access. This repo is a
+**step-by-step guide** for turning that into a **Privileged Access Management (PAM)
+architect** profile: one preparation method, a **professional skill path** (what a good PAM
+architect must actually be able to do), the PAM foundations and protocols underneath, and a
+preparation hub per certification milestone — **CEH first**, then the blue-team, offensive,
+cloud, and architect-level certs that round out the profile. Every hub opens with the same
+procedure: commit → objectives → self-assess → plan → study loop → readiness gate → exam week.
 
 [![Docs quality](https://github.com/morandeirachema/CyberCerts/actions/workflows/quality.yml/badge.svg)](https://github.com/morandeirachema/CyberCerts/actions/workflows/quality.yml)
 [![CEH course validation](https://github.com/morandeirachema/CyberCerts/actions/workflows/ceh-validate.yml/badge.svg)](https://github.com/morandeirachema/CyberCerts/actions/workflows/ceh-validate.yml)
@@ -20,6 +21,7 @@ architect-level certs that round out the profile.
 ![Facts](https://img.shields.io/badge/facts-source--grounded%2C%20no%20fabrication-success)
 
 **[🎯 Start CEH](certs/ceh/README.md)** ·
+[🛠️ The method](learning/how-to-prepare-a-cert.md) ·
 [🧭 The path](#-the-path) ·
 [🧠 Skills, not just certs](#-beyond-certs-the-professional-skill-path) ·
 [🗂️ Repo map](#-repo-map) ·
@@ -39,16 +41,30 @@ architect-level certs that round out the profile.
 > vendors appear only as market or architecture examples. Structural quality is
 > [enforced in CI](#-how-this-repo-is-built).
 
-## 🚀 Start here
+## 🚀 Start here — how to use this guide
+
+1. **Place yourself on the path.** Read [the path](#-the-path) below and the
+   [roadmap](learning/roadmap.md): four levels, ten competencies, a cert per milestone.
+   Score yourself against the level exit criteria.
+2. **Learn the method once.** [How to prepare a certification](learning/how-to-prepare-a-cert.md)
+   is the eight-step procedure every hub follows — commit, objectives, self-assess, plan, study
+   loop, readiness gate, exam week, after.
+3. **Open the hub for your next cert and follow its procedure.** Each hub README starts with
+   *Prepare for it — the procedure*: the concrete checklist, the week-by-week plan, a tracker
+   and the readiness gate. **[CEH](certs/ceh/README.md)** is the next milestone on this path.
+4. **Fill the gaps as you go.** The shared [foundations](foundations/README.md),
+   [prerequisites](prerequisites/README.md) and [protocols](protocols/README.md) are the
+   reference you return to whenever a hub page assumes something you cannot yet explain.
 
 | You want to… | Go to |
 |--------------|-------|
-| **Study for CEH** (the next cert on the path) | **[certs/ceh/](certs/ceh/README.md)** — concept pages + a full 20-module course with labs, flashcards, mock exams and a defender/PAM lens |
+| **Prepare for CEH** (the next cert on the path) | **[certs/ceh/](certs/ceh/README.md)** — the procedure, one [12-week plan](certs/ceh/STUDY-PLAN.md), 20 modules with labs and flashcards, mock exams, a readiness gate and a defender/PAM lens |
+| **Prepare for any other cert** on the path | [certs/](certs/README.md) — Security+, CySA+, PenTest+, PNPT, OSCP hubs, each with the same procedure, a study plan and a tracker; CISSP and cloud security orientations |
+| Learn the **preparation method** itself | [learning/how-to-prepare-a-cert.md](learning/how-to-prepare-a-cert.md) |
 | Refresh **what PAM is** and why it matters | [foundations/](foundations/README.md) — PAM from first principles, privileged accounts, the threat landscape, least privilege / JIT / Zero Trust |
 | Understand **how a protocol actually works** (Kerberos, TLS, SAML…) | [protocols/](protocols/README.md) — RFC-grounded mechanism pages with sequence diagrams |
 | Bridge **sysadmin skills** into security | [prerequisites/](prerequisites/README.md) — Linux, Windows/AD, networking, crypto/PKI, the PAM engineer's CLI |
 | Build the **skills of a PAM architect**, not just collect certs | [The professional skill path](#-beyond-certs-the-professional-skill-path) below and the full [roadmap](learning/roadmap.md) |
-| **Choose the next cert** after CEH | [learning/roadmap.md](learning/roadmap.md) and the [certification hubs](certs/README.md) |
 | See **which control stops which attack** | [attack-to-defense-matrix.md](attack-to-defense-matrix.md) (MITRE ATT&CK ↔ PAM controls) |
 | **Practise hands-on** | [learning/platforms.md](learning/platforms.md) + the self-hosted [CEH lab](certs/ceh/labs/README.md) (Docker, Vagrant, an Ansible AD lab with a tiered-admin PAM model) |
 | Look something up | [glossary](reference/glossary.md) · [acronyms](reference/acronyms.md) · [compliance & standards](reference/compliance-and-standards.md) · [sources](reference/sources.md) |
@@ -130,14 +146,15 @@ flowchart LR
 | [`protocols/`](protocols/README.md) | Mechanism-level pages: Kerberos, Active Directory, LDAP, RADIUS, TLS, SSH, SAML, OIDC / OAuth 2.0 |
 | [`certs/`](certs/README.md) | Every certification hub — see the [index](certs/README.md) |
 | [`reference/`](reference/README.md) | Glossary, acronyms, compliance & standards (NIS2, ISO 27001, IEC 62443, DORA…), consolidated sources |
-| [`learning/`](learning/README.md) | The certification roadmap and where to practise |
+| [`learning/`](learning/README.md) | The certification roadmap, the preparation method, and where to practise |
 | [`attack-to-defense-matrix.md`](attack-to-defense-matrix.md) | CEH attack techniques (with MITRE ATT&CK IDs) mapped to the PAM controls that stop them |
 | [`scripts/`](scripts/check-docs.py) · [`.github/`](.github/workflows) | The quality gate, Mermaid label wrapper, site builder and CI workflows |
 
 ## 🎓 Certification hubs
 
-Each hub is self-contained (overview → domains/modules → labs → exam prep → reference) and
-built to the same standards. Full index and details: **[certs/README.md](certs/README.md)**.
+Each hub is self-contained (overview → domains/modules → labs → exam prep → reference),
+opens with the same *Prepare for it — the procedure* section, and is built to the same
+standards. Full index and details: **[certs/README.md](certs/README.md)**.
 
 | Hub | Certification | Depth | Role on the path |
 |-----|---------------|-------|------------------|
@@ -160,7 +177,7 @@ built to the same standards. Full index and details: **[certs/README.md](certs/R
 ## 🔗 Quick links
 
 - 🎯 [CEH hub](certs/ceh/README.md) · [CEH roadmap (beginner → master)](certs/ceh/ROADMAP.md) · [CEH lab](certs/ceh/labs/README.md)
-- 🧭 [Certification roadmap](learning/roadmap.md) · 🧰 [Learning platforms](learning/platforms.md)
+- 🧭 [Certification roadmap](learning/roadmap.md) · 🛠️ [How to prepare a certification](learning/how-to-prepare-a-cert.md) · 🧰 [Learning platforms](learning/platforms.md)
 - 🛡️ [What is PAM?](foundations/what-is-pam.md) · [PAM threat landscape](foundations/pam-threat-landscape.md) · [PAM control playbook](certs/ceh/defender-pam/pam-playbook.md)
 - 🧠 [Glossary](reference/glossary.md) · [Acronyms](reference/acronyms.md) · 📚 [Sources](reference/sources.md)
 - 📝 [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security & responsible use](SECURITY.md)

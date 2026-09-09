@@ -29,15 +29,30 @@ Tick each column as you complete it. `Read` = studied the guide · `Lab` = did t
 
 ## Milestones
 
+- [ ] Committed: target exam date `__________` · eligibility route chosen (training / experience application)
 - [ ] Lab environment fully running (docker + vagrant + ansible)
-- [ ] Blueprint v5.0 domain weights recorded in EXAM-LOGISTICS.md
+- [ ] Official blueprint PDF downloaded; domain weights recorded in [EXAM-LOGISTICS.md](EXAM-LOGISTICS.md)
+- [ ] Self-assessment done ([competency matrix](ROADMAP.md#where-are-you--competency-self-assessment)); 🟥 rows listed below
 - [ ] Ports/protocols cheatsheet memorized
-- [ ] Practice set #1 completed — score: ____%
-- [ ] Practice set #2 completed — score: ____%
+- [ ] Capstone chain run twice (attack, then fixed + detected)
 - [ ] Eligibility / voucher secured
-- [ ] Exam booked — date: __________
-- [ ] Knowledge exam PASSED
-- [ ] (Optional) CEH Practical PASSED → CEH Master
+- [ ] Exam booked — date: `__________`
+- [ ] Knowledge exam PASSED — date: `__________`
+- [ ] (Optional) CEH Practical PASSED → CEH Master — date: `__________`
+- [ ] Renewal rule noted (ECE credits, validity) and first deadline calendared
+
+## Readiness gate (book the exam only when every box is ticked)
+
+The rule is from the [12-week plan](STUDY-PLAN.md#weeks-12-and-beyond--the-readiness-gate)
+and the repo-wide [preparation method](../../learning/how-to-prepare-a-cert.md).
+
+- [ ] Every module row above has all four columns ticked
+- [ ] Every module's practice set ≥ 80% on a second, spaced attempt
+- [ ] 50-question checkpoint ([MOCK-EXAM.md](MOCK-EXAM.md)) — score: ____% (target ≥ 85%)
+- [ ] 125-question timed full mock ([MOCK-EXAM-FULL.md](MOCK-EXAM-FULL.md)) — score: ____% (target ≥ 85%)
+- [ ] Rapid-fire bank and cheat sheet automatic (ports, Nmap flags, tool → purpose, CVSS bands)
+- [ ] Trap pairs cold ([EXAM-STRATEGY.md](EXAM-STRATEGY.md#common-trap-pairs-to-pre-load))
+- [ ] No open weak-area row older than a week
 
 ## Weak-area log
 

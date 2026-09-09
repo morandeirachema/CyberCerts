@@ -2,7 +2,7 @@
 
 # 🎯 Certified Ethical Hacker (CEH v13) — Study Hub & Full Course
 
-### Concept pages, a 20-module course with labs and flashcards, and exam prep — written from a **sysadmin / PAM defender** point of view
+### A step-by-step preparation guide: concept pages, a 20-module course with labs and flashcards, one 12-week plan and a readiness gate — written from a **sysadmin / PAM defender** point of view
 
 ![Version](https://img.shields.io/badge/CEH-v13%20(312--50)-red)
 ![Modules](https://img.shields.io/badge/modules-20%2F20-blue)
@@ -37,7 +37,7 @@ This folder merges two study repos that grew side by side:
 
 | Layer | Where | Best for |
 |-------|-------|----------|
-| **Concept pages** — one page per module, Mermaid flows, tools by phase, countermeasures | [00-overview/](00-overview/what-is-ceh.md) · [domains/](domains/README.md) · [tools/](tools/tools-by-phase.md) · [exam-prep/](exam-prep/study-plan.md) · [career/](career/ceh-career-and-adjacent-certs.md) · [reference/](reference/glossary.md) | A fast, source-grounded read of *what* each module covers |
+| **Concept pages** — one page per module, Mermaid flows, tools by phase, countermeasures | [00-overview/](00-overview/what-is-ceh.md) · [domains/](domains/README.md) · [tools/](tools/tools-by-phase.md) · [exam-prep/](exam-prep/practice-questions.md) · [career/](career/ceh-career-and-adjacent-certs.md) · [reference/](reference/glossary.md) | A fast, source-grounded read of *what* each module covers |
 | **Full course** — 20 module folders with facts, practice questions, flashcards and lab walkthroughs, plus a Kali course, a runnable lab, mock exams and a defender/PAM knowledge base | [modules/](modules/README.md) · [kali/](kali/README.md) · [labs/](labs/README.md) · [practical/](practical/README.md) · [defender-pam/](defender-pam/README.md) · [ot-security/](ot-security/README.md) · [cheatsheets/](cheatsheets/README.md) | Active recall, hands-on reps, and the “which control stops this?” reflex |
 
 Read the concept page for a module, then work its course folder: **read → lab → map to the
@@ -56,31 +56,57 @@ flowchart LR
 See **[five-phases-of-hacking.md](00-overview/five-phases-of-hacking.md)** for the
 phase → module mapping and the Cyber Kill Chain / MITRE ATT&CK alignment.
 
-## 🚀 Start here — pick your path
+## 🛠️ Prepare for the exam — the procedure
 
-> 🧭 **Want the whole journey?** [ROADMAP.md](ROADMAP.md) sequences everything into a
-> beginner → master ladder with checkpoints and a self-assessment matrix.
+This hub is a **preparation guide**, not a reading list. Work it in this order; the method
+behind it is the repo-wide [how to prepare a certification](../../learning/how-to-prepare-a-cert.md).
 
-- 🌱 **New to Linux / hacking** — begin with the [Kali course](kali/README.md) (chapter
-  [00](kali/00-getting-started.md)), stand up the [lab](labs/README.md), then work the
-  [modules](modules/README.md) in order.
-- ⏱️ **Know the tech, need the cert** — read [EXAM-STRATEGY.md](EXAM-STRATEGY.md), then per
-  module skim the guide and drill its `facts.md`, `practice-questions.md` and
-  `flashcards.csv`; check yourself with the [50-](MOCK-EXAM.md) and
-  [125-question](MOCK-EXAM-FULL.md) mocks. [BLUEPRINT-COVERAGE.md](BLUEPRINT-COVERAGE.md)
-  confirms nothing is missing.
-- 🛡️ **Sysadmin / PAM engineer** — start with the [defender-pam/](defender-pam/README.md)
-  knowledge base and [identity attack paths](defender-pam/identity-attack-paths.md), run the
-  [capstone chain](labs/capstone.md) to see attack → control end-to-end, then read the
-  modules for the offensive detail. For industrial / critical infrastructure, work the
-  [ot-security/](ot-security/README.md) curriculum.
-- 🤖 **Curious about v13's AI focus** — read
-  [AI in ethical hacking](00-overview/ai-in-ethical-hacking.md) and
-  [AI-IN-ETHICAL-HACKING.md](AI-IN-ETHICAL-HACKING.md), then study with
+```mermaid
+flowchart LR
+    A["1 · Commit<br/>date · eligibility<br/>blueprint PDF"] --> B["2 · Set up<br/>lab · Kali basics<br/>self-assess"]
+    B --> C["3 · 12 weeks<br/>2 modules a week<br/>read · lab · map · test"]
+    C --> D["4 · Readiness gate<br/>80% per module<br/>85% full mock"]
+    D --> E["5 · Exam week<br/>strategy · logistics"]
+    E --> F["6 · Optional<br/>CEH Practical<br/>→ CEH Master"]
+```
+
+1. **Commit** — pick a target date; choose your eligibility route (official training or the
+   experience-based application) and fill the *verify* fields in
+   [EXAM-LOGISTICS.md](EXAM-LOGISTICS.md); download the official blueprint PDF and record its
+   weights there. Read [exam & eligibility](00-overview/exam-and-eligibility.md) and
+   [legal & ethics](00-overview/legal-and-ethics.md).
+2. **Set up** — stand up the [lab](labs/README.md); if you are new to Linux, do the
+   [Kali course](kali/README.md) chapters 00–05; score yourself on the
+   [competency matrix](ROADMAP.md#where-are-you--competency-self-assessment); open
+   [PROGRESS.md](PROGRESS.md).
+3. **Follow the [12-week study plan](STUDY-PLAN.md)** — two modules a week, each through the
+   loop below: concept page → module guide → lab → Defender & PAM mapping → practice
+   questions → flashcards → tracker. Run the [capstone chain](labs/capstone.md) from Week 3.
+   The **[practice kit](resources/practice-labs.md)** lists what to practise with each week:
+   the repo's lab, drills and mocks, then the external platforms that add what the lab cannot.
+4. **Pass the readiness gate** — every module ≥ 80% on its practice set, the
+   [50-question](MOCK-EXAM.md) and [125-question timed](MOCK-EXAM-FULL.md) mocks ≥ 85%, the
+   [rapid-fire bank](RAPID-FIRE.md) and [cheat sheet](exam-prep/cheat-sheet.md) automatic.
+   The gate is spelled out at the end of the [plan](STUDY-PLAN.md#weeks-12-and-beyond--the-readiness-gate).
+5. **Exam week** — [EXAM-STRATEGY.md](EXAM-STRATEGY.md): the study system, the test-day
+   tactics, the trap pairs and the day-of checklist.
+6. **CEH Practical (optional)** — the [practical/](practical/README.md) skills checklist,
+   playbooks and timed drills for the 6-hour range; pass both exams for **CEH Master**.
+
+**Entry points by profile** (the procedure is the same; the starting emphasis differs):
+
+- 🌱 **New to Linux / hacking** — Kali course first, then the plan from Week 1. The
+  [beginner → master roadmap](ROADMAP.md) sequences the whole journey with checkpoints.
+- ⏱️ **Know the tech, need the cert** — skim each module guide, drill `facts.md`,
+  `practice-questions.md` and `flashcards.csv`, and go straight to the mocks;
+  [BLUEPRINT-COVERAGE.md](BLUEPRINT-COVERAGE.md) confirms nothing is missing.
+- 🛡️ **Sysadmin / PAM engineer** — start with [defender-pam/](defender-pam/README.md) and
+  [identity attack paths](defender-pam/identity-attack-paths.md), run the capstone to see
+  attack → control end-to-end, then work the plan; for industrial estates add
+  [ot-security/](ot-security/README.md).
+- 🤖 **v13's AI focus** — [AI in ethical hacking](00-overview/ai-in-ethical-hacking.md),
+  [AI-IN-ETHICAL-HACKING.md](AI-IN-ETHICAL-HACKING.md) and the drill prompts in
   [AI-STUDY-WORKFLOW.md](AI-STUDY-WORKFLOW.md).
-- 🏆 **Going for CEH Master (the hands-on Practical)** — work the
-  [practical/](practical/README.md) section: skills checklist, challenge playbooks, and timed
-  drills for the 6-hour performance exam.
 
 ## 📋 Exam at a glance
 
@@ -95,7 +121,7 @@ Full details: **[exam & eligibility](00-overview/exam-and-eligibility.md)** and
 inconsistently across public sources, so this hub does **not** print made-up weights —
 download the official blueprint PDF and record the real ones yourself.
 
-## 🔁 The study loop
+## 🔁 The study loop (every module)
 
 ```mermaid
 flowchart LR
@@ -108,21 +134,10 @@ flowchart LR
     F -.-> R
 ```
 
-1. **Read** the module's concept page ([domains/](domains/README.md)) and its course guide
-   (`modules/NN-*/README.md`).
-2. **Lab** the `lab-walkthrough.md` against **your** targets; record results in the module's
-   lab-log table.
-3. **Map** the Defender & PAM section — the retention hook (deep dives in
-   [defender-pam/](defender-pam/README.md)).
-4. **Test** with `practice-questions.md`; aim for ≥ 80% before moving on.
-5. **Drill** `flashcards.csv` — run the terminal quiz (`python3 scripts/quiz.py --module 06`)
-   or import into Anki (see [scripts/](scripts/README.md)).
-6. **Track** in [PROGRESS.md](PROGRESS.md); log every miss and re-test it first next session.
-
-Keep [GLOSSARY.md](GLOSSARY.md) (course) and the [glossary](reference/glossary.md) /
-[acronyms](reference/acronyms.md) pages open for lookups. In the final weeks drill each
-module's `facts.md`, the [cheatsheets](cheatsheets/README.md), the
-[cheat sheet](exam-prep/cheat-sheet.md), and the [rapid-fire bank](RAPID-FIRE.md).
+Move on at **≥ 80%** on the module's practice set; log every miss in the weak-area log and
+re-test it first next session. Drill flashcards with `python3 scripts/quiz.py --module 06`
+or import them into Anki ([scripts/](scripts/README.md)). Keep [GLOSSARY.md](GLOSSARY.md),
+the [glossary](reference/glossary.md) and [acronyms](reference/acronyms.md) open for lookups.
 
 ## 📚 The 20 modules (official CEH v13 order)
 
@@ -189,9 +204,9 @@ Run the course's validator from this folder: `python3 scripts/validate.py` (also
 
 **Orient:** [Roadmap (beginner → master)](ROADMAP.md) · [What is CEH](00-overview/what-is-ceh.md) · [Exam & eligibility](00-overview/exam-and-eligibility.md) · [Legal & ethics](00-overview/legal-and-ethics.md) · [Engagement methodology & reporting](00-overview/engagement-methodology-and-reporting.md) · [Known limitations](KNOWN-LIMITATIONS.md)
 
-**Study the theory:** [Concept pages 01–20](domains/README.md) · [Course modules 01–20](modules/README.md) · [Study plan (12 weeks)](STUDY-PLAN.md) · [Study plan (concept track)](exam-prep/study-plan.md) · [Exam strategy](EXAM-STRATEGY.md) · [Glossary](GLOSSARY.md) · [Blueprint coverage](BLUEPRINT-COVERAGE.md) · [Progress tracker](PROGRESS.md) · [Exam logistics](EXAM-LOGISTICS.md)
+**Study the theory:** [Concept pages 01–20](domains/README.md) · [Course modules 01–20](modules/README.md) · [The 12-week study plan](STUDY-PLAN.md) · [Exam strategy](EXAM-STRATEGY.md) · [Glossary](GLOSSARY.md) · [Blueprint coverage](BLUEPRINT-COVERAGE.md) · [Progress tracker](PROGRESS.md) · [Exam logistics](EXAM-LOGISTICS.md)
 
-**Learn the tools & do labs:** [Kali course](kali/README.md) · [Kali reference](KALI-TUTORIAL.md) · [Lab environment](labs/README.md) · [Capstone chain](labs/capstone.md) · [Cheatsheets](cheatsheets/README.md) · [Tools by phase](tools/tools-by-phase.md)
+**Learn the tools & do labs:** [Practice kit](resources/practice-labs.md) · [Kali course](kali/README.md) · [Kali reference](KALI-TUTORIAL.md) · [Lab environment](labs/README.md) · [Capstone chain](labs/capstone.md) · [Cheatsheets](cheatsheets/README.md) · [Tools by phase](tools/tools-by-phase.md)
 
 **Pass the exams:** [Practice questions (concept track)](exam-prep/practice-questions.md) · [Cheat sheet](exam-prep/cheat-sheet.md) · [Mock exam — 50 Q](MOCK-EXAM.md) · [Full mock — 125 Q](MOCK-EXAM-FULL.md) · [Rapid-fire bank — 200 Q](RAPID-FIRE.md) · [CEH Practical prep](practical/README.md) · [Challenge generator](practical/challenge-lab/README.md) · [Drill packs](practical/drills/README.md) · [Simulated exams](practical/exams/README.md)
 

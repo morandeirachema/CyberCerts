@@ -39,7 +39,8 @@ list — keep that framing when editing them.
 - **Shared fundamentals at root**: `foundations/` (PAM concepts, threats, market) →
   `prerequisites/` (Linux, the PAM engineer's CLI, Windows/AD, networking, crypto) →
   `protocols/` (Kerberos, AD, LDAP, RADIUS, TLS, SSH, SAML, OIDC mechanisms), plus
-  `reference/` (glossary, acronyms, compliance, sources), `learning/` (roadmap, platforms)
+  `reference/` (glossary, acronyms, compliance, sources), `learning/` (roadmap, the shared
+  cert-preparation method `how-to-prepare-a-cert.md`, platforms)
   and `attack-to-defense-matrix.md` (CEH attacks ↔ PAM controls, MITRE ATT&CK IDs).
 - `scripts/` (quality gate, Mermaid wrapper, site builder), `.github/workflows/`, `mkdocs.yml`.
 

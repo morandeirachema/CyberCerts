@@ -75,6 +75,29 @@ flowchart TD
 - **Relation to PAM (privileged cloud identities):** The cloud's biggest risk is **over-permissioned identities** — root accounts, admin roles, access keys, and service principals. A **Privileged Access Management (PAM)** solution brokers, vaults, rotates, and records access to these privileged cloud identities, enforcing the **least-privilege** and **just-in-time** access that AZ-500/SC-500 (Entra ID) and AWS Security (IAM) teach you to configure. Cloud security certifications teach you *how the platform's access model works*; PAM is *how you keep that access controlled and auditable*. See [what is PAM](../../foundations/what-is-pam.md) and the [PAM playbook](../ceh/defender-pam/pam-playbook.md).
 - **Relation to [CEH](../ceh/README.md):** The **[CEH cloud-computing module](../ceh/domains/19-cloud-computing.md)** introduces the same **shared-responsibility model**, IaaS/PaaS/SaaS distinctions, container and serverless risks, and **misconfiguration** as the leading breach cause. CEH frames these from a **testing/offensive** angle; the vendor and CCSP/CCSK exams frame them from a **build-and-defend** angle. They reinforce each other.
 
+## How to prepare it
+
+Apply the repo-wide [preparation method](../../learning/how-to-prepare-a-cert.md) with the adjustments cloud exams need
+(this page is an orientation; there is no repo study plan for these certs yet):
+
+1. **Commit** — pick the platform your estate actually runs (Azure → the SC-500 successor,
+   since AZ-500 retired on 2026-08-31 per the note above; AWS → Security Specialty, SCS-C03;
+   CCSP or CCSK if the goal is vendor-neutral breadth) and confirm the current exam code,
+   format and price on the provider page below.
+2. **Objectives** — the provider's skills outline / exam guide is the coverage map; the
+   providers publish per-area weights, so plan weight-first.
+3. **Hands-on is the study loop** — open a free-tier account you own and build every
+   objective: identity roles and privileged-role activation, key vaults and secrets
+   managers, logging and alerting, network controls. Reading alone does not pass these
+   exams. Map each control to its on-premises PAM equivalent
+   ([what is PAM](../../foundations/what-is-pam.md), [least privilege / JIT](../../foundations/core-concepts-least-privilege-jit-zero-trust.md)).
+4. **Test** with the provider's official practice assessment where one exists, log every
+   miss, drill spaced.
+5. **Readiness gate** — every objective area ≥ 80% on a second attempt; a timed full
+   practice set ≥ 85%; every hands-on objective done at least once from memory.
+6. **After** — note the provider's renewal rule (Microsoft renews online yearly; AWS and
+   ISC2 have their own cycles — *verify on the provider page*) and calendar it.
+
 ## Study resources
 
 - **Microsoft AZ-500 / SC-500:** official study guides and certification pages —

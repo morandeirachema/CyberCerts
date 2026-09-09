@@ -135,12 +135,12 @@ You already do most of Domain 4 and much of Domains 1–3 — Security+ mostly *
 - [cheat-sheet.md](cheat-sheet.md) — dense last-mile quick reference.
 - [../domains/README.md](../domains/README.md) — the five domain pages, written to the objectives.
 - [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) — exam format, weightings, PBQs, and the objectives PDF.
-- [../../ceh/exam-prep/study-plan.md](../../ceh/exam-prep/study-plan.md) — the sibling offensive study plan.
+- [../../ceh/STUDY-PLAN.md](../../ceh/STUDY-PLAN.md) — the sibling offensive study plan.
 
 ## Sources
 
 - CompTIA — Security+ (SY0-701) official certification page (max 90 questions, MCQ + PBQ, 90 minutes, 750 on 100–900, five domains and weightings, recommended Network+ and ~2 years): https://www.comptia.org/en-us/certifications/security/
 - CompTIA — Security+ exam objectives (SY0-701) download (the authoritative study checklist): https://www.comptia.org/en-us/certifications/security/
-- Sibling hub pages: [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) · [../domains/README.md](../domains/README.md) · [../../ceh/exam-prep/study-plan.md](../../ceh/exam-prep/study-plan.md)
+- Sibling hub pages: [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) · [../domains/README.md](../domains/README.md) · [../../ceh/STUDY-PLAN.md](../../ceh/STUDY-PLAN.md)
 - Verified ground truth for this hub: SY0-701; max 90 questions (MCQ + PBQ); 90 minutes; passing 750 on a 100–900 scale; domain weights 12 / 22 / 18 / 28 / 20 percent.
 - All volatile specifics (exam code, retirement date, price, delivery, CEU renewal) are version-sensitive — *verify on CompTIA*.

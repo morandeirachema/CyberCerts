@@ -60,6 +60,7 @@ nav:
   - Learning path:
       - learning/README.md
       - Roadmap (sysadmin → PAM architect): learning/roadmap.md
+      - How to prepare a certification: learning/how-to-prepare-a-cert.md
       - Platforms (where to practise): learning/platforms.md
   - Attack → Defense matrix: attack-to-defense-matrix.md
   - Foundations:
@@ -173,13 +174,13 @@ nav:
           - OT / ICS lab: certs/ceh/labs/ot/README.md
       - OT / ICS security: certs/ceh/ot-security/README.md
       - Exam prep:
-          - Study plan (concept track): certs/ceh/exam-prep/study-plan.md
           - Practice questions: certs/ceh/exam-prep/practice-questions.md
           - Cheat sheet: certs/ceh/exam-prep/cheat-sheet.md
           - Mock exam (50 Q): certs/ceh/MOCK-EXAM.md
           - Full mock exam (125 Q): certs/ceh/MOCK-EXAM-FULL.md
           - Rapid-fire bank (200 Q): certs/ceh/RAPID-FIRE.md
           - CEH Practical prep: certs/ceh/practical/README.md
+          - Practice kit (labs, drills, platforms): certs/ceh/resources/practice-labs.md
       - AI-driven hacking: certs/ceh/AI-IN-ETHICAL-HACKING.md
       - Career & adjacent certs: certs/ceh/career/ceh-career-and-adjacent-certs.md
       - Reference:

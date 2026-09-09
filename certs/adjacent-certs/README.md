@@ -9,6 +9,9 @@ career path.
 > [Security+](../security-plus/README.md) · [CySA+](../cysa-plus/README.md) ·
 > [PenTest+](../pentest-plus/README.md) · [OSCP](../oscp/README.md) · [PNPT](../pnpt/README.md).
 
+> Each page ends with a short **How to prepare it** section that applies the repo-wide
+> [preparation method](../../learning/how-to-prepare-a-cert.md) to that exam.
+
 > Certification specifics (exam codes, prices, durations, retirement dates) change often.
 > Each page cites the provider and marks volatile details "verify on <provider>" — always
 > confirm current details on the official site before booking.

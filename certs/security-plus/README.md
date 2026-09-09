@@ -2,7 +2,7 @@
 
 # 🛡️ CompTIA Security+ — Study Hub
 
-### A source-grounded study hub for **CompTIA Security+ (SY0-701)**
+### A step-by-step preparation guide for **CompTIA Security+ (SY0-701)**
 
 *Concepts, real diagrams, and exam prep* — the **vendor-neutral, foundational** baseline for
 a sysadmin moving into cybersecurity.
@@ -34,6 +34,46 @@ a sysadmin moving into cybersecurity.
 | **Recommended** | Network+ and ~2 years security/sysadmin experience *(not required)* |
 
 Full details: **[exam & objectives](00-overview/exam-and-objectives.md)**.
+
+## 🛠️ Prepare for it — the procedure
+
+This hub is a **preparation guide**: follow the steps in order. The method is the repo-wide
+[how to prepare a certification](../../learning/how-to-prepare-a-cert.md); the numbers below (80% per domain, 85% on a
+full mock) are that method's readiness rule, not a CompTIA figure.
+
+1. **Commit** — read [exam & objectives](00-overview/exam-and-objectives.md), confirm the
+   current exam code and price on [CompTIA's page](https://www.comptia.org/en-us/certifications/security/), and set a target date.
+   Plan on roughly **7 weeks at 8–10 hours a week** (~54–70 h total, summing the plan's suggested hours) — the
+   [study plan](exam-prep/study-plan.md) breaks that down.
+2. **Get the official objectives PDF** from CompTIA and keep it beside the domain table
+   below; self-score every objective 0–3 before you start (the method explains the scale).
+3. **Study weight-first** — Domain 1 first (it is the vocabulary), then 4 → 2 → 3 → 5 by weight. For each domain: read the page, do the hands-on
+   items it names (in the [CEH lab](../ceh/labs/README.md) or on a
+   [practice platform](../../learning/platforms.md)), map each attack or control to the
+   [attack → defense matrix](../../attack-to-defense-matrix.md), then take that domain's
+   [practice questions](exam-prep/practice-questions.md). Log every miss.
+4. **Rehearse the PBQs** — performance-based questions open the exam and eat the clock; the
+   study plan's PBQ section tells you how to drill them. Pace to remember: 90 questions in 90 minutes: one minute per item, and PBQs take longer.
+5. **Pass the readiness gate** — every domain ≥ 80% on a second, spaced attempt; a timed
+   full mixed set ≥ 85%; the [cheat sheet](exam-prep/cheat-sheet.md) · [acronyms](reference/acronyms.md) · [glossary](reference/glossary.md) automatic; no open weak-area row older than a week.
+6. **Exam week** — logistics (ID, online-proctoring check or test-centre rules) three days
+   out; final drill of the weak-area log; the exam-day tactics in the
+   [CEH exam strategy](../ceh/EXAM-STRATEGY.md) apply unchanged to CompTIA multiple choice.
+7. **After** — note CompTIA's continuing-education renewal rule from the objectives page and
+   calendar it; return to the [roadmap](../../learning/roadmap.md) for the next milestone.
+
+### 📈 Track it
+
+| # | Domain | Weight | Read | Hands-on | Practice 1 | Practice 2 (spaced) |
+|---|--------|--------|:----:|:--------:|:----------:|:-------------------:|
+| 1 | [General Security Concepts](domains/01-general-security-concepts.md) | 12% | ☐ | ☐ | ____% | ____% |
+| 2 | [Threats, Vulnerabilities & Mitigations](domains/02-threats-vulnerabilities-mitigations.md) | 22% | ☐ | ☐ | ____% | ____% |
+| 3 | [Security Architecture](domains/03-security-architecture.md) | 18% | ☐ | ☐ | ____% | ____% |
+| 4 | [Security Operations](domains/04-security-operations.md) | 28% | ☐ | ☐ | ____% | ____% |
+| 5 | [Security Program Management & Oversight](domains/05-security-program-management-oversight.md) | 20% | ☐ | ☐ | ____% | ____% |
+
+- [ ] Objectives PDF downloaded · self-assessment done · exam date `__________`
+- [ ] Timed full mixed set: ____% (target ≥ 85%) · exam booked `__________` · passed `__________`
 
 ## 🗺️ The five domains
 

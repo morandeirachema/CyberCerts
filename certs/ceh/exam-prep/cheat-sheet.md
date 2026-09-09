@@ -1,6 +1,6 @@
 # CEH v13 Cheat Sheet
 
-A dense, last-mile quick reference for the **Certified Ethical Hacker (CEH) v13** knowledge exam (code **312-50v13**). Use it for spaced review and final-week drilling, paired with the [study-plan.md](study-plan.md) and [practice-questions.md](practice-questions.md).
+A dense, last-mile quick reference for the **Certified Ethical Hacker (CEH) v13** knowledge exam (code **312-50v13**). Use it for spaced review and final-week drilling, paired with the [12-week study plan](../STUDY-PLAN.md) and [practice-questions.md](practice-questions.md).
 
 > 🧾 **Hands-on cheatsheets:** the course's [cheatsheets/](../cheatsheets/README.md) (ports, nmap, Metasploit, hashcat, AD, web/SQLi, Wireshark…) complement this exam-day sheet.
 
@@ -170,7 +170,7 @@ Learn one tool per category — the exam tests "which tool for which job".
 
 ## Where to go next
 
-- [study-plan.md](study-plan.md) — the schedule that builds toward this reference.
+- [../STUDY-PLAN.md](../STUDY-PLAN.md) — the schedule that builds toward this reference.
 - [practice-questions.md](practice-questions.md) — apply these facts under exam conditions.
 - [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md) — credential family and program overview.
 - [../reference/acronyms.md](../reference/acronyms.md) — full acronym expansions.
