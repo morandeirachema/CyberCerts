@@ -297,6 +297,8 @@
       
         
       
+        
+      
     
     
     
@@ -366,6 +368,34 @@
     
   
     Roadmap (sysadmin → PAM architect)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning/how-to-prepare-a-cert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to prepare a certification
   
 
     
@@ -3949,9 +3979,9 @@
         
       
         
-      
-        
           
+        
+      
         
       
     
@@ -4002,34 +4032,6 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="exam-prep/study-plan/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Study plan (concept track)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -4171,6 +4173,34 @@
 
               
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="resources/practice-labs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice kit (labs, drills, platforms)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -7811,10 +7841,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-here-pick-your-path" class="md-nav__link">
+  <a href="#prepare-for-the-exam-the-procedure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Start here — pick your path
+        🛠️ Prepare for the exam — the procedure
       
     </span>
   </a>
@@ -7833,10 +7863,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-study-loop" class="md-nav__link">
+  <a href="#the-study-loop-every-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔁 The study loop
+        🔁 The study loop (every module)
       
     </span>
   </a>
@@ -7924,7 +7954,7 @@
 
 # 🎯 Certified Ethical Hacker (CEH v13) — Study Hub & Full Course
 
-### Concept pages, a 20-module course with labs and flashcards, and exam prep — written from a **sysadmin / PAM defender** point of view
+### A step-by-step preparation guide: concept pages, a 20-module course with labs and flashcards, one 12-week plan and a readiness gate — written from a **sysadmin / PAM defender** point of view
 
 ![Version](https://img.shields.io/badge/CEH-v13%20(312--50)-red)
 ![Modules](https://img.shields.io/badge/modules-20%2F20-blue)
@@ -7965,7 +7995,7 @@ specifics at <a href="https://www.eccouncil.org/">eccouncil.org</a>.</p>
 <tbody>
 <tr>
 <td><strong>Concept pages</strong> — one page per module, Mermaid flows, tools by phase, countermeasures</td>
-<td><a href="00-overview/what-is-ceh/">00-overview/</a> · <a href="domains/">domains/</a> · <a href="tools/tools-by-phase/">tools/</a> · <a href="exam-prep/study-plan/">exam-prep/</a> · <a href="career/ceh-career-and-adjacent-certs/">career/</a> · <a href="reference/glossary/">reference/</a></td>
+<td><a href="00-overview/what-is-ceh/">00-overview/</a> · <a href="domains/">domains/</a> · <a href="tools/tools-by-phase/">tools/</a> · <a href="exam-prep/practice-questions/">exam-prep/</a> · <a href="career/ceh-career-and-adjacent-certs/">career/</a> · <a href="reference/glossary/">reference/</a></td>
 <td>A fast, source-grounded read of <em>what</em> each module covers</td>
 </tr>
 <tr>
@@ -7985,32 +8015,53 @@ control → test → drill → track.</strong></p>
     M --&gt; C["5 · Clearing Tracks&lt;br/&gt;anti-forensics"]</code></pre>
 <p>See <strong><a href="00-overview/five-phases-of-hacking/">five-phases-of-hacking.md</a></strong> for the
 phase → module mapping and the Cyber Kill Chain / MITRE ATT&amp;CK alignment.</p>
-<h2 id="start-here-pick-your-path">🚀 Start here — pick your path<a class="headerlink" href="#start-here-pick-your-path" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>🧭 <strong>Want the whole journey?</strong> <a href="ROADMAP/">ROADMAP.md</a> sequences everything into a
-beginner → master ladder with checkpoints and a self-assessment matrix.</p>
-</blockquote>
+<h2 id="prepare-for-the-exam-the-procedure">🛠️ Prepare for the exam — the procedure<a class="headerlink" href="#prepare-for-the-exam-the-procedure" title="Permanent link">&para;</a></h2>
+<p>This hub is a <strong>preparation guide</strong>, not a reading list. Work it in this order; the method
+behind it is the repo-wide <a href="../../learning/how-to-prepare-a-cert/">how to prepare a certification</a>.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["1 · Commit&lt;br/&gt;date · eligibility&lt;br/&gt;blueprint PDF"] --&gt; B["2 · Set up&lt;br/&gt;lab · Kali basics&lt;br/&gt;self-assess"]
+    B --&gt; C["3 · 12 weeks&lt;br/&gt;2 modules a week&lt;br/&gt;read · lab · map · test"]
+    C --&gt; D["4 · Readiness gate&lt;br/&gt;80% per module&lt;br/&gt;85% full mock"]
+    D --&gt; E["5 · Exam week&lt;br/&gt;strategy · logistics"]
+    E --&gt; F["6 · Optional&lt;br/&gt;CEH Practical&lt;br/&gt;→ CEH Master"]</code></pre>
+<ol>
+<li><strong>Commit</strong> — pick a target date; choose your eligibility route (official training or the
+   experience-based application) and fill the <em>verify</em> fields in
+   <a href="EXAM-LOGISTICS/">EXAM-LOGISTICS.md</a>; download the official blueprint PDF and record its
+   weights there. Read <a href="00-overview/exam-and-eligibility/">exam &amp; eligibility</a> and
+   <a href="00-overview/legal-and-ethics/">legal &amp; ethics</a>.</li>
+<li><strong>Set up</strong> — stand up the <a href="labs/">lab</a>; if you are new to Linux, do the
+   <a href="kali/">Kali course</a> chapters 00–05; score yourself on the
+   <a href="ROADMAP/#where-are-you--competency-self-assessment">competency matrix</a>; open
+   <a href="PROGRESS/">PROGRESS.md</a>.</li>
+<li><strong>Follow the <a href="STUDY-PLAN/">12-week study plan</a></strong> — two modules a week, each through the
+   loop below: concept page → module guide → lab → Defender &amp; PAM mapping → practice
+   questions → flashcards → tracker. Run the <a href="labs/capstone/">capstone chain</a> from Week 3.
+   The <strong><a href="resources/practice-labs/">practice kit</a></strong> lists what to practise with each week:
+   the repo's lab, drills and mocks, then the external platforms that add what the lab cannot.</li>
+<li><strong>Pass the readiness gate</strong> — every module ≥ 80% on its practice set, the
+   <a href="MOCK-EXAM/">50-question</a> and <a href="MOCK-EXAM-FULL/">125-question timed</a> mocks ≥ 85%, the
+   <a href="RAPID-FIRE/">rapid-fire bank</a> and <a href="exam-prep/cheat-sheet/">cheat sheet</a> automatic.
+   The gate is spelled out at the end of the <a href="STUDY-PLAN/#weeks-12-and-beyond--the-readiness-gate">plan</a>.</li>
+<li><strong>Exam week</strong> — <a href="EXAM-STRATEGY/">EXAM-STRATEGY.md</a>: the study system, the test-day
+   tactics, the trap pairs and the day-of checklist.</li>
+<li><strong>CEH Practical (optional)</strong> — the <a href="practical/">practical/</a> skills checklist,
+   playbooks and timed drills for the 6-hour range; pass both exams for <strong>CEH Master</strong>.</li>
+</ol>
+<p><strong>Entry points by profile</strong> (the procedure is the same; the starting emphasis differs):</p>
 <ul>
-<li>🌱 <strong>New to Linux / hacking</strong> — begin with the <a href="kali/">Kali course</a> (chapter
-  <a href="kali/00-getting-started/">00</a>), stand up the <a href="labs/">lab</a>, then work the
-  <a href="modules/">modules</a> in order.</li>
-<li>⏱️ <strong>Know the tech, need the cert</strong> — read <a href="EXAM-STRATEGY/">EXAM-STRATEGY.md</a>, then per
-  module skim the guide and drill its <code>facts.md</code>, <code>practice-questions.md</code> and
-  <code>flashcards.csv</code>; check yourself with the <a href="MOCK-EXAM/">50-</a> and
-  <a href="MOCK-EXAM-FULL/">125-question</a> mocks. <a href="BLUEPRINT-COVERAGE/">BLUEPRINT-COVERAGE.md</a>
-  confirms nothing is missing.</li>
-<li>🛡️ <strong>Sysadmin / PAM engineer</strong> — start with the <a href="defender-pam/">defender-pam/</a>
-  knowledge base and <a href="defender-pam/identity-attack-paths/">identity attack paths</a>, run the
-  <a href="labs/capstone/">capstone chain</a> to see attack → control end-to-end, then read the
-  modules for the offensive detail. For industrial / critical infrastructure, work the
-  <a href="ot-security/">ot-security/</a> curriculum.</li>
-<li>🤖 <strong>Curious about v13's AI focus</strong> — read
-  <a href="00-overview/ai-in-ethical-hacking/">AI in ethical hacking</a> and
-  <a href="AI-IN-ETHICAL-HACKING/">AI-IN-ETHICAL-HACKING.md</a>, then study with
+<li>🌱 <strong>New to Linux / hacking</strong> — Kali course first, then the plan from Week 1. The
+  <a href="ROADMAP/">beginner → master roadmap</a> sequences the whole journey with checkpoints.</li>
+<li>⏱️ <strong>Know the tech, need the cert</strong> — skim each module guide, drill <code>facts.md</code>,
+  <code>practice-questions.md</code> and <code>flashcards.csv</code>, and go straight to the mocks;
+  <a href="BLUEPRINT-COVERAGE/">BLUEPRINT-COVERAGE.md</a> confirms nothing is missing.</li>
+<li>🛡️ <strong>Sysadmin / PAM engineer</strong> — start with <a href="defender-pam/">defender-pam/</a> and
+  <a href="defender-pam/identity-attack-paths/">identity attack paths</a>, run the capstone to see
+  attack → control end-to-end, then work the plan; for industrial estates add
+  <a href="ot-security/">ot-security/</a>.</li>
+<li>🤖 <strong>v13's AI focus</strong> — <a href="00-overview/ai-in-ethical-hacking/">AI in ethical hacking</a>,
+  <a href="AI-IN-ETHICAL-HACKING/">AI-IN-ETHICAL-HACKING.md</a> and the drill prompts in
   <a href="AI-STUDY-WORKFLOW/">AI-STUDY-WORKFLOW.md</a>.</li>
-<li>🏆 <strong>Going for CEH Master (the hands-on Practical)</strong> — work the
-  <a href="practical/">practical/</a> section: skills checklist, challenge playbooks, and timed
-  drills for the 6-hour performance exam.</li>
 </ul>
 <h2 id="exam-at-a-glance">📋 Exam at a glance<a class="headerlink" href="#exam-at-a-glance" title="Permanent link">&para;</a></h2>
 <table>
@@ -8047,7 +8098,7 @@ beginner → master ladder with checkpoints and a self-assessment matrix.</p>
 <a href="EXAM-LOGISTICS/">EXAM-LOGISTICS.md</a>. EC-Council publishes per-domain blueprint weights
 inconsistently across public sources, so this hub does <strong>not</strong> print made-up weights —
 download the official blueprint PDF and record the real ones yourself.</p>
-<h2 id="the-study-loop">🔁 The study loop<a class="headerlink" href="#the-study-loop" title="Permanent link">&para;</a></h2>
+<h2 id="the-study-loop-every-module">🔁 The study loop (every module)<a class="headerlink" href="#the-study-loop-every-module" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart LR
     R["1. READ&lt;br/&gt;concept page + module guide"] --&gt; L["2. LAB&lt;br/&gt;lab-walkthrough.md"]
     L --&gt; M["3. MAP&lt;br/&gt;Defender &amp; PAM section"]
@@ -8056,22 +8107,10 @@ download the official blueprint PDF and record the real ones yourself.</p>
     D --&gt; K["6. TRACK&lt;br/&gt;PROGRESS.md"]
     K -.-&gt;|"spaced repetition"| F["facts.md&lt;br/&gt;final-week cram"]
     F -.-&gt; R</code></pre>
-<ol>
-<li><strong>Read</strong> the module's concept page (<a href="domains/">domains/</a>) and its course guide
-   (<code>modules/NN-*/README.md</code>).</li>
-<li><strong>Lab</strong> the <code>lab-walkthrough.md</code> against <strong>your</strong> targets; record results in the module's
-   lab-log table.</li>
-<li><strong>Map</strong> the Defender &amp; PAM section — the retention hook (deep dives in
-   <a href="defender-pam/">defender-pam/</a>).</li>
-<li><strong>Test</strong> with <code>practice-questions.md</code>; aim for ≥ 80% before moving on.</li>
-<li><strong>Drill</strong> <code>flashcards.csv</code> — run the terminal quiz (<code>python3 scripts/quiz.py --module 06</code>)
-   or import into Anki (see <a href="scripts/">scripts/</a>).</li>
-<li><strong>Track</strong> in <a href="PROGRESS/">PROGRESS.md</a>; log every miss and re-test it first next session.</li>
-</ol>
-<p>Keep <a href="GLOSSARY/">GLOSSARY.md</a> (course) and the <a href="reference/glossary/">glossary</a> /
-<a href="reference/acronyms/">acronyms</a> pages open for lookups. In the final weeks drill each
-module's <code>facts.md</code>, the <a href="cheatsheets/">cheatsheets</a>, the
-<a href="exam-prep/cheat-sheet/">cheat sheet</a>, and the <a href="RAPID-FIRE/">rapid-fire bank</a>.</p>
+<p>Move on at <strong>≥ 80%</strong> on the module's practice set; log every miss in the weak-area log and
+re-test it first next session. Drill flashcards with <code>python3 scripts/quiz.py --module 06</code>
+or import them into Anki (<a href="scripts/">scripts/</a>). Keep <a href="GLOSSARY/">GLOSSARY.md</a>,
+the <a href="reference/glossary/">glossary</a> and <a href="reference/acronyms/">acronyms</a> open for lookups.</p>
 <h2 id="the-20-modules-official-ceh-v13-order">📚 The 20 modules (official CEH v13 order)<a class="headerlink" href="#the-20-modules-official-ceh-v13-order" title="Permanent link">&para;</a></h2>
 <p>Each row links the <strong>concept page</strong> and the <strong>course folder</strong> (guide + <code>facts.md</code> ·
 <code>practice-questions.md</code> · <code>flashcards.csv</code> · <code>lab-walkthrough.md</code>).</p>
@@ -8286,8 +8325,8 @@ certification track — this repo does not cover vendor PAM certifications.</p>
 <p>Run the course's validator from this folder: <code>python3 scripts/validate.py</code> (also run in CI).</p>
 <h2 id="everything-here-clickable-index">📦 Everything here (clickable index)<a class="headerlink" href="#everything-here-clickable-index" title="Permanent link">&para;</a></h2>
 <p><strong>Orient:</strong> <a href="ROADMAP/">Roadmap (beginner → master)</a> · <a href="00-overview/what-is-ceh/">What is CEH</a> · <a href="00-overview/exam-and-eligibility/">Exam &amp; eligibility</a> · <a href="00-overview/legal-and-ethics/">Legal &amp; ethics</a> · <a href="00-overview/engagement-methodology-and-reporting/">Engagement methodology &amp; reporting</a> · <a href="KNOWN-LIMITATIONS/">Known limitations</a></p>
-<p><strong>Study the theory:</strong> <a href="domains/">Concept pages 01–20</a> · <a href="modules/">Course modules 01–20</a> · <a href="STUDY-PLAN/">Study plan (12 weeks)</a> · <a href="exam-prep/study-plan/">Study plan (concept track)</a> · <a href="EXAM-STRATEGY/">Exam strategy</a> · <a href="GLOSSARY/">Glossary</a> · <a href="BLUEPRINT-COVERAGE/">Blueprint coverage</a> · <a href="PROGRESS/">Progress tracker</a> · <a href="EXAM-LOGISTICS/">Exam logistics</a></p>
-<p><strong>Learn the tools &amp; do labs:</strong> <a href="kali/">Kali course</a> · <a href="KALI-TUTORIAL/">Kali reference</a> · <a href="labs/">Lab environment</a> · <a href="labs/capstone/">Capstone chain</a> · <a href="cheatsheets/">Cheatsheets</a> · <a href="tools/tools-by-phase/">Tools by phase</a></p>
+<p><strong>Study the theory:</strong> <a href="domains/">Concept pages 01–20</a> · <a href="modules/">Course modules 01–20</a> · <a href="STUDY-PLAN/">The 12-week study plan</a> · <a href="EXAM-STRATEGY/">Exam strategy</a> · <a href="GLOSSARY/">Glossary</a> · <a href="BLUEPRINT-COVERAGE/">Blueprint coverage</a> · <a href="PROGRESS/">Progress tracker</a> · <a href="EXAM-LOGISTICS/">Exam logistics</a></p>
+<p><strong>Learn the tools &amp; do labs:</strong> <a href="resources/practice-labs/">Practice kit</a> · <a href="kali/">Kali course</a> · <a href="KALI-TUTORIAL/">Kali reference</a> · <a href="labs/">Lab environment</a> · <a href="labs/capstone/">Capstone chain</a> · <a href="cheatsheets/">Cheatsheets</a> · <a href="tools/tools-by-phase/">Tools by phase</a></p>
 <p><strong>Pass the exams:</strong> <a href="exam-prep/practice-questions/">Practice questions (concept track)</a> · <a href="exam-prep/cheat-sheet/">Cheat sheet</a> · <a href="MOCK-EXAM/">Mock exam — 50 Q</a> · <a href="MOCK-EXAM-FULL/">Full mock — 125 Q</a> · <a href="RAPID-FIRE/">Rapid-fire bank — 200 Q</a> · <a href="practical/">CEH Practical prep</a> · <a href="practical/challenge-lab/">Challenge generator</a> · <a href="practical/drills/">Drill packs</a> · <a href="practical/exams/">Simulated exams</a></p>
 <p><strong>Go deeper:</strong> <a href="defender-pam/">Defender / PAM</a> · <a href="ot-security/">OT / ICS security</a> · <a href="defender-pam/identity-attack-paths/">Identity attack paths</a> · <a href="defender-pam/detection-engineering/">Detection engineering</a> · <a href="AI-IN-ETHICAL-HACKING/">AI-driven hacking</a> · <a href="AI-STUDY-WORKFLOW/">AI study workflow</a> · <a href="career/ceh-career-and-adjacent-certs/">Career &amp; adjacent certs</a> · <a href="resources/">Resources</a> · <a href="resources/deep-references/">Deep references</a></p>
 <h2 id="official-ec-council-references">🔗 Official EC-Council references<a class="headerlink" href="#official-ec-council-references" title="Permanent link">&para;</a></h2>

@@ -297,6 +297,8 @@
       
         
       
+        
+      
     
     
     
@@ -366,6 +368,34 @@
     
   
     Roadmap (sysadmin → PAM architect)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning/how-to-prepare-a-cert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to prepare a certification
   
 
     
@@ -3947,9 +3977,9 @@
         
       
         
-      
-        
           
+        
+      
         
       
     
@@ -4000,34 +4030,6 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ceh/exam-prep/study-plan/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Study plan (concept track)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -4169,6 +4171,34 @@
 
               
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/resources/practice-labs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice kit (labs, drills, platforms)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -7800,6 +7830,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#prepare-for-it-the-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Prepare for it — the procedure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Prepare for it — the procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#track-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Track it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#whats-inside" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7875,7 +7933,7 @@
 
 # 🟣 PNPT — Study Hub
 
-### A source-grounded study hub for the **TCM Security PNPT**
+### A step-by-step preparation guide for the **TCM Security PNPT**
 
 *Engagement workflow, real diagrams, and exam prep* — a **fully practical** network
 penetration test: OSINT → external → Active Directory → report → a **live debrief**.
@@ -7932,6 +7990,86 @@ terms) should be re-checked there. Compiled <strong>2026-06-21</strong>.</p>
 </tbody>
 </table>
 <p>Full details: <strong><a href="00-overview/exam-structure/">exam structure</a></strong>.</p>
+<h2 id="prepare-for-it-the-procedure">🛠️ Prepare for it — the procedure<a class="headerlink" href="#prepare-for-it-the-procedure" title="Permanent link">&para;</a></h2>
+<p>This hub is a <strong>preparation guide</strong> for an engagement-style exam: five days of assessment, a
+professional report, and a live debrief. The method is the repo-wide
+<a href="../../learning/how-to-prepare-a-cert/">how to prepare a certification</a>; the readiness rule below is this repo's, not
+TCM Security's.</p>
+<ol>
+<li><strong>Commit</strong> — read <a href="00-overview/exam-structure/">exam structure</a> and confirm the current
+   bundle, retake and validity terms on <a href="https://certifications.tcm-sec.com/pnpt/">TCM's page</a>.
+   Set a date once the AD lab is built and the full workflow has been practised at least once.</li>
+<li><strong>Check the entry level</strong> — the plan's prerequisites section and its "PJPT / fundamentals
+   first" advice; you need the <a href="../ceh/">CEH</a> breadth, working Linux CLI skills and
+   AD basics (<a href="../../prerequisites/windows-and-active-directory/">Windows &amp; AD</a>).</li>
+<li><strong>Build the AD lab</strong> — the plan's lab section; the repo's own
+   <a href="../ceh/labs/">Ansible AD lab</a> with its tiered-admin model is a ready target.</li>
+<li><strong>Follow the <a href="exam-prep/study-plan/">study plan</a></strong> through the five
+   <a href="topics/">engagement phases</a>: OSINT → external → AD exploitation → lateral
+   movement → reporting. For each: read the page, do it in the lab, write the finding up.</li>
+<li><strong>Rehearse the deliverables</strong> — a full report from your lab notes using a professional
+   template, and the <strong>15-minute debrief</strong> spoken aloud to someone, twice. The report and
+   debrief are graded; the shell is only the evidence.</li>
+<li><strong>Pass the readiness gate</strong> — the full workflow (external foothold → domain compromise)
+   completed end-to-end in the lab from your own notes; report and debrief rehearsed; no
+   open weak-area row.</li>
+<li><strong>Exam week and after</strong> — the plan's exam logistics; then note the certificate's terms,
+   and return to the <a href="../../learning/roadmap/">roadmap</a>. The defender's view of every step
+   is the <a href="../../attack-to-defense-matrix/">attack → defense matrix</a>.</li>
+</ol>
+<h3 id="track-it">📈 Track it<a class="headerlink" href="#track-it" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Engagement phase</th>
+<th style="text-align: center;">Read</th>
+<th style="text-align: center;">Done in the lab</th>
+<th style="text-align: center;">Written up</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="topics/01-osint-and-reconnaissance/">OSINT &amp; reconnaissance</a></td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="topics/02-external-penetration-testing/">External penetration testing</a></td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="topics/03-active-directory-exploitation/">Active Directory exploitation</a></td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="topics/04-lateral-movement-and-pivoting/">Lateral movement &amp; pivoting</a></td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="topics/05-reporting-and-the-debrief/">Reporting &amp; the debrief</a></td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>[ ] AD lab built · full workflow end-to-end <code>__________</code> · report drafted · debrief rehearsed ×2</li>
+<li>[ ] Exam booked <code>__________</code> · passed <code>__________</code></li>
+</ul>
 <h2 id="whats-inside">📦 What's inside<a class="headerlink" href="#whats-inside" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

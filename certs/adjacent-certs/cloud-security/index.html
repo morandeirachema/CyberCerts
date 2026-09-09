@@ -297,6 +297,8 @@
       
         
       
+        
+      
     
     
     
@@ -366,6 +368,34 @@
     
   
     Roadmap (sysadmin → PAM architect)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning/how-to-prepare-a-cert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to prepare a certification
   
 
     
@@ -3947,9 +3977,9 @@
         
       
         
-      
-        
           
+        
+      
         
       
     
@@ -4000,34 +4030,6 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ceh/exam-prep/study-plan/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Study plan (concept track)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -4169,6 +4171,34 @@
 
               
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ceh/resources/practice-labs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice kit (labs, drills, platforms)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -7403,6 +7433,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-to-prepare-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to prepare it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#study-resources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8003,6 +8044,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-to-prepare-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to prepare it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#study-resources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8202,6 +8254,28 @@
 <li><strong>Relation to PAM (privileged cloud identities):</strong> The cloud's biggest risk is <strong>over-permissioned identities</strong> — root accounts, admin roles, access keys, and service principals. A <strong>Privileged Access Management (PAM)</strong> solution brokers, vaults, rotates, and records access to these privileged cloud identities, enforcing the <strong>least-privilege</strong> and <strong>just-in-time</strong> access that AZ-500/SC-500 (Entra ID) and AWS Security (IAM) teach you to configure. Cloud security certifications teach you <em>how the platform's access model works</em>; PAM is <em>how you keep that access controlled and auditable</em>. See <a href="../../../foundations/what-is-pam/">what is PAM</a> and the <a href="../../ceh/defender-pam/pam-playbook/">PAM playbook</a>.</li>
 <li><strong>Relation to <a href="../../ceh/">CEH</a>:</strong> The <strong><a href="../../ceh/domains/19-cloud-computing/">CEH cloud-computing module</a></strong> introduces the same <strong>shared-responsibility model</strong>, IaaS/PaaS/SaaS distinctions, container and serverless risks, and <strong>misconfiguration</strong> as the leading breach cause. CEH frames these from a <strong>testing/offensive</strong> angle; the vendor and CCSP/CCSK exams frame them from a <strong>build-and-defend</strong> angle. They reinforce each other.</li>
 </ul>
+<h2 id="how-to-prepare-it">How to prepare it<a class="headerlink" href="#how-to-prepare-it" title="Permanent link">&para;</a></h2>
+<p>Apply the repo-wide <a href="../../../learning/how-to-prepare-a-cert/">preparation method</a> with the adjustments cloud exams need
+(this page is an orientation; there is no repo study plan for these certs yet):</p>
+<ol>
+<li><strong>Commit</strong> — pick the platform your estate actually runs (Azure → the SC-500 successor,
+   since AZ-500 retired on 2026-08-31 per the note above; AWS → Security Specialty, SCS-C03;
+   CCSP or CCSK if the goal is vendor-neutral breadth) and confirm the current exam code,
+   format and price on the provider page below.</li>
+<li><strong>Objectives</strong> — the provider's skills outline / exam guide is the coverage map; the
+   providers publish per-area weights, so plan weight-first.</li>
+<li><strong>Hands-on is the study loop</strong> — open a free-tier account you own and build every
+   objective: identity roles and privileged-role activation, key vaults and secrets
+   managers, logging and alerting, network controls. Reading alone does not pass these
+   exams. Map each control to its on-premises PAM equivalent
+   (<a href="../../../foundations/what-is-pam/">what is PAM</a>, <a href="../../../foundations/core-concepts-least-privilege-jit-zero-trust/">least privilege / JIT</a>).</li>
+<li><strong>Test</strong> with the provider's official practice assessment where one exists, log every
+   miss, drill spaced.</li>
+<li><strong>Readiness gate</strong> — every objective area ≥ 80% on a second attempt; a timed full
+   practice set ≥ 85%; every hands-on objective done at least once from memory.</li>
+<li><strong>After</strong> — note the provider's renewal rule (Microsoft renews online yearly; AWS and
+   ISC2 have their own cycles — <em>verify on the provider page</em>) and calendar it.</li>
+</ol>
 <h2 id="study-resources">Study resources<a class="headerlink" href="#study-resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Microsoft AZ-500 / SC-500:</strong> official study guides and certification pages —</li>
