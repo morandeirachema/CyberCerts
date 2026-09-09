@@ -4,7 +4,7 @@
 #tags column:3
 "Security+ SY0-701 — max questions and duration?","Maximum 90 questions (MCQ + PBQ) in 90 minutes.","secplus exam format"
 "Security+ passing score and scale?","750 on a scaled 100–900 scale (not a raw percentage).","secplus exam format"
-"Security+ five domain weights (D1..D5)?","12% / 22% / 18% / 28% / 20% — Security Operations (D4) is the largest.","secplus exam format"
+"Security+ five domain weights (D1..D5)?","12% / 22% / 18% / 28% / 20% — Security Operations (D4) is the largest (verify on CompTIA — weightings change per exam version).","secplus exam format"
 "Security+ recommended (not required) experience?","CompTIA Network+ and about two years in a security or sysadmin role.","secplus exam format"
 "What is a PBQ on Security+?","A performance-based question: an interactive task (configure, match, order, interpret output) rather than a pick-an-answer item.","secplus exam format"
 "Security control categories (the nature of the control)?","Technical, managerial, operational, physical.","secplus d1 controls"

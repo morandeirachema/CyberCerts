@@ -2,13 +2,13 @@
 #html:true
 #columns:Front,Back,Tags
 #tags column:3
-"PNPT exam — three phases?","A 5-day practical assessment, a 2-day report window, then a live 15-minute debrief.","pnpt exam format"
+"PNPT exam — three phases?","A 5-day practical assessment, a 2-day report window, then a live 15-minute debrief (verify on TCM).","pnpt exam format"
 "Does the PNPT use flags or multiple-choice questions?","No — no flags and no multiple choice; you must demonstrate real compromise and prove it.","pnpt exam format"
-"PNPT tooling rule?","All tools are allowed, provided you disclose what you used in the report.","pnpt exam format"
-"PNPT attempts and retake policy?","One attempt plus one free retake; the debrief gives direct feedback even on a fail.","pnpt exam format"
-"Who runs the PNPT and how long is it valid?","TCM Security; the credential is non-expiring (per TCM, 2023-04-17).","pnpt exam format"
+"PNPT tooling rule?","All tools are allowed, provided you disclose what you used in the report (verify on TCM).","pnpt exam format"
+"PNPT attempts and retake policy?","One attempt plus one free retake (verify on TCM); the debrief gives direct feedback even on a fail.","pnpt exam format"
+"Who runs the PNPT and how long is it valid?","TCM Security; the credential is non-expiring (per TCM, 2023-04-17 — verify on TCM).","pnpt exam format"
 "What is the win condition of the PNPT assessment?","Compromising the Domain Controller after breaking in from outside and moving through Active Directory.","pnpt exam format"
-"What does TCM recommend taking before the PNPT?","The Practical Junior Penetration Tester (PJPT), which builds the AD exploitation reflexes the PNPT depends on.","pnpt exam format"
+"What does TCM recommend taking before the PNPT?","The Practical Junior Penetration Tester (PJPT), which builds the AD exploitation reflexes the PNPT depends on (verify on TCM).","pnpt exam format"
 "What is graded in the live debrief besides exploitation?","Communication — you explain what you did, why, and how you would remediate it, as a consultant would.","pnpt exam format"
 "What does the PNPT engagement start with?","OSINT — Open-Source Intelligence — mapping the organization's exposed footprint.","pnpt p1 osint"
 "What is OSINT?","Intelligence collected from public, legally accessible sources — no intrusion required, and largely passive so it is hard to detect.","pnpt p1 osint"

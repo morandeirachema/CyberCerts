@@ -9152,7 +9152,7 @@
 <li>accept SSH (TCP 22) only from the management network <code>10.0.9.0/24</code>;</li>
 <li>accept nothing else.</li>
 </ul>
-<p>The firewall evaluates rules <strong>top-down, first match wins</strong>. From the candidate rules below, select the rules needed and put them in a correct order. Unselected rules are not deployed.</p>
+<p>The firewall evaluates rules <strong>top-down, first match wins</strong>, and has <strong>no implicit deny</strong>: the deployed rule set itself must enforce "accept nothing else." From the candidate rules below, select the rules needed and put them in a correct order. Unselected rules are not deployed.</p>
 <table>
 <thead>
 <tr>
@@ -9219,7 +9219,7 @@
 <li>Restoring a file server from last night's backup after a ransomware event.</li>
 <li>A firewall rule that blocks inbound Telnet.</li>
 <li>A sign reading "Area under video surveillance" at the loading dock.</li>
-<li>A documented risk-assessment process that management runs every year.</li>
+<li>A legacy SCADA controller that cannot be patched is placed on an isolated network segment behind strict firewall rules.</li>
 </ol>
 <p>Answer format: eight rows of <code>category / type</code>.</p>
 <h3 id="pbq-5-pick-the-cryptographic-primitive">PBQ 5: Pick the cryptographic primitive<a class="headerlink" href="#pbq-5-pick-the-cryptographic-primitive" title="Permanent link">&para;</a></h3>
@@ -9942,12 +9942,12 @@
 </tr>
 <tr>
 <td>8</td>
-<td>Annual risk-assessment process</td>
-<td>Managerial / Preventive</td>
+<td>Isolating the unpatchable SCADA controller</td>
+<td>Technical / Compensating</td>
 </tr>
 </tbody>
 </table>
-<p>Notes: the domain page lists security-awareness training as operational (carried out by people) and risk assessments and policies as managerial; a sign is both deterrent and directive, and with a surveillance wording the BEST single fit is deterrent. Accept "Managerial / Detective" for row 8 only if you can argue the assessment's purpose is to find weaknesses; the primary reading is that it prevents incidents by directing controls.</p>
+<p>Notes: the domain page lists security-awareness training as operational (carried out by people) and policies as managerial; a sign is both deterrent and directive, and with a surveillance wording the BEST single fit is deterrent. Row 8 is the compensating pattern the Domain 1 page flags ("legacy system can't support X"): the ideal control (patching) is not feasible, so isolation and segmentation stand in for it, which is exactly what the Domain 4 hardening table prescribes for ICS/SCADA. Segmentation is preventive in nature, but a control deployed specifically because the primary control is impossible is BEST typed as compensating.</p>
 <p><strong>PBQ 5 (Domain 1, <a href="../../domains/01-general-security-concepts/">Domain 1</a>):</strong></p>
 <table>
 <thead>
