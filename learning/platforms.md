@@ -11,7 +11,7 @@ defensive (blue-team) practice.
 > Anything volatile — pricing, exact subscription tiers, free-vs-paid boundaries — is stated
 > only in general terms; always **check current pricing on each platform's own site** before
 > committing. This page is the broader master list; the CEH hands-on subset lives in
-> [ceh/labs/practice-ranges.md](../certs/ceh/labs/practice-ranges.md).
+> [ceh/resources/practice-labs.md](../certs/ceh/resources/practice-labs.md).
 
 > **Authorised use only.** The hands-on offensive platforms below are legal to attack
 > **only inside the platform's own provided environment** (its hosted labs, its downloadable
@@ -177,7 +177,7 @@ flowchart TD
 ## Where to go next
 
 - [learning-roadmap.md](roadmap.md) — the certification path these platforms support.
-- [ceh/labs/practice-ranges.md](../certs/ceh/labs/practice-ranges.md) — the CEH hands-on subset of this list.
+- [ceh/resources/practice-labs.md](../certs/ceh/resources/practice-labs.md) — the CEH hands-on subset of this list.
 - [ceh/labs/building-a-ceh-lab.md](../certs/ceh/labs/building-a-ceh-lab.md) — build the isolated home lab the offline platforms complement.
 - [ceh/labs/README.md](../certs/ceh/labs/README.md) — the self-hosted Docker/Vagrant/Ansible AD lab with a tiered-admin PAM model.
 - [adjacent-certs/README.md](../certs/adjacent-certs/README.md) — overviews of the certs the vendor platforms map to.

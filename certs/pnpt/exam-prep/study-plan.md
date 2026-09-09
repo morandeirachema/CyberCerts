@@ -81,14 +81,15 @@ The 2-day report window is **only achievable if you took good notes during the a
 
 - **Capture as you go**: timestamped commands, screenshots, and the host/credential that
   enabled each step.
-- **Structure notes by finding** so they drop straight into the report template.
+- **Structure notes by finding** so they drop straight into the [report template](../../oscp/exam-prep/report-template.md).
 - **Record the full path** to DC, not just the final access — the debrief asks for it.
 
 ## Rehearse the debrief
 
 The **live 15-minute debrief** is graded and surprises many candidates.
 
-- Practice a **2-minute executive summary** and a deeper **technical walk-through** out loud.
+- Practice a **2-minute executive summary** and a deeper **technical walk-through** out loud,
+  following the [debrief outline](debrief-outline.md).
 - Be ready to **justify each step** and recommend prioritized remediation.
 - Rehearse explaining impact to a **non-technical** listener.
 

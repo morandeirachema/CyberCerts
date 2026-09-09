@@ -1,6 +1,6 @@
 # Beginner → Master Roadmap
 
-The whole repo sequenced into one ladder — from "never opened a terminal" to "operates confidently on both sides of an attack." CEH sits in the middle (Stages 1–4); Stage 5 is where you keep climbing after the cert. Work the stages in order; don't skip the foundations.
+The **CEH hub** sequenced into one ladder — from "never opened a terminal" to "operates confidently on both sides of an attack." CEH sits in the middle (Stages 1–4); Stage 5 is where you keep climbing after the cert. Work the stages in order; don't skip the foundations. (The *career* ladder across all the certs is the repo-wide [roadmap](../../learning/roadmap.md); this page is the skill ladder inside CEH.)
 
 > 🧭 **See also:** [career/ceh-career-and-adjacent-certs.md](career/ceh-career-and-adjacent-certs.md) and the repo-wide [sysadmin → PAM architect roadmap](../../learning/roadmap.md).
 
@@ -55,10 +55,10 @@ CEH proves breadth. Mastery is depth + reps + both-sides fluency. Pick a lane an
 - **VulnHub / PortSwigger Academy / PentesterLab** — downloadable targets and web-app depth.
 - Build your own bigger [home lab](labs/README.md) (add AD forests, cloud accounts, an EDR to evade/tune).
 
-**Certification ladder (optional, by goal):**
-- Foundations: CompTIA Security+ / Network+.
-- Practical pentest: **PNPT** (TCM) or **OSCP** (OffSec) — the "can you actually do it" benchmarks.
-- Specialize: OSWE (web), OSEP (evasion/AD), CRTO/CRTP (red team/AD), eCPPT, GIAC tracks, cloud (AWS/Azure security).
+**Certification ladder:** the order after CEH (CySA+, PenTest+ / PNPT / OSCP, cloud
+security, CISSP) and the reasoning behind it live in one place, the repo-wide
+[sysadmin → PAM architect roadmap](../../learning/roadmap.md); each cert's hub applies the
+same [preparation method](../../learning/how-to-prepare-a-cert.md).
 
 **Specializations to go deep in:**
 - **Active Directory / identity** (your repo already leans here — [identity attack paths](defender-pam/identity-attack-paths.md), BloodHound, ADCS).

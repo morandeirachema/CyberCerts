@@ -87,8 +87,8 @@ flowchart LR
 
 ## How to prepare it
 
-Apply the repo-wide [preparation method](../../learning/how-to-prepare-a-cert.md) with these CISSP-specific adjustments
-(this page is an orientation, not a full hub; there is no repo study plan for CISSP yet):
+Apply the repo-wide [preparation method](../../learning/how-to-prepare-a-cert.md) with these CISSP-specific adjustments.
+The week-by-week schedule and the tracker are in the **[CISSP study plan](cissp-study-plan.md)**.
 
 1. **Commit** — check the experience requirement first (five years across two domains, the
    one-year waiver, or the Associate route above); decide which route you are on before

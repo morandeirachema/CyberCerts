@@ -432,6 +432,7 @@ This request is an attempt at:
 ## Where to go next
 
 - [study-plan.md](study-plan.md) — the weight-prioritised schedule these questions support.
+- [mock-exam.md](mock-exam.md) — when every domain set is above 80%, sit the full-length timed mock (80 new MCQ in mixed order + 5 PBQ scenarios).
 - [../reference/glossary.md](../reference/glossary.md) — SOC/blue-team terms, CVSS metric groups, and frameworks these lean on.
 - [../domains/README.md](../domains/README.md) — the four domain pages written to the objectives.
 - [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) — exam format and the objectives PDF.

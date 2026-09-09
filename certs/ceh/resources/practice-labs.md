@@ -6,9 +6,14 @@ already wired to the modules), then the external platforms that add targets the 
 All of it is legal, authorised practice — **never practise on anything outside these
 environments or your own lab** ([legal & ethics](../00-overview/legal-and-ethics.md)).
 
-> 🧪 **See also:** [labs/practice-ranges.md](../labs/practice-ranges.md) for the sourced
-> description of each online range, and the repo-wide [platforms](../../../learning/platforms.md)
-> list for every stage of the path.
+> 🧪 **See also:** the repo-wide [platforms](../../../learning/platforms.md) list for every
+> stage of the path, and [building a CEH lab](../labs/building-a-ceh-lab.md) for the design
+> principles behind the self-hosted lab.
+
+> **The one rule that governs every platform:** your authorisation is limited to the targets
+> the platform provides or the machines you download and run yourself. Read each platform's
+> Terms of Service and code of conduct; they are binding. Pointing these skills at anything
+> outside that sandbox is unauthorised and illegal in most jurisdictions.
 
 ## 1. In this repo (start here — free, offline)
 
@@ -55,7 +60,23 @@ environments or your own lab** ([legal & ethics](../00-overview/legal-and-ethics
 | 12 (review) | 50-question mock, 125-question timed mock, rapid-fire bank; second capstone run with fixes applied |
 | 13–14 (Practical, optional) | All drill packs under time; Simulated Practical exams 01 and 02; EC-Council iLabs / Engage if your bundle includes them |
 
-## 4. Exam-style question practice
+## 4. A sensible progression (adapt it to your background)
+
+```mermaid
+flowchart TD
+    A["Build the isolated lab<br/>(labs/README.md)"] --> B["Fundamentals<br/>OverTheWire wargames"]
+    B --> C["Guided rooms<br/>TryHackMe learning paths"]
+    C --> D["Focused web skills<br/>PortSwigger Web Security Academy"]
+    D --> E["Open-ended machines<br/>Hack The Box / VulnHub"]
+    E --> F["CEH-aligned practice<br/>EC-Council iLabs / CEH Engage"]
+    F --> G["Exam readiness<br/>mocks + Practical drills"]
+```
+
+For a sysadmin, operating-system, networking and Active Directory strengths transfer
+directly: the beginner platforms will feel quick, so spend the time on the unfamiliar
+attacker's-perspective parts.
+
+## 5. Exam-style question practice
 
 Prefer sources that **teach** (an explanation per answer) and confirm they target CEH v13.
 The banks in this repo are original and mapped to the modules; track every score and every
@@ -65,3 +86,10 @@ to them.
 
 > If a platform ever asks you to attack a target outside its own scope, stop — that is the
 > line between practice and a crime.
+
+## Sources
+
+- EC-Council, Certified Ethical Hacker (CEH) program page (iLabs, Engage, Compete) — https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/
+- EC-Council, CEH Practical — https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh-practical/
+- Hack The Box — https://www.hackthebox.com/ · TryHackMe — https://tryhackme.com/ · PortSwigger Web Security Academy — https://portswigger.net/web-security · VulnHub — https://www.vulnhub.com/ · OverTheWire — https://overthewire.org/wargames/ · picoCTF — https://picoctf.org/ · LetsDefend — https://letsdefend.io/ · CyberDefenders — https://cyberdefenders.org/ · MITRE ATT&CK Navigator — https://mitre-attack.github.io/attack-navigator/
+- Lab images: Metasploitable 2 — https://docs.rapid7.com/metasploit/metasploitable-2/ · OWASP Juice Shop — https://owasp.org/www-project-juice-shop/ · DVWA — https://github.com/digininja/DVWA

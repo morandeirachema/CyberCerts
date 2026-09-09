@@ -21,7 +21,7 @@ professional skill ladder behind it.
 | 3 | 🟠 [pentest-plus/](pentest-plus/README.md) | CompTIA PenTest+ (PT0-003) — vendor-neutral pentesting + reporting | [10 weeks](pentest-plus/exam-prep/study-plan.md) | 5 domains, exam prep, cheat sheet, glossary |
 | 3 | 🟣 [pnpt/](pnpt/README.md) | TCM Security PNPT — practical engagement + live debrief | [plan](pnpt/exam-prep/study-plan.md) | 5 engagement phases, study plan |
 | 3 | 🔴 [oscp/](oscp/README.md) | OffSec OSCP / OSCP+ (PEN-200) — hands-on offensive (24-hour exam) | [3 phases](oscp/exam-prep/study-plan.md) | 6 skill areas, exam structure, study plan |
-| 4 | 🧩 [adjacent-certs/](adjacent-certs/README.md) | One-page overviews: CISSP, cloud security (AZ-500 / AWS), plus short orientations for Security+, OSCP, PNPT | — | Orientation pages |
+| 4 | 🧩 [adjacent-certs/](adjacent-certs/README.md) | One-page overviews: CISSP, cloud security (SC-500 / AWS), plus short orientations for Security+, OSCP, PNPT | [CISSP](adjacent-certs/cissp-study-plan.md) · [cloud](adjacent-certs/cloud-security-study-plan.md) | Orientation pages + two study plans with trackers |
 
 > **Out of scope by design:** vendor PAM certifications (WALLIX, CyberArk, Palo Alto
 > Networks…). PAM is taught vendor-neutrally in [foundations/](../foundations/README.md) and

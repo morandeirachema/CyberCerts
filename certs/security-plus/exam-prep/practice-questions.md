@@ -454,6 +454,7 @@ A bank of **50+ multiple-choice practice questions** grouped by the five CompTIA
 
 ## Where to go next
 
+- [mock-exam.md](mock-exam.md) — once every domain set is above target, sit the full-length timed mock (85 MCQ + 5 PBQ, new items, gate 85%).
 - [study-plan.md](study-plan.md) — the weight-prioritised schedule these questions support.
 - [cheat-sheet.md](cheat-sheet.md) — ports, control types, crypto facts, and the risk formulas these lean on.
 - [../domains/README.md](../domains/README.md) — the five domain pages written to the objectives.

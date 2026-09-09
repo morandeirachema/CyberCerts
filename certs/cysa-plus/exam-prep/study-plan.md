@@ -73,12 +73,12 @@ flowchart TD
 
 ### Week 6 — Practice & PBQ rehearsal — suggested ~8–10 h
 - Work the [practice questions](practice-questions.md) domain by domain; review every miss against the relevant domain page.
-- Rehearse **CySA+ PBQ-style analysis hands-on** (see tips below): read real log/SIEM excerpts, decode CVSS vectors, and order IR steps.
+- Rehearse **CySA+ PBQ-style analysis hands-on** (see tips below): read real log/SIEM excerpts, decode CVSS vectors, and order IR steps. The five text-based PBQ scenarios in the [full mock exam](mock-exam.md) are built for this — do them as a set before you sit the whole mock in Week 7.
 - **Milestone:** consistently above your target score on each domain set.
 
 ### Week 7 — Consolidation — suggested ~6–8 h
 - Drill the [glossary](../reference/glossary.md) until SOC vocabulary, CVSS metric groups, frameworks, and metrics are automatic.
-- Take **full-length timed mock exams** under exam conditions; re-read your two weakest domains.
+- Take **full-length timed mock exams** under exam conditions — start with this hub's [full mock exam](mock-exam.md) (80 MCQ + 5 PBQ in one 165-minute block; the repo's pass line is 85%); re-read your two weakest domains.
 - **Milestone:** you finish a full mock within 165 minutes with margin above a 750-equivalent.
 
 ## Performance-based questions (PBQ) practice tips
@@ -132,6 +132,7 @@ CySA+ rewards the operational instincts a sysadmin already has — reading logs,
 ## Where to go next
 
 - [practice-questions.md](practice-questions.md) — 45+ unofficial practice questions grouped by domain, including CVSS-reasoning and log-analysis items.
+- [mock-exam.md](mock-exam.md) — the full-length timed mock (80 MCQ in mixed order + 5 PBQ scenarios) with a scored answer key.
 - [../reference/glossary.md](../reference/glossary.md) — CySA+ / SOC / blue-team term reference.
 - [../domains/README.md](../domains/README.md) — the four domain pages, written to the objectives.
 - [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) — exam format, weightings, PBQs, and the objectives PDF.

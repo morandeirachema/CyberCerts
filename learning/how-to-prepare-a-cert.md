@@ -103,7 +103,8 @@ flowchart LR
 - **Test honestly**, then log every miss in a **weak-area log** (date, topic, what you got
   wrong, fixed?). Re-test the log first at the next session. Your misses are your syllabus.
 - **Drill with spacing:** day 0 learn, day 1 flashcards, day 3 questions, day 7 the fact
-  sheet, day 21 a mixed set. Anki schedules this for you; the CEH decks import directly.
+  sheet, day 21 a mixed set. Anki schedules this for you; every hub ships a
+  `flashcards.csv` deck that imports directly or drills in the terminal.
 - **Interleave** once you have several modules behind you: mix their questions, because the
   exam does.
 
@@ -131,8 +132,10 @@ dumps: they violate every exam body's candidate agreement and get certifications
 - **On the day:** compute the pace (questions ÷ minutes) and write it down. First pass fast,
   flag anything over the pace, second pass on flags, no blanks. Underline qualifiers
   (*BEST, MOST, FIRST, NOT, EXCEPT*). Change an answer only with a concrete reason.
-- **Hands-on exams** (OSCP, PNPT, CEH Practical): notes and screenshots as you go, a report
-  template ready before you start, and rest scheduled into the window.
+- **Hands-on exams** (OSCP, PNPT, CEH Practical): notes and screenshots as you go, the
+  [report template](../certs/oscp/exam-prep/report-template.md) filled in as you go, and
+  rest scheduled into the window. For the PNPT, rehearse the
+  [debrief](../certs/pnpt/exam-prep/debrief-outline.md) out loud.
 
 ### Step 8 — After the exam
 
@@ -163,13 +166,13 @@ dumps: they violate every exam body's candidate agreement and get certifications
 | Step | Where |
 |------|-------|
 | 1 · Eligibility, format, cost fields | Each hub's *exam & eligibility* / *exam structure* page; CEH: [exam logistics](../certs/ceh/EXAM-LOGISTICS.md) |
-| 2 · Coverage map | [CEH blueprint coverage](../certs/ceh/BLUEPRINT-COVERAGE.md) (worked example); the domain tables on each hub README |
+| 2 · Coverage map | [CEH blueprint coverage](../certs/ceh/BLUEPRINT-COVERAGE.md) · coverage maps for [Security+](../certs/security-plus/exam-prep/coverage-map.md) · [CySA+](../certs/cysa-plus/exam-prep/coverage-map.md) · [PenTest+](../certs/pentest-plus/exam-prep/coverage-map.md) · [OSCP](../certs/oscp/exam-prep/coverage-map.md) · [PNPT](../certs/pnpt/exam-prep/coverage-map.md) — fill the official objective numbers from the PDF |
 | 3 · Self-assessment | [CEH competency self-assessment](../certs/ceh/ROADMAP.md#where-are-you--competency-self-assessment); the [roadmap](roadmap.md) level exit criteria |
-| 4 · Plan | Each hub's study plan: [CEH](../certs/ceh/STUDY-PLAN.md) · [Security+](../certs/security-plus/exam-prep/study-plan.md) · [CySA+](../certs/cysa-plus/exam-prep/study-plan.md) · [PenTest+](../certs/pentest-plus/exam-prep/study-plan.md) · [PNPT](../certs/pnpt/exam-prep/study-plan.md) · [OSCP](../certs/oscp/exam-prep/study-plan.md) |
-| 5 · Study loop | Concept pages + labs + [attack → defense matrix](../attack-to-defense-matrix.md) + practice questions + flashcards (CEH) + [platforms](platforms.md) |
-| 6 · Mocks | [CEH 50-question](../certs/ceh/MOCK-EXAM.md) · [125-question](../certs/ceh/MOCK-EXAM-FULL.md) · [rapid-fire bank](../certs/ceh/RAPID-FIRE.md); the other hubs' practice-question sets |
+| 4 · Plan | Each hub's study plan: [CEH](../certs/ceh/STUDY-PLAN.md) · [Security+](../certs/security-plus/exam-prep/study-plan.md) · [CySA+](../certs/cysa-plus/exam-prep/study-plan.md) · [PenTest+](../certs/pentest-plus/exam-prep/study-plan.md) · [PNPT](../certs/pnpt/exam-prep/study-plan.md) · [OSCP](../certs/oscp/exam-prep/study-plan.md) · [CISSP](../certs/adjacent-certs/cissp-study-plan.md) · [cloud security](../certs/adjacent-certs/cloud-security-study-plan.md) |
+| 5 · Study loop | Concept pages + labs + [attack → defense matrix](../attack-to-defense-matrix.md) + practice questions + flashcard decks in every hub (`exam-prep/flashcards.csv`; drill any deck with `python3 certs/ceh/scripts/quiz.py --deck <file>`) + [platforms](platforms.md) + the [CEH practice kit](../certs/ceh/resources/practice-labs.md) |
+| 6 · Mocks | [CEH 50-question](../certs/ceh/MOCK-EXAM.md) · [125-question](../certs/ceh/MOCK-EXAM-FULL.md) · [rapid-fire bank](../certs/ceh/RAPID-FIRE.md); timed full mocks with PBQ-style scenarios for [Security+](../certs/security-plus/exam-prep/mock-exam.md) · [CySA+](../certs/cysa-plus/exam-prep/mock-exam.md) · [PenTest+](../certs/pentest-plus/exam-prep/mock-exam.md); hands-on exams: the [report template](../certs/oscp/exam-prep/report-template.md) and the [PNPT debrief outline](../certs/pnpt/exam-prep/debrief-outline.md) |
 | 7 · Exam week | [CEH exam strategy](../certs/ceh/EXAM-STRATEGY.md) (the tactics apply to every multiple-choice exam) |
-| 8 · Tracking | [CEH progress tracker](../certs/ceh/PROGRESS.md) (copy its structure for the other hubs) |
+| 8 · Tracking | [CEH progress tracker](../certs/ceh/PROGRESS.md); the *Track it* table in every other hub README and in the CISSP and cloud study plans |
 
 ## Sources
 

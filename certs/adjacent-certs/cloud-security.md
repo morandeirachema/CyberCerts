@@ -77,8 +77,8 @@ flowchart TD
 
 ## How to prepare it
 
-Apply the repo-wide [preparation method](../../learning/how-to-prepare-a-cert.md) with the adjustments cloud exams need
-(this page is an orientation; there is no repo study plan for these certs yet):
+Apply the repo-wide [preparation method](../../learning/how-to-prepare-a-cert.md) with the adjustments cloud exams need.
+The hands-on week-by-week schedule and the tracker are in the **[cloud security study plan](cloud-security-study-plan.md)**.
 
 1. **Commit** — pick the platform your estate actually runs (Azure → the SC-500 successor,
    since AZ-500 retired on 2026-08-31 per the note above; AWS → Security Specialty, SCS-C03;

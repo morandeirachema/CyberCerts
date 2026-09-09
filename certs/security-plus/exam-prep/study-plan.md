@@ -77,12 +77,12 @@ flowchart TD
 
 ### Week 6 — Practice & PBQ rehearsal — suggested ~8–10 h
 - Work the [practice questions](practice-questions.md) domain by domain; review every miss against the relevant domain page.
-- Rehearse **PBQ-style tasks hands-on** (see tips below).
+- Rehearse **PBQ-style tasks hands-on** (see tips below); the five text-based PBQ scenarios in the [full mock exam](mock-exam.md) are a good warm-up.
 - **Milestone:** consistently above your target score on each domain set.
 
 ### Week 7 — Consolidation — suggested ~6–8 h
 - Drill the [cheat sheet](cheat-sheet.md) until ports, control types, crypto facts, risk formulas, and acronyms are automatic.
-- Take **full-length timed mock exams** under exam conditions; re-read your two weakest domains.
+- Take the [full mock exam](mock-exam.md) (85 MCQ + 5 PBQ in one 90-minute block) under exam conditions; the hub's gate is 85%. Re-read your two weakest domains.
 - **Milestone:** you finish a full mock within 90 minutes with margin above 750-equivalent.
 
 ## Performance-based questions (PBQ) practice tips
@@ -132,6 +132,7 @@ You already do most of Domain 4 and much of Domains 1–3 — Security+ mostly *
 ## Where to go next
 
 - [practice-questions.md](practice-questions.md) — 50+ unofficial practice questions grouped by domain.
+- [mock-exam.md](mock-exam.md) — the full-length timed mock (85 MCQ + 5 PBQ) that closes the readiness gate.
 - [cheat-sheet.md](cheat-sheet.md) — dense last-mile quick reference.
 - [../domains/README.md](../domains/README.md) — the five domain pages, written to the objectives.
 - [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) — exam format, weightings, PBQs, and the objectives PDF.

@@ -6,6 +6,28 @@ Entries before 2026-09-02 come from the former *WallixCerts* repo this one grew 
 
 ## 2026-09-09
 
+### Added — closing the preparation gaps
+- **Timed full mock exams with PBQ-style scenarios** for Security+ (85 MCQ + 5 PBQ),
+  CySA+ (80 + 5) and PenTest+ (85 + 5), each with a score sheet and a keyed answer section
+  (`certs/<hub>/exam-prep/mock-exam.md`). Original items, grounded in the hub's domain pages.
+- **Coverage maps** for Security+, CySA+, PenTest+, OSCP and PNPT
+  (`exam-prep/coverage-map.md`): one row per topic the hub covers, a blank column for the
+  official objective number from the exam body's PDF, self-score and practised columns.
+- **Flashcard decks** for the same five hubs (`exam-prep/flashcards.csv`, CEH format);
+  `certs/ceh/scripts/quiz.py` gained `--deck PATH` to drill any deck.
+- **Report template** (`certs/oscp/exam-prep/report-template.md`, shared with PNPT) and a
+  **PNPT debrief outline** with a rehearsal script (`certs/pnpt/exam-prep/debrief-outline.md`).
+- **CISSP and cloud-security study plans with trackers** (`certs/adjacent-certs/`).
+- **CEH exam logistics** fields filled from EC-Council's own pages on 2026-09-09
+  (application fee, experience wording, Practical pass band, retake policy, membership fee).
+
+### Changed
+- `certs/ceh/labs/practice-ranges.md` merged into the practice kit
+  (`certs/ceh/resources/practice-labs.md`); the CEH roadmap's duplicate certification ladder
+  now points to the repo-wide roadmap.
+- Hub READMEs, study plans, the preparation method, the certs index and the site nav link
+  the new material.
+
 ### Changed — from study hub to preparation guide
 - **New repo-wide method:** `learning/how-to-prepare-a-cert.md` — the eight-step procedure
   every hub applies (commit → official objectives → self-assess → weight-driven plan → the

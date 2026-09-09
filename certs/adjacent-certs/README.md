@@ -21,8 +21,8 @@ career path.
 | **CompTIA Security+** | CompTIA | Vendor-neutral entry / baseline | [overview](security-plus.md) · **[full hub →](../security-plus/README.md)** |
 | **OSCP / OSCP+** | OffSec | Hands-on offensive (24-hour exam) | [overview](oscp.md) · **[full hub →](../oscp/README.md)** |
 | **PNPT** | TCM Security | Practical offensive (5-day exam) | [overview](pnpt.md) · **[full hub →](../pnpt/README.md)** |
-| **CISSP** | ISC2 | Senior / managerial (8 domains) | [cissp.md](cissp.md) |
-| **Cloud security** | Microsoft / AWS | Azure & AWS security (AZ-500 / SCS) | [cloud-security.md](cloud-security.md) |
+| **CISSP** | ISC2 | Senior / managerial (8 domains) | [cissp.md](cissp.md) · [study plan & tracker](cissp-study-plan.md) |
+| **Cloud security** | Microsoft / AWS | Azure & AWS security (SC-500 / SCS-C03) | [cloud-security.md](cloud-security.md) · [study plan & tracker](cloud-security-study-plan.md) |
 
 > Also as full hubs: **[CySA+](../cysa-plus/README.md)** (blue-team / SOC analyst, CS0-003)
 > and **[PenTest+](../pentest-plus/README.md)** (vendor-neutral pentesting, PT0-003).

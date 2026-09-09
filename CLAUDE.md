@@ -26,7 +26,7 @@ list — keep that framing when editing them.
 - **`certs/`** — one self-contained hub per certification, each with its own `README.md`:
   - **`certs/ceh/`** (primary) — two layers in one folder: the *concept pages*
     (`00-overview/`, `domains/`, `tools/`, `exam-prep/`, `career/`, `reference/`,
-    `labs/building-a-ceh-lab.md`, `labs/practice-ranges.md`) and the *full course* merged
+    `labs/building-a-ceh-lab.md`) and the *full course* merged
     from the CEH repo (`modules/NN-*/` with `README` + `facts.md` + `practice-questions.md`
     + `flashcards.csv` + `lab-walkthrough.md`, `kali/`, `labs/` infra, `practical/`,
     `defender-pam/`, `ot-security/`, `cheatsheets/`, `resources/`, `scripts/`, and the

@@ -73,7 +73,7 @@ The report is a **graded deliverable**: a strong hacking run with a weak report 
 
 - **Capture as you go** — every command, its output, and a screenshot showing the **host and current user**, for both `local.txt` (foothold) and `proof.txt` (full compromise).
 - **Structure for reproducibility** — a reader must be able to repeat each compromise: enumeration finding → vulnerability → steps → resulting access.
-- **Keep a clean template** and fill it live; reconstructing notes afterward against the clock is where points are lost. Reporting discipline is a core PenTest+ theme too — see [../../pentest-plus/README.md](../../pentest-plus/README.md).
+- **Keep a clean template** ([report-template.md](report-template.md)) and fill it live; reconstructing notes afterward against the clock is where points are lost. Reporting discipline is a core PenTest+ theme too — see [../../pentest-plus/README.md](../../pentest-plus/README.md).
 
 ## Suggested timeline (illustrative — not an OffSec requirement)
 

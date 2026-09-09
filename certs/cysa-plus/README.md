@@ -44,17 +44,20 @@ full mock) are that method's readiness rule, not a CompTIA figure.
    current exam code and price on [CompTIA's page](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/), and set a target date.
    Plan on roughly **7 weeks at 8–10 hours a week** (~54–70 h total, summing the plan's suggested hours) — the
    [study plan](exam-prep/study-plan.md) breaks that down.
-2. **Get the official objectives PDF** from CompTIA and keep it beside the domain table
-   below; self-score every objective 0–3 before you start (the method explains the scale).
+2. **Get the official objectives PDF** from CompTIA and fill the
+   [coverage map](exam-prep/coverage-map.md): write each official objective number next to
+   the topic row that covers it, mark any gap, and self-score every row 0–3 before you
+   start (the method explains the scale).
 3. **Study weight-first** — by weight: 1 → 2 → 3 → 4. For each domain: read the page, do the hands-on
    items it names (in the [CEH lab](../ceh/labs/README.md) or on a
    [practice platform](../../learning/platforms.md)), map each attack or control to the
    [attack → defense matrix](../../attack-to-defense-matrix.md), then take that domain's
-   [practice questions](exam-prep/practice-questions.md). Log every miss.
+   [practice questions](exam-prep/practice-questions.md). Log every miss, then
+   drill the [flashcard deck](exam-prep/flashcards.csv) with `python3 certs/ceh/scripts/quiz.py --deck certs/cysa-plus/exam-prep/flashcards.csv` (from the repo root) or import it into Anki.
 4. **Rehearse the PBQs** — performance-based questions open the exam and eat the clock; the
    study plan's PBQ section tells you how to drill them. Pace to remember: up to 85 questions in 165 minutes: about two minutes per item, PBQs longer.
-5. **Pass the readiness gate** — every domain ≥ 80% on a second, spaced attempt; a timed
-   full mixed set ≥ 85%; the [glossary](reference/glossary.md) · [Security+ acronyms](../security-plus/reference/acronyms.md) automatic; no open weak-area row older than a week.
+5. **Pass the readiness gate** — every domain ≥ 80% on a second, spaced attempt; the timed
+   [full mock exam](exam-prep/mock-exam.md) ≥ 85%; the [glossary](reference/glossary.md) · [Security+ acronyms](../security-plus/reference/acronyms.md) automatic; no open weak-area row older than a week.
 6. **Exam week** — logistics (ID, online-proctoring check or test-centre rules) three days
    out; final drill of the weak-area log; the exam-day tactics in the
    [CEH exam strategy](../ceh/EXAM-STRATEGY.md) apply unchanged to CompTIA multiple choice.
@@ -71,7 +74,7 @@ full mock) are that method's readiness rule, not a CompTIA figure.
 | 4 | [Reporting and Communication](domains/04-reporting-and-communication.md) | 17% | ☐ | ☐ | ____% | ____% |
 
 - [ ] Objectives PDF downloaded · self-assessment done · exam date `__________`
-- [ ] Timed full mixed set: ____% (target ≥ 85%) · exam booked `__________` · passed `__________`
+- [ ] Timed [full mock exam](exam-prep/mock-exam.md): ____% (target ≥ 85%) · exam booked `__________` · passed `__________`
 
 ## 🗺️ The four domains
 
@@ -95,7 +98,7 @@ flowchart LR
 |---------|----------|
 | **[Overview](00-overview/what-is-cysa-plus.md)** | [What is CySA+](00-overview/what-is-cysa-plus.md) · [Exam & objectives](00-overview/exam-and-objectives.md) |
 | **[The 4 domains](domains/README.md)** | SOC operations, vulnerability management, incident response, reporting — taught to the CS0-003 objectives |
-| **[Exam prep](exam-prep/study-plan.md)** | [Study plan](exam-prep/study-plan.md) · [Practice questions](exam-prep/practice-questions.md) |
+| **[Exam prep](exam-prep/study-plan.md)** | [Study plan](exam-prep/study-plan.md) · [Coverage map](exam-prep/coverage-map.md) · [Flashcards](exam-prep/flashcards.csv) · [Practice questions](exam-prep/practice-questions.md) · [Full mock exam](exam-prep/mock-exam.md) (80 MCQ + 5 PBQ, timed) |
 | **[Reference](reference/glossary.md)** | [Glossary](reference/glossary.md) (SOC / blue-team terms) — acronyms cross-link the [Security+ list](../security-plus/reference/acronyms.md) |
 
 ## 🧭 Where it fits
@@ -115,6 +118,7 @@ step **after** [Security+](../security-plus/README.md).
 - 🎓 [CompTIA CySA+ (official)](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/)
 - 🧠 [Glossary](reference/glossary.md) · [Security+ acronyms](../security-plus/reference/acronyms.md)
 - 🧪 [The 4 domains](domains/README.md)
+- 📝 [Practice questions](exam-prep/practice-questions.md) · [Full mock exam](exam-prep/mock-exam.md)
 
 > CompTIA and CySA+ are trademarks of CompTIA, used here for identification and educational
 > purposes only.

@@ -167,7 +167,6 @@ nav:
       - Labs:
           - certs/ceh/labs/README.md
           - Build a CEH lab: certs/ceh/labs/building-a-ceh-lab.md
-          - Practice ranges: certs/ceh/labs/practice-ranges.md
           - Topology: certs/ceh/labs/topology.md
           - Capstone chain: certs/ceh/labs/capstone.md
           - Blue-team lab: certs/ceh/labs/blue-team-lab.md
@@ -202,6 +201,8 @@ nav:
       - Exam prep:
           - Study plan: certs/cysa-plus/exam-prep/study-plan.md
           - Practice questions: certs/cysa-plus/exam-prep/practice-questions.md
+          - Full mock exam (timed): certs/cysa-plus/exam-prep/mock-exam.md
+          - Coverage map: certs/cysa-plus/exam-prep/coverage-map.md
       - Glossary: certs/cysa-plus/reference/glossary.md
   - CompTIA Security+:
       - certs/security-plus/README.md
@@ -218,6 +219,8 @@ nav:
       - Exam prep:
           - Study plan: certs/security-plus/exam-prep/study-plan.md
           - Practice questions: certs/security-plus/exam-prep/practice-questions.md
+          - Full mock exam (timed): certs/security-plus/exam-prep/mock-exam.md
+          - Coverage map: certs/security-plus/exam-prep/coverage-map.md
           - Cheat sheet: certs/security-plus/exam-prep/cheat-sheet.md
       - Reference:
           - Acronyms: certs/security-plus/reference/acronyms.md
@@ -237,6 +240,8 @@ nav:
       - Exam prep:
           - Study plan: certs/pentest-plus/exam-prep/study-plan.md
           - Practice questions: certs/pentest-plus/exam-prep/practice-questions.md
+          - Full mock exam (timed): certs/pentest-plus/exam-prep/mock-exam.md
+          - Coverage map: certs/pentest-plus/exam-prep/coverage-map.md
           - Cheat sheet: certs/pentest-plus/exam-prep/cheat-sheet.md
       - Glossary: certs/pentest-plus/reference/glossary.md
   - PNPT:
@@ -252,6 +257,8 @@ nav:
           - 4 · Lateral movement & pivoting: certs/pnpt/topics/04-lateral-movement-and-pivoting.md
           - 5 · Reporting & the debrief: certs/pnpt/topics/05-reporting-and-the-debrief.md
       - Study plan: certs/pnpt/exam-prep/study-plan.md
+      - Coverage map: certs/pnpt/exam-prep/coverage-map.md
+      - Debrief outline: certs/pnpt/exam-prep/debrief-outline.md
   - OSCP / OSCP+:
       - certs/oscp/README.md
       - Overview:
@@ -266,10 +273,14 @@ nav:
           - 5 · Active Directory attacks: certs/oscp/topics/05-active-directory-attacks.md
           - 6 · Pivoting & tunneling: certs/oscp/topics/06-pivoting-and-tunneling.md
       - Study plan: certs/oscp/exam-prep/study-plan.md
+      - Coverage map: certs/oscp/exam-prep/coverage-map.md
+      - Report template: certs/oscp/exam-prep/report-template.md
   - Architect level (adjacent certs):
       - certs/adjacent-certs/README.md
       - CISSP: certs/adjacent-certs/cissp.md
+      - CISSP study plan: certs/adjacent-certs/cissp-study-plan.md
       - Cloud security: certs/adjacent-certs/cloud-security.md
+      - Cloud security study plan: certs/adjacent-certs/cloud-security-study-plan.md
       - CompTIA Security+ (overview): certs/adjacent-certs/security-plus.md
       - OSCP (overview): certs/adjacent-certs/oscp.md
       - PNPT (overview): certs/adjacent-certs/pnpt.md

@@ -124,7 +124,7 @@ When an exam question describes a *need*, match it to a *category* rather than m
 ## Where to go next
 
 - [building-a-ceh-lab.md](../labs/building-a-ceh-lab.md) — set up a safe place to practise with these tools.
-- [practice-ranges.md](../labs/practice-ranges.md) — legitimate online platforms to use them legally.
+- [the practice kit](../resources/practice-labs.md) — legitimate online platforms to use them legally.
 - [../00-overview/five-phases-of-hacking.md](../00-overview/five-phases-of-hacking.md) — the methodology these tools support.
 - [../00-overview/legal-and-ethics.md](../00-overview/legal-and-ethics.md) — authorisation and the law.
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms used across this hub.

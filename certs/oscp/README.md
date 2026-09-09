@@ -53,20 +53,23 @@ OffSec's.
    only after Phase 3 of the plan is under way.
 2. **Check the entry level** — you should already hold the [CEH](../ceh/README.md) or
    [PenTest+](../pentest-plus/README.md) breadth and be comfortable on the Linux CLI
-   ([prerequisites](../../prerequisites/README.md)). Self-score the six skill areas 0–3.
+   ([prerequisites](../../prerequisites/README.md)). Self-score the six skill areas 0–3 in
+   the [coverage map](exam-prep/coverage-map.md) and record the official syllabus items there.
 3. **Follow the [study plan](exam-prep/study-plan.md)** — Phase 1 fundamentals, Phase 2
    privilege escalation and AD, Phase 3 practice machines. For each
    [skill area](topics/README.md): read the page, then do it on a machine in an authorised
    range ([platforms](../../learning/platforms.md), the [CEH lab](../ceh/labs/README.md)),
-   and write the finding up as if for the report.
+   and write the finding up as if for the report. Keep the concepts cold with the
+   [flashcard deck](exam-prep/flashcards.csv) (`python3 certs/ceh/scripts/quiz.py --deck certs/oscp/exam-prep/flashcards.csv`).
 4. **Build the methodology and the notes** — a fixed enumeration checklist per service, a
-   note template per machine, screenshots of every `local.txt` / `proof.txt`. The plan's
-   note-taking section is the standard.
+   note template per machine, screenshots of every `local.txt` / `proof.txt`, and the
+   [report template](exam-prep/report-template.md) copied into the engagement folder before
+   you start. The plan's note-taking section is the standard.
 5. **Pass the readiness gate** — the AD set (three machines) end-to-end without hints inside
    a self-imposed time box; a mixed set of standalone machines at the exam's difficulty
    solved from your own notes; a full report written from those notes; one dress rehearsal
    of the full 24-hour window with sleep scheduled in.
-6. **Exam week** — proctoring set-up test, ID, report template ready, machine list and
+6. **Exam week** — proctoring set-up test, ID, [report template](exam-prep/report-template.md) ready, machine list and
    time budget written down; the plan's exam-day logistics and tips.
 7. **After** — submit the report inside the window; note the OSCP+ renewal rule from
    OffSec; go back to the [roadmap](../../learning/roadmap.md). The defender's mirror of
@@ -92,7 +95,7 @@ OffSec's.
 |---------|----------|
 | **[Overview](00-overview/what-is-oscp.md)** | [What is OSCP](00-overview/what-is-oscp.md) · [Exam structure](00-overview/exam-structure.md) |
 | **[Skill areas](topics/README.md)** | The PEN-200 practical skills (not official "domains") |
-| **[Exam prep](exam-prep/study-plan.md)** | [Study plan](exam-prep/study-plan.md) — methodology, practice, the report |
+| **[Exam prep](exam-prep/study-plan.md)** | [Study plan](exam-prep/study-plan.md) — methodology, practice, the report · [Coverage map](exam-prep/coverage-map.md) · [Flashcards](exam-prep/flashcards.csv) · [Report template](exam-prep/report-template.md) |
 
 ### The skill areas
 
@@ -118,7 +121,7 @@ OSCP is the **hands-on depth** milestone on the offensive track:
 ## 🔗 Quick links
 
 - 🎓 [OffSec PEN-200 / OSCP (official)](https://www.offsec.com/courses/pen-200/)
-- ⚖️ [Legal & ethics](../ceh/00-overview/legal-and-ethics.md) · 🧪 [Skill areas](topics/README.md)
+- ⚖️ [Legal & ethics](../ceh/00-overview/legal-and-ethics.md) · 🧪 [Skill areas](topics/README.md) · 📝 [Report template](exam-prep/report-template.md)
 - 🧰 [Practice platforms](../../learning/platforms.md)
 
 > OSCP, OSCP+, OffSec and PEN-200 are trademarks of OffSec, used here for identification and

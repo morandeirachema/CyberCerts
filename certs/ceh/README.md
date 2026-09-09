@@ -193,7 +193,7 @@ this repo uses for the sysadmin → PAM architect path — see the
 | Resource | What it is |
 |----------|-----------|
 | [labs/README.md](labs/README.md) | Runnable range: Docker web targets, OT/ICS simulators, Vagrant Kali + Metasploitable2, an Ansible **AD/ADCS lab with a tiered-admin (PAM) model**, a chained [capstone](labs/capstone.md) and a [blue-team detection lab](labs/blue-team-lab.md) |
-| [labs/building-a-ceh-lab.md](labs/building-a-ceh-lab.md) · [labs/practice-ranges.md](labs/practice-ranges.md) | Lab design principles and the public practice ranges (TryHackMe, HTB, PortSwigger…) |
+| [labs/building-a-ceh-lab.md](labs/building-a-ceh-lab.md) · [practice kit](resources/practice-labs.md) | Lab design principles and the public practice ranges (TryHackMe, HTB, PortSwigger…) |
 | [kali/](kali/README.md) · [KALI-TUTORIAL.md](KALI-TUTORIAL.md) | A 17-chapter beginner → mastery Kali course, and a one-page tool reference |
 | [tools/tools-by-phase.md](tools/tools-by-phase.md) · [cheatsheets/](cheatsheets/README.md) | Tools mapped to phases; quick-reference sheets (nmap, Metasploit, hashcat, AD, web/SQLi, Wireshark…) |
 | [scripts/](scripts/README.md) | Terminal flashcard quiz, Anki deck builder, and the hub's own integrity validator |

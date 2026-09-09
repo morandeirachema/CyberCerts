@@ -52,15 +52,19 @@ TCM Security's.
    Set a date once the AD lab is built and the full workflow has been practised at least once.
 2. **Check the entry level** — the plan's prerequisites section and its "PJPT / fundamentals
    first" advice; you need the [CEH](../ceh/README.md) breadth, working Linux CLI skills and
-   AD basics ([Windows & AD](../../prerequisites/windows-and-active-directory.md)).
+   AD basics ([Windows & AD](../../prerequisites/windows-and-active-directory.md)). Self-score
+   the phases 0–3 in the [coverage map](exam-prep/coverage-map.md).
 3. **Build the AD lab** — the plan's lab section; the repo's own
    [Ansible AD lab](../ceh/labs/README.md) with its tiered-admin model is a ready target.
 4. **Follow the [study plan](exam-prep/study-plan.md)** through the five
    [engagement phases](topics/README.md): OSINT → external → AD exploitation → lateral
-   movement → reporting. For each: read the page, do it in the lab, write the finding up.
-5. **Rehearse the deliverables** — a full report from your lab notes using a professional
-   template, and the **15-minute debrief** spoken aloud to someone, twice. The report and
-   debrief are graded; the shell is only the evidence.
+   movement → reporting. For each: read the page, do it in the lab, write the finding up,
+   and keep the concepts cold with the [flashcard deck](exam-prep/flashcards.csv)
+   (`python3 certs/ceh/scripts/quiz.py --deck certs/pnpt/exam-prep/flashcards.csv`).
+5. **Rehearse the deliverables** — a full report from your lab notes using the
+   [report template](../oscp/exam-prep/report-template.md), and the **15-minute debrief**
+   spoken aloud to someone, twice, following the [debrief outline](exam-prep/debrief-outline.md).
+   The report and debrief are graded; the shell is only the evidence.
 6. **Pass the readiness gate** — the full workflow (external foothold → domain compromise)
    completed end-to-end in the lab from your own notes; report and debrief rehearsed; no
    open weak-area row.
@@ -87,7 +91,7 @@ TCM Security's.
 |---------|----------|
 | **[Overview](00-overview/what-is-pnpt.md)** | [What is PNPT](00-overview/what-is-pnpt.md) · [Exam structure](00-overview/exam-structure.md) |
 | **[Engagement phases](topics/README.md)** | The PNPT workflow, phase by phase |
-| **[Exam prep](exam-prep/study-plan.md)** | [Study plan](exam-prep/study-plan.md) — lab build, workflow practice, the debrief |
+| **[Exam prep](exam-prep/study-plan.md)** | [Study plan](exam-prep/study-plan.md) — lab build, workflow practice · [Coverage map](exam-prep/coverage-map.md) · [Flashcards](exam-prep/flashcards.csv) · [Debrief outline](exam-prep/debrief-outline.md) · [Report template](../oscp/exam-prep/report-template.md) |
 
 ### The engagement phases
 
@@ -112,7 +116,7 @@ The PNPT is the **budget-friendly, engagement-style** practical cert:
 ## 🔗 Quick links
 
 - 🎓 [TCM Security PNPT (official)](https://certifications.tcm-sec.com/pnpt/)
-- ⚖️ [Legal & ethics](../ceh/00-overview/legal-and-ethics.md) · 🧪 [Engagement phases](topics/README.md)
+- ⚖️ [Legal & ethics](../ceh/00-overview/legal-and-ethics.md) · 🧪 [Engagement phases](topics/README.md) · 🎤 [Debrief outline](exam-prep/debrief-outline.md)
 - 🧰 [Practice platforms](../../learning/platforms.md)
 
 > PNPT, PJPT and TCM Security are trademarks of TCM Security, used here for identification and
