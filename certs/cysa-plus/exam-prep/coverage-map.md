@@ -11,7 +11,9 @@ CompTIA's numbering, and this page will not invent it), so the first column is y
 
 **How to fill it in:**
 
-1. Download the official **CS0-003 exam objectives PDF** — the steps are in
+1. Download the official **CS0-003 exam objectives PDF** (or the **CS0-004** PDF if you will sit
+   after the CS0-003 English retirement on 2026-12-22 — see the
+   [version notice](../00-overview/exam-and-objectives.md#version-notice--cs0-003-retires-cs0-004-is-live)) — the steps are in
    [exam & objectives → how to get the official exam objectives](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
 2. Walk the PDF objective by objective. For each one, find the matching row below and write the
    official number (as printed in the PDF) in the first column. One objective may span several
@@ -129,6 +131,6 @@ One row per official objective that has **no matching row above**. Decide where 
 
 ## Sources
 
-- CompTIA — CySA+ (CS0-003) official certification page and exam objectives download: <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+- CompTIA — CySA+ (CS0-003) official certification page and exam objectives download: <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
 - This hub: [exam & objectives](../00-overview/exam-and-objectives.md) · [what is CySA+](../00-overview/what-is-cysa-plus.md) · [Domain 1](../domains/01-security-operations.md) · [Domain 2](../domains/02-vulnerability-management.md) · [Domain 3](../domains/03-incident-response-and-management.md) · [Domain 4](../domains/04-reporting-and-communication.md)
 - Method: [how to prepare a certification](../../../learning/how-to-prepare-a-cert.md) (Step 2, coverage map) · worked example: [CEH blueprint coverage](../../ceh/BLUEPRINT-COVERAGE.md)

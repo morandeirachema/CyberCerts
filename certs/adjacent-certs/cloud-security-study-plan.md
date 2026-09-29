@@ -5,12 +5,12 @@ A hands-on plan for the cloud-security milestone, built on the repo-wide
 [cloud security overview](cloud-security.md). It is organised by **capability areas**, not by
 a vendor's domain list, because the exam guides are the source of truth for domains and
 weights and they change: AZ-500 retired on 2026-08-31 with SC-500 as its successor, and AWS
-moved from SCS-C02 to SCS-C03 (*verify both on the provider pages*). Record the current
+moved from SCS-C02 to SCS-C03 on 2025-12-02 (*verify both on the provider pages*). Record the current
 domains and weights from the guide you download in the tracker below.
 
 > The provider study guides list the exact skills measured. Pull the current one first:
 > [SC-500 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-500) ·
-> [AWS SCS-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/examguides/security-specialty-03.html).
+> [AWS SCS-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html).
 > Weeks and hours are this repo's suggestion, not a provider requirement.
 
 ## Before Week 1
@@ -71,7 +71,7 @@ with spacing. Reading alone does not pass these exams.
 - Microsoft SC-500 study guide: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-500
 - Microsoft AZ-500 page, including the retirement notice: https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/
 - AWS Certified Security – Specialty: https://aws.amazon.com/certification/certified-security-specialty/
-- AWS SCS-C03 exam guide: https://docs.aws.amazon.com/aws-certification/latest/examguides/security-specialty-03.html
+- AWS SCS-C03 exam guide: https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html
 - ISC2 CCSP: https://www.isc2.org/certifications/ccsp · Cloud Security Alliance CCSK:
   https://cloudsecurityalliance.org/education/ccsk
 - Exam facts: this repo's [cloud security overview](cloud-security.md). Capability areas

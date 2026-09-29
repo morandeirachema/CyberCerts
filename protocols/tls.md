@@ -133,8 +133,9 @@ What each message does:
 
 ## 4. The TLS 1.3 handshake (RFC 8446)
 
-TLS 1.3 redesigned the handshake. The big changes: **only forward-secret (EC)DHE key
-exchange is allowed** (static RSA key transport is *removed*), legacy/weak ciphers are gone,
+TLS 1.3 redesigned the handshake. The big changes: full handshakes use **only forward-secret (EC)DHE key
+exchange** (static RSA key transport is *removed*; PSK-only `psk_ke` resumption is the
+exception without forward secrecy), legacy/weak ciphers are gone,
 and the handshake completes in **1 round trip (1-RTT)** because the client *guesses* the
 group and sends its key share immediately.
 
@@ -184,7 +185,7 @@ operations. RFC 8446 documents this anti-replay limitation explicitly.
 | Aspect | TLS 1.2 (RFC 5246) | TLS 1.3 (RFC 8446) |
 |--------|--------------------|--------------------|
 | Round trips (full) | **2-RTT** | **1-RTT** (0-RTT on resumption) |
-| Key exchange | RSA key-transport *or* (EC)DHE | **(EC)DHE only** — always forward-secret |
+| Key exchange | RSA key-transport *or* (EC)DHE | **(EC)DHE** for full handshakes (forward-secret); PSK resumption may use `psk_dhe_ke` (forward-secret) or `psk_ke` (PSK-only, **no** forward secrecy, RFC 8446 §4.2.9) |
 | Handshake privacy | Mostly **in the clear** | Certificate + most messages **encrypted** |
 | Key derivation | PRF (based on HMAC) | **HKDF** (RFC 5869) |
 | Bulk cipher | AEAD *or* legacy CBC/RC4 | **AEAD only** (AES-GCM, AES-CCM, ChaCha20-Poly1305) |
@@ -316,7 +317,7 @@ to skip most of it:
   there is nothing weak to fall back to.
 - **The value of TLS 1.3.** It is faster (1-RTT, 0-RTT resumption), **encrypts most of the
   handshake** (certificate and extensions are hidden from passive observers), enforces
-  **forward secrecy**, and removes whole classes of misconfiguration by deleting static-RSA
+  **forward secrecy** for full handshakes, and removes whole classes of misconfiguration by deleting static-RSA
   key transport, CBC-mode ciphers, RC4, compression, and renegotiation. Most TLS-layer attacks
   of the 2010s target features that simply no longer exist in 1.3.
 - **AEAD vs older modes.** TLS 1.3 mandates AEAD; the old CBC-mode constructions in 1.2 were
@@ -337,7 +338,8 @@ to skip most of it:
 ## Sources
 
 - **RFC 8446** — *The Transport Layer Security (TLS) Protocol Version 1.3*:
-  <https://www.rfc-editor.org/rfc/rfc8446>
+  <https://www.rfc-editor.org/rfc/rfc8446> (PSK key-exchange modes: §4.2.9,
+  <https://www.rfc-editor.org/rfc/rfc8446#section-4.2.9>)
 - **RFC 5246** — *The Transport Layer Security (TLS) Protocol Version 1.2*:
   <https://www.rfc-editor.org/rfc/rfc5246>
 - **RFC 5280** — *Internet X.509 Public Key Infrastructure Certificate and CRL Profile*:

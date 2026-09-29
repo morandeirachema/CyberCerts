@@ -118,7 +118,8 @@ flowchart LR
   [../../ceh/README.md](../../ceh/README.md).
 - **vs OSCP** — Both are practical. The PNPT is generally **more approachable and
   budget-friendly**, adds the **live debrief**, and emphasizes a single coherent
-  AD-focused engagement; OSCP is a longer, harder multi-target hands-on milestone. See
+  AD-focused engagement; OSCP is a harder, time-boxed multi-target milestone (a 24-hour exam versus
+  the PNPT's five days of testing plus two for the report). See
   [../../oscp/00-overview/what-is-oscp.md](../../oscp/00-overview/what-is-oscp.md).
 - **Foundation** — A security baseline like CompTIA Security+ helps first. See
   [../../security-plus/README.md](../../security-plus/README.md).

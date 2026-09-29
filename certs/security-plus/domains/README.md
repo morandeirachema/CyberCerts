@@ -1,6 +1,6 @@
 # The Five Security+ (SY0-701) Domains
 
-The core knowledge areas of the CompTIA Security+ (SY0-701) exam. Each page below is written **to the official SY0-701 exam objectives** and covers the domain's concepts, a Mermaid diagram, and the key terms a sysadmin moving into security needs — with a **defensive (blue-team) framing**. The percentages are CompTIA's published weightings (the share of scored content per domain) *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/) — weightings change per exam version)*.
+The core knowledge areas of the CompTIA Security+ (SY0-701) exam. Each page below is written **to the official SY0-701 exam objectives** and covers the domain's concepts, a Mermaid diagram, and the key terms a sysadmin moving into security needs — with a **defensive (blue-team) framing**. The percentages are CompTIA's published weightings (the share of scored content per domain) *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/v7/) — weightings change per exam version)*.
 
 > The objectives PDF is the canonical checklist for exact wording and every listed term — see [how to get it](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives). These pages follow it but do not replace it.
 
@@ -44,6 +44,6 @@ flowchart LR
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) official certification page and exam objectives (five domains and published weightings 12 / 22 / 18 / 28 / 20 percent): https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ (SY0-701) official certification page and exam objectives (five domains and published weightings 12 / 22 / 18 / 28 / 20 percent): https://www.comptia.org/en-us/certifications/security/v7/
 - Related in this repo: [../../ceh/domains/README.md](../../ceh/domains/README.md) · [../../protocols/README.md](../../../protocols/README.md) · [../../reference/README.md](../../../reference/README.md)
 - Domain weightings are version-sensitive — *verify on CompTIA* before relying on them.

@@ -65,4 +65,4 @@
 2. For each ❌/⚠️, open the linked chapter/module, then do the matching [drill](drills.md) **under a timer**.
 3. Re-rate weekly. When the whole list is ✅ cold, book the Practical.
 
-> A pass is roughly 14 of 20 challenges — but the challenges are *timed*. The goal isn't "can I eventually do this," it's "can I do this in under ~18 minutes, repeatably."
+> EC-Council sets a variable cut score of **60–85%** depending on the exam form, so this repo suggests aiming to solve **at least 17 of 20** (85%) in practice — but the challenges are *timed*. The goal isn't "can I eventually do this," it's "can I do this in under ~18 minutes, repeatably."

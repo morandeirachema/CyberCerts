@@ -8,14 +8,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q1.** A tester performs WHOIS lookups, reviews the target's LinkedIn pages, and reads DNS records from public resolvers — never sending a packet to the target's own systems. Which activity is this?
 
-- A. Active reconnaissance
-- B. Passive reconnaissance
+- A. Passive reconnaissance
+- B. Active reconnaissance
 - C. Scanning
 - D. Enumeration
 
 <details><summary>Answer</summary>
 
-**B. Passive reconnaissance.** No direct contact with the target's infrastructure means passive recon (OSINT). The moment you ping, port-scan, or query the target's *own* DNS server, it becomes **active** recon or scanning. **Exam tell:** watch the verb — "looked up / searched public records" = passive; "scanned / probed" = active.
+**A. Passive reconnaissance.** No direct contact with the target's infrastructure means passive recon (OSINT). The moment you ping, port-scan, or query the target's *own* DNS server, it becomes **active** recon or scanning. **Exam tell:** watch the verb — "looked up / searched public records" = passive; "scanned / probed" = active.
 </details>
 
 ---
@@ -23,13 +23,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q2.** Which single factor most clearly separates an **ethical hacker** from a black-hat attacker performing the same port scan?
 
 - A. The tools used
-- B. Written authorization and defined scope
+- B. The attacker's skill level
 - C. Whether an exploit succeeds
-- D. The attacker's skill level
+- D. Written authorization and defined scope
 
 <details><summary>Answer</summary>
 
-**B. Written authorization and defined scope.** Ethics is about *permission, scope, and reporting* — not tooling. Both may run the same scanner; only one has a signed authorization. Skill (D) and whether an exploit lands (C) are irrelevant to legality, and the tools (A) are identical.
+**D. Written authorization and defined scope.** Ethics is about *permission, scope, and reporting* — not tooling. Both may run the same scanner; only one has a signed authorization. Skill (B) and whether an exploit lands (C) are irrelevant to legality, and the tools (A) are identical.
 </details>
 
 ---
@@ -51,13 +51,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q4.** Which statement correctly distinguishes a **vulnerability assessment** from a **penetration test**?
 
 - A. A VA exploits findings to prove impact; a PT only lists them
-- B. A VA finds and ranks weaknesses; a PT exploits them to prove impact
+- B. A PT never requires authorization
 - C. They are the same thing with different names
-- D. A PT never requires authorization
+- D. A VA finds and ranks weaknesses; a PT exploits them to prove impact
 
 <details><summary>Answer</summary>
 
-**B.** VA = **breadth**: identify and prioritize weaknesses without necessarily exploiting them. PT = **depth**: exploit to demonstrate real-world impact. Option A reverses the two — the classic distractor. All authorized testing (including PT) requires written authorization, so D is false.
+**D.** VA = **breadth**: identify and prioritize weaknesses without necessarily exploiting them. PT = **depth**: exploit to demonstrate real-world impact. Option A reverses the two — the classic distractor. All authorized testing (including PT) requires written authorization, so B is false.
 </details>
 
 ---
@@ -65,13 +65,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q5.** Using **Risk ≈ Threat × Vulnerability**, which action lowers *risk* even when you cannot remove the threat actor?
 
 - A. Ignoring the vulnerability because the threat is unavoidable
-- B. Patching the vulnerability so there is nothing to exploit
+- B. Renaming the asset
 - C. Increasing system usability
-- D. Renaming the asset
+- D. Patching the vulnerability so there is nothing to exploit
 
 <details><summary>Answer</summary>
 
-**B. Patch the vulnerability.** You rarely control the *threat* (attackers exist), but reducing the *vulnerability* term drives the product — and thus the risk — down. Ignoring it (A) leaves risk unchanged; usability (C) can actually *raise* risk by weakening controls; renaming (D) is cosmetic.
+**D. Patch the vulnerability.** You rarely control the *threat* (attackers exist), but reducing the *vulnerability* term drives the product — and thus the risk — down. Ignoring it (A) leaves risk unchanged; usability (C) can actually *raise* risk by weakening controls; renaming (B) is cosmetic.
 </details>
 
 ---
@@ -92,28 +92,28 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q7.** How does **MITRE ATT&CK** fundamentally differ from the **Cyber Kill Chain**?
 
-- A. ATT&CK is a linear 7-step sequence; the Kill Chain is a matrix
-- B. ATT&CK is a matrix of tactics and techniques; the Kill Chain is a linear phase model
+- A. ATT&CK is a matrix of tactics and techniques; the Kill Chain is a linear phase model
+- B. ATT&CK is a linear 7-step sequence; the Kill Chain is a matrix
 - C. They are identical and interchangeable
 - D. The Kill Chain covers only malware, ATT&CK only phishing
 
 <details><summary>Answer</summary>
 
-**B.** The **Kill Chain** (Lockheed Martin) is a **linear** intrusion sequence (Recon → … → Actions on Objectives). **ATT&CK** is a **matrix** of real-world **tactics and techniques** (e.g., T1078). Option A reverses them — the most common trap. They complement each other but are not the same.
+**A.** The **Kill Chain** (Lockheed Martin) is a **linear** intrusion sequence (Recon → … → Actions on Objectives). **ATT&CK** is a **matrix** of real-world **tactics and techniques** (e.g., T1078). Option B reverses them — the most common trap. They complement each other but are not the same.
 </details>
 
 ---
 
 **Q8.** A retailer that stores credit-card numbers must comply primarily with which standard?
 
-- A. HIPAA
-- B. PCI DSS
+- A. PCI DSS
+- B. HIPAA
 - C. GDPR
 - D. SOX
 
 <details><summary>Answer</summary>
 
-**B. PCI DSS** governs the storage, processing, and transmission of **cardholder data**. HIPAA covers health information, GDPR covers EU personal data/privacy, and SOX covers financial-reporting integrity. **Exam skill:** match the *data type* to the regulation.
+**A. PCI DSS** governs the storage, processing, and transmission of **cardholder data**. HIPAA covers health information, GDPR covers EU personal data/privacy, and SOX covers financial-reporting integrity. **Exam skill:** match the *data type* to the regulation.
 </details>
 
 ---
@@ -149,13 +149,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q11.** Which principle is best described as *"layered controls so that no single failure results in compromise"*?
 
 - A. Least privilege
-- B. Defense-in-depth
+- B. Separation of duties
 - C. Non-repudiation
-- D. Separation of duties
+- D. Defense-in-depth
 
 <details><summary>Answer</summary>
 
-**B. Defense-in-depth.** Multiple overlapping layers (perimeter, network, host, app, data) assume any one layer *will* fail, so another catches the attack. Least privilege and separation of duties are *specific* controls that live *within* those layers; non-repudiation is a CIA-extension goal, not a layering strategy.
+**D. Defense-in-depth.** Multiple overlapping layers (perimeter, network, host, app, data) assume any one layer *will* fail, so another catches the attack. Least privilege and separation of duties are *specific* controls that live *within* those layers; non-repudiation is a CIA-extension goal, not a layering strategy.
 </details>
 
 ---

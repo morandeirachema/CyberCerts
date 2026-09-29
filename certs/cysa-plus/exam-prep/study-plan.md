@@ -4,6 +4,8 @@ An ordered route through this `cysa-plus/` hub for the **CompTIA Cybersecurity A
 
 > **Time estimates below are SUGGESTIONS, not requirements.** They assume a working sysadmin studying part-time. CompTIA does not mandate a study duration — compress or stretch the plan to fit your pace, prior knowledge, and exam date. Re-check all volatile exam specifics on CompTIA: https://www.comptia.org/en-us/certifications/cybersecurity-analyst/
 
+> **Version note (checked 2026-09-29).** This plan targets **CS0-003**, whose English exam retires **2026-12-22** (translations 2027-03-23). Its successor **CS0-004** launched 2026-06-23 with the same format (max 85 questions, 165 minutes, 750 on 100–900) but different weights: Security Operations 34%, Vulnerability Management 26%, Incident Response and Management 24%, Reporting and Communication 16%. Booking after 2026-12-22? Map this plan to the CS0-004 objectives and re-balance hours by those weights — see the [version notice](../00-overview/exam-and-objectives.md#version-notice--cs0-003-retires-cs0-004-is-live).
+
 ## Learning objectives
 
 - Follow a **weight-prioritised** path through the four CS0-003 domain pages, front-loading Domain 1 (33%) and Domain 2 (30%).
@@ -96,13 +98,13 @@ CySA+ PBQs are **analysis-heavy** — they reflect the analyst's day rather than
 
 | Item | Detail |
 | --- | --- |
-| Exam code | **CS0-003** |
+| Exam code | **CS0-003** — English exam retires **2026-12-22**; successor CS0-004 |
 | Questions | **Maximum 85** (some forms fewer); **multiple-choice + PBQ** |
 | Duration | **165 minutes** |
 | Passing score | **750** on a **100–900** scale (a *scaled* score, not a flat percentage) |
 | Level / focus | **Intermediate**, vendor-neutral, **defensive / SOC analyst** |
 | Delivery | Testing centre or online proctoring — *verify current options on CompTIA* |
-| Recommended experience | Security+ and ~3–4 years of hands-on security/IT experience (recommended, **not** required) |
+| Recommended experience | Network+, Security+, or equivalent knowledge, with a minimum of 4 years of hands-on experience as an incident response analyst, SOC analyst, or equivalent (recommended, **not** required) |
 | Price / renewal (Continuing Education Units, CEUs) | **Not quoted here — verify on CompTIA**; programs change |
 
 - **The 750 / 100–900 score is scaled**, not "750 out of 900." CompTIA does not publish a fixed percentage-correct threshold — ignore third-party "you need X%" claims.
@@ -140,8 +142,9 @@ CySA+ rewards the operational instincts a sysadmin already has — reading logs,
 
 ## Sources
 
-- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 official certification page (max 85 questions, MCQ + PBQ, 165 minutes, 750 on 100–900, four domains and weightings): https://www.comptia.org/en-us/certifications/cybersecurity-analyst/
-- CompTIA — CySA+ (CS0-003) exam objectives download (the authoritative study checklist): https://www.comptia.org/en-us/certifications/cybersecurity-analyst/
+- CompTIA — CySA+ V3 (CS0-003) page (max 85 questions, MCQ + PBQ, 165 minutes, 750 on 100–900, four domains and weightings, recommended experience, retirement dates; checked 2026-09-29): https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/
+- CompTIA — CySA+ V4 (CS0-004) page (launch 2026-06-23, format, domain weights 34 / 26 / 24 / 16; checked 2026-09-29): https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/
+- CompTIA — CySA+ (CS0-003) exam objectives download (the authoritative study checklist): https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/
 - NIST — SP 800-61 Computer Security Incident Handling Guide (incident-response lifecycle): https://csrc.nist.gov/pubs/sp/800/61/r2/final
 - FIRST — Common Vulnerability Scoring System (CVSS) specification (base/temporal/environmental metrics): https://www.first.org/cvss/
 - FIRST — Exploit Prediction Scoring System (EPSS): https://www.first.org/epss/
@@ -149,4 +152,4 @@ CySA+ rewards the operational instincts a sysadmin already has — reading logs,
 - MITRE ATT&CK — adversary tactics and techniques knowledge base: https://attack.mitre.org/
 - Sibling hub pages: [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) · [../domains/README.md](../domains/README.md) · [../../security-plus/exam-prep/study-plan.md](../../security-plus/exam-prep/study-plan.md)
 - Verified ground truth for this hub: CS0-003; max 85 questions (MCQ + PBQ); 165 minutes; passing 750 on a 100–900 scale; domain weights 33 / 30 / 20 / 17 percent.
-- All volatile specifics (price, delivery, CEU renewal, recommended experience) are version-sensitive — *verify on CompTIA*.
+- Volatile specifics not quoted here (price, delivery options, CEU renewal) — *verify on CompTIA*.

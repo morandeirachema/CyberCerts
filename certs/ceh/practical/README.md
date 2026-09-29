@@ -11,7 +11,7 @@
 | Format | **20 hands-on challenges** in EC-Council's browser-based **iLabs Cyber Range** |
 | Duration | **6 hours** |
 | Delivery | Remotely proctored; you get a pre-built attacker VM (Parrot/Kali-style) in the range |
-| Scoring | Answer the question tied to each challenge; passing is commonly reported as **~70% (≈ 14 of 20)** — confirm with EC-Council |
+| Scoring | Answer the question tied to each challenge; the passing threshold is a **variable cut score of 60–85%** depending on the exam form (per EC-Council — see [EXAM-LOGISTICS.md](../EXAM-LOGISTICS.md)) |
 | Style | **Open-tool / open-notes** — no memorizing tool syntax; but the clock is brutal |
 | Result | Pass this + the Knowledge exam → **CEH Master** |
 

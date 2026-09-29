@@ -24,7 +24,7 @@ The **Offensive Security Certified Professional (OSCP)** is a hands-on penetrati
 | Level | Intermediate — respected, demanding hands-on credential |
 | Course | **PEN-200: Penetration Testing with Kali Linux** |
 | Style | **Fully hands-on**: exploit live targets in a lab, then write a professional report |
-| OSCP vs OSCP+ | **OSCP** does not expire; **OSCP+** (awarded for the current AD-inclusive exam) **expires 3 years** from issuance and is maintained via Continuing Professional Education (CPE) or higher OffSec certs *(verify on OffSec — terms change)* |
+| OSCP vs OSCP+ | **OSCP** does not expire; **OSCP+** (awarded for the current AD-inclusive exam) **expires 3 years** from issuance and is maintained via Continuing Professional Education (CPE), a recertification exam within 6 months of expiry, or a higher OffSec cert (OSEP, OSWA, OSED, OSEE) *(verify on OffSec — terms change)* |
 
 ## Who it's for
 

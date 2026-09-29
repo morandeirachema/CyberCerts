@@ -22,14 +22,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q2.** Which statement correctly contrasts **CoAP** with **MQTT**?
 
-- A. CoAP is publish/subscribe over TCP; MQTT is RESTful over UDP
-- B. CoAP is RESTful over UDP (port 5683); MQTT is publish/subscribe over TCP (port 1883)
+- A. CoAP is RESTful over UDP (port 5683); MQTT is publish/subscribe over TCP (port 1883)
+- B. CoAP is publish/subscribe over TCP; MQTT is RESTful over UDP
 - C. Both run over TCP on port 1883
 - D. CoAP requires a broker; MQTT is brokerless
 
 <details><summary>Answer</summary>
 
-**B.** **CoAP = RESTful request/response over UDP, port 5683** (DTLS 5684). **MQTT = publish/subscribe over TCP, port 1883** (TLS 8883, broker-based). This TCP/UDP + pub-sub/REST swap is the single most-tested distinction in the module.
+**A.** **CoAP = RESTful request/response over UDP, port 5683** (DTLS 5684). **MQTT = publish/subscribe over TCP, port 1883** (TLS 8883, broker-based). This TCP/UDP + pub-sub/REST swap is the single most-tested distinction in the module.
 </details>
 
 ---
@@ -93,13 +93,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q7.** The **Mirai** botnet compromised hundreds of thousands of IoT devices. What was its primary infection technique?
 
 - A. Exploiting a zero-day in MQTT brokers
-- B. Scanning for open Telnet (23/2323) and trying default/factory credentials
+- B. MITM of unsigned OTA firmware updates
 - C. Cracking WPA2 on smart-home Wi-Fi
-- D. MITM of unsigned OTA firmware updates
+- D. Scanning for open Telnet (23/2323) and trying default/factory credentials
 
 <details><summary>Answer</summary>
 
-**B.** Mirai scanned the internet for open **Telnet (23/2323)** and tried a built-in list of **default credentials**, enlisting cameras/DVRs/routers into a **DDoS** botnet. **Exam lesson: default creds + an exposed management service = mass compromise.** The fix class is disable Telnet, change/rotate defaults, and vault device credentials.
+**D.** Mirai scanned the internet for open **Telnet (23/2323)** and tried a built-in list of **default credentials**, enlisting cameras/DVRs/routers into a **DDoS** botnet. **Exam lesson: default creds + an exposed management service = mass compromise.** The fix class is disable Telnet, change/rotate defaults, and vault device credentials.
 </details>
 
 ---
@@ -120,14 +120,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q9.** Which statement best distinguishes **SCADA**, **DCS**, and **PLC**?
 
-- A. They are three names for the same device
-- B. SCADA = distributed supervisory monitoring; DCS = in-plant process control; PLC = the field controller both use
+- A. SCADA = distributed supervisory monitoring; DCS = in-plant process control; PLC = the field controller both use
+- B. They are three names for the same device
 - C. SCADA runs the logic; PLC supervises multiple plants; DCS is a database
 - D. DCS is geographically distributed; SCADA is confined to one plant
 
 <details><summary>Answer</summary>
 
-**B.** **SCADA** = geographically **distributed** supervisory monitoring/control; **DCS** = process control within a **single plant**; **PLC** = the ruggedized **field controller** that actually runs the logic (used by both SCADA and DCS). Option D swaps the SCADA/DCS scope — a classic trap.
+**A.** **SCADA** = geographically **distributed** supervisory monitoring/control; **DCS** = process control within a **single plant**; **PLC** = the ruggedized **field controller** that actually runs the logic (used by both SCADA and DCS). Option D swaps the SCADA/DCS scope — a classic trap.
 </details>
 
 ---
@@ -163,13 +163,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q12.** A Modbus client reads and writes a PLC's registers with **no login and no encryption**. What is the primary reason, and the correct defense?
 
 - A. The engineer forgot to enable Modbus's built-in TLS; enable it
-- B. Modbus has no authentication/encryption by design; the defense is network segmentation, not the protocol
+- B. Modbus authenticates by MAC address; spoof-protect the switch
 - C. The PLC firmware is out of date; patch it to add auth
-- D. Modbus authenticates by MAC address; spoof-protect the switch
+- D. Modbus has no authentication/encryption by design; the defense is network segmentation, not the protocol
 
 <details><summary>Answer</summary>
 
-**B.** Legacy OT protocols like **Modbus assume a trusted, isolated network** — they have **no built-in auth or crypto**, so there is nothing to "turn on." The durable defense is **segmentation, IEC 62443 zones/conduits, and brokered access**, keeping writes off the wire from untrusted sources. (OPC UA is the modern, security-capable alternative.)
+**D.** Legacy OT protocols like **Modbus assume a trusted, isolated network** — they have **no built-in auth or crypto**, so there is nothing to "turn on." The durable defense is **segmentation, IEC 62443 zones/conduits, and brokered access**, keeping writes off the wire from untrusted sources. (OPC UA is the modern, security-capable alternative.)
 </details>
 
 ---
@@ -177,27 +177,27 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q13.** Which reconnaissance approach lets you gauge how many Modbus or MQTT devices are exposed on the internet **without connecting to any of them**?
 
 - A. Nmap SYN scan of the target's /16
-- B. Query the Shodan/Censys index (passive)
+- B. Modbus FC3 read against each host
 - C. `mosquitto_sub -t '#'` against each host
-- D. Modbus FC3 read against each host
+- D. Query the Shodan/Censys index (passive)
 
 <details><summary>Answer</summary>
 
-**B. Query the Shodan/Censys index.** Shodan and Censys maintain a **pre-built index** of internet-exposed devices, so searching (e.g. `port:502`) returns a **count and metadata** without you touching any device — passive recon. Options A, C, D are all *active* connections to systems you don't own, which is exactly what OT safety forbids.
+**D. Query the Shodan/Censys index.** Shodan and Censys maintain a **pre-built index** of internet-exposed devices, so searching (e.g. `port:502`) returns a **count and metadata** without you touching any device — passive recon. Options A, B, C are all *active* connections to systems you don't own, which is exactly what OT safety forbids.
 </details>
 
 ---
 
 **Q14.** A vendor needs occasional remote access to a PLC at Purdue L1. Which design aligns with the module's PAM guidance?
 
-- A. Give the vendor a standing site-to-site VPN straight to the PLC subnet
-- B. Time-boxed, VPN-less Remote Access brokered through a jump host in the IDMZ, with MFA and session recording
+- A. Time-boxed, VPN-less Remote Access brokered through a jump host in the IDMZ, with MFA and session recording
+- B. Give the vendor a standing site-to-site VPN straight to the PLC subnet
 - C. Publish the PLC's HMI to the internet behind a strong password
 - D. Share the PLC's default credentials over email for the maintenance window
 
 <details><summary>Answer</summary>
 
-**B.** No human or vendor touches L0/L1 directly. Route the vendor through a **jump host in the IDMZ (L3.5)** using **time-boxed (JIT) Remote Access**, **MFA**, and **session recording** — never a standing VPN to the plant floor. CyberArk mapping: **Remote Access** for vendors, **PSM/PSMP** as the sole ingress, **CPM** to vault/rotate the device credential.
+**A.** No human or vendor touches L0/L1 directly. Route the vendor through a **jump host in the IDMZ (L3.5)** using **time-boxed (JIT) Remote Access**, **MFA**, and **session recording** — never a standing VPN to the plant floor. CyberArk mapping: **Remote Access** for vendors, **PSM/PSMP** as the sole ingress, **CPM** to vault/rotate the device credential.
 </details>
 
 ---
@@ -205,13 +205,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q15.** The recurring #1 weakness across the OWASP IoT Top 10 — and the root cause behind Mirai — is:
 
 - A. Lack of a secure update mechanism
-- B. Weak, guessable, or hardcoded (default) passwords
-- C. Insecure data transfer without TLS
+- B. Insecure data transfer without TLS
+- C. Weak, guessable, or hardcoded (default) passwords
 - D. Insufficient privacy protection
 
 <details><summary>Answer</summary>
 
-**B. Weak/guessable/hardcoded (default) passwords.** It is the perennial top IoT weakness and the exact vector Mirai exploited over Telnet. Others (insecure update, insecure data transfer, privacy) are real but secondary. Fix class: change/rotate defaults, disable Telnet, and **vault + rotate device credentials** (PAM/CPM). Cite the official OWASP page rather than paraphrasing on the job.
+**C. Weak/guessable/hardcoded (default) passwords.** It is the perennial top IoT weakness and the exact vector Mirai exploited over Telnet. Others (insecure update, insecure data transfer, privacy) are real but secondary. Fix class: change/rotate defaults, disable Telnet, and **vault + rotate device credentials** (PAM/CPM). Cite the official OWASP page rather than paraphrasing on the job.
 </details>
 
 ---

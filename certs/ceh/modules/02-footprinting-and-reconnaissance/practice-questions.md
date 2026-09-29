@@ -78,14 +78,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q6.** Which Google dork returns only **PDF files** hosted on `example.com`?
 
-- A. `inurl:example.com pdf`
-- B. `site:example.com filetype:pdf`
+- A. `site:example.com filetype:pdf`
+- B. `inurl:example.com pdf`
 - C. `cache:example.com/*.pdf`
 - D. `intitle:example.com filetype:pdf`
 
 <details><summary>Answer</summary>
 
-**B. `site:example.com filetype:pdf`.** `site:` scopes to one domain; `filetype:` (or `ext:`) restricts by document type — the standard combo for hunting exposed documents. `inurl:` matches URL text, `cache:` fetches a stored copy, and `intitle:` matches the page title.
+**A. `site:example.com filetype:pdf`.** `site:` scopes to one domain; `filetype:` (or `ext:`) restricts by document type — the standard combo for hunting exposed documents. `inurl:` matches URL text, `cache:` fetches a stored copy, and `intitle:` matches the page title.
 </details>
 
 ---
@@ -93,13 +93,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q7.** Which operator finds pages whose **title** contains a phrase, useful for spotting exposed directory listings like `index of`?
 
 - A. `inurl:`
-- B. `intitle:`
+- B. `link:`
 - C. `site:`
-- D. `link:`
+- D. `intitle:`
 
 <details><summary>Answer</summary>
 
-**B. `intitle:`** matches text in the page `<title>` — e.g. `intitle:"index of" "backup"`, a GHDB pattern for exposed listings. `inurl:` matches the URL, `site:` scopes to a domain, and `link:` finds pages linking to a target. The curated catalog of these is the **Google Hacking Database (GHDB)**.
+**D. `intitle:`** matches text in the page `<title>` — e.g. `intitle:"index of" "backup"`, a GHDB pattern for exposed listings. `inurl:` matches the URL, `site:` scopes to a domain, and `link:` finds pages linking to a target. The curated catalog of these is the **Google Hacking Database (GHDB)**.
 </details>
 
 ---
@@ -134,14 +134,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q10.** A pentester builds a visual **link-analysis graph** connecting a company's domains, people, and email addresses. Which tool fits?
 
-- A. Recon-ng
-- B. Maltego
+- A. Maltego
+- B. Recon-ng
 - C. dnsrecon
 - D. Censys
 
 <details><summary>Answer</summary>
 
-**B. Maltego** specializes in graphing entities and their relationships (transforms). **Recon-ng** is a *modular framework* for OSINT collection, **dnsrecon** automates DNS enumeration, and **Censys** searches hosts/certs. Don't confuse the graphing tool (Maltego) with the framework (Recon-ng).
+**A. Maltego** specializes in graphing entities and their relationships (transforms). **Recon-ng** is a *modular framework* for OSINT collection, **dnsrecon** automates DNS enumeration, and **Censys** searches hosts/certs. Don't confuse the graphing tool (Maltego) with the framework (Recon-ng).
 </details>
 
 ---
@@ -149,13 +149,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q11.** Why do attackers use **HTTrack** to mirror a site offline instead of browsing it live?
 
 - A. It bypasses authentication automatically
-- B. It lets them study source, comments, and paths without repeatedly hitting the live server
+- B. It is the only way to view HTML source
 - C. It decrypts HTTPS traffic
-- D. It is the only way to view HTML source
+- D. It lets them study source, comments, and paths without repeatedly hitting the live server
 
 <details><summary>Answer</summary>
 
-**B.** A local mirror means you can hunt HTML comments, internal paths, and email addresses in the source **without hammering the live site** — a stealth and efficiency motive. It neither bypasses auth nor decrypts TLS, and any browser can view source.
+**D.** A local mirror means you can hunt HTML comments, internal paths, and email addresses in the source **without hammering the live site** — a stealth and efficiency motive. It neither bypasses auth nor decrypts TLS, and any browser can view source.
 </details>
 
 ---
@@ -164,12 +164,12 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 - A. ARIN
 - B. APNIC
-- C. RIPE NCC
-- D. LACNIC
+- C. LACNIC
+- D. RIPE NCC
 
 <details><summary>Answer</summary>
 
-**C. RIPE NCC.** Match registry to region: **ARIN** (North America), **RIPE NCC** (Europe/Middle East), **APNIC** (Asia-Pacific), **LACNIC** (Latin America), **AFRINIC** (Africa). Expect a "which registry serves region X" item.
+**D. RIPE NCC.** Match registry to region: **ARIN** (North America), **RIPE NCC** (Europe/Middle East), **APNIC** (Asia-Pacific), **LACNIC** (Latin America), **AFRINIC** (Africa). Expect a "which registry serves region X" item.
 </details>
 
 ---
@@ -177,27 +177,27 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q13.** An attacker embeds a **tracking pixel** in an email to the target. What does this reveal?
 
 - A. The recipient's password
-- B. When the mail was opened and the reader's approximate IP/location
+- B. The domain's zone file
 - C. The mail server's private key
-- D. The domain's zone file
+- D. When the mail was opened and the reader's approximate IP/location
 
 <details><summary>Answer</summary>
 
-**B.** An email tracking pixel / web-bug fires when the message is opened, leaking the **open time and the reader's IP/approximate location** (and sometimes client info). It's an *active* recon technique. Reading the mail **headers** separately traces the delivery path and originating servers.
+**D.** An email tracking pixel / web-bug fires when the message is opened, leaking the **open time and the reader's IP/approximate location** (and sometimes client info). It's an *active* recon technique. Reading the mail **headers** separately traces the delivery path and originating servers.
 </details>
 
 ---
 
 **Q14.** A defender wants to stop attackers from copying the **entire internal DNS zone**. Which control is most direct?
 
-- A. Enforce HSTS on the web server
-- B. Restrict zone transfers to listed secondary name servers
+- A. Restrict zone transfers to listed secondary name servers
+- B. Enforce HSTS on the web server
 - C. Rotate the TLS certificate
 - D. Enable account lockout
 
 <details><summary>Answer</summary>
 
-**B. Restrict zone transfers** to the named secondary IPs (and prefer split-horizon / internal-only DNS for AD). That single change turns an open AXFR into a refusal. HSTS, cert rotation, and lockout address unrelated risks. **Verify by re-running `dig ... AXFR` and confirming a refusal.**
+**A. Restrict zone transfers** to the named secondary IPs (and prefer split-horizon / internal-only DNS for AD). That single change turns an open AXFR into a refusal. HSTS, cert rotation, and lockout address unrelated risks. **Verify by re-running `dig ... AXFR` and confirming a refusal.**
 </details>
 
 ---

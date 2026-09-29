@@ -107,7 +107,7 @@ Dumping, T1003"). Mapping defences to ATT&CK shows coverage gaps clearly.
 | **Pass-the-Hash (PtH)** | T1550.002 | Lateral Movement / Defense Evasion | No standing local-admin secret on endpoints; **unique, rotated** credentials per account/host stop hash reuse across machines. EPM removes local-admin to begin with. |
 | **Pass-the-Ticket (PtT)** | T1550.003 | Lateral Movement | Sessions are **brokered and time-boxed (JIT)**; short-lived access + recording limit ticket reuse and make abuse visible. |
 | **Kerberoasting** | T1558.003 | Credential Access | **Vault + automatic rotation** give service accounts **long, random, frequently-changed** passwords that cannot be cracked offline in time. |
-| **Golden / Silver Ticket** | T1558.001 / .002 | Persistence / Cred. Access | PAM doesn't forge-proof Kerberos itself, but by **preventing the Domain-Admin compromise** that enables krbtgt theft (no standing DA, brokered+recorded access), it removes the precondition. |
+| **Golden / Silver Ticket** | T1558.001 / .002 | Credential Access | PAM doesn't forge-proof Kerberos itself, but by **preventing the Domain-Admin compromise** that enables krbtgt theft (no standing DA, brokered+recorded access), it removes the precondition. |
 | **DCSync** | T1003.006 | Credential Access | Same logic: blocking the path to high-privilege accounts denies the replication rights DCSync needs. |
 | **Valid Accounts (reuse)** | T1078 | Defense Evasion / Persistence | **Check-out/check-in + recording + JIT** mean every privileged use is attributed, time-limited, and auditable — reuse is no longer silent. |
 

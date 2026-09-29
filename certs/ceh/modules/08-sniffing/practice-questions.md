@@ -8,28 +8,28 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q1.** You plug a laptop into a modern **switched** network and start Wireshark, but you only see broadcasts and your own traffic — not other hosts' unicast. Why?
 
-- A. Wireshark is not in promiscuous mode
-- B. The switch forwards each unicast frame only to the destination port, using its CAM table
+- A. The switch forwards each unicast frame only to the destination port, using its CAM table
+- B. Wireshark is not in promiscuous mode
 - C. The traffic is encrypted
 - D. The NIC does not support monitor mode
 
 <details><summary>Answer</summary>
 
-**B.** A switch learns MAC→port mappings in its **CAM table** and delivers unicast frames only to the owning port, so passive sniffing sees little on a switch. That is exactly why attackers must switch to **active** techniques (MAC flooding, ARP poisoning) to redirect traffic. Promiscuous mode (A) is necessary but not sufficient on a switch; encryption (C) would still let you see the packets, just not the payload.
+**A.** A switch learns MAC→port mappings in its **CAM table** and delivers unicast frames only to the owning port, so passive sniffing sees little on a switch. That is exactly why attackers must switch to **active** techniques (MAC flooding, ARP poisoning) to redirect traffic. Promiscuous mode (B) is necessary but not sufficient on a switch; encryption (C) would still let you see the packets, just not the payload.
 </details>
 
 ---
 
 **Q2.** On which environment does **passive** sniffing work without any active attack?
 
-- A. A switch with port security enabled
-- B. A hub, or a SPAN/mirror port or network TAP
+- A. A hub, or a SPAN/mirror port or network TAP
+- B. A switch with port security enabled
 - C. Any 802.1X-authenticated LAN
 - D. A network using DHCP snooping
 
 <details><summary>Answer</summary>
 
-**B.** A **hub** copies every frame to every port, and a **SPAN port / TAP** deliberately feeds you a copy — both let you listen passively. On a switch you'd need an active attack. Note that SPAN/TAP are the *legitimate* sniffing methods (they feed IDS/analyzers), not attacks.
+**A.** A **hub** copies every frame to every port, and a **SPAN port / TAP** deliberately feeds you a copy — both let you listen passively. On a switch you'd need an active attack. Note that SPAN/TAP are the *legitimate* sniffing methods (they feed IDS/analyzers), not attacks.
 </details>
 
 ---
@@ -51,27 +51,27 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q4.** ARP poisoning succeeds primarily because:
 
 - A. ARP requests are encrypted and can be forged
-- B. ARP has no authentication, so hosts accept unsolicited/gratuitous ARP replies
+- B. IPv6 replaced ARP
 - C. Switches disable ARP by default
-- D. IPv6 replaced ARP
+- D. ARP has no authentication, so hosts accept unsolicited/gratuitous ARP replies
 
 <details><summary>Answer</summary>
 
-**B.** **ARP has no authentication.** A host will cache an unsolicited ("gratuitous") ARP reply with no proof, so a forged "gateway IP = attacker MAC" reply silently reroutes the victim's traffic. This one-line reason is the most-tested "why" in the module. Control: **Dynamic ARP Inspection (DAI)** and static ARP for gateways.
+**D.** **ARP has no authentication.** A host will cache an unsolicited ("gratuitous") ARP reply with no proof, so a forged "gateway IP = attacker MAC" reply silently reroutes the victim's traffic. This one-line reason is the most-tested "why" in the module. Control: **Dynamic ARP Inspection (DAI)** and static ARP for gateways.
 </details>
 
 ---
 
 **Q5.** During an ARP MITM, the attacker enables `net.ipv4.ip_forward=1`. What does this accomplish?
 
-- A. It encrypts the intercepted traffic
-- B. It relays the victim's packets on to the real destination so the victim stays online (transparent MITM)
+- A. It relays the victim's packets on to the real destination so the victim stays online (transparent MITM)
+- B. It encrypts the intercepted traffic
 - C. It disables the victim's ARP cache
 - D. It spoofs the DNS responses
 
 <details><summary>Answer</summary>
 
-**B.** With IP forwarding on, the attacker **relays** each intercepted packet to its true destination, so the victim keeps working normally and never notices the interception — a *transparent* man-in-the-middle. Without forwarding, poisoning becomes a denial of service instead of a stealthy MITM.
+**A.** With IP forwarding on, the attacker **relays** each intercepted packet to its true destination, so the victim keeps working normally and never notices the interception — a *transparent* man-in-the-middle. Without forwarding, poisoning becomes a denial of service instead of a stealthy MITM.
 </details>
 
 ---
@@ -93,13 +93,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q7.** An attacker sets up a DHCP server that answers client requests faster than the real one, handing out its own IP as the default gateway and DNS. This is:
 
 - A. DHCP starvation
-- B. A rogue DHCP server
+- B. MAC spoofing
 - C. DNS cache poisoning
-- D. MAC spoofing
+- D. A rogue DHCP server
 
 <details><summary>Answer</summary>
 
-**B.** A **rogue DHCP** server wins the race to answer and dictates the victim's **gateway and DNS**, funneling traffic through the attacker (MITM). **DHCP starvation** (A) is the *preceding* move — exhausting the real pool so clients must take the rogue lease. Counter: **DHCP snooping**.
+**D.** A **rogue DHCP** server wins the race to answer and dictates the victim's **gateway and DNS**, funneling traffic through the attacker (MITM). **DHCP starvation** (A) is the *preceding* move — exhausting the real pool so clients must take the rogue lease. Counter: **DHCP snooping**.
 </details>
 
 ---
@@ -107,13 +107,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q8.** Which set of protocols transmits credentials in **cleartext** by default?
 
 - A. SSH, HTTPS, SFTP
-- B. Telnet, FTP, HTTP, SNMPv1/2c, LDAP
-- C. LDAPS, FTPS, SNMPv3
+- B. LDAPS, FTPS, SNMPv3
+- C. Telnet, FTP, HTTP, SNMPv1/2c, LDAP
 - D. IMAPS, POP3S, SMTPS
 
 <details><summary>Answer</summary>
 
-**B.** **Telnet (23), FTP (21), HTTP (80), SNMPv1/2c (161), and LDAP (389)** carry credentials in the clear. Their encrypted swaps: SSH, SFTP/FTPS, HTTPS, SNMPv3, and LDAPS (636). A/C/D are all already-encrypted options.
+**C.** **Telnet (23), FTP (21), HTTP (80), SNMPv1/2c (161), and LDAP (389)** carry credentials in the clear. Their encrypted swaps: SSH, SFTP/FTPS, HTTPS, SNMPv3, and LDAPS (636). A/B/D are all already-encrypted options.
 </details>
 
 ---
@@ -176,14 +176,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q13.** You ARP-poison a victim and it browses an **HTTPS** site. What do you see?
 
-- A. The plaintext credentials, because you are MITM
-- B. Only encrypted (TLS) traffic — you're on-path but can't read the payload; the victim may see a cert warning if you try to intercept TLS
+- A. Only encrypted (TLS) traffic — you're on-path but can't read the payload; the victim may see a cert warning if you try to intercept TLS
+- B. The plaintext credentials, because you are MITM
 - C. Nothing at all — HTTPS blocks ARP poisoning
 - D. The site's private key
 
 <details><summary>Answer</summary>
 
-**B.** Being MITM at **L2** lets you *see and relay* the packets, but **TLS encrypts the payload**, so you get ciphertext. Actively terminating/re-signing the TLS session would throw a **certificate warning** on the victim. This is the module's core lesson: **encryption neutralizes the payoff** even when the technique succeeds.
+**A.** Being MITM at **L2** lets you *see and relay* the packets, but **TLS encrypts the payload**, so you get ciphertext. Actively terminating/re-signing the TLS session would throw a **certificate warning** on the victim. This is the module's core lesson: **encryption neutralizes the payoff** even when the technique succeeds.
 </details>
 
 ---
@@ -191,13 +191,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q14.** From a PAM/defender standpoint, what best ensures a privileged credential is **never on the wire** in a form a sniffer can capture?
 
 - A. A longer admin password
-- B. Broker the session through a PAM proxy (PSM) that injects the target credential **server-side** over a TLS-tunneled, recorded session
+- B. Put the admin workstation on a different VLAN
 - C. Enable Telnet with a banner warning
-- D. Put the admin workstation on a different VLAN
+- D. Broker the session through a PAM proxy (PSM) that injects the target credential **server-side** over a TLS-tunneled, recorded session
 
 <details><summary>Answer</summary>
 
-**B.** A **PAM session broker (PSM/PSMP)** injects the target password **server-side** and tunnels/records the session over TLS, so the credential never traverses the admin's endpoint or the LAN in readable form — a sniffer or ARP MITM captures only ciphertext. Password length (A) doesn't matter if it's sent in cleartext; VLAN segmentation (D) helps but doesn't keep the credential off the wire within the segment.
+**D.** A **PAM session broker (PSM/PSMP)** injects the target password **server-side** and tunnels/records the session over TLS, so the credential never traverses the admin's endpoint or the LAN in readable form — a sniffer or ARP MITM captures only ciphertext. Password length (A) doesn't matter if it's sent in cleartext; VLAN segmentation (B) helps but doesn't keep the credential off the wire within the segment.
 </details>
 
 ---

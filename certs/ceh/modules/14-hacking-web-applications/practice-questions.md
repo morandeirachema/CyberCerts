@@ -8,14 +8,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q1.** An attacker posts a comment containing `<script>` on a forum. Every user who later views the thread has their session cookie exfiltrated. Which XSS type is this?
 
-- A. Reflected XSS
-- B. Stored (persistent) XSS
+- A. Stored (persistent) XSS
+- B. Reflected XSS
 - C. DOM-based XSS
 - D. Self-XSS
 
 <details><summary>Answer</summary>
 
-**B. Stored (persistent) XSS.** The payload is saved **server-side** (in the comment) and executes for **every** viewer, with no per-victim link required. Reflected XSS echoes the payload straight back from a single request and needs the victim to click a crafted link; DOM-based XSS never reaches the server. **Tell:** "saved" + "every viewer" ⇒ stored.
+**A. Stored (persistent) XSS.** The payload is saved **server-side** (in the comment) and executes for **every** viewer, with no per-victim link required. Reflected XSS echoes the payload straight back from a single request and needs the victim to click a crafted link; DOM-based XSS never reaches the server. **Tell:** "saved" + "every viewer" ⇒ stored.
 </details>
 
 ---
@@ -23,13 +23,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q2.** A victim receives an email link like `https://shop.site/search?q=<script>...</script>`. Clicking it runs the script, which is echoed unencoded in the results page. This is:
 
 - A. Stored XSS
-- B. Reflected XSS
+- B. SSRF
 - C. CSRF
-- D. SSRF
+- D. Reflected XSS
 
 <details><summary>Answer</summary>
 
-**B. Reflected XSS.** The payload is **not stored** — it is reflected back from *this one request* and only fires because the victim **clicked the crafted link**. That per-victim link is the signature of reflected (non-persistent) XSS. CSRF forces an action but doesn't inject script; SSRF targets the server.
+**D. Reflected XSS.** The payload is **not stored** — it is reflected back from *this one request* and only fires because the victim **clicked the crafted link**. That per-victim link is the signature of reflected (non-persistent) XSS. CSRF forces an action but doesn't inject script; SSRF targets the server.
 </details>
 
 ---
@@ -120,14 +120,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q9.** On a file-upload form with no server-side validation, an attacker uploads `shell.php` containing `<?php system($_GET['c']); ?>` and browses to it. What is the immediate impact?
 
-- A. Reflected XSS in the upload page
-- B. A web shell giving remote command execution (RCE)
+- A. A web shell giving remote command execution (RCE)
+- B. Reflected XSS in the upload page
 - C. A CSRF token bypass
 - D. An SSRF into the storage backend
 
 <details><summary>Answer</summary>
 
-**B. A web shell → RCE.** An **unrestricted file upload** that lets an executable script land in a web-served, executable directory yields a **web shell** and full command execution. Controls: validate type **server-side**, store uploads **off the web root**, disable execution in the upload directory, and randomize file names.
+**A. A web shell → RCE.** An **unrestricted file upload** that lets an executable script land in a web-served, executable directory yields a **web shell** and full command execution. Controls: validate type **server-side**, store uploads **off the web root**, disable execution in the upload directory, and randomize file names.
 </details>
 
 ---
@@ -135,13 +135,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q10.** A "ping" tool runs `ping <user_input>`. Submitting `127.0.0.1; id` returns the output of `id`. Which flaw is this, and what is the primary fix?
 
 - A. XSS — output encoding
-- B. Command injection — avoid the shell / pass arguments safely, don't rely on a blocklist
+- B. XXE — disable external entities
 - C. IDOR — authorization checks
-- D. XXE — disable external entities
+- D. Command injection — avoid the shell / pass arguments safely, don't rely on a blocklist
 
 <details><summary>Answer</summary>
 
-**B. Command injection.** User input reaches an OS shell and the `;` chains a second command. The durable fix is **not a blocklist** — it's **avoiding shell execution entirely** or passing arguments through a safe API (no shell metacharacter interpretation), plus a **least-privilege service account** so the payoff is small.
+**D. Command injection.** User input reaches an OS shell and the `;` chains a second command. The durable fix is **not a blocklist** — it's **avoiding shell execution entirely** or passing arguments through a safe API (no shell metacharacter interpretation), plus a **least-privilege service account** so the payoff is small.
 </details>
 
 ---
@@ -177,13 +177,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q13.** You see this in an XML request body: `<!DOCTYPE foo [<!ENTITY x SYSTEM "file:///etc/passwd">]> <foo>&x;</foo>`. What attack is being attempted?
 
 - A. Insecure deserialization
-- B. XXE (XML External Entity)
+- B. RFI
 - C. Reflected XSS
-- D. RFI
+- D. XXE (XML External Entity)
 
 <details><summary>Answer</summary>
 
-**B. XXE.** Declaring an **external entity** that references `file:///etc/passwd` (or an internal URL) is the classic **XML External Entity** attack — it enables local file read, **SSRF**, and DoS. Fix: **disable DTDs / external entity resolution** in the XML parser. XXE is typically classed under **A05 Security Misconfiguration**.
+**D. XXE.** Declaring an **external entity** that references `file:///etc/passwd` (or an internal URL) is the classic **XML External Entity** attack — it enables local file read, **SSRF**, and DoS. Fix: **disable DTDs / external entity resolution** in the XML parser. XXE is typically classed under **A05 Security Misconfiguration**.
 </details>
 
 ---

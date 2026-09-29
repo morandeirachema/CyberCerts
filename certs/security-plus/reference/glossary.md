@@ -219,7 +219,7 @@ An alphabetical glossary of CompTIA Security+ terms, each defined **in Security+
 
 ## Sources
 
-- CompTIA — Security+ certification page and official **SY0-701 exam objectives** PDF (definitions and term lists): https://www.comptia.org/en-us/certifications/security/ *(download and verify; objectives change per exam version)*
+- CompTIA — Security+ certification page and official **SY0-701 exam objectives** PDF (definitions and term lists): https://www.comptia.org/en-us/certifications/security/v7/ *(download and verify; objectives change per exam version)*
 - NIST Computer Security Resource Center — Glossary: https://csrc.nist.gov/glossary
 - NIST SP 800-207 — Zero Trust Architecture (control/data plane, policy engine): https://csrc.nist.gov/pubs/sp/800/207/final
 - NIST SP 800-61 — Computer Security Incident Handling Guide (IR lifecycle, order of volatility): https://csrc.nist.gov/pubs/sp/800/61/r2/final

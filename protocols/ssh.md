@@ -116,7 +116,8 @@ smaller, faster keys:
 
 | Key-exchange method | Curve / group | Hash | Defining RFC |
 |---|---|---|---|
-| `diffie-hellman-group14-sha1` | 2048-bit MODP group | SHA-1 | RFC 4253 (REQUIRED) |
+| `diffie-hellman-group14-sha1` | 2048-bit MODP group | SHA-1 | RFC 4253 (REQUIRED there); RFC 9142 downgrades it to **MAY** |
+| `diffie-hellman-group14-sha256` | 2048-bit MODP group | SHA-256 | RFC 8268; RFC 9142 makes it **MUST** |
 | `ecdh-sha2-*` | NIST P-256/384/521 | SHA-2 family | RFC 5656 |
 | `curve25519-sha256` | Curve25519 (X25519) | SHA-256 | RFC 8731 |
 | `curve448-sha512` | Curve448 (X448) | SHA-512 | RFC 8731 |
@@ -220,7 +221,7 @@ This is the heart of the protocol. Read it slowly:
      number is never transmitted but is included so an attacker cannot reorder, drop, or
      replay packets. Common MACs: `hmac-sha2-256`, `hmac-sha2-512` (the older `hmac-sha1` and
      `3des-cbc` are required-baseline in RFC 4253 but now considered weak).
-   - With an **AEAD** cipher — **AES-GCM** (`aes128-gcm@openssh.com` / `aes256-gcm`) or
+   - With an **AEAD** cipher — **AES-GCM** (`aes128-gcm@openssh.com` / `aes256-gcm@openssh.com`) or
      **ChaCha20-Poly1305** (`chacha20-poly1305@openssh.com`) — encryption and integrity are a
      single operation producing an authentication tag; no separate HMAC is negotiated. The
      widely deployed AES counter modes (`aes128-ctr`, `aes256-ctr`) instead pair a stream
@@ -374,8 +375,9 @@ multiplexing is exactly why port forwarding is so useful — and why a bastion m
   cannot produce the right signature, so on a *return* visit SSH detects the swapped key and
   refuses. The residual risk is the **first** connection (no prior key on file) — mitigate
   with out-of-band fingerprints, SSH **host certificates**, or a managed bastion.
-- **Weak ciphers / algorithms.** `diffie-hellman-group14-sha1` and `3des-cbc`/`hmac-sha1` are
-  baseline-required by RFC 4253 but are now weak; prefer `curve25519-sha256` (RFC 8731),
+- **Weak ciphers / algorithms.** `3des-cbc`/`hmac-sha1` are baseline-required by RFC 4253 but
+  are now weak, and `diffie-hellman-group14-sha1` (REQUIRED in RFC 4253) was downgraded to
+  MAY by RFC 9142, which makes `diffie-hellman-group14-sha256` the MUST-implement method; prefer `curve25519-sha256` (RFC 8731),
   Ed25519 host/user keys (RFC 8709), AES-GCM or ChaCha20-Poly1305 AEAD, and SHA-2 MACs.
   Disable SSH-1 entirely — it is obsolete and insecure.
 - **CBC and the integrity model.** Older Cipher-Block-Chaining modes plus MAC-and-encrypt
@@ -412,6 +414,9 @@ multiplexing is exactly why port forwarding is so useful — and why a bastion m
 - RFC 5656 — *Elliptic Curve Algorithm Integration in SSH (ECDH/ECDSA).* <https://www.rfc-editor.org/rfc/rfc5656>
 - RFC 8709 — *Ed25519 and Ed448 Public Key Algorithms for SSH.* <https://www.rfc-editor.org/rfc/rfc8709>
 - RFC 8731 — *SSH Key Exchange Method Using Curve25519 and Curve448.* <https://www.rfc-editor.org/rfc/rfc8731>
+- RFC 8268 — *More Modular Exponentiation (MODP) Diffie-Hellman (DH) Key Exchange (KEX) Groups for SSH.* <https://www.rfc-editor.org/rfc/rfc8268>
+- RFC 9142 — *Key Exchange (KEX) Method Updates and Recommendations for SSH* (2022; updates RFC 4250, 4253, 4432, 4462). <https://www.rfc-editor.org/rfc/rfc9142>
+- OpenSSH — `sshd_config(5)` (cipher names such as `aes256-gcm@openssh.com`). <https://man.openbsd.org/sshd_config>
 
 > Cross-references: [../prerequisites/linux-essentials-for-pam.md](../prerequisites/linux-essentials-for-pam.md) ·
 > [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md) ·

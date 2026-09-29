@@ -22,14 +22,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q2.** Which statement correctly separates an **IDS** from an **IPS**?
 
-- A. IDS blocks traffic inline; IPS only logs
-- B. IDS detects and alerts out of band; IPS detects and blocks inline
+- A. IDS detects and alerts out of band; IPS detects and blocks inline
+- B. IDS blocks traffic inline; IPS only logs
 - C. IDS works at Layer 7 only; IPS works at Layer 3 only
 - D. They are identical; the names are interchangeable
 
 <details><summary>Answer</summary>
 
-**B.** Same detection engine, different placement and authority: the **IDS** watches out-of-band and can only **alert**; the **IPS** sits **inline** and can **drop/reset/rewrite**. Placement (out-of-band vs in-path), not OSI layer, is the distinction.
+**A.** Same detection engine, different placement and authority: the **IDS** watches out-of-band and can only **alert**; the **IPS** sits **inline** and can **drop/reset/rewrite**. Placement (out-of-band vs in-path), not OSI layer, is the distinction.
 </details>
 
 ---
@@ -50,28 +50,28 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q4.** From Kali you run `nmap --badsum 192.168.56.20`. The target reports no open ports, yet your Suricata still logs the probes. Which concept does this gap illustrate?
 
-- A. Evasion
-- B. Insertion
+- A. Insertion
+- B. Evasion
 - C. A false negative on the host
 - D. Anomaly detection
 
 <details><summary>Answer</summary>
 
-**B. Insertion.** A bad TCP checksum makes the **end host drop** the packet while a sensor that ignores checksums may still process it — the IDS "sees" traffic the target never accepted. That divergence between IDS view and host view is the textbook insertion scenario, and `--badsum` is also used to fingerprint filtering devices.
+**A. Insertion.** A bad TCP checksum makes the **end host drop** the packet while a sensor that ignores checksums may still process it — the IDS "sees" traffic the target never accepted. That divergence between IDS view and host view is the textbook insertion scenario, and `--badsum` is also used to fingerprint filtering devices.
 </details>
 
 ---
 
 **Q5.** Which detection method compares live traffic against a **learned baseline of normal behavior** and can therefore flag novel, never-before-seen attacks?
 
-- A. Signature / misuse detection
-- B. Anomaly / behavior detection
+- A. Anomaly / behavior detection
+- B. Signature / misuse detection
 - C. Stateless packet filtering
 - D. Rainbow-table matching
 
 <details><summary>Answer</summary>
 
-**B. Anomaly / behavior detection.** It measures deviation from a baseline, so it can catch **unknown/0-day** activity — at the cost of more **false positives** and a training period. Signature detection matches known-bad patterns and is blind to novel attacks.
+**A. Anomaly / behavior detection.** It measures deviation from a baseline, so it can catch **unknown/0-day** activity — at the cost of more **false positives** and a training period. Signature detection matches known-bad patterns and is blind to novel attacks.
 </details>
 
 ---
@@ -79,13 +79,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q6.** Encrypted tunneling (e.g. HTTPS or DNS-over-TXT C2) most directly defeats which detection approach, while still leaving a tell for another?
 
 - A. Defeats anomaly detection; leaves nothing for signatures
-- B. Defeats signature detection; still leaves a behavioral/flow tell
-- C. Defeats both equally
+- B. Defeats both equally
+- C. Defeats signature detection; still leaves a behavioral/flow tell
 - D. Defeats stateful firewalls only
 
 <details><summary>Answer</summary>
 
-**B.** Signature IDS **can't read the encrypted payload**, so content rules go blind. But tunneling still produces a **behavioral shape** — high-entropy query volume, beaconing intervals, odd data lengths — that anomaly/flow analysis and egress monitoring can catch. Evasion moves the evidence; it rarely erases it.
+**C.** Signature IDS **can't read the encrypted payload**, so content rules go blind. But tunneling still produces a **behavioral shape** — high-entropy query volume, beaconing intervals, odd data lengths — that anomaly/flow analysis and egress monitoring can catch. Evasion moves the evidence; it rarely erases it.
 </details>
 
 ---
@@ -149,13 +149,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q11.** What is the defining difference between a **low-interaction** and a **high-interaction** honeypot?
 
 - A. Low-interaction runs real OS/services; high-interaction only emulates
-- B. Low-interaction emulates services; high-interaction exposes real systems
-- C. Low-interaction is always research; high-interaction is always production
+- B. Low-interaction is always research; high-interaction is always production
+- C. Low-interaction emulates services; high-interaction exposes real systems
 - D. Low-interaction can block traffic; high-interaction cannot
 
 <details><summary>Answer</summary>
 
-**B.** **Low-interaction = emulated** services (honeyd, Dionaea) — safer and cheaper but yields limited data. **High-interaction = real** operating systems and services (honeynets) — far richer attacker data, but greater risk since a real system can be abused as a pivot.
+**C.** **Low-interaction = emulated** services (honeyd, Dionaea) — safer and cheaper but yields limited data. **High-interaction = real** operating systems and services (honeynets) — far richer attacker data, but greater risk since a real system can be abused as a pivot.
 </details>
 
 ---
@@ -163,13 +163,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q12.** A security team deploys a honeypot **inside the corporate network purely as an early-warning tripwire** — any connection to it is suspicious. Which honeypot *purpose* is this?
 
 - A. Research honeypot
-- B. Production honeypot
+- B. Pure honeypot
 - C. Tarpit
-- D. Pure honeypot
+- D. Production honeypot
 
 <details><summary>Answer</summary>
 
-**B. Production honeypot.** Its job is **early warning / detection** inside your own environment, so it can stay simple. A **research** honeypot exists to study attacker TTPs in depth. A **tarpit** (LaBrea) deliberately slows scanners; a **pure** honeypot is a full real system.
+**D. Production honeypot.** Its job is **early warning / detection** inside your own environment, so it can stay simple. A **research** honeypot exists to study attacker TTPs in depth. A **tarpit** (LaBrea) deliberately slows scanners; a **pure** honeypot is a full real system.
 </details>
 
 ---
@@ -177,13 +177,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q13.** During a scan you notice services with canned, unrealistically consistent banners, abnormal latency, and no genuine user activity. What have you most likely found?
 
 - A. A next-generation firewall
-- B. A honeypot
+- B. A DMZ bastion host
 - C. An IPS in fail-open mode
-- D. A DMZ bastion host
+- D. A honeypot
 
 <details><summary>Answer</summary>
 
-**B. A honeypot.** Canned banners, too-consistent open services, odd latency/tarpit stalling, VM/sandbox artifacts, and the absence of real user activity are exactly the **fingerprinting tells** an attacker uses to spot deception before engaging.
+**D. A honeypot.** Canned banners, too-consistent open services, odd latency/tarpit stalling, VM/sandbox artifacts, and the absence of real user activity are exactly the **fingerprinting tells** an attacker uses to spot deception before engaging.
 </details>
 
 ---
@@ -205,13 +205,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q15.** Which control most directly neutralizes **source-port spoofing** (`-g 53/80/443`) against a network perimeter?
 
 - A. Enabling LLMNR
-- B. A stateful, default-deny firewall that does not trust the source port
+- B. Disabling the IDS to reduce false positives
 - C. Longer administrator passwords
-- D. Disabling the IDS to reduce false positives
+- D. A stateful, default-deny firewall that does not trust the source port
 
 <details><summary>Answer</summary>
 
-**B.** Source-port spoofing only works against **stateless ACLs that trust a "safe" source port**. A **stateful, default-deny** firewall tracks real connection state and evaluates the *destination* service and flow direction, so a packet claiming to be "from port 53" gets no free pass. The other options are irrelevant or actively harmful.
+**D.** Source-port spoofing only works against **stateless ACLs that trust a "safe" source port**. A **stateful, default-deny** firewall tracks real connection state and evaluates the *destination* service and flow direction, so a packet claiming to be "from port 53" gets no free pass. The other options are irrelevant or actively harmful.
 </details>
 
 ---

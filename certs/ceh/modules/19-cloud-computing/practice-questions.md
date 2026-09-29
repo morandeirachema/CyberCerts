@@ -36,14 +36,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q3.** A web app is vulnerable to SSRF. On an EC2 instance using **IMDSv1**, what is the most valuable target an attacker reaches via `http://169.254.169.254/`?
 
-- A. The AWS root account password
-- B. The instance's temporary IAM **role credentials**
+- A. The instance's temporary IAM **role credentials**
+- B. The AWS root account password
 - C. The hypervisor management console
 - D. Other tenants' metadata
 
 <details><summary>Answer</summary>
 
-**B. The instance's temporary IAM role credentials** at `/latest/meta-data/iam/security-credentials/`. With IMDSv1 a single SSRF-driven GET returns them, and the attacker then uses them from anywhere. It cannot reach the root password (A), the hypervisor (C), or other tenants (D) — metadata is per-instance.
+**A. The instance's temporary IAM role credentials** at `/latest/meta-data/iam/security-credentials/`. With IMDSv1 a single SSRF-driven GET returns them, and the attacker then uses them from anywhere. It cannot reach the root password (B), the hypervisor (C), or other tenants (D) — metadata is per-instance.
 </details>
 
 ---
@@ -51,13 +51,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q4.** Why does **IMDSv2** defeat the classic SSRF-to-metadata attack that works against **IMDSv1**?
 
 - A. It moves metadata to a public IP
-- B. It requires a session token obtained via a `PUT`, plus a hop limit
+- B. It disables the metadata service entirely
 - C. It encrypts the role credentials at rest
-- D. It disables the metadata service entirely
+- D. It requires a session token obtained via a `PUT`, plus a hop limit
 
 <details><summary>Answer</summary>
 
-**B.** IMDSv2 is session-oriented: you must first `PUT` to `/latest/api/token`, then send that token as a header on every request, and the service enforces a **hop limit** (default 1). A typical SSRF can only coerce a simple GET and cannot set custom headers or issue the PUT, so the credential path breaks. The address is still **169.254.169.254**.
+**D.** IMDSv2 is session-oriented: you must first `PUT` to `/latest/api/token`, then send that token as a header on every request, and the service enforces a **hop limit** (default 1). A typical SSRF can only coerce a simple GET and cannot set custom headers or issue the PUT, so the credential path breaks. The address is still **169.254.169.254**.
 </details>
 
 ---
@@ -79,13 +79,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q6.** An exposed Kubernetes **kubelet** API is dangerous primarily because an attacker can:
 
 - A. Read the cloud provider's billing data
-- B. Execute commands inside pods on that node
+- B. Delete the etcd database directly
 - C. Rotate the cluster's TLS certificates
-- D. Delete the etcd database directly
+- D. Execute commands inside pods on that node
 
 <details><summary>Answer</summary>
 
-**B.** The kubelet (**10250**) is the node agent; an exposed/anonymous kubelet API lets an attacker run commands (`exec`) in the pods on that node and read their secrets. It is a node-level foothold, not a billing (A), PKI (C), or direct etcd (D) interface.
+**D.** The kubelet (**10250**) is the node agent; an exposed/anonymous kubelet API lets an attacker run commands (`exec`) in the pods on that node and read their secrets. It is a node-level foothold, not a billing (A), PKI (C), or direct etcd (B) interface.
 </details>
 
 ---
@@ -107,27 +107,27 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q8.** Which tool pairing is **correct** for Kubernetes?
 
 - A. kube-bench = pentest; kube-hunter = CIS audit
-- B. kube-bench = CIS Benchmark audit; kube-hunter = penetration testing
+- B. Both are image scanners
 - C. Both are exploitation frameworks
-- D. Both are image scanners
+- D. kube-bench = CIS Benchmark audit; kube-hunter = penetration testing
 
 <details><summary>Answer</summary>
 
-**B.** **kube-bench** runs the **CIS Benchmark** (defensive audit of your node/cluster config); **kube-hunter** actively **pentests** (offensive) the cluster. Don't swap them. Image/IaC/secret scanning is **Trivy's** job.
+**D.** **kube-bench** runs the **CIS Benchmark** (defensive audit of your node/cluster config); **kube-hunter** actively **pentests** (offensive) the cluster. Don't swap them. Image/IaC/secret scanning is **Trivy's** job.
 </details>
 
 ---
 
 **Q9.** You need a **read-only, multi-cloud posture audit** that flags misconfigurations without changing anything. Which tool fits best?
 
-- A. Pacu
-- B. ScoutSuite
+- A. ScoutSuite
+- B. Pacu
 - C. Mimikatz
 - D. Responder
 
 <details><summary>Answer</summary>
 
-**B. ScoutSuite** performs a read-only multi-cloud posture audit and produces an HTML report. **Pacu** is the AWS **exploitation** framework (it modifies resources — use only on a throwaway account). Mimikatz and Responder are unrelated (Windows credential / LLMNR tooling).
+**A. ScoutSuite** performs a read-only multi-cloud posture audit and produces an HTML report. **Pacu** is the AWS **exploitation** framework (it modifies resources — use only on a throwaway account). Mimikatz and Responder are unrelated (Windows credential / LLMNR tooling).
 </details>
 
 ---
@@ -176,14 +176,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q13.** Which is the **most durable** control against the "SSRF → steal instance role credentials" attack path?
 
-- A. A longer instance password
-- B. Enforce IMDSv2 (token + hop limit) and keep secrets off the instance
+- A. Enforce IMDSv2 (token + hop limit) and keep secrets off the instance
+- B. A longer instance password
 - C. Disable IPv6 on the VPC
 - D. Rotate the AWS root password weekly
 
 <details><summary>Answer</summary>
 
-**B.** **Enforce IMDSv2** (require token, hop limit 1) so SSRF can't pull creds, and deliver secrets at runtime (e.g., Conjur) so the instance holds nothing long-lived. Fixing the SSRF itself and preferring short-lived roles over keys complete the fix. A, C, and D don't address the metadata path.
+**A.** **Enforce IMDSv2** (require token, hop limit 1) so SSRF can't pull creds, and deliver secrets at runtime (e.g., Conjur) so the instance holds nothing long-lived. Fixing the SSRF itself and preferring short-lived roles over keys complete the fix. B, C, and D don't address the metadata path.
 </details>
 
 ---

@@ -189,7 +189,7 @@ steps 2–3.
 
 ## Sources
 
-- NIST SP 800-63B Digital Identity Guidelines (authenticators/credentials): https://pages.nist.gov/800-63-3/sp800-63b.html
+- NIST SP 800-63B-4 Digital Identity Guidelines: Authentication and Authenticator Management (final, July 2025): https://csrc.nist.gov/pubs/sp/800/63/B/4/final
 - NIST SP 800-53 Rev. 5 (AC-2 Account Management, AC-6 Least Privilege): https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 - CISA — Identity & Access Management / default credentials guidance: https://www.cisa.gov/topics/cybersecurity-best-practices/identity-and-access-management
 - AWS — Root user best practices: https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html

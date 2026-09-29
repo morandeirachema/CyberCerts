@@ -20,17 +20,28 @@ analyst)** certification for detection, threat hunting, and incident response.
 > [!NOTE]
 > **Unofficial & no fabrication.** Not affiliated with or endorsed by CompTIA. Exam specifics
 > are from CompTIA's official CySA+ page; volatile items (price, exam code, CEU renewal) should
-> be re-checked there — codes rotate ~every 3 years. Compiled **2026-06-20**.
+> be re-checked there. Compiled **2026-06-20**; exam facts re-checked **2026-09-29**.
+
+> [!IMPORTANT]
+> **Version notice — this hub covers CS0-003 (V3), which is retiring.** English learning
+> products retire **2026-11-22**, the **English exam retires 2026-12-22**, and the Japanese,
+> Portuguese, and Spanish exams retire **2027-03-23** ([V3 page](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/)).
+> The successor **CS0-004 (V4)** launched **2026-06-23**: max 85 questions, 165 minutes, 750 on
+> 100–900, English (other languages "coming soon"); domains Security Operations 34%,
+> Vulnerability Management 26%, Incident Response and Management 24%, Reporting and
+> Communication 16%; recommended "About 4 years in a SOC analyst or vulnerability analyst
+> role" ([V4 page](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/)). **Booking after 2026-12-22? Map your study to the CS0-004
+> objectives** — see the [version notice](00-overview/exam-and-objectives.md#version-notice--cs0-003-retires-cs0-004-is-live).
 
 ## 📋 At a glance
 
 | Item | Detail |
 |------|--------|
-| **Exam** | CS0-003 *(verify — codes rotate)* |
+| **Exam** | CS0-003 (V3) — English exam retires **2026-12-22**; successor CS0-004 |
 | **Format** | Max **85 questions** — multiple-choice + **performance-based (PBQ)** |
 | **Duration / pass** | **165 minutes** · **750** on a 100–900 scale |
 | **Level / focus** | Intermediate, **vendor-neutral**, **defensive** (SOC analyst / detection & response) |
-| **Recommended** | Security+ and ~4 years hands-on experience *(not required)* |
+| **Recommended** | Network+, Security+, or equivalent knowledge, with a minimum of 4 years as an incident response or SOC analyst *(not required)* |
 
 Full details: **[exam & objectives](00-overview/exam-and-objectives.md)**.
 

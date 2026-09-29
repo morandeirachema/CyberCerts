@@ -23,13 +23,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q2.** An attacker requests `GET /scripts/../../../../etc/passwd` and receives the file contents. Which attack is this?
 
 - A. Directory brute forcing
-- B. Directory / path traversal
+- B. Web cache poisoning
 - C. HTTP response splitting
-- D. Web cache poisoning
+- D. Directory / path traversal
 
 <details><summary>Answer</summary>
 
-**B. Path traversal.** The `../` sequences escape the document root to read an arbitrary OS file. Don't confuse it with **directory brute forcing**, which *guesses existing* paths (admin panels, backups) rather than escaping the root. Encoded forms like `%2e%2e%2f` are the classic WAF-evasion tell.
+**D. Path traversal.** The `../` sequences escape the document root to read an arbitrary OS file. Don't confuse it with **directory brute forcing**, which *guesses existing* paths (admin panels, backups) rather than escaping the root. Encoded forms like `%2e%2e%2f` are the classic WAF-evasion tell.
 </details>
 
 ---
@@ -93,13 +93,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q7.** A request returns the raw contents of `config.php.bak` as text instead of executing it. What class of issue is this?
 
 - A. Directory traversal
-- B. Source-code / secret disclosure
-- C. HTTP response splitting
+- B. HTTP response splitting
+- C. Source-code / secret disclosure
 - D. DoS
 
 <details><summary>Answer</summary>
 
-**B. Source-code / secret disclosure.** A backup extension (`.bak`, `.old`, `.php~`) or handler misconfig makes the server return the script verbatim — often leaking DB credentials. Fix: **no secrets in the web root**, block backup/dotfile extensions, and vault the secrets. This is why gobuster is run with `-x php,bak,old`.
+**C. Source-code / secret disclosure.** A backup extension (`.bak`, `.old`, `.php~`) or handler misconfig makes the server return the script verbatim — often leaking DB credentials. Fix: **no secrets in the web root**, block backup/dotfile extensions, and vault the secrets. This is why gobuster is run with `-x php,bak,old`.
 </details>
 
 ---
@@ -107,13 +107,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q8.** Which technique injects CRLF (`%0d%0a`) into a **response header** to forge a second response, enabling cache poisoning or header-based XSS?
 
 - A. HTTP request smuggling
-- B. HTTP response splitting
+- B. Directory traversal
 - C. Cross-Site Tracing
-- D. Directory traversal
+- D. HTTP response splitting
 
 <details><summary>Answer</summary>
 
-**B. HTTP response splitting.** CRLF injected *into a response header* lets the attacker start a forged second header/response. Don't confuse it with **request smuggling**, which is a front-end/back-end **desync** of request boundaries. Mitigation: strip/encode CRLF, patch, and validate cache keys.
+**D. HTTP response splitting.** CRLF injected *into a response header* lets the attacker start a forged second header/response. Don't confuse it with **request smuggling**, which is a front-end/back-end **desync** of request boundaries. Mitigation: strip/encode CRLF, patch, and validate cache keys.
 </details>
 
 ---
@@ -149,13 +149,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q11.** You confirmed an unpatched, publicly exploitable web-server version. Which control is the *actual* fix (as opposed to buying time)?
 
 - A. Suppress the `Server:` banner
-- B. Establish a patch cadence backed by an accurate inventory
+- B. Add a `robots.txt` disallow rule
 - C. Rename the admin directory
-- D. Add a `robots.txt` disallow rule
+- D. Establish a patch cadence backed by an accurate inventory
 
 <details><summary>Answer</summary>
 
-**B. Patch cadence + accurate inventory.** Banner suppression, renaming, and `robots.txt` are all **security-by-obscurity** — they don't remove the vulnerability. Only patching (with an inventory so you know *what* to patch) closes it. Virtual/WAF patching is a stopgap, not the fix.
+**D. Patch cadence + accurate inventory.** Banner suppression, renaming, and `robots.txt` are all **security-by-obscurity** — they don't remove the vulnerability. Only patching (with an inventory so you know *what* to patch) closes it. Virtual/WAF patching is a stopgap, not the fix.
 </details>
 
 ---
@@ -163,13 +163,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q12.** A web server is compromised via an uploaded webshell. Which design choice most limits what the attacker inherits at that moment?
 
 - A. Running the daemon as `root` for reliability
-- B. Running the daemon under a dedicated least-privilege service account (`www-data` / IIS AppPool)
+- B. Disabling logging to reduce noise
 - C. Storing DB credentials in the web root for convenience
-- D. Disabling logging to reduce noise
+- D. Running the daemon under a dedicated least-privilege service account (`www-data` / IIS AppPool)
 
 <details><summary>Answer</summary>
 
-**B. Least-privilege service account.** The webshell executes **as the service account**, so if that identity is `www-data` / a scoped AppPool — never root/SYSTEM — the attacker inherits almost nothing and must still escalate. Running as root, exposing creds, and killing logs all make it worse.
+**D. Least-privilege service account.** The webshell executes **as the service account**, so if that identity is `www-data` / a scoped AppPool — never root/SYSTEM — the attacker inherits almost nothing and must still escalate. Running as root, exposing creds, and killing logs all make it worse.
 </details>
 
 ---

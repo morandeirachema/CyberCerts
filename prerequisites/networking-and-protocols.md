@@ -180,7 +180,7 @@ sequenceDiagram
 **Walk-through:** the client wraps the user's credentials in an **Access-Request**
 secured by a **shared secret** (2). The server may answer **Access-Challenge** to demand
 an OTP (4a/4b), then finally **Access-Accept** or **Access-Reject** (5). Accounting
-(`Access-Request` on 1813) optionally logs the session.
+(`Accounting-Request` on 1813, RFC 2866) optionally logs the session.
 
 > **PAM tie-in:** PAM bastions and their web gateways support **RADIUS** auth domains,
 > and MFA providers commonly integrate with PAM via **LDAP/RADIUS**. Note RADIUS
@@ -209,6 +209,7 @@ an OTP (4a/4b), then finally **Access-Accept** or **Access-Reject** (5). Account
 - RFC 4120 — Kerberos V5: https://www.rfc-editor.org/rfc/rfc4120
 - RFC 4511 — LDAP (the protocol): https://www.rfc-editor.org/rfc/rfc4511
 - RFC 2865 — RADIUS: https://www.rfc-editor.org/rfc/rfc2865
+- RFC 2866 — RADIUS Accounting: https://www.rfc-editor.org/rfc/rfc2866
 - RFC 8907 — TACACS+: https://www.rfc-editor.org/rfc/rfc8907
 - RFC 8446 — TLS 1.3: https://www.rfc-editor.org/rfc/rfc8446
 - OASIS — SAML 2.0 specifications: http://docs.oasis-open.org/security/saml/v2.0/

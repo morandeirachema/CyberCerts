@@ -80,7 +80,7 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 - **ECC** — Elliptic Curve Cryptography; RSA-equivalent security, smaller keys. `[20]`
 - **EDR** — Endpoint Detection and Response. `[07]`
 - **enum4linux** — SMB/NetBIOS/RPC enumeration tool. `[04]`
-- **EPM** — CyberArk Endpoint Privilege Manager; removes local admin, app control, credential-theft blocking. `[dp]`
+- **EPM** — Endpoint Privilege Management; removes standing local admin, adds app control and elevation on demand (product example: CyberArk Endpoint Privilege Manager). `[dp]`
 - **EPV** — CyberArk Enterprise Password Vault (Digital Vault). `[dp]`
 - **ESC1–8** — ADCS certificate-abuse techniques (Certified Pre-Owned). `[dp]`
 - **Evil twin** — rogue AP impersonating a legitimate SSID to capture clients. `[16]`
@@ -96,7 +96,7 @@ Fast-retrieval definitions for the acronym-dense CEH syllabus. Keep it open whil
 
 ## G
 - **GCM** — Galois/Counter Mode; authenticated encryption (confidentiality + integrity). `[20]`
-- **gMSA** — Group Managed Service Account; 128-char auto-rotated password → defeats Kerberoasting. `[06]`
+- **gMSA** — Group Managed Service Account; 240-byte random password auto-rotated by Windows every 30 days → defeats Kerberoasting. `[06]`
 - **gobuster / ffuf** — web content/directory brute-forcers. `[13][14]`
 - **Golden ticket** — forged TGT signed with the krbtgt hash (domain-wide). `[06]`
 - **Google dorking** — advanced search operators (site:, filetype:, inurl:) to find exposed data. `[02]`

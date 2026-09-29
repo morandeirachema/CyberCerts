@@ -292,7 +292,7 @@ sequenceDiagram
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) certification and exam objectives: <https://www.comptia.org/certifications/security>
+- CompTIA — Security+ (SY0-701) certification and exam objectives: <https://www.comptia.org/en-us/certifications/security/v7/>
 - NIST SP 800-207 — *Zero Trust Architecture*: <https://csrc.nist.gov/pubs/sp/800/207/final>
 - NIST SP 800-63 — *Digital Identity Guidelines* (authentication, AAA): <https://pages.nist.gov/800-63-3/>
 - NIST Cybersecurity Framework (CSF): <https://www.nist.gov/cyberframework>

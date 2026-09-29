@@ -7,9 +7,29 @@ renewal, and explains how to download CompTIA's official exam objectives. Figure
 between exam versions are flagged so you verify them on CompTIA before relying on them.
 
 > **Verify volatile details.** The verified facts below come from CompTIA's official CySA+
-> page. CompTIA rotates exam codes roughly every three years and revises price and renewal
-> terms, so re-check anything marked **"verify on CompTIA"**:
+> page. CompTIA rotates exam codes and revises price and renewal terms, so re-check anything
+> marked **"verify on CompTIA"**:
 > <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+
+## Version notice — CS0-003 retires, CS0-004 is live
+
+> [!IMPORTANT]
+> **This hub covers CS0-003 (CySA+ V3).** As checked on CompTIA on 2026-09-29:
+>
+> - **CS0-003 retirement:** English learning products retire **2026-11-22**; the **English
+>   exam retires 2026-12-22**; the Japanese, Portuguese, and Spanish exams retire
+>   **2027-03-23** ([CySA+ V3 page](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/)).
+> - **CS0-004 (CySA+ V4)** launched **2026-06-23**: maximum **85 questions**, **165 minutes**,
+>   passing score **750** on a 100–900 scale; English (French, Japanese, Spanish, and
+>   Portuguese listed as "coming soon"); recommended experience "About 4 years in a SOC analyst
+>   or vulnerability analyst role" ([CySA+ V4 page](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/)).
+> - **CS0-004 domains:** Security Operations **34%**, Vulnerability Management **26%**,
+>   Incident Response and Management **24%**, Reporting and Communication **16%**.
+>
+> If you will sit the English exam **after 2026-12-22**, you will take CS0-004: download the
+> CS0-004 objectives and map your study to them. This hub's four domain pages share the same
+> domain names, but the weights and objective detail differ — use the
+> [coverage map](../exam-prep/coverage-map.md) against the CS0-004 objectives to find gaps.
 
 ## Learning objectives
 
@@ -24,13 +44,14 @@ between exam versions are flagged so you verify them on CompTIA before relying o
 
 | Item | Detail | Note |
 | --- | --- | --- |
-| Exam code | **CS0-003** | CompTIA rotates codes ~every 3 years, so a future revision is plausible — *verify on CompTIA* |
+| Exam code | **CS0-003** (V3) | English exam retires **2026-12-22**; successor **CS0-004** launched 2026-06-23 (see version notice above) |
 | Number of questions | **Maximum 85** | The cap is 85; some forms present fewer |
 | Question types | **Multiple-choice questions (MCQ)** + **performance-based questions (PBQs)** | See PBQ section below |
 | Duration | **165 minutes** | CompTIA official page |
 | Passing score | **750** on a scale of **100–900** | This is a *scaled* score, not a raw percentage |
 | Level | **Intermediate**, **vendor-neutral**, **defensive (blue-team / analyst)** | Sits above Security+ |
-| Recommended experience | **CompTIA Security+** and **~4 years** hands-on incident-response / analyst experience | Recommended, **not required** *(verify on CompTIA)* |
+| Recommended experience | **Network+, Security+, or equivalent knowledge**, with a **minimum of 4 years** of hands-on experience as an incident response analyst, SOC analyst, or equivalent | CompTIA V3 page wording; recommended, **not required** |
+| Languages | **English, Japanese, Portuguese, Spanish** | CompTIA V3 page |
 | Price / renewal (CEUs) | **Not quoted here — verify on CompTIA** | Omitted to avoid stale figures |
 
 > The **750 / 100–900** scale is a scaled score, not "750 out of 900 = 83%." CompTIA does
@@ -139,14 +160,18 @@ higher-level certification, or other approved activities).
 
 ## Sources
 
-- CompTIA — CySA+ (CS0-003) official certification page (max 85 questions, MCQ + PBQ, 165
-  minutes, 750 on a 100–900 scale, four domains and weightings, recommended experience):
-  <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+- CompTIA — CySA+ V3 (CS0-003) page (max 85 questions, MCQ + PBQ, 165 minutes, 750 on a
+  100–900 scale, four domains and weightings, recommended experience, languages, retirement
+  dates; checked 2026-09-29): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
+- CompTIA — CySA+ V4 (CS0-004) page (launch 2026-06-23, max 85 questions, 165 minutes, 750
+  on 100–900, languages, domain weights 34 / 26 / 24 / 16, recommended experience; checked
+  2026-09-29): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/>
+- CompTIA — CySA+ landing page: <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
 - CompTIA — CySA+ exam objectives (CS0-003) download (authoritative topic blueprint):
-  <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+  <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
 - CompTIA — Continuing Education (CE) program / CEU renewal terms (validity period, CEU
-  count, fees — verify; not quoted here): <https://www.comptia.org/continuing-education>
+  count, fees — verify; not quoted here): <https://www.comptia.org/en-us/resources/ce/>
 - Verified ground truth for this hub: CS0-003 — max 85 questions (MCQ + PBQ); 165 minutes;
-  passing 750 on 100–900; four domains with weights 33 / 30 / 20 / 17 percent.
-- All volatile specifics (exam code, retirement date, price, languages, CEU renewal terms)
-  are version-sensitive — *verify on CompTIA*.
+  passing 750 on 100–900; four domains with weights 33 / 30 / 20 / 17 percent; English exam
+  retires 2026-12-22.
+- Volatile specifics not quoted here (price, CEU renewal terms) — *verify on CompTIA*.

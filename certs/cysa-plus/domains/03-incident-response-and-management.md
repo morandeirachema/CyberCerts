@@ -131,7 +131,7 @@ A clear, well-managed incident produces three durable outputs: a **timeline** of
 
 ## Sources
 
-- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 certification and exam objectives: <https://www.comptia.org/certifications/cybersecurity-analyst>
+- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 certification and exam objectives: <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
 - NIST SP 800-61 Rev. 2 — *Computer Security Incident Handling Guide*: <https://csrc.nist.gov/pubs/sp/800/61/r2/final>
 - NIST SP 800-86 — *Guide to Integrating Forensic Techniques into Incident Response* (order of volatility, evidence): <https://csrc.nist.gov/pubs/sp/800/86/final>
 - MITRE ATT&CK — adversary tactics and techniques: <https://attack.mitre.org/>

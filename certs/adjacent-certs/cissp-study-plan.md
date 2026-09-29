@@ -9,8 +9,9 @@ content and at the repo for the parts it already teaches (identity, PAM, protoco
 compliance).
 
 > Weeks and hours are this repo's suggestion for a working professional at roughly 8–10
-> hours a week, not an ISC2 requirement. ISC2 does not publish current domain weights on
-> this page by design; record them from the official exam outline in the tracker below.
+> hours a week, not an ISC2 requirement. ISC2 publishes the domain weights in the official exam
+> outline (effective 2024-04-15): D1 16%, D2 10%, D3 13%, D4 13%, D5 13%, D6 12%, D7 13%,
+> D8 10%. Re-check them there before you start and record them in the tracker below.
 
 ## Before Week 1
 

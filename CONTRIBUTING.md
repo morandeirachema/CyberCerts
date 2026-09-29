@@ -73,7 +73,7 @@ auto-wrap them; the quality gate (`scripts/check-docs.py`) fails on over-wide fl
 
 | Area | Gate | Conventions |
 |------|------|-------------|
-| Everything except `certs/ceh/` | [`scripts/check-docs.py`](scripts/check-docs.py) (workflow `quality.yml`) | Rules above: Mermaid only, no ASCII, a `## Sources` per content page, fit-to-text labels, zero broken links |
+| Whole repo | [`scripts/check-docs.py`](scripts/check-docs.py) (workflow `quality.yml`) | Rules above: Mermaid only, no ASCII, fit-to-text labels, zero broken links/anchors, well-formed `flashcards.csv` rows; a `## Sources` per content page everywhere except `certs/ceh/` |
 | `certs/ceh/` (the merged CEH course) | [`certs/ceh/scripts/validate.py`](certs/ceh/scripts/validate.py) (workflow `ceh-validate.yml`) + link-checking by `check-docs.py` | Its own structure: per-module `README` + `facts.md` + `practice-questions.md` + `flashcards.csv` + `lab-walkthrough.md`; see [`certs/ceh/KNOWN-LIMITATIONS.md`](certs/ceh/KNOWN-LIMITATIONS.md) and [`certs/ceh/scripts/README.md`](certs/ceh/scripts/README.md) |
 
 Run both locally before committing:
@@ -110,7 +110,9 @@ and update the affected pages + their `## Sources`:
 - [ ] **Analyst placements (change yearly):** Gartner Magic Quadrant for PAM and
       KuppingerCole Leadership Compass for PAM — update `foundations/pam-market-landscape.md`.
 - [ ] **Cloud certs** flagged as time-sensitive in `certs/adjacent-certs/`: Microsoft
-      **AZ-500** (retirement date) and the AWS Security specialty.
+      **SC-500** (successor to AZ-500, retired 2026-08-31) and the AWS Security specialty (SCS-C03).
+- [ ] **CompTIA exam versions:** CySA+ CS0-003 → CS0-004 (CS0-003 English retires
+      2026-12-22) and Security+ SY0-701 → SY0-801 (SY0-801 launches around 2026-11-17).
 - [ ] **Regulations** in `reference/compliance-and-standards.md` — NIS2 transposition
       status, DORA, ISO 27001 edition.
 

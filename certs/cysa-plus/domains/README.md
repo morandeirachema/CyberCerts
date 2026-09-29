@@ -4,9 +4,11 @@ The core knowledge areas of the CompTIA **CySA+ (Cybersecurity Analyst, exam CS0
 Each page below is written **to the official CS0-003 exam objectives** and covers the
 domain's concepts, Mermaid diagrams, and the key terms a sysadmin moving into a **blue-team /
 SOC-analyst** role needs — with a **defensive framing** throughout. The percentages are
-CompTIA's published weightings (the share of scored content per domain) *(verify on
-[CompTIA](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/) — weightings
-change per exam version)*.
+CompTIA's published CS0-003 weightings (the share of scored content per domain), per the
+[CySA+ V3 page](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/). The
+successor **CS0-004** (launched 2026-06-23; CS0-003 English exam retires 2026-12-22) keeps the
+same four domain names at 34 / 26 / 24 / 16 percent — see the
+[version notice](../00-overview/exam-and-objectives.md#version-notice--cs0-003-retires-cs0-004-is-live).
 
 > The objectives PDF is the canonical checklist for exact wording and every listed term — see
 > [how to get it](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
@@ -67,7 +69,7 @@ flowchart LR
 
 - CompTIA — CySA+ (CS0-003) official certification page and exam objectives (four domains and
   published weightings 33 / 30 / 20 / 17 percent):
-  <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+  <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
 - Related in this repo: [../../ceh/domains/README.md](../../ceh/domains/README.md) ·
   [../../security-plus/domains/README.md](../../security-plus/domains/README.md) ·
   [../../attack-to-defense-matrix.md](../../../attack-to-defense-matrix.md) ·

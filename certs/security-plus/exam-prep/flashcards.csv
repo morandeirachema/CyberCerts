@@ -4,8 +4,9 @@
 #tags column:3
 "Security+ SY0-701 — max questions and duration?","Maximum 90 questions (MCQ + PBQ) in 90 minutes.","secplus exam format"
 "Security+ passing score and scale?","750 on a scaled 100–900 scale (not a raw percentage).","secplus exam format"
-"Security+ five domain weights (D1..D5)?","12% / 22% / 18% / 28% / 20% — Security Operations (D4) is the largest (verify on CompTIA — weightings change per exam version).","secplus exam format"
-"Security+ recommended (not required) experience?","CompTIA Network+ and about two years in a security or sysadmin role.","secplus exam format"
+"Security+ five domain weights (D1..D5)?","SY0-701: 12% / 22% / 18% / 28% / 20% — Security Operations (D4) is the largest. (Successor SY0-801 re-weights them 16 / 24 / 19 / 27 / 14.)","secplus exam format"
+"Security+ recommended (not required) experience?","CompTIA Network+ and two years of experience in a security / systems administrator job role.","secplus exam format"
+"Security+ SY0-701 retirement dates, and its successor?","English 2027-06-11; Japanese, Portuguese, Spanish, Thai 2027-08-13. Successor SY0-801 launches on or around 2026-11-17 (English only at launch).","secplus exam format"
 "What is a PBQ on Security+?","A performance-based question: an interactive task (configure, match, order, interpret output) rather than a pick-an-answer item.","secplus exam format"
 "Security control categories (the nature of the control)?","Technical, managerial, operational, physical.","secplus d1 controls"
 "Security control types (the function of the control)?","Preventive, deterrent, detective, corrective, compensating, directive.","secplus d1 controls"

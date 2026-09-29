@@ -104,14 +104,14 @@
 
 **Q8.** The **birthday attack** is relevant to which primitive, and roughly what work does it require for an n-bit output?
 
-- A. Symmetric ciphers; 2^n
-- B. Hash functions; ~2^(n/2)
+- A. Hash functions; ~2^(n/2)
+- B. Symmetric ciphers; 2^n
 - C. Asymmetric keys; 2^n
 - D. Passwords; n²
 
 <details><summary>Answer</summary>
 
-**B. Hash functions; ~2^(n/2).** The birthday paradox means a collision is found in about the square root of the output space — why 128-bit hashes (MD5) are weak and 256-bit is preferred.
+**A. Hash functions; ~2^(n/2).** The birthday paradox means a collision is found in about the square root of the output space — why 128-bit hashes (MD5) are weak and 256-bit is preferred.
 </details>
 
 ---
@@ -132,14 +132,14 @@
 
 **Q10.** A **padding-oracle** attack specifically targets:
 
-- A. ECB mode
-- B. CBC mode
+- A. CBC mode
+- B. ECB mode
 - C. Hash functions
 - D. RSA key generation
 
 <details><summary>Answer</summary>
 
-**B. CBC mode.** When a server reveals whether padding is valid, an attacker can decrypt ciphertext byte-by-byte. Authenticated modes (GCM) or encrypt-then-MAC prevent it.
+**A. CBC mode.** When a server reveals whether padding is valid, an attacker can decrypt ciphertext byte-by-byte. Authenticated modes (GCM) or encrypt-then-MAC prevent it.
 </details>
 
 ---
@@ -161,13 +161,13 @@
 **Q12.** What is the difference between **cryptography** and **steganography**?
 
 - A. They are the same thing
-- B. Cryptography scrambles content; steganography hides the message's very existence
+- B. Cryptography only works on images
 - C. Steganography is always stronger
-- D. Cryptography only works on images
+- D. Cryptography scrambles content; steganography hides the message's very existence
 
 <details><summary>Answer</summary>
 
-**B.** Cryptography makes content unreadable (but visibly encrypted); steganography *conceals that a message exists* (e.g., LSB embedding in an image). Detecting hidden data is **steganalysis**; combine both for defense-in-depth.
+**D.** Cryptography makes content unreadable (but visibly encrypted); steganography *conceals that a message exists* (e.g., LSB embedding in an image). Detecting hidden data is **steganalysis**; combine both for defense-in-depth.
 </details>
 
 ---

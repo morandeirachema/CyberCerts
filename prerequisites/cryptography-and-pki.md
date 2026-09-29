@@ -1,10 +1,12 @@
 # Cryptography and PKI for PAM
 
 Privileged Access Management (PAM) is cryptography in production. A **PAM bastion**
-encrypts its vault and sessions with **AES-256**, encrypts its disk at rest with
-**LUKS**, authenticates users and servers with **X.509 certificates** and **SSH keys**,
-rotates **RSA keys (≥3072 bits)**, and supports **MFA** built on **TOTP** and
-**FIDO2/WebAuthn**. You cannot reason about a PAM appliance without the cryptographic
+typically encrypts its vault and sessions with a symmetric cipher, may encrypt its disk
+at rest, authenticates users and servers with **X.509 certificates** and **SSH keys**,
+rotates asymmetric keys, and supports **MFA** built on **TOTP** and **FIDO2/WebAuthn**.
+*(Illustrative example, not a claim about every product: an appliance might use
+**AES-256** for the vault, **LUKS** for disk encryption and **RSA ≥ 3072-bit** keys — check
+your vendor's documentation for the actual choices.)* You cannot reason about a PAM appliance without the cryptographic
 vocabulary below. This file teaches it from first principles and ties each piece to
 the PAM appliance.
 
@@ -52,10 +54,11 @@ In practice systems combine them: asymmetric crypto **exchanges a symmetric sess
 key**, then fast symmetric crypto protects the bulk data. That is exactly what TLS and
 SSH do.
 
-> **PAM tie-in:** A typical PAM appliance uses **AES-256** (symmetric) for data,
-> **SHA-2** for hashing, **ECC** and **RSA (private keys ≥ 3072 bits)** for asymmetric
-> operations, usually with a selectable crypto policy aligned to a recognised
-> recommendation such as the **SOG-IS Agreed Cryptographic Mechanisms**.
+> **PAM tie-in:** A PAM appliance combines a symmetric cipher for data, a hash family
+> for integrity, and ECC and/or RSA for asymmetric operations. *Example configuration
+> (illustrative, vendor-specific in practice):* **AES-256**, **SHA-2**, and **ECC** or
+> **RSA ≥ 3072 bits**, with a crypto policy aligned to a recognised recommendation such
+> as the **SOG-IS Agreed Cryptographic Mechanisms**.
 
 ---
 
@@ -180,8 +183,10 @@ ssh-keygen -t ecdsa -b 384            # elliptic-curve alternative
 ```
 
 > **PAM tie-in:** A PAM vault **generates and rotates** SSH keys for target accounts;
-> typical rotation policies default to **RSA 4096** or Ed25519, and stored RSA private
-> keys should be **≥ 3072 bits** (NIST SP 800-57). Avoid legacy short RSA/DSA keys.
+> rotation policies commonly offer **RSA 4096** or Ed25519. Per NIST SP 800-57 Part 1
+> Rev. 5, **RSA-2048** gives 112-bit security, acceptable through the end of 2030, and
+> **RSA-3072** gives 128-bit security — so choose ≥ 3072 bits for keys that must stay
+> valid beyond 2030. Avoid legacy short RSA/DSA keys.
 
 ---
 
@@ -250,7 +255,7 @@ is why FIDO2 is called **phishing-resistant**.
 
 - NIST FIPS 197 — Advanced Encryption Standard (AES): https://csrc.nist.gov/pubs/fips/197/final
 - NIST FIPS 180-4 — Secure Hash Standard (SHA-2): https://csrc.nist.gov/pubs/fips/180-4/upd1/final
-- NIST SP 800-57 Part 1 — Recommendation for Key Management (key sizes): https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final
+- NIST SP 800-57 Part 1 Rev. 5 — Recommendation for Key Management (Table 2 comparable strengths; Table 4 security-strength time frames): https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final · PDF: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf
 - RFC 8446 — TLS 1.3: https://www.rfc-editor.org/rfc/rfc8446
 - RFC 5280 — X.509 Public Key Infrastructure Certificate and CRL Profile: https://www.rfc-editor.org/rfc/rfc5280
 - RFC 6960 — Online Certificate Status Protocol (OCSP): https://www.rfc-editor.org/rfc/rfc6960

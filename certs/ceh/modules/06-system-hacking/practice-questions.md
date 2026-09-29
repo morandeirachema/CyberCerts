@@ -36,14 +36,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q3.** Which control most directly defeats **Kerberoasting**?
 
-- A. Account lockout policy
-- B. Group Managed Service Accounts (gMSA)
+- A. Group Managed Service Accounts (gMSA)
+- B. Account lockout policy
 - C. BitLocker full-disk encryption
 - D. Disabling SMBv1
 
 <details><summary>Answer</summary>
 
-**B. gMSA.** Kerberoasting cracks a service-account password offline, so lockout policy (an *online* control) can't stop it. gMSA gives the service account a 128-character, automatically rotated password that is computationally infeasible to crack — removing the payoff. BitLocker and SMBv1 are unrelated.
+**A. gMSA.** Kerberoasting cracks a service-account password offline, so lockout policy (an *online* control) can't stop it. gMSA gives the service account a 128-character, automatically rotated password that is computationally infeasible to crack — removing the payoff. BitLocker and SMBv1 are unrelated.
 </details>
 
 ---
@@ -66,12 +66,12 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 - A. SAM
 - B. LSA secrets
-- C. NTDS.dit
-- D. Credential Manager
+- C. Credential Manager
+- D. NTDS.dit
 
 <details><summary>Answer</summary>
 
-**C. NTDS.dit.** It's the AD database on domain controllers containing every domain account's hash. DCSync abuses *replication rights* to pull hashes (including **krbtgt**) from it without touching disk. SAM holds *local* hashes; LSA secrets holds service-account secrets.
+**D. NTDS.dit.** It's the AD database on domain controllers containing every domain account's hash. DCSync abuses *replication rights* to pull hashes (including **krbtgt**) from it without touching disk. SAM holds *local* hashes; LSA secrets holds service-account secrets.
 </details>
 
 ---
@@ -79,13 +79,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q6.** What distinguishes a **Golden ticket** from a **Silver ticket**?
 
 - A. Golden forges a TGS; Silver forges a TGT
-- B. Golden is signed with the krbtgt hash; Silver is signed with a service account's key
+- B. Golden works only on Linux realms
 - C. Golden requires cracking; Silver does not
-- D. Golden works only on Linux realms
+- D. Golden is signed with the krbtgt hash; Silver is signed with a service account's key
 
 <details><summary>Answer</summary>
 
-**B.** A **Golden ticket** forges a **TGT** using the **krbtgt** hash (domain-wide power); a **Silver ticket** forges a **TGS** for a specific service using that **service account's** key (narrower). Neither requires cracking — both are post-compromise forgeries. After a krbtgt compromise you must rotate krbtgt **twice**.
+**D.** A **Golden ticket** forges a **TGT** using the **krbtgt** hash (domain-wide power); a **Silver ticket** forges a **TGS** for a specific service using that **service account's** key (narrower). Neither requires cracking — both are post-compromise forgeries. After a krbtgt compromise you must rotate krbtgt **twice**.
 </details>
 
 ---
@@ -121,27 +121,27 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q9.** A SOC analyst sees a burst of **4769** events requesting service tickets with **RC4 (0x17)** encryption for several SPN accounts. What is the most likely activity?
 
 - A. Password spraying
-- B. Kerberoasting
+- B. Pass-the-Hash
 - C. DCSync
-- D. Pass-the-Hash
+- D. Kerberoasting
 
 <details><summary>Answer</summary>
 
-**B. Kerberoasting.** Event 4769 = TGS request; a spike for SPN accounts, especially forcing weak **RC4**, is the classic signature. Password spraying shows as many **4625** failures; DCSync shows **4662** replication from a non-DC; PtH shows NTLM **4624** type-3 logons from unusual hosts.
+**D. Kerberoasting.** Event 4769 = TGS request; a spike for SPN accounts, especially forcing weak **RC4**, is the classic signature. Password spraying shows as many **4625** failures; DCSync shows **4662** replication from a non-DC; PtH shows NTLM **4624** type-3 logons from unusual hosts.
 </details>
 
 ---
 
 **Q10.** Which attack abuses **replication rights** to extract hashes from a domain controller *without running code on it*?
 
-- A. Pass-the-Ticket
-- B. DCSync
+- A. DCSync
+- B. Pass-the-Ticket
 - C. Overpass-the-Hash
 - D. Kerberoasting
 
 <details><summary>Answer</summary>
 
-**B. DCSync.** It impersonates a DC and requests replication of secrets (using `DS-Replication-Get-Changes-All`), so it needs no code execution on the DC. Detection: **4662** with the replication GUIDs from a **non-DC** account. Control: restrict replication rights, Tier 0 isolation.
+**A. DCSync.** It impersonates a DC and requests replication of secrets (using `DS-Replication-Get-Changes-All`), so it needs no code execution on the DC. Detection: **4662** with the replication GUIDs from a **non-DC** account. Control: restrict replication rights, Tier 0 isolation.
 </details>
 
 ---
@@ -205,13 +205,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q15.** Which combination best reduces the impact of **LSASS credential dumping** with Mimikatz?
 
 - A. Longer user passwords only
-- B. Credential Guard + LSASS PPL + EDR/attack-surface-reduction
+- B. Enabling LLMNR
 - C. Disabling IPv6
-- D. Enabling LLMNR
+- D. Credential Guard + LSASS PPL + EDR/attack-surface-reduction
 
 <details><summary>Answer</summary>
 
-**B.** Credential Guard isolates secrets in a virtualized container, LSASS runs as a Protected Process (PPL), and EDR/ASR rules block the handle-open to lsass. Longer passwords don't stop *dumping* a logged-on credential; disabling IPv6 and enabling LLMNR are irrelevant (LLMNR *on* is actually a risk).
+**D.** Credential Guard isolates secrets in a virtualized container, LSASS runs as a Protected Process (PPL), and EDR/ASR rules block the handle-open to lsass. Longer passwords don't stop *dumping* a logged-on credential; disabling IPv6 and enabling LLMNR are irrelevant (LLMNR *on* is actually a risk).
 </details>
 
 ---

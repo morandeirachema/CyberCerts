@@ -54,7 +54,12 @@ plugins:
   - search
 
 # Curated learning order (friendlier than the auto/alphabetical default).
-# Pages not listed here are still built and searchable.
+# Every page is listed; CLAUDE.md is not copied into the site, and the two pages below
+# are built (so links to them resolve) but deliberately kept out of the nav.
+not_in_nav: |
+  /certs/ceh/modules/00-TEMPLATE.md
+  /certs/ceh/scripts/README.md
+
 nav:
   - Home: README.md
   - Learning path:
@@ -131,26 +136,106 @@ nav:
           - 20 · Cryptography: certs/ceh/domains/20-cryptography.md
       - Course modules (20 folders):
           - certs/ceh/modules/README.md
-          - 01 · Introduction to ethical hacking: certs/ceh/modules/01-introduction-to-ethical-hacking/README.md
-          - 02 · Footprinting & reconnaissance: certs/ceh/modules/02-footprinting-and-reconnaissance/README.md
-          - 03 · Scanning networks: certs/ceh/modules/03-scanning-networks/README.md
-          - 04 · Enumeration: certs/ceh/modules/04-enumeration/README.md
-          - 05 · Vulnerability analysis: certs/ceh/modules/05-vulnerability-analysis/README.md
-          - 06 · System hacking: certs/ceh/modules/06-system-hacking/README.md
-          - 07 · Malware threats: certs/ceh/modules/07-malware-threats/README.md
-          - 08 · Sniffing: certs/ceh/modules/08-sniffing/README.md
-          - 09 · Social engineering: certs/ceh/modules/09-social-engineering/README.md
-          - 10 · Denial-of-service: certs/ceh/modules/10-denial-of-service/README.md
-          - 11 · Session hijacking: certs/ceh/modules/11-session-hijacking/README.md
-          - 12 · Evading IDS, firewalls & honeypots: certs/ceh/modules/12-evading-ids-firewalls-honeypots/README.md
-          - 13 · Hacking web servers: certs/ceh/modules/13-hacking-web-servers/README.md
-          - 14 · Hacking web applications: certs/ceh/modules/14-hacking-web-applications/README.md
-          - 15 · SQL injection: certs/ceh/modules/15-sql-injection/README.md
-          - 16 · Hacking wireless networks: certs/ceh/modules/16-hacking-wireless-networks/README.md
-          - 17 · Hacking mobile platforms: certs/ceh/modules/17-hacking-mobile-platforms/README.md
-          - 18 · IoT & OT hacking: certs/ceh/modules/18-iot-and-ot-hacking/README.md
-          - 19 · Cloud computing: certs/ceh/modules/19-cloud-computing/README.md
-          - 20 · Cryptography: certs/ceh/modules/20-cryptography/README.md
+          - 01 · Introduction to ethical hacking:
+              - certs/ceh/modules/01-introduction-to-ethical-hacking/README.md
+              - Key facts: certs/ceh/modules/01-introduction-to-ethical-hacking/facts.md
+              - Practice questions: certs/ceh/modules/01-introduction-to-ethical-hacking/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/01-introduction-to-ethical-hacking/lab-walkthrough.md
+          - "02 · Footprinting & reconnaissance":
+              - certs/ceh/modules/02-footprinting-and-reconnaissance/README.md
+              - Key facts: certs/ceh/modules/02-footprinting-and-reconnaissance/facts.md
+              - Practice questions: certs/ceh/modules/02-footprinting-and-reconnaissance/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/02-footprinting-and-reconnaissance/lab-walkthrough.md
+          - 03 · Scanning networks:
+              - certs/ceh/modules/03-scanning-networks/README.md
+              - Key facts: certs/ceh/modules/03-scanning-networks/facts.md
+              - Practice questions: certs/ceh/modules/03-scanning-networks/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/03-scanning-networks/lab-walkthrough.md
+          - 04 · Enumeration:
+              - certs/ceh/modules/04-enumeration/README.md
+              - Key facts: certs/ceh/modules/04-enumeration/facts.md
+              - Practice questions: certs/ceh/modules/04-enumeration/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/04-enumeration/lab-walkthrough.md
+          - 05 · Vulnerability analysis:
+              - certs/ceh/modules/05-vulnerability-analysis/README.md
+              - Key facts: certs/ceh/modules/05-vulnerability-analysis/facts.md
+              - Practice questions: certs/ceh/modules/05-vulnerability-analysis/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/05-vulnerability-analysis/lab-walkthrough.md
+          - 06 · System hacking:
+              - certs/ceh/modules/06-system-hacking/README.md
+              - Key facts: certs/ceh/modules/06-system-hacking/facts.md
+              - Practice questions: certs/ceh/modules/06-system-hacking/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/06-system-hacking/lab-walkthrough.md
+          - 07 · Malware threats:
+              - certs/ceh/modules/07-malware-threats/README.md
+              - Key facts: certs/ceh/modules/07-malware-threats/facts.md
+              - Practice questions: certs/ceh/modules/07-malware-threats/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/07-malware-threats/lab-walkthrough.md
+          - 08 · Sniffing:
+              - certs/ceh/modules/08-sniffing/README.md
+              - Key facts: certs/ceh/modules/08-sniffing/facts.md
+              - Practice questions: certs/ceh/modules/08-sniffing/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/08-sniffing/lab-walkthrough.md
+          - 09 · Social engineering:
+              - certs/ceh/modules/09-social-engineering/README.md
+              - Key facts: certs/ceh/modules/09-social-engineering/facts.md
+              - Practice questions: certs/ceh/modules/09-social-engineering/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/09-social-engineering/lab-walkthrough.md
+          - 10 · Denial-of-service:
+              - certs/ceh/modules/10-denial-of-service/README.md
+              - Key facts: certs/ceh/modules/10-denial-of-service/facts.md
+              - Practice questions: certs/ceh/modules/10-denial-of-service/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/10-denial-of-service/lab-walkthrough.md
+          - 11 · Session hijacking:
+              - certs/ceh/modules/11-session-hijacking/README.md
+              - Key facts: certs/ceh/modules/11-session-hijacking/facts.md
+              - Practice questions: certs/ceh/modules/11-session-hijacking/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/11-session-hijacking/lab-walkthrough.md
+          - "12 · Evading IDS, firewalls & honeypots":
+              - certs/ceh/modules/12-evading-ids-firewalls-honeypots/README.md
+              - Key facts: certs/ceh/modules/12-evading-ids-firewalls-honeypots/facts.md
+              - Practice questions: certs/ceh/modules/12-evading-ids-firewalls-honeypots/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/12-evading-ids-firewalls-honeypots/lab-walkthrough.md
+          - 13 · Hacking web servers:
+              - certs/ceh/modules/13-hacking-web-servers/README.md
+              - Key facts: certs/ceh/modules/13-hacking-web-servers/facts.md
+              - Practice questions: certs/ceh/modules/13-hacking-web-servers/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/13-hacking-web-servers/lab-walkthrough.md
+          - 14 · Hacking web applications:
+              - certs/ceh/modules/14-hacking-web-applications/README.md
+              - Key facts: certs/ceh/modules/14-hacking-web-applications/facts.md
+              - Practice questions: certs/ceh/modules/14-hacking-web-applications/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/14-hacking-web-applications/lab-walkthrough.md
+          - 15 · SQL injection:
+              - certs/ceh/modules/15-sql-injection/README.md
+              - Key facts: certs/ceh/modules/15-sql-injection/facts.md
+              - Practice questions: certs/ceh/modules/15-sql-injection/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/15-sql-injection/lab-walkthrough.md
+          - 16 · Hacking wireless networks:
+              - certs/ceh/modules/16-hacking-wireless-networks/README.md
+              - Key facts: certs/ceh/modules/16-hacking-wireless-networks/facts.md
+              - Practice questions: certs/ceh/modules/16-hacking-wireless-networks/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/16-hacking-wireless-networks/lab-walkthrough.md
+          - 17 · Hacking mobile platforms:
+              - certs/ceh/modules/17-hacking-mobile-platforms/README.md
+              - Key facts: certs/ceh/modules/17-hacking-mobile-platforms/facts.md
+              - Practice questions: certs/ceh/modules/17-hacking-mobile-platforms/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/17-hacking-mobile-platforms/lab-walkthrough.md
+          - "18 · IoT & OT hacking":
+              - certs/ceh/modules/18-iot-and-ot-hacking/README.md
+              - Key facts: certs/ceh/modules/18-iot-and-ot-hacking/facts.md
+              - Practice questions: certs/ceh/modules/18-iot-and-ot-hacking/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/18-iot-and-ot-hacking/lab-walkthrough.md
+          - 19 · Cloud computing:
+              - certs/ceh/modules/19-cloud-computing/README.md
+              - Key facts: certs/ceh/modules/19-cloud-computing/facts.md
+              - Practice questions: certs/ceh/modules/19-cloud-computing/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/19-cloud-computing/lab-walkthrough.md
+          - 20 · Cryptography:
+              - certs/ceh/modules/20-cryptography/README.md
+              - Key facts: certs/ceh/modules/20-cryptography/facts.md
+              - Practice questions: certs/ceh/modules/20-cryptography/practice-questions.md
+              - Lab walkthrough: certs/ceh/modules/20-cryptography/lab-walkthrough.md
       - Defender & PAM lens:
           - certs/ceh/defender-pam/README.md
           - Attack → control matrix: certs/ceh/defender-pam/attack-to-control-matrix.md
@@ -162,8 +247,39 @@ nav:
       - Tools & Kali:
           - Tools by phase: certs/ceh/tools/tools-by-phase.md
           - Kali one-page reference: certs/ceh/KALI-TUTORIAL.md
-          - Kali course: certs/ceh/kali/README.md
-          - Cheatsheets: certs/ceh/cheatsheets/README.md
+          - Kali course:
+              - certs/ceh/kali/README.md
+              - 00 — Getting Started with Kali Linux: certs/ceh/kali/00-getting-started.md
+              - 01 — Linux Essentials: certs/ceh/kali/01-linux-essentials.md
+              - 02 — Terminal Power: certs/ceh/kali/02-terminal-power.md
+              - 03 — Networking Basics: certs/ceh/kali/03-networking-basics.md
+              - "04 — Recon & OSINT": certs/ceh/kali/04-recon-osint.md
+              - 05 — Scanning with Nmap: certs/ceh/kali/05-nmap-scanning.md
+              - 06 — Enumeration: certs/ceh/kali/06-enumeration.md
+              - 07 — Vulnerability Analysis: certs/ceh/kali/07-vulnerability-analysis.md
+              - 08 — Web Application Hacking: certs/ceh/kali/08-web-hacking.md
+              - 09 — The Metasploit Framework: certs/ceh/kali/09-metasploit.md
+              - 10 — Password Attacks: certs/ceh/kali/10-password-attacks.md
+              - 11 — Attacking Active Directory: certs/ceh/kali/11-active-directory.md
+              - "12 — Sniffing & MITM": certs/ceh/kali/12-sniffing-mitm.md
+              - 13 — Wireless Hacking: certs/ceh/kali/13-wireless.md
+              - "14 — Post-Exploitation & Pivoting": certs/ceh/kali/14-post-exploitation-pivoting.md
+              - "15 — Notes & Reporting": certs/ceh/kali/15-notes-and-reporting.md
+              - Appendix — Troubleshooting Common Beginner Problems: certs/ceh/kali/appendix-troubleshooting.md
+              - Running Kali on a Linux PC — KVM VM or Docker (+ Claude Code): certs/ceh/kali/running-kali-on-linux.md
+          - Cheatsheets:
+              - certs/ceh/cheatsheets/README.md
+              - Active Directory Attacks: certs/ceh/cheatsheets/active-directory.md
+              - "Hashcat & John Cheatsheet": certs/ceh/cheatsheets/hashcat-john.md
+              - Metasploit Cheatsheet: certs/ceh/cheatsheets/metasploit.md
+              - Nmap Cheatsheet: certs/ceh/cheatsheets/nmap.md
+              - Handy One-Liners: certs/ceh/cheatsheets/one-liners.md
+              - "Ports & Protocols Cheatsheet": certs/ceh/cheatsheets/ports-and-protocols.md
+              - Privilege Escalation: certs/ceh/cheatsheets/privilege-escalation.md
+              - "Reverse Shells & Payloads": certs/ceh/cheatsheets/reverse-shells.md
+              - "Steganography & File Forensics": certs/ceh/cheatsheets/steg-forensics.md
+              - "Web & SQL Injection": certs/ceh/cheatsheets/web-sqli.md
+              - "Wireshark & tcpdump": certs/ceh/cheatsheets/wireshark-tcpdump.md
       - Labs:
           - certs/ceh/labs/README.md
           - Build a CEH lab: certs/ceh/labs/building-a-ceh-lab.md
@@ -171,14 +287,44 @@ nav:
           - Capstone chain: certs/ceh/labs/capstone.md
           - Blue-team lab: certs/ceh/labs/blue-team-lab.md
           - OT / ICS lab: certs/ceh/labs/ot/README.md
-      - OT / ICS security: certs/ceh/ot-security/README.md
+          - Network range (Vagrant): certs/ceh/labs/vagrant/README.md
+          - Windows AD / PAM lab (Ansible): certs/ceh/labs/ansible/README.md
+      - OT / ICS security:
+          - certs/ceh/ot-security/README.md
+          - 01 — OT Foundations: certs/ceh/ot-security/01-foundations.md
+          - 02 — OT Protocols and Their (Missing) Security: certs/ceh/ot-security/02-protocols.md
+          - 03 — OT Threats, Attacks, and Incidents: certs/ceh/ot-security/03-threats.md
+          - 04 — OT Defense and Governance: certs/ceh/ot-security/04-defense.md
+          - 05 — PAM for OT (CyberArk): certs/ceh/ot-security/05-pam-for-ot.md
       - Exam prep:
           - Practice questions: certs/ceh/exam-prep/practice-questions.md
           - Cheat sheet: certs/ceh/exam-prep/cheat-sheet.md
           - Mock exam (50 Q): certs/ceh/MOCK-EXAM.md
           - Full mock exam (125 Q): certs/ceh/MOCK-EXAM-FULL.md
           - Rapid-fire bank (200 Q): certs/ceh/RAPID-FIRE.md
-          - CEH Practical prep: certs/ceh/practical/README.md
+          - CEH Practical:
+              - certs/ceh/practical/README.md
+              - CEH Practical — Hands-On Skills Checklist: certs/ceh/practical/skills-checklist.md
+              - CEH Practical — Timed Drills: certs/ceh/practical/drills.md
+              - CEH Practical — Challenge Playbooks: certs/ceh/practical/challenge-playbooks.md
+              - Drill packs:
+                  - certs/ceh/practical/drills/README.md
+                  - "Drill Pack 01 — Recon & Scanning": certs/ceh/practical/drills/01-recon-scanning.md
+                  - Drill Pack 02 — Enumeration: certs/ceh/practical/drills/02-enumeration.md
+                  - "Drill Pack 03 — Web & SQL Injection": certs/ceh/practical/drills/03-web-and-sqli.md
+                  - "Drill Pack 04 — Passwords & Hashes": certs/ceh/practical/drills/04-passwords-and-hashes.md
+                  - Drill Pack 05 — Active Directory: certs/ceh/practical/drills/05-active-directory.md
+                  - Drill Pack 06 — PCAP Forensics: certs/ceh/practical/drills/06-pcap-forensics.md
+                  - Drill Pack 07 — Wireless: certs/ceh/practical/drills/07-wireless.md
+                  - "Drill Pack 08 — Steganography & Crypto": certs/ceh/practical/drills/08-stego-and-crypto.md
+                  - "Drill Pack 09 — Exploitation & Privilege Escalation": certs/ceh/practical/drills/09-exploitation-privesc.md
+              - Simulated exams:
+                  - certs/ceh/practical/exams/README.md
+                  - Simulated Practical Exam 01: certs/ceh/practical/exams/exam-01.md
+                  - Simulated Practical Exam 02: certs/ceh/practical/exams/exam-02.md
+              - Challenge lab:
+                  - certs/ceh/practical/challenge-lab/README.md
+                  - "Challenge Lab — Answer Key (spoilers!)": certs/ceh/practical/challenge-lab/answers.md
           - Practice kit (labs, drills, platforms): certs/ceh/resources/practice-labs.md
       - AI-driven hacking: certs/ceh/AI-IN-ETHICAL-HACKING.md
       - Career & adjacent certs: certs/ceh/career/ceh-career-and-adjacent-certs.md
@@ -186,7 +332,13 @@ nav:
           - Glossary: certs/ceh/reference/glossary.md
           - Acronyms: certs/ceh/reference/acronyms.md
           - Course glossary: certs/ceh/GLOSSARY.md
-          - Resources: certs/ceh/resources/README.md
+          - Resources:
+              - certs/ceh/resources/README.md
+              - "Official & Authoritative References": certs/ceh/resources/official.md
+              - "Books & Study Frameworks": certs/ceh/resources/books.md
+              - Video Courses (referenced for this repo): certs/ceh/resources/videos.md
+              - CEH Toolset (by phase): certs/ceh/resources/tools.md
+              - Deep Technical References: certs/ceh/resources/deep-references.md
   - CompTIA CySA+:
       - certs/cysa-plus/README.md
       - Overview:

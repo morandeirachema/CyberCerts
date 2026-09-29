@@ -20,18 +20,28 @@ a sysadmin moving into cybersecurity.
 > [!NOTE]
 > **Unofficial & no fabrication.** Not affiliated with or endorsed by CompTIA. Exam specifics
 > are from CompTIA's official Security+ page; anything volatile (price, exam code, retirement
-> date, Continuing Education / CEU renewal) should be re-checked there — codes rotate ~every
-> 3 years. Compiled **2026-06-20**.
+> date, Continuing Education / CEU renewal) should be re-checked there. Compiled
+> **2026-06-20**; exam facts re-checked **2026-09-29**.
+
+> [!IMPORTANT]
+> **Version notice — this hub covers SY0-701 (V7).** SY0-701 retires **English 2027-06-11**;
+> Japanese, Portuguese, Spanish, and Thai **2027-08-13** ([V7 page](https://www.comptia.org/en-us/certifications/security/v7/)). The successor
+> **SY0-801 (V8)** launches **on or around 2026-11-17**, English only at launch: max 90
+> questions, 90 minutes, 750 on 100–900; domains General Security Concepts 16%; Threats,
+> Vulnerabilities, and Attacks 24%; Security Architecture 19%; Security Operations 27%;
+> Security Program Management and Oversight 14% ([V8 page](https://www.comptia.org/en-us/certifications/security/v8/)). **Sitting SY0-801? Map
+> your study to the SY0-801 objectives** — see the
+> [version notice](00-overview/exam-and-objectives.md#version-notice--sy0-701-retires-sy0-801-is-coming).
 
 ## 📋 At a glance
 
 | Item | Detail |
 |------|--------|
-| **Exam** | SY0-701 *(verify — codes rotate ~every 3 years)* |
+| **Exam** | SY0-701 (V7) — retires English **2027-06-11**; successor SY0-801 from ~2026-11-17 |
 | **Format** | Max **90 questions** — multiple-choice + **performance-based (PBQ)** |
 | **Duration / pass** | **90 minutes** · **750** on a 100–900 scale |
 | **Level** | Foundational, **vendor-neutral**, defensive-leaning |
-| **Recommended** | Network+ and ~2 years security/sysadmin experience *(not required)* |
+| **Recommended** | Network+ and two years in a security / systems administrator job role *(not required)* |
 
 Full details: **[exam & objectives](00-overview/exam-and-objectives.md)**.
 

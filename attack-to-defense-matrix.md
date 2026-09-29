@@ -1,12 +1,12 @@
 # Attack-to-Defense Matrix — Mapping CEH Attacks to PAM Controls
 
-This page is the **bridge between the two hubs** of this repository: the **offensive
-hub** (the [Certified Ethical Hacker (CEH) program](certs/ceh/README.md)) and the **defensive
-hub** — the vendor-neutral Privileged Access Management material in
-[foundations/](foundations/README.md) and [certs/ceh/defender-pam/](certs/ceh/defender-pam/README.md). It takes the
+This page connects the attacks taught in the
+[Certified Ethical Hacker (CEH) hub](certs/ceh/README.md) to the vendor-neutral Privileged
+Access Management material in [foundations/](foundations/README.md) (with the CEH hub's own
+[defender-pam/](certs/ceh/defender-pam/README.md) section). It takes the
 attack techniques a CEH candidate studies and maps each one to the **Privileged Access
 Management (PAM)** and endpoint controls that blunt it — citing the relevant
-**MITRE ATT&CK** technique IDs and linking back into both hubs.
+**MITRE ATT&CK** technique IDs and linking back into both the CEH hub and foundations/.
 
 It deliberately follows, and does not contradict, the
 [PAM threat landscape](foundations/pam-threat-landscape.md) page, which already lays out

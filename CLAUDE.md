@@ -53,7 +53,7 @@ indexes the hubs.
 Pure Markdown plus stdlib Python — nothing to install for the gates. Run from the repo root.
 
 ```bash
-# Quality gate for everything except certs/ceh/ style rules (links are checked repo-wide)
+# Repo-wide quality gate (certs/ceh/ is exempt only from the Sources rule)
 python3 scripts/check-docs.py
 
 # The CEH course's own gate (links, anchors, Mermaid, flashcard CSVs) — must run from certs/ceh
@@ -84,17 +84,19 @@ CI: `quality.yml` runs `check-docs.py`; `ceh-validate.yml` runs `validate.py` pl
 
 | Area | Gate | Enforces |
 |------|------|----------|
-| Everything except `certs/ceh/` | `scripts/check-docs.py` | No ASCII art, balanced fences, valid Mermaid with fit-to-text labels (≤ 44 chars per `<br/>` segment), a `## Sources` section per content page (READMEs and root meta files exempt), zero broken links/anchors using GitHub slug rules |
+| Whole repo | `scripts/check-docs.py` | No ASCII art, balanced code fences (backtick and tilde), valid Mermaid with fit-to-text labels (≤ 44 chars per `<br/>` segment), zero broken links/image links/anchors using GitHub slug rules, every `flashcards.csv` row = 3 non-empty columns; plus a `## Sources` section per content page (READMEs, root meta files and all of `certs/ceh/` exempt) |
 | `certs/ceh/` | `certs/ceh/scripts/validate.py` | Links, anchors, Mermaid type, `flashcards.csv` rows (exactly 3 non-empty columns) |
 
-`check-docs.py` still **link-checks** `certs/ceh/` (so cross-links between the two layers
-stay valid) but does not apply its style rules there (`STYLE_EXEMPT_DIRS`); the CEH
-template `modules/00-TEMPLATE.md` is skipped for links. Run **both** gates before committing.
+`check-docs.py` checks `certs/ceh/` too (links, ASCII art, Mermaid) so cross-links between
+the two layers stay valid; only the Sources rule is skipped there (`SOURCES_EXEMPT_DIRS`).
+The CEH template `modules/00-TEMPLATE.md` is skipped for links. Run **both** gates before committing.
 
 **CEH module convention:** every `certs/ceh/modules/NN-*/` folder has `README.md` (the guide,
-structured per `modules/00-TEMPLATE.md`: exam focus → key concepts → key tools → commands →
-Defender & PAM mapping → lab log), `facts.md`, `practice-questions.md`, `flashcards.csv`
-(front,back,tags; a `#tags` comment line groups cards by module) and `lab-walkthrough.md`.
+structured per `modules/00-TEMPLATE.md`: exam focus → key concepts → key tools → commands &
+techniques → lab exercise → Defender & PAM mapping → exam tips & gotchas → sources),
+`facts.md`, `practice-questions.md`, `flashcards.csv` (front,back,tags; the `#` header lines
+are Anki import directives, and cards are grouped by tag values such as `ceh06`) and
+`lab-walkthrough.md`.
 The matching *concept page* is `certs/ceh/domains/NN-*.md`; keep both linked from
 `certs/ceh/README.md`.
 

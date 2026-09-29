@@ -68,7 +68,7 @@ flowchart LR
 |---------|-------------|-------------|-----------|
 | Authentication / Authorization | **1812** | 1645 | **UDP** |
 | Accounting | **1813** | 1646 | **UDP** |
-| RadSec (RADIUS over TLS) | **2083** | — | **TCP + TLS** (RFC 6614) |
+| RadSec (RADIUS over TLS) | **2083** | — | **TCP + TLS** (RFC 6614, Experimental) |
 
 RADIUS runs over **UDP** (connectionless); the client handles retransmission and timeouts.
 The legacy ports 1645/1646 predate the official IANA assignment and are still seen on older
@@ -209,13 +209,13 @@ came from a server that knows the secret and pertains to *this* request — defe
 Access-Accept from someone who doesn't know the secret. **RFC 2869** adds the
 **`Message-Authenticator (80)`** attribute — an HMAC-MD5 over the whole packet keyed by the
 shared secret — to integrity-protect *requests* too (mandatory for EAP, and now strongly
-recommended generally to resist forgery/"Blast-RADIUS"-style attacks).
+recommended generally to resist forgery/"Blast-RADIUS"-style attacks, CVE-2024-3596).
 
 ### 4d. What actually gives confidentiality
 
 | Approach | What it does |
 |----------|--------------|
-| **RadSec — RADIUS over TLS (RFC 6614)** | Runs RADIUS inside a **TLS** tunnel over **TCP 2083**, encrypting and authenticating the **entire** packet stream and replacing reliance on the MD5 shared-secret tricks with real PKI. |
+| **RadSec — RADIUS over TLS (RFC 6614)** | Runs RADIUS inside a **TLS** tunnel over **TCP 2083**, encrypting and authenticating the **entire** packet stream and replacing reliance on the MD5 shared-secret tricks with real PKI. RFC 6614 (and RFC 7360, RADIUS/DTLS) are **Experimental**; the IETF radext draft `draft-ietf-radext-radiusdtls-bis` (Proposed Standard, submitted to the IESG; -17 dated 2026-07-06, not yet an RFC as of 2026-09-29) would obsolete both. |
 | **RADIUS over IPsec** | Wrap the UDP traffic in an IPsec tunnel for confidentiality + integrity at the network layer. |
 | **EAP inside RADIUS (RFC 3579)** | The **Extensible Authentication Protocol** is *tunnelled* in `EAP-Message` AVPs so strong methods like **EAP-TLS** (mutual certificates) run end-to-end between supplicant and server. Note EAP gives strong *authentication*, but the RADIUS packet around it is still cleartext unless RadSec/IPsec is also used. |
 
@@ -257,8 +257,8 @@ they enjoy no special protection.
   long, random, unique-per-NAS secrets; rotate them; prefer RadSec.
 - **Forged Access-Accept / response spoofing** — UDP is spoofable; weak or known secrets let an
   attacker fabricate an Accept. *Mitigation:* verify the Response Authenticator (built in),
-  require `Message-Authenticator`, use RadSec. (The 2024 **"Blast-RADIUS"** attack exploited
-  MD5 weaknesses in the Response Authenticator/`Message-Authenticator` handling.)
+  require `Message-Authenticator`, use RadSec. (The 2024 **"Blast-RADIUS"** attack, CVE-2024-3596,
+  combined a protocol weakness with MD5 collisions to forge a valid Access-Accept.)
 - **Password attribute weaknesses** — MD5/XOR construction and any Request-Authenticator reuse
   weaken `User-Password`. *Mitigation:* good RNG for the Request Authenticator; tunnel it.
 - **Replay** — duplicate Accounting/Access packets. *Mitigation:* Identifier + authenticator
@@ -278,7 +278,12 @@ they enjoy no special protection.
   <https://www.rfc-editor.org/rfc/rfc2869>
 - **RFC 3579** — *RADIUS Support for the Extensible Authentication Protocol (EAP)*.
   <https://www.rfc-editor.org/rfc/rfc3579>
-- **RFC 6614** — *Transport Layer Security (TLS) Encryption for RADIUS (RadSec)*.
+- **RFC 6614** — *Transport Layer Security (TLS) Encryption for RADIUS (RadSec)* (Experimental).
   <https://www.rfc-editor.org/rfc/rfc6614>
+- **draft-ietf-radext-radiusdtls-bis** — IETF radext RADIUS over TLS/DTLS bis draft, intended to
+  obsolete RFC 6614 and RFC 7360 (IETF datatracker; status checked 2026-09-29).
+  <https://datatracker.ietf.org/doc/draft-ietf-radext-radiusdtls-bis/>
+- **Blast-RADIUS** (CVE-2024-3596) — research site. <https://www.blastradius.fail/> ·
+  <https://www.cve.org/CVERecord?id=CVE-2024-3596>
 - **RFC 5176** — *Dynamic Authorization Extensions to RADIUS* (CoA / Disconnect, for context).
   <https://www.rfc-editor.org/rfc/rfc5176>

@@ -4,9 +4,9 @@
 > — the five domains taught in depth, exam prep, practice questions, cheat sheet, and a long
 > acronym/glossary reference. This page stays as a one-screen orientation.
 
-CompTIA **Security+** is a vendor-neutral, foundational cybersecurity certification from **CompTIA** (the Computing Technology Industry Association). It validates the core knowledge needed for entry-level security roles and is one of the most widely requested baseline credentials in job postings. The current exam at the time of writing is **SY0-701** *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/) — specifics change)*; CompTIA refreshes the exam code roughly every three years.
+CompTIA **Security+** is a vendor-neutral, foundational cybersecurity certification from **CompTIA** (the Computing Technology Industry Association). It validates the core knowledge needed for entry-level security roles and is one of the most widely requested baseline credentials in job postings. This page covers **SY0-701** ([V7 page](https://www.comptia.org/en-us/certifications/security/v7/)), which retires for English on **2027-06-11** (Japanese, Portuguese, Spanish, Thai **2027-08-13**). Its successor **SY0-801** ([V8 page](https://www.comptia.org/en-us/certifications/security/v8/)) launches on or around **2026-11-17**, English only at launch — see the hub's [version notice](../security-plus/00-overview/exam-and-objectives.md#version-notice--sy0-701-retires-sy0-801-is-coming).
 
-> **Unofficial & no fabrication.** Not affiliated with or endorsed by CompTIA. Exam specifics below are from CompTIA's official Security+ page; anything volatile (price, exam code, retirement date) should be re-checked there before you rely on it. Compiled **2026-06-18**.
+> **Unofficial & no fabrication.** Not affiliated with or endorsed by CompTIA. Exam specifics below are from CompTIA's official Security+ page; anything volatile (price, exam code, retirement date) should be re-checked there before you rely on it. Compiled **2026-06-18**; exam facts re-checked **2026-09-29**.
 
 ## Learning objectives
 
@@ -23,7 +23,7 @@ CompTIA **Security+** is a vendor-neutral, foundational cybersecurity certificat
 | Provider | CompTIA (vendor-neutral) |
 | Level | Foundational / entry-level |
 | Style | Broad security fundamentals with a **defensive (blue-team) lean** |
-| Current exam | **SY0-701**, launched 7 November 2023; retirement estimated ~2026 *(verify — CompTIA rotates codes)* |
+| Current exam | **SY0-701**, launched 2023-11-07; retires English 2027-06-11, other languages 2027-08-13. Successor **SY0-801** from on or around 2026-11-17 |
 | Vendor-neutral? | Yes — not tied to any product |
 
 Security+ is **breadth, not depth**: it surveys threats, architecture, operations, and governance at a working level rather than drilling into one platform or into hands-on exploitation.
@@ -34,25 +34,25 @@ Security+ is **breadth, not depth**: it surveys threats, architecture, operation
 - Anyone needing a recognised baseline credential to clear job-posting filters.
 - US federal and defence-contractor staff who need a **DoD 8140**-aligned baseline (see below).
 
-CompTIA's recommended (not mandatory) experience is **CompTIA Network+ and about two years in a security or systems-administrator role**. A sysadmin's networking and operating-system background maps directly onto this material.
+CompTIA's recommended (not mandatory) experience is **CompTIA Network+ and two years of experience working in a security / systems administrator job role** (SY0-701). A sysadmin's networking and operating-system background maps directly onto this material.
 
 ## Domains / scope
 
-Five domains, with CompTIA's published weightings *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/) — weightings change per exam version)*:
+Five domains, with CompTIA's published SY0-701 weightings ([V7 page](https://www.comptia.org/en-us/certifications/security/v7/)) and, for comparison, the SY0-801 weightings ([V8 page](https://www.comptia.org/en-us/certifications/security/v8/)):
 
-| Domain | Weight |
-| --- | --- |
-| General Security Concepts | 12% |
-| Threats, Vulnerabilities, and Mitigations | 22% |
-| Security Architecture | 18% |
-| Security Operations | 28% |
-| Security Program Management and Oversight | 20% |
+| Domain (SY0-701 name) | SY0-701 | SY0-801 |
+| --- | --- | --- |
+| General Security Concepts | 12% | 16% |
+| Threats, Vulnerabilities, and Mitigations (SY0-801: "Threats, Vulnerabilities, and Attacks") | 22% | 24% |
+| Security Architecture | 18% | 19% |
+| Security Operations | 28% | 27% |
+| Security Program Management and Oversight | 20% | 14% |
 
 ## Exam format (verified)
 
 | Item | Detail | Source note |
 | --- | --- | --- |
-| Exam code | SY0-701 | CompTIA — verify; codes rotate ~every 3 years |
+| Exam code | SY0-701 (SY0-801 has the same question cap, duration, and passing score) | CompTIA V7 / V8 pages |
 | Questions | **Maximum 90**, mix of multiple-choice and **performance-based questions (PBQs)** | CompTIA official page |
 | Duration | **90 minutes** | CompTIA official page |
 | Passing score | **750** on a scale of **100–900** | CompTIA official page |
@@ -86,13 +86,15 @@ flowchart LR
 ## Study resources
 
 - **Official:** [CompTIA Security+ page](https://www.comptia.org/en-us/certifications/security/) — exam objectives PDF, CertMaster Learn/Labs/Practice.
-- **Recommended experience:** CompTIA Network+ plus ~2 years in a security or sysadmin role.
+- **Recommended experience:** CompTIA Network+ plus two years in a security / systems administrator job role.
 - **Practice:** download the current exam objectives and work performance-based labs; a sysadmin home lab covering networking, identity, and logging maps well to the Security Operations domain.
 - **In this repo:** the [CEH labs](../ceh/labs/building-a-ceh-lab.md) and [reference glossary](../ceh/reference/glossary.md) reinforce shared fundamentals.
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) official certification page (exam code, ~90 questions, 90 minutes, 750/100–900 passing score, domain weightings, recommended experience, DoD 8140 alignment): https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ official certification page (DoD 8140 alignment, objectives download): https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ V7 (SY0-701) page (launch 2023-11-07, max 90 questions, 90 minutes, 750/100–900 passing score, domain weightings, languages, recommended experience, retirement dates; checked 2026-09-29): https://www.comptia.org/en-us/certifications/security/v7/
+- CompTIA — Security+ V8 (SY0-801) page (launch on or around 2026-11-17, English only, format, domain weightings; checked 2026-09-29): https://www.comptia.org/en-us/certifications/security/v8/
 - US DoD Cyber Workforce, Directives 8140 / 8570 (verify current Security+ mapping): https://public.cyber.mil/
 - Related in this repo: [../ceh/README.md](../ceh/README.md) · [../ceh/career/ceh-career-and-adjacent-certs.md](../ceh/career/ceh-career-and-adjacent-certs.md) · [oscp.md](oscp.md) · [pnpt.md](pnpt.md)
-- Verify all volatile specifics (price, exam code, retirement date, CEU renewal) on CompTIA's site — programs change.
+- Verify volatile specifics not quoted here (price, CEU renewal) on CompTIA's site — programs change.

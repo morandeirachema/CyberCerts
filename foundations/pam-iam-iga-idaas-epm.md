@@ -213,4 +213,4 @@ flowchart TD
 - Gartner — IDaaS / Access Management glossary: https://www.gartner.com/en/information-technology/glossary/idaas-identity-as-a-service
 - Gartner — Cloud Infrastructure Entitlement Management (CIEM): https://www.gartner.com/en/information-technology/glossary/cloud-infrastructure-entitlement-management-ciem
 - KuppingerCole — Leadership Compass categories (IGA, PAM, Access Management): https://www.kuppingercole.com/research
-- NIST SP 800-63 Digital Identity Guidelines (AuthN/AuthZ, MFA): https://pages.nist.gov/800-63-3/
+- NIST SP 800-63-4 Digital Identity Guidelines (final, July 2025; supersedes 800-63-3) (AuthN/AuthZ, MFA): https://pages.nist.gov/800-63-4/ · https://csrc.nist.gov/pubs/sp/800/63/4/final

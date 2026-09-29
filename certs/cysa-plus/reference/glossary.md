@@ -179,7 +179,7 @@ An alphabetical glossary of CySA+ terms defined **in CySA+ / SOC analyst context
 
 ## Sources
 
-- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 certification page and official exam objectives PDF (definitions and term lists): https://www.comptia.org/en-us/certifications/cybersecurity-analyst/ *(download and verify; objectives change per exam version)*
+- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 certification page and official exam objectives PDF (definitions and term lists): https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/ *(download and verify; objectives change per exam version)*
 - NIST — Computer Security Resource Center Glossary: https://csrc.nist.gov/glossary
 - NIST — SP 800-61 Computer Security Incident Handling Guide (IR lifecycle, order of volatility): https://csrc.nist.gov/pubs/sp/800/61/r2/final
 - FIRST — Common Vulnerability Scoring System (CVSS) specification (base/temporal/environmental metrics, vector strings): https://www.first.org/cvss/

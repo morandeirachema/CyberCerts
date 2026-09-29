@@ -6,7 +6,7 @@ How this repo stays accurate over time.
 
 | Workflow | When | What it enforces |
 |----------|------|------------------|
-| [`quality.yml`](.github/workflows/quality.yml) | every push / PR | No ASCII art · balanced code fences · valid Mermaid (and no reserved-word node IDs) · a `## Sources` section on every content page · **zero broken internal links/anchors** — via [`scripts/check-docs.py`](scripts/check-docs.py). The merged CEH course (`certs/ceh/`) is link-checked but keeps its own style rules. |
+| [`quality.yml`](.github/workflows/quality.yml) | every push / PR | No ASCII art · balanced code fences · valid Mermaid (and no reserved-word node IDs) · a `## Sources` section on every content page · **zero broken internal links/image links/anchors** · well-formed `flashcards.csv` rows in every hub — via [`scripts/check-docs.py`](scripts/check-docs.py). The merged CEH course (`certs/ceh/`) is link-checked but keeps its own style rules. |
 | [`ceh-validate.yml`](.github/workflows/ceh-validate.yml) | every push / PR | The CEH course's own gate, run inside `certs/ceh/`: links, anchors, Mermaid, flashcard CSVs, `py_compile` of its scripts, Docker Compose / Ansible YAML validity, ShellCheck — via [`certs/ceh/scripts/validate.py`](certs/ceh/scripts/validate.py) |
 | [`external-links.yml`](.github/workflows/external-links.yml) | weekly + on demand | External URL rot (RFCs, vendor docs) — non-blocking |
 | [`docs.yml`](.github/workflows/docs.yml) | every push to `main` | Builds & deploys the MkDocs site |

@@ -35,7 +35,7 @@ penetration-testing** certification: you must actually compromise live machines,
 | **Provider / course** | OffSec · PEN-200 (Penetration Testing with Kali Linux) |
 | **Exam** | **24-hour** proctored hands-on + **~24-hour** report window |
 | **Scoring** | **100 points**, **70 to pass** · AD set (3 machines) = 40 · 3 standalone = 60 · **no bonus** (since 1 Nov 2024) |
-| **OSCP vs OSCP+** | OSCP doesn't expire; **OSCP+** (current AD-inclusive exam) expires **3 years**, maintained via CPE *(verify)* |
+| **OSCP vs OSCP+** | OSCP doesn't expire; **OSCP+** (current AD-inclusive exam) expires **3 years**, maintained via CPE, a recertification exam, or a higher OffSec cert (OSEP, OSWA, OSED, OSEE) *(verify)* |
 | **Style** | Fully hands-on — *"Try Harder"* |
 
 Full details: **[exam structure](00-overview/exam-structure.md)**.

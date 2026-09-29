@@ -124,7 +124,7 @@ The offensive-engagement reporting discipline — findings, evidence, and an exe
 
 ## Sources
 
-- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 certification and exam objectives: <https://www.comptia.org/certifications/cybersecurity-analyst>
+- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 certification and exam objectives: <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
 - NIST SP 800-61 Rev. 2 — *Computer Security Incident Handling Guide* (reporting, coordination): <https://csrc.nist.gov/pubs/sp/800/61/r2/final>
 - NIST SP 800-40 Rev. 4 — *Guide to Enterprise Patch Management Planning* (metrics, inhibitors): <https://csrc.nist.gov/pubs/sp/800/40/r4/final>
 - CISA — incident reporting and coordinated vulnerability disclosure: <https://www.cisa.gov/coordinated-vulnerability-disclosure-process>

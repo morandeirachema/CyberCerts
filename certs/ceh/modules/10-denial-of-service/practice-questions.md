@@ -9,13 +9,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q1.** What is the defining difference between a **DoS** and a **DDoS** attack?
 
 - A. DDoS targets Layer 7 while DoS targets Layer 4
-- B. DDoS comes from many distributed sources (a botnet); DoS from a single source
+- B. DoS uses UDP and DDoS uses TCP
 - C. DoS is illegal but DDoS is a legitimate stress test
-- D. DoS uses UDP and DDoS uses TCP
+- D. DDoS comes from many distributed sources (a botnet); DoS from a single source
 
 <details><summary>Answer</summary>
 
-**B. DDoS comes from many distributed sources.** The distributed nature is the whole point: you cannot just block one offending IP because traffic arrives from thousands of compromised hosts. Layer and protocol (A, D) vary independently of source count, and both DoS and DDoS against systems you don't own are crimes (C).
+**D. DDoS comes from many distributed sources.** The distributed nature is the whole point: you cannot just block one offending IP because traffic arrives from thousands of compromised hosts. Layer and protocol (A, B) vary independently of source count, and both DoS and DDoS against systems you don't own are crimes (C).
 </details>
 
 ---
@@ -79,13 +79,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q6.** The **amplification factor** of a reflection attack is best described as:
 
 - A. The number of bots in the botnet
-- B. The ratio of the reflected response size to the request size
+- B. The percentage of packets that reach the target
 - C. The number of hops between attacker and victim
-- D. The percentage of packets that reach the target
+- D. The ratio of the reflected response size to the request size
 
 <details><summary>Answer</summary>
 
-**B. Response size ÷ request size.** A tiny spoofed query that triggers a huge reply lets one attacker generate traffic far exceeding their own uplink. This is why the **ranking** matters: **memcached (~10,000–51,000×) ≫ NTP (~500×) ≫ DNS (~28–54×) ≫ SSDP (~30×)**.
+**D. Response size ÷ request size.** A tiny spoofed query that triggers a huge reply lets one attacker generate traffic far exceeding their own uplink. This is why the **ranking** matters: **memcached (~10,000–51,000×) ≫ NTP (~500×) ≫ DNS (~28–54×) ≫ SSDP (~30×)**.
 </details>
 
 ---
@@ -163,27 +163,27 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q12.** Why can a **volumetric** DDoS generally **not** be absorbed at the target host itself?
 
 - A. The host's CPU is too slow to run iptables
-- B. The attack saturates the upstream link before packets ever reach the host's defenses
+- B. Volumetric attacks only target Layer 7
 - C. Hosts cannot run SYN cookies
-- D. Volumetric attacks only target Layer 7
+- D. The attack saturates the upstream link before packets ever reach the host's defenses
 
 <details><summary>Answer</summary>
 
-**B. The upstream pipe fills first.** Once inbound bandwidth exceeds the link capacity, dropping packets *at the host* is too late — the congestion is already upstream. That is why volumetric mitigation must be pushed to a **CDN / anycast / cloud scrubbing** provider with far more capacity, or handled with autoscaling.
+**D. The upstream pipe fills first.** Once inbound bandwidth exceeds the link capacity, dropping packets *at the host* is too late — the congestion is already upstream. That is why volumetric mitigation must be pushed to a **CDN / anycast / cloud scrubbing** provider with far more capacity, or handled with autoscaling.
 </details>
 
 ---
 
 **Q13.** What is **PDoS (permanent DoS / "phlashing")**?
 
-- A. A DoS that lasts exactly as long as the attacker keeps flooding
-- B. An attack that corrupts firmware/hardware, bricking the device permanently
+- A. An attack that corrupts firmware/hardware, bricking the device permanently
+- B. A DoS that lasts exactly as long as the attacker keeps flooding
 - C. A reflection attack using memcached
 - D. A Layer-7 HTTP GET flood
 
 <details><summary>Answer</summary>
 
-**B. It bricks the device.** PDoS corrupts firmware or hardware (e.g. "BrickerBot") so the device is *permanently* out of service and must be replaced or re-flashed — not merely unavailable while an attack runs. Defenses are signed firmware, management-network isolation, and least-privilege device admin.
+**A. It bricks the device.** PDoS corrupts firmware or hardware (e.g. "BrickerBot") so the device is *permanently* out of service and must be replaced or re-flashed — not merely unavailable while an attack runs. Defenses are signed firmware, management-network isolation, and least-privilege device admin.
 </details>
 
 ---

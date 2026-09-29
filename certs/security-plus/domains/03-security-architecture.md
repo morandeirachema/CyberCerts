@@ -2,7 +2,7 @@
 
 Domain 3 of CompTIA Security+ (SY0-701) is about **where you put security and why**. It asks you to compare architecture models (cloud, on-premises, virtualized, containerized, embedded, industrial), reason about the security *implications* of each, and then apply enterprise design principles — device placement, security zones, firewalls, secure communication — to protect systems and the data flowing through them. For a sysadmin, this is the domain that turns "I administer servers and networks" into "I design *defensible* servers and networks."
 
-This domain weights **18%** of the scored exam content *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/) — weightings change per exam version)*. It maps to four objective areas — architecture models (3.1), enterprise infrastructure security principles (3.2), data protection (3.3), and resilience and recovery (3.4) — but treat the official **objectives PDF** as the authoritative checklist for exact wording; see [how to get it](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
+This domain weights **18%** of the scored exam content *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/v7/) — weightings change per exam version)*. It maps to four objective areas — architecture models (3.1), enterprise infrastructure security principles (3.2), data protection (3.3), and resilience and recovery (3.4) — but treat the official **objectives PDF** as the authoritative checklist for exact wording; see [how to get it](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
 
 Where this hub already covers a topic in depth, this page **cross-links** rather than duplicates: cloud and OT attack surfaces from the attacker's side in the [CEH cloud module](../../ceh/domains/19-cloud-computing.md) and [CEH IoT/OT module](../../ceh/domains/18-iot-and-ot-hacking.md); and transport security in [Transport Layer Security (TLS)](../../../protocols/tls.md).
 
@@ -262,7 +262,7 @@ A frequently tested trade-off of recovery speed vs. cost for a recovery site:
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) certification page and official exam objectives (Domain 3 — Security Architecture, 18%): https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ (SY0-701) certification page and official exam objectives (Domain 3 — Security Architecture, 18%): https://www.comptia.org/en-us/certifications/security/v7/
 - NIST Special Publication 800-145, *The NIST Definition of Cloud Computing* (IaaS/PaaS/SaaS service models): https://csrc.nist.gov/pubs/sp/800/145/final
 - NIST Special Publication 800-207, *Zero Trust Architecture* (zones, segmentation, trust boundaries): https://csrc.nist.gov/pubs/sp/800/207/final
 - NIST Special Publication 800-82, *Guide to Operational Technology (OT) Security* (ICS/SCADA, RTOS, embedded): https://csrc.nist.gov/pubs/sp/800/82/r3/final

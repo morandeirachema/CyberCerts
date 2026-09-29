@@ -463,7 +463,7 @@ A bank of **50+ multiple-choice practice questions** grouped by the five CompTIA
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) exam objectives, the five domains and concepts: https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ (SY0-701) exam objectives, the five domains and concepts: https://www.comptia.org/en-us/certifications/security/v7/
 - NIST — SP 800-61 Computer Security Incident Handling Guide (incident-response lifecycle) and SP 800-30 (risk assessment, SLE/ALE/ARO): https://csrc.nist.gov/
 - Sibling hub pages: [../domains/README.md](../domains/README.md) · [../../foundations/core-concepts-least-privilege-jit-zero-trust.md](../../../foundations/core-concepts-least-privilege-jit-zero-trust.md) · [../../ceh/00-overview/legal-and-ethics.md](../../ceh/00-overview/legal-and-ethics.md)
 - Verified ground truth for this hub: SY0-701; max 90 questions (MCQ + PBQ); 90 minutes; passing 750 on a 100–900 scale; domain weights 12 / 22 / 18 / 28 / 20 percent.

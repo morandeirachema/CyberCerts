@@ -8,14 +8,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q1.** A user removes the vendor's privilege restrictions on an **iPhone** so unsigned apps can run and the sandbox is broken. What is this called, and what is the equivalent on Android?
 
-- A. Rooting on iOS; jailbreaking on Android
-- B. Jailbreaking on iOS; rooting on Android
+- A. Jailbreaking on iOS; rooting on Android
+- B. Rooting on iOS; jailbreaking on Android
 - C. Sideloading on both
 - D. Flashing on iOS; unlocking on Android
 
 <details><summary>Answer</summary>
 
-**B. Jailbreaking (iOS); rooting (Android).** Both defeat the same trust model — they break the app sandbox, disable code-signing/verified boot, and expose Keychain/Keystore material. **Exam tell:** *Jailbreak = iOS, Root = Android.* Because the whole OS trust model is gone, **MDM blocks compromised devices** from corporate data.
+**A. Jailbreaking (iOS); rooting (Android).** Both defeat the same trust model — they break the app sandbox, disable code-signing/verified boot, and expose Keychain/Keystore material. **Exam tell:** *Jailbreak = iOS, Root = Android.* Because the whole OS trust model is gone, **MDM blocks compromised devices** from corporate data.
 </details>
 
 ---
@@ -23,13 +23,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q2.** Which file format is an **Android** application package, and which is **iOS**?
 
 - A. Android = IPA, iOS = APK
-- B. Android = APK, iOS = IPA
+- B. Android = AAB, iOS = APK
 - C. Both use APK
-- D. Android = AAB, iOS = APK
+- D. Android = APK, iOS = IPA
 
 <details><summary>Answer</summary>
 
-**B. Android = APK (or AAB), iOS = IPA.** Android additionally permits **sideloading** (installing packages from outside the official store), which is the main malware-delivery path; iOS heavily restricts sideloading and requires App Store review. Don't swap the extensions.
+**D. Android = APK (or AAB), iOS = IPA.** Android additionally permits **sideloading** (installing packages from outside the official store), which is the main malware-delivery path; iOS heavily restricts sideloading and requires App Store review. Don't swap the extensions.
 </details>
 
 ---
@@ -37,13 +37,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q3.** During static review you find an auth token written to `/data/data/com.app/shared_prefs/session.xml` in cleartext. Which OWASP Mobile Top 10 (2024) category is this, and where *should* the secret live?
 
 - A. M5 Insecure Communication; in the app's SQLite DB
-- B. M9 Insecure Data Storage; in the Android Keystore
+- B. M7 Insufficient Binary Protections; in the APK resources
 - C. M3 Insecure Authentication; in SharedPreferences with a flag
-- D. M7 Insufficient Binary Protections; in the APK resources
+- D. M9 Insecure Data Storage; in the Android Keystore
 
 <details><summary>Answer</summary>
 
-**B. M9 Insecure Data Storage; Android Keystore (Keychain on iOS).** SharedPreferences, plist, SQLite, and logs are all cleartext-readable once you have the file — none is a secret store. The correct home is the hardware-backed **Keystore/Keychain**. Insecure Data Storage is the perennial top mobile flaw.
+**D. M9 Insecure Data Storage; Android Keystore (Keychain on iOS).** SharedPreferences, plist, SQLite, and logs are all cleartext-readable once you have the file — none is a secret store. The correct home is the hardware-backed **Keystore/Keychain**. Insecure Data Storage is the perennial top mobile flaw.
 </details>
 
 ---
@@ -65,13 +65,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q5.** Why does the exam consider **SMS-based MFA** weak compared with app- or hardware-based MFA?
 
 - A. SMS messages are encrypted end-to-end so they can't be logged
-- B. SIM swapping and OTP interception let an attacker receive the code without the phone
-- C. SMS OTPs never expire
+- B. SMS OTPs never expire
+- C. SIM swapping and OTP interception let an attacker receive the code without the phone
 - D. SMS requires rooting the device to read
 
 <details><summary>Answer</summary>
 
-**B.** **SIM swapping** (porting the victim's number) and **OTP interception / smishing** let an attacker receive the one-time code without possessing the device. That's why the exam wants **app-based (TOTP/push)** or, best, **phishing-resistant FIDO2 / passkeys** as the stronger answer.
+**C.** **SIM swapping** (porting the victim's number) and **OTP interception / smishing** let an attacker receive the one-time code without possessing the device. That's why the exam wants **app-based (TOTP/push)** or, best, **phishing-resistant FIDO2 / passkeys** as the stronger answer.
 </details>
 
 ---
@@ -79,13 +79,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q6.** A company allows personal phones (**BYOD**) but must protect corporate email and files **without** the ability to wipe the employee's personal photos. Which management approach fits best?
 
 - A. MDM with full-device remote wipe
-- B. MAM (containerize just the corporate app/data)
-- C. Rooting each device for control
+- B. Rooting each device for control
+- C. MAM (containerize just the corporate app/data)
 - D. Disabling the App Store
 
 <details><summary>Answer</summary>
 
-**B. MAM.** **MDM** manages the **whole device** (and can full-wipe it) — appropriate for corporate-owned hardware. **MAM** manages just the **app/corporate data** via containerization, so IT can wipe *only* the corporate container. For BYOD you pick **MAM** to avoid touching personal data.
+**C. MAM.** **MDM** manages the **whole device** (and can full-wipe it) — appropriate for corporate-owned hardware. **MAM** manages just the **app/corporate data** via containerization, so IT can wipe *only* the corporate container. For BYOD you pick **MAM** to avoid touching personal data.
 </details>
 
 ---
@@ -93,13 +93,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q7.** You want to read decompiled **Java** source and the `AndroidManifest.xml` of an APK **without running it**. Which is the right tool and analysis type?
 
 - A. Frida — dynamic analysis
-- B. jadx — static analysis
-- C. Drozer — dynamic analysis
+- B. Drozer — dynamic analysis
+- C. jadx — static analysis
 - D. Burp Suite — dynamic analysis
 
 <details><summary>Answer</summary>
 
-**B. jadx — static analysis.** Static = decompile/inspect the package at rest (jadx for Java, apktool for smali/resources, MobSF static). **Dynamic** = run and instrument (Frida/Objection, Drozer, MobSF dynamic). Don't attach a dynamic tool to a "without running it" question.
+**C. jadx — static analysis.** Static = decompile/inspect the package at rest (jadx for Java, apktool for smali/resources, MobSF static). **Dynamic** = run and instrument (Frida/Objection, Drozer, MobSF dynamic). Don't attach a dynamic tool to a "without running it" question.
 </details>
 
 ---
@@ -162,14 +162,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q12.** From a **PAM** perspective, why should a phone that approves admin MFA and holds session tokens be treated as a **privileged endpoint**, and what design keeps it from holding a durable secret?
 
-- A. Because phones are cheap; use longer PINs
-- B. Because it can silently approve elevation and replay tokens; use JIT so nothing durable is stored on the device
+- A. Because it can silently approve elevation and replay tokens; use JIT so nothing durable is stored on the device
+- B. Because phones are cheap; use longer PINs
 - C. Because iOS is immune; only Android phones matter
 - D. Because SMS is encrypted; rely on it exclusively
 
 <details><summary>Answer</summary>
 
-**B.** A compromised handset can **rubber-stamp MFA (push bombing)** and **replay stolen session tokens**. Treat it like any privileged endpoint: **JIT (just-in-time) elevation** means no durable privileged credential lives on the device, **Remote Access with biometric MFA** replaces SMS OTP, and **number matching** stops fatigue attacks. MDM enrollment with a **rooted/jailbroken block** is the enrollment gate.
+**A.** A compromised handset can **rubber-stamp MFA (push bombing)** and **replay stolen session tokens**. Treat it like any privileged endpoint: **JIT (just-in-time) elevation** means no durable privileged credential lives on the device, **Remote Access with biometric MFA** replaces SMS OTP, and **number matching** stops fatigue attacks. MDM enrollment with a **rooted/jailbroken block** is the enrollment gate.
 </details>
 
 ---
@@ -177,27 +177,27 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q13.** Which tool would you reach for to enumerate an Android app's **exported components and IPC attack surface** (content providers, activities, services reachable by other apps)?
 
 - A. jadx
-- B. Drozer
-- C. Hashcat
+- B. Hashcat
+- C. Drozer
 - D. Wireshark
 
 <details><summary>Answer</summary>
 
-**B. Drozer.** It probes an app's **exported IPC surface** on a running device — exported activities, services, broadcast receivers, and content providers — which maps to the `exported="true"` misconfig you'd first spot statically in the manifest. jadx is static decompilation; the other two aren't mobile-IPC tools.
+**C. Drozer.** It probes an app's **exported IPC surface** on a running device — exported activities, services, broadcast receivers, and content providers — which maps to the `exported="true"` misconfig you'd first spot statically in the manifest. jadx is static decompilation; the other two aren't mobile-IPC tools.
 </details>
 
 ---
 
 **Q14.** You upload an APK to **MobSF** and it flags storage, crypto, network, and permission issues automatically. How does this relate to your manual jadx/apktool review?
 
-- A. MobSF replaces manual review entirely and is always complete
-- B. MobSF does both static and dynamic analysis and is best used to cross-check/triage what you find (and miss) by hand
+- A. MobSF does both static and dynamic analysis and is best used to cross-check/triage what you find (and miss) by hand
+- B. MobSF replaces manual review entirely and is always complete
 - C. MobSF only decrypts network traffic
 - D. MobSF is a device-management (MDM) console
 
 <details><summary>Answer</summary>
 
-**B.** **MobSF** performs **both static and dynamic** analysis and produces an automated report — ideal to **cross-check** manual findings and surface things you missed. It's a triage accelerator, not a substitute for reading the manifest/decompiled code and confirming on-device.
+**A.** **MobSF** performs **both static and dynamic** analysis and produces an automated report — ideal to **cross-check** manual findings and surface things you missed. It's a triage accelerator, not a substitute for reading the manifest/decompiled code and confirming on-device.
 </details>
 
 ---
@@ -205,13 +205,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q15.** A SOC sees an admin's account approve a privileged action via **repeated push prompts at 3 a.m.**, several denied then one approved. Which attack is this, and which control most directly stops it?
 
 - A. Kerberoasting; gMSA
-- B. MFA fatigue / push bombing; number matching + MFA rate-limits
+- B. Insecure storage; remote wipe
 - C. SIM swap; full-disk encryption
-- D. Insecure storage; remote wipe
+- D. MFA fatigue / push bombing; number matching + MFA rate-limits
 
 <details><summary>Answer</summary>
 
-**B. MFA fatigue (push bombing).** The attacker spams push approvals hoping the user taps *Approve*. **Number matching** (the user must type a code shown on the login screen), **rate-limits**, and **JIT approval workflows** neutralize it. FIDO2/passkeys remove the pushable prompt altogether.
+**D. MFA fatigue (push bombing).** The attacker spams push approvals hoping the user taps *Approve*. **Number matching** (the user must type a code shown on the login screen), **rate-limits**, and **JIT approval workflows** neutralize it. FIDO2/passkeys remove the pushable prompt altogether.
 </details>
 
 ---

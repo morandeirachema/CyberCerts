@@ -312,7 +312,7 @@ more consistent — a major theme given alert volumes.
 ## Sources
 
 - CompTIA — CySA+ (CS0-003) certification page and exam objectives (Domain 1 — Security
-  Operations, ~33%): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+  Operations, ~33%): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
 - MITRE ATT&CK — adversary tactics and techniques knowledge base:
   <https://attack.mitre.org/>
 - NIST SP 800-207 — *Zero Trust Architecture* (segmentation, control/data plane):

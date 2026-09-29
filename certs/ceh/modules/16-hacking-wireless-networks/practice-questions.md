@@ -36,14 +36,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q3.** In a WPA2-PSK attack, what specifically must you capture to enable an offline crack?
 
-- A. The plaintext passphrase as it is typed
-- B. The 4-way handshake (the EAPOL frames carrying the MIC)
+- A. The 4-way handshake (the EAPOL frames carrying the MIC)
+- B. The plaintext passphrase as it is typed
 - C. The AES session key from the AP's memory
 - D. The DHCP lease of the client
 
 <details><summary>Answer</summary>
 
-**B. The 4-way handshake.** The EAPOL messages (especially 2 and 3) carry a **MIC** derived from the PMK (which comes from PSK + SSID). Offline you guess a passphrase → derive PMK/PTK → recompute the MIC → compare. The passphrase never travels in plaintext, and the session keys stay on the endpoints — you recompute them from a guess.
+**A. The 4-way handshake.** The EAPOL messages (especially 2 and 3) carry a **MIC** derived from the PMK (which comes from PSK + SSID). Offline you guess a passphrase → derive PMK/PTK → recompute the MIC → compare. The passphrase never travels in plaintext, and the session keys stay on the endpoints — you recompute them from a guess.
 </details>
 
 ---
@@ -51,13 +51,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q4.** Why is WPA2-PSK cracking called an *offline* attack?
 
 - A. The attacker must be disconnected from the internet
-- B. Once the handshake is captured, guessing happens locally with no further AP interaction
+- B. It only works on powered-off access points
 - C. The AP goes offline during the attack
-- D. It only works on powered-off access points
+- D. Once the handshake is captured, guessing happens locally with no further AP interaction
 
 <details><summary>Answer</summary>
 
-**B. Guessing happens locally after capture.** After you have the handshake (or a PMKID), every passphrase guess is computed on your own machine — no packets to the AP, no logs, no lockout. That is why it beats online guessing and why passphrase entropy is the only thing protecting you.
+**D. Guessing happens locally after capture.** After you have the handshake (or a PMKID), every passphrase guess is computed on your own machine — no packets to the AP, no logs, no lockout. That is why it beats online guessing and why passphrase entropy is the only thing protecting you.
 </details>
 
 ---
@@ -65,13 +65,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q5.** What is the defining advantage of the **PMKID** attack over the classic handshake capture?
 
 - A. It cracks the passphrase without any wordlist
-- B. It requires no connected client and no deauth — it's clientless
-- C. It works against WPA3-SAE
+- B. It works against WPA3-SAE
+- C. It requires no connected client and no deauth — it's clientless
 - D. It recovers the passphrase instantly
 
 <details><summary>Answer</summary>
 
-**B. It is clientless — no client, no deauth needed.** The PMKID can be pulled from the AP's first EAPOL frame during association, so you don't have to wait for or deauth a victim. You *still* crack the passphrase offline with a wordlist (so A and D are wrong), and SAE is specifically designed to resist this class of attack (C is wrong).
+**C. It is clientless — no client, no deauth needed.** The PMKID can be pulled from the AP's first EAPOL frame during association, so you don't have to wait for or deauth a victim. You *still* crack the passphrase offline with a wordlist (so A and D are wrong), and SAE is specifically designed to resist this class of attack (B is wrong).
 </details>
 
 ---
@@ -120,14 +120,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q9.** The best defense against an **evil twin** on an enterprise WLAN is:
 
-- A. A hidden SSID
-- B. Clients that validate the RADIUS server certificate (EAP-TLS mutual auth)
+- A. Clients that validate the RADIUS server certificate (EAP-TLS mutual auth)
+- B. A hidden SSID
 - C. A stronger PSK
 - D. Turning off 5 GHz
 
 <details><summary>Answer</summary>
 
-**B. Server-certificate validation (EAP-TLS).** A client configured to validate the RADIUS server's certificate will refuse to join the clone because the evil twin can't present a trusted cert. A PSK network has no server identity to validate (so C doesn't help), and hiding the SSID or dropping a band does nothing against a clone.
+**A. Server-certificate validation (EAP-TLS).** A client configured to validate the RADIUS server's certificate will refuse to join the clone because the evil twin can't present a trusted cert. A PSK network has no server identity to validate (so C doesn't help), and hiding the SSID or dropping a band does nothing against a clone.
 </details>
 
 ---
@@ -135,13 +135,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q10.** Why is the **WPS PIN** so weak against brute force?
 
 - A. The PIN is only 4 digits
-- B. The 8-digit PIN is validated in two halves (and the last digit is a checksum), collapsing the search to about 11,000 attempts
+- B. The PIN equals the last 4 bytes of the BSSID
 - C. WPS transmits the PIN in plaintext beacons
-- D. The PIN equals the last 4 bytes of the BSSID
+- D. The 8-digit PIN is validated in two halves (and the last digit is a checksum), collapsing the search to about 11,000 attempts
 
 <details><summary>Answer</summary>
 
-**B. It is checked in two halves.** The registrar validates the first and second halves separately and the eighth digit is a checksum, so the effective keyspace drops from 10^8 to roughly **11,000** tries — feasible to brute force (reaver/bully). **Pixie-Dust** goes further, recovering the PIN offline from weak nonce RNG. The fix is to **disable WPS**.
+**D. It is checked in two halves.** The registrar validates the first and second halves separately and the eighth digit is a checksum, so the effective keyspace drops from 10^8 to roughly **11,000** tries — feasible to brute force (reaver/bully). **Pixie-Dust** goes further, recovering the PIN offline from weak nonce RNG. The fix is to **disable WPS**.
 </details>
 
 ---
@@ -162,14 +162,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q12.** Which aircrack-ng tool is used to **inject** deauthentication frames?
 
-- A. airmon-ng
-- B. aireplay-ng
+- A. aireplay-ng
+- B. airmon-ng
 - C. airodump-ng
 - D. aircrack-ng
 
 <details><summary>Answer</summary>
 
-**B. aireplay-ng.** It performs frame injection — deauth, fake authentication, and ARP replay (to generate WEP IV traffic). airmon-ng only toggles monitor mode, airodump-ng captures, and aircrack-ng does the cracking.
+**A. aireplay-ng.** It performs frame injection — deauth, fake authentication, and ARP replay (to generate WEP IV traffic). airmon-ng only toggles monitor mode, airodump-ng captures, and aircrack-ng does the cracking.
 </details>
 
 ---

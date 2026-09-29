@@ -5,8 +5,10 @@ CompTIA **CySA+** — short for **Cybersecurity Analyst** — is a vendor-neutra
 Technology Industry Association)**. It validates the skills a **Security Operations Center
 (SOC)** analyst uses to **detect, analyze, and respond** to threats: ingesting and
 interpreting logs, hunting for malicious activity, managing vulnerabilities, running the
-incident-response process, and communicating findings to stakeholders. The current exam is
-**CS0-003**. This page explains what the credential is, who it is for, the experience
+incident-response process, and communicating findings to stakeholders. This hub is built on
+exam **CS0-003 (V3)**, whose English exam retires **2026-12-22**; its successor **CS0-004 (V4)**
+launched **2026-06-23** (see the
+[version notice](exam-and-objectives.md#version-notice--cs0-003-retires-cs0-004-is-live)). This page explains what the credential is, who it is for, the experience
 CompTIA recommends, and where it sits in a learning path — including how it relates to this
 repo's offensive (CEH) and Privileged Access Management (PAM) material.
 
@@ -38,8 +40,8 @@ advanced **CASP+/SecurityX**, alongside the offensive **PenTest+**.
 
 Always treat the official CompTIA CySA+ page as the authoritative source for the current
 exam code, format, languages, price, and renewal terms, because these change between exam
-versions: <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
-*(verify — specifics change)*.
+versions: <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/> (version pages:
+[V3 / CS0-003](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/) · [V4 / CS0-004](https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/)).
 
 ## "Vendor-neutral", "intermediate", and "defensive" — the core idea
 
@@ -79,8 +81,8 @@ CompTIA recommends — but does not **require** — the following before attempt
 
 | Recommendation | Detail |
 | --- | --- |
-| Prior certification | **CompTIA Security+** (or equivalent foundational security knowledge) |
-| Hands-on experience | **About four years** in an incident-response or security-analyst role *(verify on CompTIA)* |
+| Prior certification | **Network+, Security+, or equivalent knowledge** (CS0-003 / V3 page) |
+| Hands-on experience | CS0-003: a **minimum of 4 years** of hands-on experience as an incident response analyst, SOC analyst, or equivalent. CS0-004: "About 4 years in a SOC analyst or vulnerability analyst role" |
 
 These are guidance, not gatekeeping: there is **no mandatory prerequisite exam** or formal
 eligibility application. A sysadmin's existing operating-system, networking, and logging
@@ -155,9 +157,12 @@ appears in US government and defence-contractor job requirements.
 
 ## Sources
 
-- CompTIA — CySA+ (CS0-003) official certification page (provider, vendor-neutral /
-  intermediate / defensive positioning, recommended Security+ and ~4 years experience, four
-  domains, DoD 8140 alignment): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+- CompTIA — CySA+ official certification page (provider, vendor-neutral / intermediate /
+  defensive positioning, DoD 8140 alignment): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+- CompTIA — CySA+ V3 (CS0-003) page (recommended experience, four domains, retirement dates;
+  checked 2026-09-29): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
+- CompTIA — CySA+ V4 (CS0-004) page (launch 2026-06-23, recommended experience; checked
+  2026-09-29): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/>
 - US DoD Cyber Workforce, Directive 8140 (formerly 8570) — verify current CySA+ mapping:
   <https://public.cyber.mil/>
 - Related in this repo: [../../security-plus/README.md](../../security-plus/README.md) ·

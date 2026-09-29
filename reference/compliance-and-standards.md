@@ -71,8 +71,8 @@ helps to recognise them.
 | Certification | Body / Region | What it is |
 |---|---|---|
 | **ANSSI CSPN** (Certification de Sécurité de Premier Niveau) | ANSSI, France | France's *first-level* security certification — a time-boxed evaluation of a product against a defined security target. |
-| **BSI BSZ** (Beschleunigte Sicherheitszertifizierung) | BSI, Germany | Germany's *accelerated* security certification, conceptually comparable to CSPN; mutually recognised with CSPN under a Franco-German agreement since late 2025. |
-| **ISO/IEC 27001:2022** | Accredited certification body (international) | Certifies the vendor's own **ISMS** (organisational security management), not a specific product feature. Most PAM vendors hold it. |
+| **BSI BSZ** (Beschleunigte Sicherheitszertifizierung) | BSI, Germany | Germany's *accelerated* security certification, conceptually comparable to CSPN; mutually recognised with CSPN under an ANSSI–BSI agreement initially signed in June 2022 and renewed (version 3) on 2024-05-15. |
+| **ISO/IEC 27001:2022** | Accredited certification body (international) | Certifies the vendor's own **ISMS** (organisational security management), not a specific product feature. Check each vendor's certificate and scope individually. |
 | **Common Criteria / EAL** | International (ISO/IEC 15408) | Internationally-recognised product security evaluation with assurance levels EAL1–7. |
 | **FIPS 140-2/3** | NIST, USA | Validation of cryptographic modules; commonly cited by US-centric vendors. |
 
@@ -115,4 +115,5 @@ helps to recognise them.
 - **NERC CIP** standards (CIP-005, CIP-007): https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx
 - **FIPS 140-3** (NIST CMVP): https://csrc.nist.gov/projects/cryptographic-module-validation-program
 - **ANSSI CSPN**: https://cyber.gouv.fr/la-certification-de-securite-de-premier-niveau-cspn · WALLIX CSPN announcement: https://www.wallix.com/news/wallix-bastion-honored-again-cspn-certification
+- **ANSSI–BSI CSPN-BSZ mutual recognition** (renewal, 2024-05-15): https://cyber.gouv.fr/actualites/renouvellement-de-laccord-de-reconnaissance-mutuelle-cspn-bsz-entre-lanssi-et-le-bsi/
 - **BSI BSZ**: https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Zertifizierung-und-Anerkennung/ · WALLIX dual-certification PR: https://www.wallix.com/press/wallix-achieves-dual-certifications-in-germany-and-france-reinforcing-its-position-as-a-trusted-european-cybersecurity/

@@ -7,13 +7,13 @@
 **Q1.** Enumeration differs from scanning because it:
 
 - A. Only sends ICMP pings
-- B. Actively queries services to extract names — users, shares, groups, configs
+- B. Cracks passwords offline
 - C. Is always passive
-- D. Cracks passwords offline
+- D. Actively queries services to extract names — users, shares, groups, configs
 
 <details><summary>Answer</summary>
 
-**B.** Scanning finds open ports/services; **enumeration** establishes active connections to those services to pull out *named* resources (users, shares, groups, machine names). "Scanning finds the door; enumeration reads the nameplate."
+**D.** Scanning finds open ports/services; **enumeration** establishes active connections to those services to pull out *named* resources (users, shares, groups, machine names). "Scanning finds the door; enumeration reads the nameplate."
 </details>
 
 ---
@@ -35,13 +35,13 @@
 **Q3.** An **SNMP** enumeration succeeds against a device still using default community strings. Which strings are the usual defaults?
 
 - A. admin / root
-- B. public (read) and private (read-write)
-- C. guest / anonymous
+- B. guest / anonymous
+- C. public (read) and private (read-write)
 - D. sa / system
 
 <details><summary>Answer</summary>
 
-**B. `public` and `private`.** SNMP v1/2c send these community strings in cleartext; `private` typically grants write access. **SNMPv3** adds authentication and encryption and is the fix.
+**C. `public` and `private`.** SNMP v1/2c send these community strings in cleartext; `private` typically grants write access. **SNMPv3** adds authentication and encryption and is the fix.
 </details>
 
 ---
@@ -63,13 +63,13 @@
 **Q5.** Which SMTP command is used to **verify whether a mailbox/user exists**?
 
 - A. HELO
-- B. VRFY
+- B. QUIT
 - C. DATA
-- D. QUIT
+- D. VRFY
 
 <details><summary>Answer</summary>
 
-**B. `VRFY`** (and `EXPN` for lists) asks the mail server to confirm a user — useful for username enumeration when not disabled. `RCPT TO` can serve the same purpose.
+**D. `VRFY`** (and `EXPN` for lists) asks the mail server to confirm a user — useful for username enumeration when not disabled. `RCPT TO` can serve the same purpose.
 </details>
 
 ---
@@ -105,13 +105,13 @@
 **Q8.** **RID cycling** is a technique to:
 
 - A. Rotate encryption keys
-- B. Enumerate domain accounts by iterating relative identifiers appended to the domain SID
-- C. Crack NTLM hashes
+- B. Crack NTLM hashes
+- C. Enumerate domain accounts by iterating relative identifiers appended to the domain SID
 - D. Flood a switch's CAM table
 
 <details><summary>Answer</summary>
 
-**B.** Each account's SID = domain SID + a **RID**. Iterating RIDs (e.g., 500, 501, 1000…) resolves account names even without a full user list — a common enumeration trick.
+**C.** Each account's SID = domain SID + a **RID**. Iterating RIDs (e.g., 500, 501, 1000…) resolves account names even without a full user list — a common enumeration trick.
 </details>
 
 ---
@@ -147,13 +147,13 @@
 **Q11.** The **best** mitigation against SNMP enumeration is:
 
 - A. Block ICMP
-- B. Use SNMPv3 with authentication + encryption (and drop v1/2c)
-- C. Rename the community string to "public2"
+- B. Rename the community string to "public2"
+- C. Use SNMPv3 with authentication + encryption (and drop v1/2c)
 - D. Disable DNS
 
 <details><summary>Answer</summary>
 
-**B.** SNMPv3 adds auth + privacy; v1/2c community strings are cleartext and guessable. Renaming to another guessable string (C) is security by obscurity.
+**C.** SNMPv3 adds auth + privacy; v1/2c community strings are cleartext and guessable. Renaming to another guessable string (B) is security by obscurity.
 </details>
 
 ---
@@ -161,13 +161,13 @@
 **Q12.** From a PAM perspective, the highest-value response to enumeration that reveals local admins and service accounts is:
 
 - A. Ignore it — enumeration is harmless
-- B. Onboard those accounts to a vault with rotation (unique local admin per host, gMSA/rotated service accounts)
+- B. Disable LDAP entirely
 - C. Rename the accounts
-- D. Disable LDAP entirely
+- D. Onboard those accounts to a vault with rotation (unique local admin per host, gMSA/rotated service accounts)
 
 <details><summary>Answer</summary>
 
-**B.** Enumeration's value is the *reuse* of what it finds. Vaulting + rotating local admins (LAPS-style) and service accounts (gMSA/CPM) removes the payoff — a discovered account is no longer a usable one.
+**D.** Enumeration's value is the *reuse* of what it finds. Vaulting + rotating local admins (LAPS-style) and service accounts (gMSA/CPM) removes the payoff — a discovered account is no longer a usable one.
 </details>
 
 ---

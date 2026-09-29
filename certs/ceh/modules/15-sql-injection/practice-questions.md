@@ -48,14 +48,14 @@
 
 **Q4.** Which payload is a classic **authentication bypass** test?
 
-- A. `'; DROP TABLE users; --`
-- B. `1' OR '1'='1' -- -`
+- A. `1' OR '1'='1' -- -`
+- B. `'; DROP TABLE users; --`
 - C. `<script>alert(1)</script>`
 - D. `../../etc/passwd`
 
 <details><summary>Answer</summary>
 
-**B. `1' OR '1'='1' -- -`** makes the WHERE clause always true and comments out the rest. A is destructive (and not "bypass"); C is XSS; D is path traversal.
+**A. `1' OR '1'='1' -- -`** makes the WHERE clause always true and comments out the rest. B is destructive (and not "bypass"); C is XSS; D is path traversal.
 </details>
 
 ---
@@ -63,13 +63,13 @@
 **Q5.** SQLi is which OWASP Top 10 (2021) category?
 
 - A. A01 Broken Access Control
-- B. A03 Injection
+- B. A10 SSRF
 - C. A07 Identification & Authentication Failures
-- D. A10 SSRF
+- D. A03 Injection
 
 <details><summary>Answer</summary>
 
-**B. A03 Injection** — which also covers command injection and (in 2021) XSS.
+**D. A03 Injection** — which also covers command injection and (in 2021) XSS.
 </details>
 
 ---
@@ -77,27 +77,27 @@
 **Q6.** On **Microsoft SQL Server**, which feature is abused to run OS commands via SQLi?
 
 - A. `INTO OUTFILE`
-- B. `xp_cmdshell`
+- B. `information_schema`
 - C. `LOAD_FILE()`
-- D. `information_schema`
+- D. `xp_cmdshell`
 
 <details><summary>Answer</summary>
 
-**B. `xp_cmdshell`** (MSSQL). `INTO OUTFILE`/`LOAD_FILE()` are **MySQL** file write/read primitives; `information_schema` is for schema enumeration, not command execution. Don't mix the MSSQL vs MySQL primitives.
+**D. `xp_cmdshell`** (MSSQL). `INTO OUTFILE`/`LOAD_FILE()` are **MySQL** file write/read primitives; `information_schema` is for schema enumeration, not command execution. Don't mix the MSSQL vs MySQL primitives.
 </details>
 
 ---
 
 **Q7.** Which system view is commonly queried to enumerate table and column names in MySQL/MSSQL/PostgreSQL?
 
-- A. `sys.master`
-- B. `information_schema`
+- A. `information_schema`
+- B. `sys.master`
 - C. `pg_hba`
 - D. `mysql.user` only
 
 <details><summary>Answer</summary>
 
-**B. `information_schema`** (`.tables`, `.columns`). Oracle differs (`all_tables`/`user_tables`). Knowing the schema source per DBMS is a frequent question.
+**A. `information_schema`** (`.tables`, `.columns`). Oracle differs (`all_tables`/`user_tables`). Knowing the schema source per DBMS is a frequent question.
 </details>
 
 ---
@@ -105,13 +105,13 @@
 **Q8.** A pentester runs `sqlmap ... --is-dba --current-user`. What are they checking?
 
 - A. Whether the site uses HTTPS
-- B. The privilege level of the DB account the app uses
+- B. The WAF vendor
 - C. The number of columns
-- D. The WAF vendor
+- D. The privilege level of the DB account the app uses
 
 <details><summary>Answer</summary>
 
-**B.** These report the current DB user and whether it has DBA rights — i.e., *how much damage* the injection enables. An over-privileged app account (e.g., `sa`) turns SQLi into full DB/host compromise, which is why **least-privilege DB accounts** matter.
+**D.** These report the current DB user and whether it has DBA rights — i.e., *how much damage* the injection enables. An over-privileged app account (e.g., `sa`) turns SQLi into full DB/host compromise, which is why **least-privilege DB accounts** matter.
 </details>
 
 ---
@@ -132,14 +132,14 @@
 
 **Q10.** Why are **stored procedures** *not automatically* safe against SQLi?
 
-- A. They are always slower
-- B. If they build and execute dynamic SQL from input, they're still injectable
+- A. If they build and execute dynamic SQL from input, they're still injectable
+- B. They are always slower
 - C. They only work on Oracle
 - D. They disable parameterization
 
 <details><summary>Answer</summary>
 
-**B.** A stored procedure that concatenates user input into dynamic SQL (`EXEC(@sql)`) is just as vulnerable. Safety comes from **parameterization**, not from being "in a procedure."
+**A.** A stored procedure that concatenates user input into dynamic SQL (`EXEC(@sql)`) is just as vulnerable. Safety comes from **parameterization**, not from being "in a procedure."
 </details>
 
 ---
@@ -147,13 +147,13 @@
 **Q11.** Which is a legitimate reason a **WAF** is only a *partial* SQLi control?
 
 - A. WAFs cannot inspect HTTP
-- B. Payloads can be obfuscated (encoding, case variation, inline comments) to evade signatures
-- C. WAFs block all database traffic
+- B. WAFs block all database traffic
+- C. Payloads can be obfuscated (encoding, case variation, inline comments) to evade signatures
 - D. WAFs replace the need for patching
 
 <details><summary>Answer</summary>
 
-**B.** Signature-based WAFs are bypassable with `/*!50000UNION*/`, URL/hex encoding, mixed case, etc. Use a WAF as *defense-in-depth* behind parameterized queries — never as the primary fix.
+**C.** Signature-based WAFs are bypassable with `/*!50000UNION*/`, URL/hex encoding, mixed case, etc. Use a WAF as *defense-in-depth* behind parameterized queries — never as the primary fix.
 </details>
 
 ---

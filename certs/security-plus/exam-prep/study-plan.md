@@ -4,6 +4,8 @@ An ordered route through this `security-plus/` hub for the **CompTIA Security+ (
 
 > **Time estimates below are SUGGESTIONS, not requirements.** They assume a working sysadmin studying part-time. CompTIA does not mandate a study duration — compress or stretch the plan to fit your pace, prior knowledge, and exam date. Re-check all volatile exam specifics on CompTIA: https://www.comptia.org/en-us/certifications/security/
 
+> **Version note (checked 2026-09-29).** This plan targets **SY0-701**, which retires for English on **2027-06-11** (Japanese, Portuguese, Spanish, Thai 2027-08-13). Its successor **SY0-801** launches on or around **2026-11-17** (English only at launch) with the same format (max 90 questions, 90 minutes, 750 on 100–900) but different weights: General Security Concepts 16%; Threats, Vulnerabilities, and Attacks 24%; Security Architecture 19%; Security Operations 27%; Security Program Management and Oversight 14%. Sitting SY0-801? Map this plan to the SY0-801 objectives and re-balance hours by those weights — see the [version notice](../00-overview/exam-and-objectives.md#version-notice--sy0-701-retires-sy0-801-is-coming).
+
 ## Learning objectives
 
 - Follow a weight-prioritised path through the five SY0-701 domain pages.
@@ -103,7 +105,7 @@ flowchart TD
 | Duration | **90 minutes** |
 | Passing score | **750** on a **100–900** scale (a *scaled* score, not a flat percentage) |
 | Delivery | Testing centre or online proctoring — *verify current options on CompTIA* |
-| Recommended experience | Network+ and ~2 years in a security/sysadmin role (recommended, **not** required) |
+| Recommended experience | Network+ and two years in a security / systems administrator job role (recommended, **not** required) |
 | Price / renewal (CEUs) | **Not quoted here — verify on CompTIA**; programs change |
 
 - **The 750/100–900 score is scaled**, not "750 out of 900." CompTIA does not publish a fixed percentage-correct threshold — ignore third-party "you need X%" claims.
@@ -140,8 +142,9 @@ You already do most of Domain 4 and much of Domains 1–3 — Security+ mostly *
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) official certification page (max 90 questions, MCQ + PBQ, 90 minutes, 750 on 100–900, five domains and weightings, recommended Network+ and ~2 years): https://www.comptia.org/en-us/certifications/security/
-- CompTIA — Security+ exam objectives (SY0-701) download (the authoritative study checklist): https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ V7 (SY0-701) page (max 90 questions, MCQ + PBQ, 90 minutes, 750 on 100–900, five domains and weightings, recommended experience, retirement dates; checked 2026-09-29): https://www.comptia.org/en-us/certifications/security/v7/
+- CompTIA — Security+ V8 (SY0-801) page (launch on or around 2026-11-17, format, domain weights; checked 2026-09-29): https://www.comptia.org/en-us/certifications/security/v8/
+- CompTIA — Security+ landing page and exam objectives (SY0-701) download (the authoritative study checklist): https://www.comptia.org/en-us/certifications/security/
 - Sibling hub pages: [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) · [../domains/README.md](../domains/README.md) · [../../ceh/STUDY-PLAN.md](../../ceh/STUDY-PLAN.md)
 - Verified ground truth for this hub: SY0-701; max 90 questions (MCQ + PBQ); 90 minutes; passing 750 on a 100–900 scale; domain weights 12 / 22 / 18 / 28 / 20 percent.
-- All volatile specifics (exam code, retirement date, price, delivery, CEU renewal) are version-sensitive — *verify on CompTIA*.
+- Volatile specifics not quoted here (price, delivery options, CEU renewal) — *verify on CompTIA*.

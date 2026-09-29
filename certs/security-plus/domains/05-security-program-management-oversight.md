@@ -334,7 +334,7 @@ flowchart LR
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) exam objectives, Domain 5 "Security Program Management and Oversight" (governance, risk management, third-party risk, compliance, audits/assessments, security awareness) and the 20% weighting: https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ (SY0-701) exam objectives, Domain 5 "Security Program Management and Oversight" (governance, risk management, third-party risk, compliance, audits/assessments, security awareness) and the 20% weighting: https://www.comptia.org/en-us/certifications/security/v7/
 - NIST — Risk Management Framework and SP 800-30 (Guide for Conducting Risk Assessments; qualitative/quantitative analysis, likelihood and impact): https://csrc.nist.gov/projects/risk-management
 - NIST — SP 800-37 Risk Management Framework for Information Systems: https://csrc.nist.gov/pubs/sp/800/37/r2/final
 - Sibling hub pages: [../../reference/compliance-and-standards.md](../../../reference/compliance-and-standards.md) · [../../foundations/core-concepts-least-privilege-jit-zero-trust.md](../../../foundations/core-concepts-least-privilege-jit-zero-trust.md) · [../../ceh/00-overview/legal-and-ethics.md](../../ceh/00-overview/legal-and-ethics.md)

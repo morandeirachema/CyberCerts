@@ -8,14 +8,15 @@ A dense, last-mile quick reference for the **CompTIA Security+ (SY0-701)** exam.
 
 | Item | Detail |
 | --- | --- |
-| Exam code | **SY0-701** |
+| Exam code | **SY0-701** — retires English 2027-06-11 (other languages 2027-08-13); successor SY0-801 from on or around 2026-11-17 |
 | Questions | **Maximum 90** (multiple-choice + performance-based) |
 | Time | **90 minutes** |
 | Passing | **750** on a **100–900** scaled score (not a flat percentage) |
 | Pace | ~1 minute/item; PBQs cost more — flag and return |
-| Recommended | Network+ and ~2 years experience (not required) |
+| Recommended | Network+ and two years in a security / systems administrator job role (not required) |
 
-- Confirm exam code, retirement date, price, languages, and CEU renewal on **CompTIA** — these change.
+- **Version note:** this sheet is for SY0-701. SY0-801 re-weights the domains 16 / 24 / 19 / 27 / 14 percent — if you sit SY0-801, re-check against its objectives ([version notice](../00-overview/exam-and-objectives.md#version-notice--sy0-701-retires-sy0-801-is-coming)).
+- Confirm price and CEU renewal on **CompTIA** — these change.
 
 ## The 5 domains at a glance
 
@@ -217,10 +218,11 @@ flowchart LR
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) exam objectives, the five domains and weightings: https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ V7 (SY0-701) page: format, five domains and weightings, retirement dates (checked 2026-09-29): https://www.comptia.org/en-us/certifications/security/v7/
+- CompTIA — Security+ V8 (SY0-801) page: launch date and domain weights (checked 2026-09-29): https://www.comptia.org/en-us/certifications/security/v8/
 - NIST — SP 800-61 (incident-response lifecycle), SP 800-30 (risk: SLE/ALE/ARO), and the Risk Management Framework: https://csrc.nist.gov/
 - FIRST.org — Common Vulnerability Scoring System (CVSS) severity bands: https://www.first.org/cvss/
 - IANA — Service Name and Transport Protocol Port Number Registry (ports): https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
 - Sibling hub pages: [../../prerequisites/networking-and-protocols.md](../../../prerequisites/networking-and-protocols.md) · [../../ceh/exam-prep/cheat-sheet.md](../../ceh/exam-prep/cheat-sheet.md) · [../../reference/compliance-and-standards.md](../../../reference/compliance-and-standards.md) · [../../foundations/core-concepts-least-privilege-jit-zero-trust.md](../../../foundations/core-concepts-least-privilege-jit-zero-trust.md)
 - Verified ground truth for this hub: SY0-701; max 90 questions (MCQ + PBQ); 90 minutes; passing 750 on a 100–900 scale; domain weights 12 / 22 / 18 / 28 / 20 percent.
-- All volatile specifics (exam code, retirement date, price, CEU renewal) are version-sensitive — *verify on CompTIA*.
+- Volatile specifics not quoted here (price, CEU renewal) — *verify on CompTIA*.

@@ -8,9 +8,9 @@ so shell `#comments` and example `[links](...)` inside ``` fences are ignored):
     punctuation dropped, spaces -> hyphens, underscores kept, and duplicate
     headings get a -1 / -2 suffix
   - ```mermaid blocks start with a valid diagram type
-  - modules/*/flashcards.csv rows have exactly 3 columns, none of them empty
+  - every flashcards.csv under certs/ceh/ has rows of exactly 3 columns, none empty
 
-Exits non-zero if anything fails (so CI goes red). Run from the repo root:
+Exits non-zero if anything fails (so CI goes red). Run from certs/ceh/:
     python3 scripts/validate.py
     python3 scripts/validate.py --selftest   # unit-test the slug logic and exit
 """

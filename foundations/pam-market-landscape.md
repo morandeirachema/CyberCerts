@@ -14,6 +14,7 @@ For the product categories these vendors sell (PAM, IDaaS, IGA, EPM, CIEM), see 
 - Two analyst frameworks dominate buyer shortlists: the **Gartner Magic Quadrant (MQ) for PAM** and the **KuppingerCole Leadership Compass for PAM**.
 - In the **2025 Gartner MQ for PAM**, the Leaders were **CyberArk, BeyondTrust, and Delinea**; **One Identity** and **WALLIX** were **Visionaries** (WALLIX for the third consecutive year, and described as the **only European vendor** in the quadrant).
 - In the **KuppingerCole Leadership Compass for PAM 2026**, the Overall Leaders included the usual global leaders plus **WALLIX** (its fifth consecutive year), out of 35+ vendors evaluated.
+- **Market-fact update (checked 2026-09-29):** **Palo Alto Networks completed its acquisition of CyberArk on 2026-02-11**, and in 2026 introduced **Idira** as the identity security platform "built on CyberArk's legacy and powered by Palo Alto Networks"; CyberArk products are being rebranded under the Idira name in phases. The CyberArk analyst placements on this page are historical facts for their report dates (e.g. the 2025 Gartner MQ), when CyberArk was an independent company.
 - Beyond raw scale, vendors differentiate on **regional/digital sovereignty** and national security certifications (e.g. **ANSSI CSPN**, **BSI BSZ**), **simplicity / SME focus**, **OT (Operational Technology)** coverage, **remote/third-party access**, and how much of an integrated suite (**PAM + IDaaS + IGA + EPM**) they offer.
 
 ---
@@ -115,13 +116,13 @@ The table below is a factual snapshot for orientation, not an endorsement. "Adja
 
 | Vendor / Product | Primary focus | Deployment | Notable strengths | Typical buyer |
 |---|---|---|---|---|
-| **CyberArk** (Privileged Access Manager; Privilege Cloud) | Full-suite PAM + broader Identity Security platform | SaaS **and** self-hosted (on-prem / private / public cloud) | Most widely deployed enterprise PAM; deep vaulting, session isolation, JIT/ZSP; endpoint-to-cloud-to-DevOps breadth under one platform; **2025 Gartner Leader** | Large enterprises, regulated industries, complex multi-cloud estates |
+| **CyberArk** (Privileged Access Manager; Privilege Cloud) — part of Palo Alto Networks since 2026-02-11, rebranding as **Idira** | Full-suite PAM + broader Identity Security platform | SaaS **and** self-hosted (on-prem / private / public cloud) | Most widely deployed enterprise PAM; deep vaulting, session isolation, JIT/ZSP; endpoint-to-cloud-to-DevOps breadth under one platform; **2025 Gartner Leader** | Large enterprises, regulated industries, complex multi-cloud estates |
 | **BeyondTrust** (Password Safe; Privileged Remote Access; Privilege Management) | Full-suite PAM with strong remote-access and endpoint privilege | SaaS, on-prem, hybrid (virtual/physical appliances; AWS/Azure) | Strong session recording/audit; secure remote access; flexible deployment; **2025 Gartner Leader** (often cited highest in Ability to Execute) | Enterprises prioritizing third-party/remote access and session visibility |
 | **Delinea** (Secret Server; Privilege Manager; Connection Manager; Cloud Suite) | Full-suite PAM; ease-of-use heritage | SaaS (Secret Server Cloud) **and** on-prem | Formed Apr 2021 from the **Thycotic + Centrify** merger (rebranded Delinea 2022); Secret Server vaulting is widely adopted and quick to deploy; **2025 Gartner Leader** | Mid-market to enterprise wanting fast time-to-value |
 | **One Identity** (Safeguard) | PAM (PASM) within the One Identity Fabric (IAM/IGA/AD mgmt) | Appliance / virtual / cloud | Vaulting + session management + behavioral analytics; integrates with broader identity governance; **2025 Gartner Visionary** | Organizations standardizing on the One Identity ecosystem |
-| **ARCON** (PAM) | PAM with built-in analytics | On-prem and cloud | Access control, MFA/SSO, session mgmt, JIT, ITDR; AI/ML anomaly detection ("Knight Analytics"); strong in EMEA/APAC/Middle East | Cost-sensitive enterprises in emerging markets; regional buyers |
+| **ARCON** (PAM) | PAM with built-in analytics | On-prem and cloud *(secondary source)* | Privileged accounts, credentials, sessions and secrets with least privilege and JIT; ITDR; ML-based anomaly detection ("Knight Analytics") per ARCON; MFA/SSO and strength in EMEA/APAC/Middle East per a secondary source only | Cost-sensitive enterprises in emerging markets; regional buyers |
 | **Broadcom / Symantec** (Symantec Privileged Access Manager) | PAM within Broadcom's enterprise security portfolio | On-prem and cloud (appliance-based) | Originally CA Technologies; vaulting, session management, granular access; integrates with the wider Broadcom/Symantec stack | Existing Broadcom/Symantec enterprise customers |
-| **HashiCorp Vault** *(adjacent — secrets management)* | Machine/application **secrets management**, dynamic secrets, PKI, encryption-as-a-service | Self-managed (Enterprise) or managed (HCP Vault); cloud-agnostic | De facto standard for app/DevOps secrets; **dynamic, short-lived credentials**; broad multi-cloud reach | DevOps/platform teams securing application-to-application secrets |
+| **HashiCorp Vault** *(adjacent — secrets management)* | Machine/application **secrets management**, dynamic secrets, PKI, encryption-as-a-service | Self-managed (Community or Enterprise) or managed (HCP Vault Dedicated) | **Dynamic credentials generated on demand**; PKI and Transit (encryption-as-a-service) secrets engines; engines for AWS, Azure and Google Cloud | DevOps/platform teams securing application-to-application secrets |
 | **Microsoft Entra Privileged Identity Management (PIM)** *(adjacent — cloud privileged identity)* | **JIT, time-/approval-based activation** of privileged roles | SaaS (part of Microsoft Entra ID / ID Governance) | Native JIT role activation and access reviews for Entra ID, Azure, Microsoft 365/Intune; tight Microsoft ecosystem fit | Microsoft-centric orgs governing cloud admin roles |
 | **WALLIX** (Bastion; WALLIX One; Trustelem; IAG; BestSafe) | Full-suite PAM + integrated identity security, **European-sovereign**, IT **and** OT | On-prem, private/public cloud, **SaaS** (WALLIX One), hybrid; **agentless** on targets | European sovereignty + sovereign certifications (ANSSI CSPN, BSI BSZ); simplicity/SME focus; strong **OT** coverage; integrated **PAM + IDaaS + IAG + EPM**; **2025 Gartner Visionary**, **KuppingerCole Overall Leader (2026)** | European public sector, SMEs/mid-market, industrial/OT operators, sovereignty-sensitive buyers |
 
@@ -184,7 +185,7 @@ Adjacent tools (different primary job, often compared to PAM, sitting outside th
 - **Know the frameworks by name and year.** Saying "WALLIX was a Gartner *Visionary* in the 2025 MQ and a KuppingerCole *Overall Leader* in 2026" is precise; "WALLIX is top-rated" is not.
 - **Sovereignty and OT are growth lanes.** EU regulation (NIS2, DORA) and industrial security are where European specialists like WALLIX differentiate — useful context if you target EU public-sector or industrial employers.
 - **Adjacent tools are not substitutes.** Expect to integrate PAM with secrets managers (Vault) and cloud-identity JIT (Entra PIM) rather than replace one with the other.
-- **Vendor certifications are secondary to concepts.** Each leader runs its own certification track; pick one once you know which product your target employers run. See [../certs/adjacent-certs/README.md](../certs/adjacent-certs/README.md) and [../learning/roadmap.md](../learning/roadmap.md).
+- **Concepts before products.** Product skills follow from the product your target employers run; this repo deliberately does not cover vendor PAM certification tracks. See [../learning/roadmap.md](../learning/roadmap.md).
 
 ---
 
@@ -204,11 +205,18 @@ Adjacent tools (different primary job, often compared to PAM, sitting outside th
 - BeyondTrust — Password Safe: https://www.beyondtrust.com/products/password-safe
 - BeyondTrust — Privileged Remote Access: https://www.beyondtrust.com/products/privileged-remote-access
 - Delinea — "ThycoticCentrify is now Delinea" (merger/rebrand): https://delinea.com/news/thycoticcentrify-is-now-delinea
-- Thoma Bravo / TPG — "TPG Announces merger of Thycotic and Centrify": https://delinea.com/news/tpg-led-investor-group-announces-combination-thycotic-and
+- TPG (TPG-led investor group) — "TPG Announces merger of Thycotic and Centrify": https://delinea.com/news/tpg-led-investor-group-announces-combination-thycotic-and
 - One Identity — Safeguard: https://www.oneidentity.com/one-identity-safeguard/
 - Broadcom — Symantec Privileged Access Manager: https://www.broadcom.com/products/identity/pam
-- ARCON / industry overview — Top PAM companies 2026: https://gbhackers.com/best-privileged-access-management-pam-companies/
-- HashiCorp Vault vs. Microsoft Entra ID (comparison): https://www.g2.com/compare/hashicorp-vault-vs-microsoft-azure-active-directory
+- ARCON — Privileged Access Management: https://arconnet.com/privileged-access-management
+- ARCON — Knight Analytics (AI/ML): https://arconnet.com/resources/video/arcon-knight-analytics-leverages-ai-ml-to-mitigate-it-risks/
+- ARCON — ITDR with IAM (blog): https://arconnet.com/blog/the-five-reasons-why-organizations-will-integrate-itdr-with-iam-system/
+- Secondary source (ARCON deployment, MFA/SSO and regional claims only) — gbhackers, Top PAM companies 2026: https://gbhackers.com/best-privileged-access-management-pam-companies/
+- HashiCorp — What is Vault? (deployment options): https://developer.hashicorp.com/vault/docs/what-is-vault
+- HashiCorp — Vault secrets engines (dynamic secrets, PKI, Transit): https://developer.hashicorp.com/vault/docs/secrets
+- Palo Alto Networks — "Completes Acquisition of CyberArk to Secure the AI Era" (2026-02-11): https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-cyberark-to-secure-the-ai-era
+- Palo Alto Networks — Idira (CyberArk rebrand): https://www.paloaltonetworks.com/idira
+- CyberArk community — "CyberArk is now Idira: FAQ": https://community.cyberark.com/s/article/CyberArk-is-now-Idira-Frequently-Asked-Questions
 - Microsoft Learn — "What is Privileged Identity Management?" (Entra PIM): https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure
 - WALLIX — "Achieves dual certifications in Germany and France (ANSSI CSPN / BSI BSZ)": https://www.wallix.com/press/wallix-achieves-dual-certifications-in-germany-and-france-reinforcing-its-position-as-a-trusted-european-cybersecurity/
 - Actusnews — WALLIX dual certification (8 Oct 2025, BSZ on v12.0.14, 29 Sep 2025): https://www.actusnews.com/en/wallix/pr/2025/10/08/wallix-achieves-dual-certifications-in-germany-and-france-reinforcing-its-position-as-a-trusted-european-cybersecurity-partner

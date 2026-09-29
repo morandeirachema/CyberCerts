@@ -8,6 +8,8 @@ A **full-length, timed mock exam** for the CompTIA Security+ (SY0-701) certifica
 
 The real SY0-701 exam is a **maximum of 90 questions** (multiple-choice plus performance-based), **90 minutes** long, with a passing score of **750 on a 100 to 900 scaled scale**. This mock mirrors that shape: 85 MCQ plus 5 PBQ scenarios = 90 items. **Sit it in one timed block of 90 minutes**, closed book, no pausing, no looking at the domain pages. Answer every item; there is no penalty for guessing. The PBQs are placed at the end here so the numbering stays simple, but on the real exam they typically open the test and eat the clock, so a fair rehearsal is to do **Part B first**, then Part A, and stop at 90 minutes wherever you are.
 
+> **Version note.** This mock is written to **SY0-701** (retires English 2027-06-11). The successor SY0-801 (on or around 2026-11-17) keeps the same format but re-weights the domains 16 / 24 / 19 / 27 / 14 percent — see the [version notice](../00-overview/exam-and-objectives.md#version-notice--sy0-701-retires-sy0-801-is-coming).
+
 > **Pass line for this repo's readiness gate: 85%.** That threshold comes from the repo's own [how to prepare a certification](../../../learning/how-to-prepare-a-cert.md) method and the hub [README](../README.md), **not** from CompTIA. CompTIA's 750 is a *scaled* score with an undisclosed raw mapping; it is not "85% correct". The 85% rule is deliberately conservative so that a pass here leaves margin on the real exam.
 
 ## How to score
@@ -798,7 +800,8 @@ Distractors (i) CRL and (j) data masking are not used.
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) official certification page (max 90 questions, MCQ + PBQ, 90 minutes, 750 on a 100–900 scale, five domains and weightings): https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ V7 (SY0-701) page (max 90 questions, MCQ + PBQ, 90 minutes, 750 on a 100–900 scale, five domains and weightings, retirement dates; checked 2026-09-29): https://www.comptia.org/en-us/certifications/security/v7/
+- CompTIA — Security+ V8 (SY0-801) page (launch on or around 2026-11-17, domain weights; checked 2026-09-29): https://www.comptia.org/en-us/certifications/security/v8/
 - Sibling hub pages the items are grounded in: [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) · [../domains/01-general-security-concepts.md](../domains/01-general-security-concepts.md) · [../domains/02-threats-vulnerabilities-mitigations.md](../domains/02-threats-vulnerabilities-mitigations.md) · [../domains/03-security-architecture.md](../domains/03-security-architecture.md) · [../domains/04-security-operations.md](../domains/04-security-operations.md) · [../domains/05-security-program-management-oversight.md](../domains/05-security-program-management-oversight.md)
 - The 85% pass line is this repo's readiness rule from [../../../learning/how-to-prepare-a-cert.md](../../../learning/how-to-prepare-a-cert.md), not a CompTIA figure.
 - Verified ground truth for this hub: SY0-701; max 90 questions (MCQ + PBQ); 90 minutes; passing 750 on a 100–900 scale; domain weights 12 / 22 / 18 / 28 / 20 percent.

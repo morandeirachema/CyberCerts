@@ -14,10 +14,9 @@ rather than asserted. The concepts behind these acronyms are defined in the
 [glossary](glossary.md) and the [foundations](../foundations/) folder; the controls they
 describe are collected in the [PAM playbook](../certs/ceh/defender-pam/pam-playbook.md).
 
-> **Vendor certification codes:** every major PAM vendor (CyberArk, BeyondTrust,
-> Delinea, WALLIX, One Identity) runs its own administrator / professional / expert
-> certification ladder with product-specific codes. Those codes are not listed here —
-> see [adjacent certs](../certs/adjacent-certs/README.md) for how to choose one.
+> **Vendor certification codes:** PAM vendors run their own product-specific
+> certification programmes. Vendor PAM certification tracks are deliberately out of scope
+> for this repo, so their codes are not listed here.
 
 ---
 
@@ -163,7 +162,7 @@ describe are collected in the [PAM playbook](../certs/ceh/defender-pam/pam-playb
 | **DORA** | Digital Operational Resilience Act | EU regulation (2022/2554) on ICT operational resilience for the financial sector. |
 | **GDPR** | General Data Protection Regulation | EU regulation (2016/679) on personal-data protection; drives access control & auditability. |
 | **ISO** | International Organization for Standardization | Standards body; co-publishes ISO/IEC 27001 with the IEC. |
-| **ISO 27001** | ISO/IEC 27001 | International standard for Information Security Management Systems (ISMS); most PAM vendors hold 27001:2022. |
+| **ISO 27001** | ISO/IEC 27001 | International standard for Information Security Management Systems (ISMS); current edition 27001:2022; check each vendor's certificate and scope. |
 | **ISMS** | Information Security Management System | The managed framework of policies/controls that ISO 27001 certifies. |
 | **PCI DSS** | Payment Card Industry Data Security Standard | Card-data protection standard; strict on privileged access, MFA, logging & unique IDs. |
 | **SOX** | Sarbanes-Oxley Act | US law on financial reporting integrity; drives access controls & SoD over financial systems. |
@@ -212,7 +211,7 @@ describe are collected in the [PAM playbook](../certs/ceh/defender-pam/pam-playb
 | **CLI** | Command-Line Interface | Text command interface; e.g. appliance replication/maintenance CLIs. |
 | **LVM** | Logical Volume Manager | Linux volume manager; appliances store data/recordings on LVM, extendable for retention. |
 | **DRBD** | Distributed Replicated Block Device | Block-level replication; used by some older appliance HA designs, now mostly replaced by DB replication. |
-| **SLA** | Service Level Agreement | Contractual availability/performance commitment (PAM SaaS offerings typically promise 99.9 % uptime). |
+| **SLA** | Service Level Agreement | Contractual availability/performance commitment (for PAM SaaS, check the vendor's published SLA; figures vary). |
 | **SaaS** | Software-as-a-Service | Cloud subscription delivery model; every major PAM vendor now offers a SaaS edition. |
 | **MSP** | Managed Service Provider | Outsourced IT/security provider; a common channel for PAM SaaS. |
 | **ITSM** | IT Service Management | Ticketing/service platforms integrated for approval workflows & IGA remediation. |

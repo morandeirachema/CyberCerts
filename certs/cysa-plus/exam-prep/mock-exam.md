@@ -16,7 +16,10 @@ It is the "timed full mixed set" that step 5 of the hub's
 
 Mirror the real format as the hub records it: CompTIA's CySA+ is **a maximum of 85 questions**
 (multiple-choice plus performance-based) in **165 minutes**, passed at **750 on a 100–900
-scaled score** — *verify on CompTIA*, see [exam & objectives](../00-overview/exam-and-objectives.md).
+scaled score**, see [exam & objectives](../00-overview/exam-and-objectives.md). **Version note:**
+this mock is written to **CS0-003**, whose English exam retires **2026-12-22**; the successor
+CS0-004 (launched 2026-06-23) keeps the same format but re-weights the domains (34 / 26 / 24 /
+16 percent), so if you sit after 2026-12-22 re-weight your self-scoring accordingly.
 This mock has **85 items (80 MCQ + 5 PBQ)**, so sit it in **one uninterrupted, timed 165-minute
 block**: no notes, no domain pages open, answer every item (there is no penalty for guessing),
 and flag PBQs you find slow to come back to at the end. Do the PBQs first if you want to
@@ -1046,9 +1049,11 @@ that. Item 7 (MTTD/MTTR) may reasonably appear in both; accept either placement.
 
 ## Sources
 
-- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 official certification page (max 85
-  questions, MCQ + PBQ, 165 minutes, 750 on a 100–900 scale, domain weights 33 / 30 / 20 / 17
-  percent): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/>
+- CompTIA — CySA+ V3 (CS0-003) page (max 85 questions, MCQ + PBQ, 165 minutes, 750 on a
+  100–900 scale, domain weights 33 / 30 / 20 / 17 percent, English exam retires 2026-12-22;
+  checked 2026-09-29): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/>
+- CompTIA — CySA+ V4 (CS0-004) page (launch 2026-06-23, domain weights 34 / 26 / 24 / 16;
+  checked 2026-09-29): <https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/>
 - MITRE ATT&CK — adversary tactics and techniques (tactic names used in PBQ 1 and Q-items):
   <https://attack.mitre.org/>
 - Sibling domain pages this mock is written from:

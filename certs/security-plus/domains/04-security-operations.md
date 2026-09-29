@@ -2,7 +2,7 @@
 
 Domain 4 is the **largest** domain on CompTIA Security+ (SY0-701) and the one that maps most directly onto a sysadmin's day job. It is the operational core of the exam: hardening systems, securing mobile and wireless, managing vulnerabilities and assets, watching the network, enforcing identity and access, automating response, and handling incidents and forensics. If you already patch servers, read logs, and manage accounts, this is where your experience converts straight into exam marks — and where the new vocabulary (SOAR, EDR/XDR, just-in-time access) attaches to things you already understand.
 
-This domain weights **28%** of the scored exam content *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/) — weightings change per exam version)*. It spans roughly nine objective areas — baselines and hardening, mobile/wireless, application/asset/vulnerability management, monitoring and enterprise capabilities, identity and access management (IAM), automation/orchestration, and incident response/investigation. The official **objectives PDF** remains the authoritative checklist; see [how to get it](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
+This domain weights **28%** of the scored exam content *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/v7/) — weightings change per exam version)*. It spans roughly nine objective areas — baselines and hardening, mobile/wireless, application/asset/vulnerability management, monitoring and enterprise capabilities, identity and access management (IAM), automation/orchestration, and incident response/investigation. The official **objectives PDF** remains the authoritative checklist; see [how to get it](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
 
 Because **Privileged Access Management (PAM) is itself a Security+ topic**, this page links into the PAM material this repo specializes in: [what is PAM](../../../foundations/what-is-pam.md), [privileged accounts & credentials](../../../foundations/privileged-accounts-and-credentials.md), and the [PAM playbook](../../ceh/defender-pam/pam-playbook.md). Federation links into the [SAML](../../../protocols/saml.md) and [OIDC/OAuth2](../../../protocols/oidc-oauth2.md) protocol pages, and investigation/reporting parallels the [CEH engagement methodology](../../ceh/00-overview/engagement-methodology-and-reporting.md).
 
@@ -270,7 +270,7 @@ Know where evidence comes from: **firewall logs**, **application logs**, **endpo
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) certification page and official exam objectives (Domain 4 — Security Operations, 28%): https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ (SY0-701) certification page and official exam objectives (Domain 4 — Security Operations, 28%): https://www.comptia.org/en-us/certifications/security/v7/
 - NIST Special Publication 800-61, *Computer Security Incident Handling Guide* (incident-response lifecycle): https://csrc.nist.gov/pubs/sp/800/61/r2/final
 - NIST Special Publication 800-86, *Guide to Integrating Forensic Techniques into Incident Response* (acquisition, order of volatility, chain of custody): https://csrc.nist.gov/pubs/sp/800/86/final
 - NIST Special Publication 800-63, *Digital Identity Guidelines* (identity proofing, authenticators, MFA): https://csrc.nist.gov/pubs/sp/800/63/3/final

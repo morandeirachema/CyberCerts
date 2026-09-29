@@ -9,13 +9,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q1.** An attacker sends a text message to a target's phone: "Your bank card is locked — tap https://secure-bank.co to reactivate." Which technique is this?
 
 - A. Vishing
-- B. Smishing
+- B. Pharming
 - C. Whaling
-- D. Pharming
+- D. Smishing
 
 <details><summary>Answer</summary>
 
-**B. Smishing.** Smishing is phishing delivered over **SMS** and is classed as **mobile-based**. Vishing would be a *voice call*; whaling is an *email* aimed at an executive; pharming needs no message at all — it poisons name resolution. **Tell:** channel = text message ⇒ smishing.
+**D. Smishing.** Smishing is phishing delivered over **SMS** and is classed as **mobile-based**. Vishing would be a *voice call*; whaling is an *email* aimed at an executive; pharming needs no message at all — it poisons name resolution. **Tell:** channel = text message ⇒ smishing.
 </details>
 
 ---
@@ -37,13 +37,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q3.** An attacker follows an employee through a secured door **while the employee holds it open for them, believing they belong**. Which term fits best?
 
 - A. Tailgating
-- B. Piggybacking
+- B. Impersonation
 - C. Shoulder surfing
-- D. Impersonation
+- D. Piggybacking
 
 <details><summary>Answer</summary>
 
-**B. Piggybacking.** Piggybacking = the authorized person *knowingly* grants entry ("hold the door"). **Tailgating** is the near-twin where the badge-holder is *unaware* they're being followed. The consent distinction is the whole question — memorize it.
+**D. Piggybacking.** Piggybacking = the authorized person *knowingly* grants entry ("hold the door"). **Tailgating** is the near-twin where the badge-holder is *unaware* they're being followed. The consent distinction is the whole question — memorize it.
 </details>
 
 ---
@@ -65,27 +65,27 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q5.** An attacker leaves USB drives labeled "Q3 Layoffs" in the office parking lot, hoping someone plugs one in. Which technique is this, and what human trait does it exploit?
 
 - A. Quid pro quo — reciprocity
-- B. Baiting — curiosity/greed
-- C. Reverse SE — helpfulness
+- B. Reverse SE — helpfulness
+- C. Baiting — curiosity/greed
 - D. Pharming — habit
 
 <details><summary>Answer</summary>
 
-**B. Baiting — curiosity/greed.** Baiting *dangles an item* (an infected USB or "free" download) and waits for the victim to take it. Contrast **quid pro quo**, which offers a *service in exchange* — a transaction. Both trade on desire; baiting is the physical/dropped item.
+**C. Baiting — curiosity/greed.** Baiting *dangles an item* (an infected USB or "free" download) and waits for the victim to take it. Contrast **quid pro quo**, which offers a *service in exchange* — a transaction. Both trade on desire; baiting is the physical/dropped item.
 </details>
 
 ---
 
 **Q6.** A victim types their bank's correct URL but a poisoned `hosts` file silently sends them to a look-alike site that harvests their login. No link was clicked. What is this?
 
-- A. Spear-phishing
-- B. Pharming
+- A. Pharming
+- B. Spear-phishing
 - C. Smishing
 - D. Angler phishing
 
 <details><summary>Answer</summary>
 
-**B. Pharming.** Pharming redirects a *legitimate* address via **DNS or hosts-file poisoning** — the user does everything right and still lands on a fake page. This is the key difference from phishing, which relies on tricking the victim into clicking a *bad* link. **Controls:** DNSSEC, protected resolvers, HSTS, file-integrity monitoring on `hosts`.
+**A. Pharming.** Pharming redirects a *legitimate* address via **DNS or hosts-file poisoning** — the user does everything right and still lands on a fake page. This is the key difference from phishing, which relies on tricking the victim into clicking a *bad* link. **Controls:** DNSSEC, protected resolvers, HSTS, file-integrity monitoring on `hosts`.
 </details>
 
 ---
@@ -107,13 +107,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q8.** During a physical assessment you recover printed org charts and old password sticky-notes from the office trash. Which technique, and which bucket?
 
 - A. Eavesdropping — computer-based
-- B. Dumpster diving — human-based
-- C. Baiting — mobile-based
+- B. Baiting — mobile-based
+- C. Dumpster diving — human-based
 - D. Pharming — computer-based
 
 <details><summary>Answer</summary>
 
-**B. Dumpster diving — human-based.** It's a physical, non-electronic collection technique feeding the **Research** phase of the lifecycle. It sits in the human-based bucket alongside shoulder surfing and impersonation. **Control:** shredding / media-sanitization and clean-desk policy.
+**C. Dumpster diving — human-based.** It's a physical, non-electronic collection technique feeding the **Research** phase of the lifecycle. It sits in the human-based bucket alongside shoulder surfing and impersonation. **Control:** shredding / media-sanitization and clean-desk policy.
 </details>
 
 ---
@@ -148,14 +148,14 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 
 **Q11.** On a "best countermeasure to social engineering" question with these choices, which is almost always correct on the exam?
 
-- A. A next-generation firewall
-- B. Security awareness training combined with MFA
+- A. Security awareness training combined with MFA
+- B. A next-generation firewall
 - C. Full-disk encryption
 - D. An intrusion prevention system
 
 <details><summary>Answer</summary>
 
-**B. Security awareness training combined with MFA.** SE targets people, so the durable answer pairs *human* defense (training, reporting culture) with *technical* backstops (MFA). Perimeter/host tech (firewall, IPS, FDE) never fully solves a human-trust attack — a favorite distractor pattern.
+**A. Security awareness training combined with MFA.** SE targets people, so the durable answer pairs *human* defense (training, reporting culture) with *technical* backstops (MFA). Perimeter/host tech (firewall, IPS, FDE) never fully solves a human-trust attack — a favorite distractor pattern.
 </details>
 
 ---
@@ -177,13 +177,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q13.** A compromised employee account is now being used by an attacker inside the network. Which insider-threat category is this, and which control detects it best?
 
 - A. Malicious — firewall rules
-- B. Compromised — privileged session recording + UEBA
-- C. Negligent — password complexity
+- B. Negligent — password complexity
+- C. Compromised — privileged session recording + UEBA
 - D. Professional/mole — antivirus
 
 <details><summary>Answer</summary>
 
-**B. Compromised — privileged session recording + UEBA.** A phished user turned into the attacker's tool is the **compromised** insider. Because they use *valid* credentials, behavioral analytics (off-hours, out-of-role access) and session recording detect them, not the perimeter. Least privilege + JIT shrink what they can reach.
+**C. Compromised — privileged session recording + UEBA.** A phished user turned into the attacker's tool is the **compromised** insider. Because they use *valid* credentials, behavioral analytics (off-hours, out-of-role access) and session recording detect them, not the perimeter. Least privilege + JIT shrink what they can reach.
 </details>
 
 ---
@@ -191,13 +191,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q14.** In the social engineering attack lifecycle, gathering OSINT, dumpster-diving, and studying org charts belongs to which phase?
 
 - A. Play
-- B. Research
-- C. Exit
+- B. Exit
+- C. Research
 - D. Hook
 
 <details><summary>Answer</summary>
 
-**B. Research.** The lifecycle is **Research → Hook → Play → Exit.** Research is the reconnaissance/information-gathering phase that fuels a believable pretext. *Hook* is first contact/rapport; *Play* exploits the trust; *Exit* is the clean escape.
+**C. Research.** The lifecycle is **Research → Hook → Play → Exit.** Research is the reconnaissance/information-gathering phase that fuels a believable pretext. *Hook* is first contact/rapport; *Play* exploits the trust; *Exit* is the clean escape.
 </details>
 
 ---
@@ -205,13 +205,13 @@ Pairs with [facts.md](facts.md) · [flashcards.csv](flashcards.csv) · [README.m
 **Q15.** A help desk receives an urgent call requesting a **privileged account** password reset — no ticket, lots of pressure. Which control most directly prevents a successful pretext here?
 
 - A. A stronger password complexity requirement
-- B. Out-of-band identity verification (callback + secondary factor + approval) for privileged resets
+- B. A longer screen-lock timeout
 - C. Enabling LLMNR on the network
-- D. A longer screen-lock timeout
+- D. Out-of-band identity verification (callback + secondary factor + approval) for privileged resets
 
 <details><summary>Answer</summary>
 
-**B. Out-of-band identity verification for privileged resets.** The help desk is a top SE target because it can hand over Tier 0. Requiring a callback, a secondary factor, and manager approval means a pretext alone can't satisfy the proof bar. Complexity/timeouts don't address *who* is asking.
+**D. Out-of-band identity verification for privileged resets.** The help desk is a top SE target because it can hand over Tier 0. Requiring a callback, a secondary factor, and manager approval means a pretext alone can't satisfy the proof bar. Complexity/timeouts don't address *who* is asking.
 </details>
 
 ---

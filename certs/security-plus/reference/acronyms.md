@@ -373,7 +373,7 @@ Maps mainly to **Domain 2 (Threats, Vulnerabilities, and Mitigations, 22%)**. Of
 
 ## Sources
 
-- CompTIA — Security+ certification page and official **SY0-701 exam objectives** PDF (which contains the authoritative acronym appendix): https://www.comptia.org/en-us/certifications/security/ *(download and verify; the acronym list is the appendix at the end of the objectives)*
+- CompTIA — Security+ certification page and official **SY0-701 exam objectives** PDF (which contains the authoritative acronym appendix): https://www.comptia.org/en-us/certifications/security/v7/ *(download and verify; the acronym list is the appendix at the end of the objectives)*
 - NIST Computer Security Resource Center — Glossary (term/acronym definitions): https://csrc.nist.gov/glossary
 - NIST FIPS 197 (AES): https://csrc.nist.gov/pubs/fips/197/final ; FIPS 180-4 (SHA): https://csrc.nist.gov/pubs/fips/180-4/upd1/final ; FIPS 198-1 (HMAC): https://csrc.nist.gov/pubs/fips/198-1/final
 - NIST SP 800-37 (RMF): https://csrc.nist.gov/pubs/sp/800/37/r2/final ; NIST Cybersecurity Framework (CSF) 2.0: https://www.nist.gov/cyberframework

@@ -83,8 +83,10 @@ KDC stores for the user and what services store for themselves.
 **Session keys.** Every Kerberos conversation gets fresh, randomly generated symmetric
 **session keys** invented by the KDC. A TGT carries a *client/TGS session key*; a service
 ticket carries a *client/server session key*. Session keys are short-lived and confined
-to one ticket's lifetime, which limits the damage if one is exposed (a form of forward
-secrecy at the session level).
+to one ticket's lifetime, which limits the window in which an exposed session key is
+useful. This is **not** forward secrecy: session keys are delivered encrypted under
+long-term keys, so anyone who later obtains those long-term keys and has recorded the
+traffic can recover past session keys.
 
 Because all of this is **symmetric** cryptography, the trick Kerberos uses repeatedly is:
 encrypt a freshly generated session key under the long-term key of the party who should
@@ -238,7 +240,8 @@ integrity are combined). RFC 3962 defines the AES etypes used by modern deployme
 - `aes128-cts-hmac-sha256-128` and `aes256-cts-hmac-sha384-192` — newer SHA-2-based etypes
   defined in **RFC 8009** (an extension beyond RFC 3962; noted here for completeness).
 - Legacy `rc4-hmac` (RC4/HMAC-MD5, originally a Microsoft etype) and single-DES etypes are
-  **deprecated** and weak; **RFC 6649** deprecates DES, and RC4 should be disabled.
+  **deprecated** and weak; **RFC 6649** deprecates DES, and **RFC 8429** deprecates RC4 (`rc4-hmac`) and the 3DES
+  etypes (implementations and deployments SHOULD NOT implement or deploy them).
 
 Every encrypted ticket and message therefore carries *both* confidentiality and a keyed
 **integrity** checksum, so an attacker cannot tamper with ciphertext undetected.
@@ -327,6 +330,8 @@ extension, not part of base RFC 4120; it is covered in [active-directory.md](act
   <https://www.rfc-editor.org/rfc/rfc8009>
 - **RFC 6649** — *Deprecate DES, RC4-HMAC-EXP, and Other Weak Cryptographic Algorithms in Kerberos*:
   <https://www.rfc-editor.org/rfc/rfc6649>
+- **RFC 8429** — *Deprecate Triple-DES (3DES) and RC4 in Kerberos* (2018-10):
+  <https://www.rfc-editor.org/rfc/rfc8429>
 - **MIT Kerberos documentation**: <https://web.mit.edu/kerberos/krb5-latest/doc/>
 - **Microsoft Learn — Kerberos authentication overview**:
   <https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview>

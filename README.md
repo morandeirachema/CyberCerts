@@ -90,9 +90,9 @@ flowchart TB
 |-------|------|--------------|-----------------------------------|
 | **0 · Foundations** | Have the PAM vocabulary and the protocol mechanics cold | [foundations/](foundations/README.md) → [prerequisites/](prerequisites/README.md) → [protocols/](protocols/README.md) | Architects explain *why* a control works: vaulting, brokering, Kerberos, SAML, TLS |
 | **1 · CEH (now)** | Learn security fundamentals and the full attack lifecycle | **[certs/ceh/](certs/ceh/README.md)** — concept pages, 20 modules with labs & flashcards, [defender/PAM lens](certs/ceh/defender-pam/README.md), [mock exams](certs/ceh/MOCK-EXAM-FULL.md) | You cannot design against credential theft, Pass-the-Hash, Kerberoasting or lateral movement without understanding them |
-| **2 · Detect & respond** | Read the telemetry a PAM platform produces | [CySA+](certs/cysa-plus/README.md) (CS0-003); [Security+](certs/security-plus/README.md) (SY0-701) if you want the vendor-neutral baseline first | Session audit, SIEM correlation, incident response around privileged accounts |
+| **2 · Detect & respond** | Read the telemetry a PAM platform produces | [CySA+](certs/cysa-plus/README.md) (CS0-003, English exam retires 2026-12-22; successor CS0-004); [Security+](certs/security-plus/README.md) (SY0-701) if you want the vendor-neutral baseline first | Session audit, SIEM correlation, incident response around privileged accounts |
 | **3 · Prove offense hands-on** | Turn knowledge into demonstrated skill | [PenTest+](certs/pentest-plus/README.md) (PT0-003) · [PNPT](certs/pnpt/README.md) → [OSCP](certs/oscp/README.md) | AD-attack skill maps one-to-one onto the PAM defenses you will design |
-| **4 · Architect level** | Management breadth and cloud privileged identity | [CISSP](certs/adjacent-certs/cissp.md) · [Cloud security](certs/adjacent-certs/cloud-security.md) (AZ-500 / AWS) | The architect role: governance, risk, cloud identities, secure design across the estate |
+| **4 · Architect level** | Management breadth and cloud privileged identity | [CISSP](certs/adjacent-certs/cissp.md) · [Cloud security](certs/adjacent-certs/cloud-security.md) (SC-500 / AWS) | The architect role: governance, risk, cloud identities, secure design across the estate |
 
 > ⚠️ The offensive hubs (CEH, PenTest+, OSCP, PNPT) are **educational and defense-oriented**:
 > techniques are explained conceptually, paired with countermeasures, for **authorized use only**.
@@ -159,12 +159,12 @@ standards. Full index and details: **[certs/README.md](certs/README.md)**.
 | Hub | Certification | Depth | Role on the path |
 |-----|---------------|-------|------------------|
 | 🎯 **[ceh/](certs/ceh/README.md)** | EC-Council CEH v13 (312-50) + CEH Practical | **Full course**: 20 modules × (guide, facts, questions, flashcards, lab), Kali course, runnable lab, mock exams, defender/PAM knowledge base, OT security | **Phase 1 — start here** |
-| 🔵 [cysa-plus/](certs/cysa-plus/README.md) | CompTIA CySA+ (CS0-003) | 4 domains, exam prep, glossary | Phase 2 — detection & response |
-| 🧱 [security-plus/](certs/security-plus/README.md) | CompTIA Security+ (SY0-701) | 5 domains, exam prep, cheat sheet, acronyms | Phase 2 — optional baseline |
+| 🔵 [cysa-plus/](certs/cysa-plus/README.md) | CompTIA CySA+ (CS0-003 → CS0-004) | 4 domains, exam prep, glossary | Phase 2 — detection & response |
+| 🧱 [security-plus/](certs/security-plus/README.md) | CompTIA Security+ (SY0-701 → SY0-801) | 5 domains, exam prep, cheat sheet, acronyms | Phase 2 — optional baseline |
 | 🟠 [pentest-plus/](certs/pentest-plus/README.md) | CompTIA PenTest+ (PT0-003) | 5 domains, exam prep, glossary | Phase 3 — methodology |
-| 🟣 [pnpt/](certs/pnpt/README.md) | TCM Security PNPT | 5 engagement phases, study plan | Phase 3 — practical engagement |
-| 🔴 [oscp/](certs/oscp/README.md) | OffSec OSCP / OSCP+ (PEN-200) | 6 skill areas, exam structure, study plan | Phase 3 — hands-on proof |
-| 🧩 [adjacent-certs/](certs/adjacent-certs/README.md) | CISSP · cloud security (AZ-500 / AWS) · one-page overviews | Orientation pages | Phase 4 — architect level |
+| 🟣 [pnpt/](certs/pnpt/README.md) | TCM Security PNPT | 5 engagement phases, study plan, coverage map, flashcards, debrief outline | Phase 3 — practical engagement |
+| 🔴 [oscp/](certs/oscp/README.md) | OffSec OSCP / OSCP+ (PEN-200) | 6 skill areas, exam structure, study plan, coverage map, flashcards, report template | Phase 3 — hands-on proof |
+| 🧩 [adjacent-certs/](certs/adjacent-certs/README.md) | CISSP · cloud security (SC-500 / AWS) · one-page overviews | Orientation pages | Phase 4 — architect level |
 
 ## ✅ How this repo is built
 

@@ -54,7 +54,7 @@ The PNPT assessment simulates a full external-to-internal engagement and evaluat
 | Question style | No multiple choice, no capture-the-flag flags — a realistic engagement | TCM Security official page |
 | Tools | All tools permitted (including AI-enabled), with disclosure required in the report | TCM Security official page |
 | Included | 1 exam attempt **+ 1 free retake**, plus bundled on-demand training (12-month access) | TCM Security official page |
-| Price | **Verify on TCM Security** — listed around the **US$399–$499** range recently *(verify — sale/regular pricing changes)* | stated with source caveat |
+| Price | **US$499** for the voucher + training package as listed on 2026-09-29 *(verify — sale pricing changes)* | TCM Security official page |
 
 > The **live debrief** is the PNPT's signature element: you must not only compromise the environment and document it, but also explain and defend your methodology like a real consultant — practice many other certs do not require.
 

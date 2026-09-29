@@ -5,7 +5,7 @@ Cloud security certifications validate that you can secure workloads, identities
 ## Learning objectives
 
 - Distinguish **vendor-specific** (Azure, AWS) from **vendor-neutral** (CCSP, CCSK) cloud security certifications.
-- Recall the **AZ-500 retirement** and its **SC-500** successor, with verified dates.
+- Recall the **AZ-500 retirement** (2026-08-31) and its **SC-500** successor, with verified dates.
 - Summarise the **AWS Certified Security – Specialty** exam format with cited specifics.
 - Explain how cloud security relates to **PAM (privileged cloud identities)** and the [CEH cloud module](../ceh/domains/19-cloud-computing.md).
 - Pick a starting certification based on your platform and experience.
@@ -15,42 +15,43 @@ Cloud security certifications validate that you can secure workloads, identities
 - **Provider & level:** Vendor exams (Microsoft, AWS) are **intermediate/specialty**, tied to one platform. Vendor-neutral exams ((ISC)² CCSP, CSA CCSK) test portable, cross-cloud concepts.
 - **Who it's for:** Sysadmins, cloud and security engineers responsible for securing cloud infrastructure, identities, networking, and data — typically **after** some hands-on cloud administration experience.
 
-## Microsoft Azure — AZ-500 (Azure Security Engineer Associate)
+## Microsoft Azure — SC-500 (successor to the retired AZ-500)
 
-- **What it is:** Microsoft Certified **Azure Security Engineer Associate**, earned via **Exam AZ-500: Microsoft Azure Security Technologies**. Intermediate level.
+- **What it was:** Microsoft Certified **Azure Security Engineer Associate**, earned via **Exam AZ-500: Microsoft Azure Security Technologies**. Intermediate level.
 - **Role/scope:** Implement, manage, and monitor security across Azure, multi-cloud, and hybrid environments using **Microsoft Defender for Cloud**, **Microsoft Sentinel**, and **Microsoft Entra ID**.
 - **Skills assessed** (per the official certification page): Secure **identity and access**; secure **networking**; secure **compute, storage, and databases**; secure Azure using **Microsoft Defender for Cloud** and **Microsoft Sentinel**.
 
-> ⚠️ **RETIREMENT — verify on learn.microsoft.com.** Microsoft's official certification page states this certification, its exam, and renewal assessments **retire on 31 August 2026**; after that date you can no longer earn or renew it. An already-earned certification **stays on your transcript** but is **not auto-converted**.
+> ⚠️ **RETIRED.** Microsoft's official certification page states this certification, its exam, and renewal assessments **were retired on 2026-08-31**; it can no longer be earned or renewed. An already-earned certification **stays on your transcript** but is **not auto-converted**.
 
-- **Successor:** Microsoft has announced **SC-500 — Cloud and AI Security Engineer Associate** (titled *"Implementing End-to-End Security Controls for Cloud and AI Workloads"*), listed as **(beta)** at the time of writing. It broadens scope to **cloud and AI workloads**. **Verify current status, exam availability, and whether you should target SC-500 instead of AZ-500 on learn.microsoft.com** before booking.
+- **Successor:** **SC-500 — Microsoft Certified: Cloud and AI Security Engineer Associate** (exam titled *"Implementing End-to-End Security Controls for Cloud and AI Workloads"*). It broadens scope to **cloud and AI workloads**. As of 2026-09-29 the certification page lists the exam as bookable through Pearson VUE, and notes that the practice assessment is not yet available. **Verify current status on learn.microsoft.com** before booking.
+- **Assessed on SC-500** (per the certification page): manage identity, access, and governance; secure storage, databases, and networking; secure compute; manage and monitor security posture.
 
 | Item | Detail | Status |
 | --- | --- | --- |
-| Exam | **AZ-500** | Verified (learn.microsoft.com) |
-| Retirement | **31 Aug 2026** | Verified — *(verify on learn.microsoft.com)* |
-| Successor | **SC-500 (beta)** Cloud and AI Security Engineer Associate | Verified — *(verify on learn.microsoft.com)* |
-| Duration | **100 minutes** | Verified (learn.microsoft.com) — *(verify)* |
-| Renewal | Annually, free online assessment on Microsoft Learn | Verified — *(verify)* |
+| Current exam | **SC-500** Cloud and AI Security Engineer Associate | Verified (learn.microsoft.com, 2026-09-29) |
+| Duration | **120 minutes**, proctored | Verified (learn.microsoft.com) — *(verify)* |
+| Languages | English, Japanese, Chinese (Simplified / Traditional), Korean, German, French, Italian, Portuguese (Brazil), Spanish | Verified (learn.microsoft.com) |
+| Retired predecessor | **AZ-500**, retired **2026-08-31** | Verified (learn.microsoft.com) |
+| Renewal | Not specified in sources for SC-500 — Microsoft associate certs have renewed annually via a free online assessment | *(verify on learn.microsoft.com)* |
 | Price / # questions | Region-dependent; not fixed on the page | Omitted to avoid stale figures — *(verify on learn.microsoft.com)* |
 
 ## AWS Certified Security – Specialty
 
 - **What it is:** AWS's specialty-level security credential for those who design and implement security solutions on AWS.
-- **Exam code:** ⚠️ The brief referenced **SCS-C02**, but AWS has **moved to SCS-C03**; the older **SCS-C02** is being/has been retired (reported cutoff around **1 December 2025**). **Confirm the current code on aws.amazon.com.**
+- **Exam code:** **SCS-C03**. AWS retired **SCS-C02** after its last day on **2025-12-01**; SCS-C03 has been delivered since **2025-12-02**.
 
 | Item | Detail | Status |
 | --- | --- | --- |
-| Current code | **SCS-C03** (SCS-C02 retiring) | *(verify on aws.amazon.com)* |
+| Current code | **SCS-C03** (SCS-C02 retired 2025-12-01) | Verified (AWS Training & Certification blog) |
 | Duration | **170 minutes** | Verified (aws.amazon.com) — *(verify)* |
-| Questions | **65** (multiple choice / multiple response) | Verified (aws.amazon.com) — *(verify)* |
+| Questions | **65** — 50 scored + 15 unscored; multiple choice, multiple response, ordering, matching | Verified (SCS-C03 exam guide) |
 | Cost | **USD 300** | Verified (aws.amazon.com) — *(verify, region-dependent)* |
 | Validity | **3 years** | Verified (aws.amazon.com) — *(verify)* |
 | Delivery | Pearson VUE test centre or online proctored | Verified (aws.amazon.com) |
-| Passing score | Scaled (reported ~750/1000) | *(verify on aws.amazon.com)* |
-| Domains & weightings | e.g. threat detection/response, logging & monitoring, infrastructure security, IAM, data protection, application security | **Confirm exact domains and percentages in the official SCS-C03 exam guide (verify on aws.amazon.com)** |
+| Passing score | **750** on a 100–1,000 scale (compensatory) | Verified (SCS-C03 exam guide) |
+| Domains & weightings | Detection 16% · Incident Response 14% · Infrastructure Security 18% · Identity and Access Management 20% · Data Protection 18% · Security Foundations and Governance 14% | Verified (SCS-C03 exam guide) |
 
-> Domain names and weightings differ between SCS-C02 and SCS-C03 — do not rely on memory; pull the current **SCS-C03 exam guide** PDF from AWS.
+> Domain names and weightings differ between SCS-C02 and SCS-C03 — study from the current **SCS-C03 exam guide** (its appendix compares the two).
 
 ## Vendor-neutral options: CCSP and CCSK
 
@@ -116,8 +117,10 @@ The hands-on week-by-week schedule and the tracker are in the **[cloud security 
 ## Sources
 
 - Microsoft Azure Security Engineer Associate (AZ-500), incl. retirement notice: https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/
-- Microsoft SC-500 (Cloud and AI Security Engineer Associate) study guide: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-500
+- Microsoft Cloud and AI Security Engineer Associate (SC-500) certification page: https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/
+- Microsoft SC-500 study guide: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-500
 - AWS Certified Security – Specialty: https://aws.amazon.com/certification/certified-security-specialty/
-- AWS SCS-C03 exam guide (docs): https://docs.aws.amazon.com/aws-certification/latest/examguides/security-specialty-03.html
+- AWS SCS-C02 → SCS-C03 announcement: https://aws.amazon.com/blogs/training-and-certification/big-news-aws-expands-ai-certification-portfolio-and-updates-security-certification/
+- AWS SCS-C03 exam guide (docs): https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html
 - (ISC)² CCSP: https://www.isc2.org/certifications/ccsp
 - Cloud Security Alliance CCSK: https://cloudsecurityalliance.org/education/ccsk

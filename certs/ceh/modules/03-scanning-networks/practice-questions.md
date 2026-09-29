@@ -35,13 +35,13 @@
 **Q3.** On most systems, sending a **FIN, NULL, or XMAS** scan to a **closed** port yields:
 
 - A. SYN/ACK
-- B. RST
+- B. ICMP echo reply
 - C. No response
-- D. ICMP echo reply
+- D. RST
 
 <details><summary>Answer</summary>
 
-**B. RST.** Per RFC 793, a closed port replies with RST to these flag scans, while an **open** port sends **no response**. (These scans don't work reliably against Windows, which RSTs regardless — a common exam caveat.)
+**D. RST.** Per RFC 793, a closed port replies with RST to these flag scans, while an **open** port sends **no response**. (These scans don't work reliably against Windows, which RSTs regardless — a common exam caveat.)
 </details>
 
 ---
@@ -63,27 +63,27 @@
 **Q5.** An **ACK scan** (`-sA`) is used primarily to:
 
 - A. Grab service banners
-- B. Map firewall rules (stateful vs stateless / filtered vs unfiltered)
+- B. Detect the OS version
 - C. Crack passwords
-- D. Detect the OS version
+- D. Map firewall rules (stateful vs stateless / filtered vs unfiltered)
 
 <details><summary>Answer</summary>
 
-**B.** `-sA` doesn't determine open/closed — it determines whether a port is **filtered** or **unfiltered**, which helps infer firewall rulesets.
+**D.** `-sA` doesn't determine open/closed — it determines whether a port is **filtered** or **unfiltered**, which helps infer firewall rulesets.
 </details>
 
 ---
 
 **Q6.** Which scan requires **no root/administrator** privileges?
 
-- A. `-sS` SYN scan
-- B. `-sT` TCP connect scan
+- A. `-sT` TCP connect scan
+- B. `-sS` SYN scan
 - C. `-sF` FIN scan
 - D. `-sX` XMAS scan
 
 <details><summary>Answer</summary>
 
-**B. `-sT`.** It uses the OS's full `connect()` call, so no raw-socket privilege is needed (but it's slower and more likely logged). The raw-packet scans (`-sS/-sF/-sX/-sN`) need root.
+**A. `-sT`.** It uses the OS's full `connect()` call, so no raw-socket privilege is needed (but it's slower and more likely logged). The raw-packet scans (`-sS/-sF/-sX/-sN`) need root.
 </details>
 
 ---
@@ -118,14 +118,14 @@
 
 **Q9.** `nmap -sV` provides:
 
-- A. The OS family only
-- B. Service and version information on open ports
+- A. Service and version information on open ports
+- B. The OS family only
 - C. A password list
 - D. A list of subdomains
 
 <details><summary>Answer</summary>
 
-**B.** `-sV` probes open ports to identify the **service and its version** (e.g., "OpenSSH 7.2p2"). `-O` is the separate OS-detection flag; `-A` combines version + OS + default scripts + traceroute.
+**A.** `-sV` probes open ports to identify the **service and its version** (e.g., "OpenSSH 7.2p2"). `-O` is the separate OS-detection flag; `-A` combines version + OS + default scripts + traceroute.
 </details>
 
 ---
@@ -133,13 +133,13 @@
 **Q10.** What does `-f` (or `--mtu`) do in an nmap scan?
 
 - A. Speeds up the scan with more threads
-- B. Fragments packets to slip past simple packet inspection
+- B. Fingerprints the firewall vendor
 - C. Forces a full connect scan
-- D. Fingerprints the firewall vendor
+- D. Fragments packets to slip past simple packet inspection
 
 <details><summary>Answer</summary>
 
-**B.** `-f` splits probes into tiny IP fragments so a signature engine that doesn't reassemble may miss them. `--mtu` sets a custom (multiple-of-8) fragment size.
+**D.** `-f` splits probes into tiny IP fragments so a signature engine that doesn't reassemble may miss them. `--mtu` sets a custom (multiple-of-8) fragment size.
 </details>
 
 ---
@@ -147,13 +147,13 @@
 **Q11.** The nmap timing template **`-T0`** vs **`-T4`**:
 
 - A. T0 is fastest, T4 is slowest
-- B. T0 is very slow/stealthy ("paranoid"), T4 is aggressive/fast
-- C. They control the number of ports
+- B. They control the number of ports
+- C. T0 is very slow/stealthy ("paranoid"), T4 is aggressive/fast
 - D. They set the output format
 
 <details><summary>Answer</summary>
 
-**B.** Timing runs `-T0` (paranoid, slow to dodge rate-based IDS) through `-T5` (insane, fastest). `-T4` is a common "fast but reasonable" choice on a healthy network.
+**C.** Timing runs `-T0` (paranoid, slow to dodge rate-based IDS) through `-T5` (insane, fastest). `-T4` is a common "fast but reasonable" choice on a healthy network.
 </details>
 
 ---

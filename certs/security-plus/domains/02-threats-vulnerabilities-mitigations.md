@@ -218,7 +218,7 @@ This maps directly to **defense-in-depth**: no single control stops everything, 
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) certification and exam objectives: <https://www.comptia.org/certifications/security>
+- CompTIA — Security+ (SY0-701) certification and exam objectives: <https://www.comptia.org/en-us/certifications/security/v7/>
 - MITRE ATT&CK — adversary tactics and techniques: <https://attack.mitre.org/>
 - MITRE CVE — Common Vulnerabilities and Exposures: <https://www.cve.org/>
 - FIRST — Common Vulnerability Scoring System (CVSS): <https://www.first.org/cvss/>

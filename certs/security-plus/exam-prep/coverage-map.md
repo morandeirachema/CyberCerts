@@ -187,6 +187,6 @@ One row per official objective that has **no matching row above**. Decide where 
 
 ## Sources
 
-- CompTIA — Security+ (SY0-701) official certification page and exam objectives download: https://www.comptia.org/en-us/certifications/security/
+- CompTIA — Security+ (SY0-701) official certification page and exam objectives download: https://www.comptia.org/en-us/certifications/security/v7/
 - This hub: [exam & objectives](../00-overview/exam-and-objectives.md) · [what is Security+](../00-overview/what-is-security-plus.md) · [Domain 1](../domains/01-general-security-concepts.md) · [Domain 2](../domains/02-threats-vulnerabilities-mitigations.md) · [Domain 3](../domains/03-security-architecture.md) · [Domain 4](../domains/04-security-operations.md) · [Domain 5](../domains/05-security-program-management-oversight.md)
 - Method: [how to prepare a certification](../../../learning/how-to-prepare-a-cert.md) (Step 2, coverage map) · worked example: [CEH blueprint coverage](../../ceh/BLUEPRINT-COVERAGE.md)

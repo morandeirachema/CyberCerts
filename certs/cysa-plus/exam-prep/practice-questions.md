@@ -440,7 +440,7 @@ This request is an attempt at:
 
 ## Sources
 
-- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 exam objectives, the four domains and concepts: https://www.comptia.org/en-us/certifications/cybersecurity-analyst/
+- CompTIA — Cybersecurity Analyst (CySA+) CS0-003 exam objectives, the four domains and concepts: https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v3/
 - NIST — SP 800-61 Computer Security Incident Handling Guide (incident-response lifecycle, order of volatility): https://csrc.nist.gov/pubs/sp/800/61/r2/final
 - FIRST — Common Vulnerability Scoring System (CVSS) specification (vector strings, base/temporal/environmental metric groups): https://www.first.org/cvss/
 - FIRST — Exploit Prediction Scoring System (EPSS): https://www.first.org/epss/

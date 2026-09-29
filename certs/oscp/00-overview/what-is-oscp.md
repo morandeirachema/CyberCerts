@@ -11,7 +11,7 @@ The **Offensive Security Certified Professional (OSCP)** is a hands-on penetrati
 - Describe what OSCP / OSCP+ is and how it relates to the PEN-200 course.
 - Explain OffSec's "Try Harder" hands-on philosophy.
 - Identify who OSCP is for and the assumed technical background.
-- Distinguish OSCP (does not expire) from OSCP+ (3-year validity, maintained via CPE).
+- Distinguish OSCP (does not expire) from OSCP+ (3-year validity, maintained via CPE, a recertification exam or a higher OffSec cert).
 - Place OSCP in an offensive learning path and contrast it with knowledge-based certs like CEH.
 
 ## What it is
@@ -23,7 +23,7 @@ The **Offensive Security Certified Professional (OSCP)** is a hands-on penetrati
 | Style | **Fully hands-on** — exploit live targets in a lab, then write a professional report |
 | Level | Intermediate; respected, demanding practical credential (not entry-level) |
 | Credential | **OSCP** (legacy / non-AD) and **OSCP+** (current AD-inclusive exam) |
-| Validity | **OSCP does not expire.** **OSCP+ expires 3 years** from issuance, maintained via Continuing Professional Education (CPE) or higher OffSec certs *(verify on OffSec — terms change)* |
+| Validity | **OSCP does not expire.** **OSCP+ expires 3 years** from issuance, maintained via Continuing Professional Education (CPE), a recertification exam within 6 months of expiry, or a higher OffSec cert (OSEP, OSWA, OSED, OSEE) *(verify on OffSec — terms change)* |
 
 **PEN-200** is the official course: structured material, lab access, and practice machines that build toward the exam. OSCP/OSCP+ is the *certification* you earn by passing the exam at the end. There is no separate multiple-choice test — the exam **is** the lab.
 

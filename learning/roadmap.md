@@ -26,7 +26,7 @@ flowchart TB
     L0["Level 0 · Sysadmin with PAM exposure<br/>runs AD, Linux, SSH/RDP<br/>and service accounts"]
     L1["Level 1 · Security-aware engineer<br/>PAM concepts · protocols<br/>the attacker's view<br/>milestone: CEH"]
     L2["Level 2 · PAM engineer<br/>designs & operates controls<br/>detects abuse<br/>milestones: CySA+ · PenTest+ / PNPT"]
-    L3["Level 3 · Senior PAM engineer<br/>hands-on AD attack skill<br/>automation · cloud · OT<br/>milestones: OSCP · AZ-500 / AWS"]
+    L3["Level 3 · Senior PAM engineer<br/>hands-on AD attack skill<br/>automation · cloud · OT<br/>milestones: OSCP · SC-500 / AWS"]
     L4["Level 4 · PAM architect<br/>target architecture · governance<br/>programme leadership<br/>milestone: CISSP"]
     L0 --> L1 --> L2 --> L3 --> L4
 ```
@@ -64,7 +64,7 @@ flowchart TD
     F["Foundations<br/>foundations/ ·<br/>prerequisites/ · protocols/"] --> CEH["CEH (now)<br/>fundamentals through<br/>the attacker's eyes"]
     CEH --> SOC["CySA+<br/>detect & respond"]
     CEH --> OFF["PenTest+ → PNPT → OSCP<br/>hands-on offensive proof"]
-    CEH --> CLOUD["AZ-500 / AWS Security<br/>cloud privileged identity"]
+    CEH --> CLOUD["SC-500 / AWS Security<br/>cloud privileged identity"]
     SP["Security+<br/>optional vendor-neutral baseline"] -.-> CEH
     SOC --> ARCH["CISSP<br/>architect level"]
     OFF --> ARCH
@@ -75,9 +75,9 @@ flowchart TD
 |-------|------|----------|
 | **1** | **[CEH](../certs/ceh/README.md)** (v13) | The broadest fundamentals course in the repo, taught through the full attack lifecycle. A PAM architect who has never seen Kerberoasting or Pass-the-Hash from the attacker's side designs weaker controls. The hub's [defender/PAM lens](../certs/ceh/defender-pam/README.md) turns every module into a "which control stops this?" drill. |
 | *(optional)* | [Security+](../certs/security-plus/README.md) (SY0-701) | The vendor-neutral baseline and HR filter. Take it before CEH if you want the vocabulary first; skip it if CEH already covers that ground for you. |
-| **2** | [CySA+](../certs/cysa-plus/README.md) (CS0-003) | PAM produces telemetry — session audit, checkout events, rotation failures. CySA+ teaches you to read it, correlate it in a SIEM, and respond. |
+| **2** | [CySA+](../certs/cysa-plus/README.md) (CS0-003; CS0-004 from 2026-06-23) | PAM produces telemetry — session audit, checkout events, rotation failures. CySA+ teaches you to read it, correlate it in a SIEM, and respond. |
 | **3** | [PenTest+](../certs/pentest-plus/README.md) → [PNPT](../certs/pnpt/README.md) → [OSCP](../certs/oscp/README.md) | Methodology, then a practical engagement, then the hardest hands-on proof. Each raises your AD-attack skill, which maps one-to-one onto the PAM defenses you will design. Stop at the level your role needs. |
-| **4** | [Cloud security](../certs/adjacent-certs/cloud-security.md) (AZ-500 / AWS Security) | Privileged identity is increasingly cloud identity: Entra roles, AWS IAM, workload identities, secrets managers. |
+| **4** | [Cloud security](../certs/adjacent-certs/cloud-security.md) (SC-500 / AWS Security) | Privileged identity is increasingly cloud identity: Entra roles, AWS IAM, workload identities, secrets managers. |
 | **5** | [CISSP](../certs/adjacent-certs/cissp.md) | The architect-level credential: security architecture, governance, risk, and the management breadth the role demands. |
 
 > 🧰 **Where to practise each stage:** see **[platforms.md](platforms.md)** — the best free

@@ -49,12 +49,12 @@ Domain weightings are revised periodically — confirm the current percentages i
 
 | Item | Detail | Status |
 | --- | --- | --- |
-| Format | **CAT (Computerized Adaptive Testing)** for English exams | Verified (isc2.org) |
+| Format | **CAT (Computerized Adaptive Testing)**, in every available language — no linear version is offered | Verified (isc2.org CISSP CAT page) |
 | Length | **100–150 items** | Verified (isc2.org) — *(verify on isc2.org)* |
 | Time limit | **Up to 3 hours** | Verified (isc2.org) — *(verify on isc2.org)* |
 | Question types | Multiple choice and advanced innovative items | Verify on isc2.org |
 | Passing standard | Scaled **700 / 1000** | Verify on isc2.org |
-| Languages / non-English | Non-English exams may use a **linear (fixed-length)** format | Verify on isc2.org |
+| Languages | CAT in each of the exam's currently available languages | Verified (isc2.org CISSP CAT page) — *(verify the language list on isc2.org)* |
 | Exam price | Varies by region | *(verify on isc2.org)* — omitted to avoid stale pricing |
 
 **CAT** means the exam adapts: each answer influences the difficulty of the next item, so the test converges on your ability level in fewer questions than a fixed-length exam.
@@ -125,4 +125,4 @@ The week-by-week schedule and the tracker are in the **[CISSP study plan](cissp-
 - (ISC)² CISSP page: https://www.isc2.org/certifications/cissp
 - (ISC)² CISSP Certification Exam Outline: https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline
 - (ISC)² CISSP Experience Requirements: https://www.isc2.org/certifications/cissp/cissp-experience-requirements
-- (ISC)² Computerized Adaptive Testing format updates: https://www.isc2.org/Insights/2025/05/computerized-adaptive-testing-examination-format-updates
+- (ISC)² CISSP Computerized Adaptive Testing: https://www.isc2.org/certifications/CISSP/CISSP-CAT
