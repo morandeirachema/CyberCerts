@@ -20,6 +20,7 @@ rsync -a \
   --include '/.github/workflows/***' \
   --exclude '/.github/*' \
   --exclude '.claude' \
+  --exclude '/CLAUDE.md' \
   --exclude '/site' \
   --exclude '/site-src' \
   --exclude '/mkdocs.yml' \
